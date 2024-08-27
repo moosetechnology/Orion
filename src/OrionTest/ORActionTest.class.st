@@ -10,7 +10,11 @@ Class {
 
 { #category : 'testing OrionModel' }
 ORActionTest >> setUp [
-	orionModel := (ORModel withParent: self model) name: #orionModel.
+
+	super setUp.
+
+	orionModel := model makeNewVersion
+		name: #orionModel
 ]
 
 { #category : 'testing OrionModel' }
@@ -112,29 +116,36 @@ ORActionTest >> testMultipleActions [
 
 { #category : 'testing' }
 ORActionTest >> testOPAddClass [
-	| sys act class |
-	sys := self model system.
+
+	| act class |
+
 	act := ORActionAddClass new
-		orionModel: orionModel;
-		parentPackage: (orionModel entityNamed: #'Orion-TestModel-Constellation2');
-		name: 'ClassTest';
-		postRun.
-	self assert: (orionModel entityNamed: ':ClassTest') isNil.
-	self assert: orionModel changes size equals: 1.
+		       orionModel: orionModel;
+		       parentPackage: (orionModel entityNamed: #'OrionForTest2');
+		       name: 'NewClass';
+		       postRun.
+
+	self assert: (orionModel entityNamed: 'OrionForTest2::NewClass') isNil.
+
 	act run.
-	class := orionModel entityNamed: 'ClassTest'.
+	self assert: orionModel size equals: model size + 1.
+
+	class := orionModel entityNamed: 'OrionForTest2::NewClass'.
+
 	self assert: class notNil.
-	self assert: (orionModel contains: class).
-	self deny: (sys sourceModel contains: class).
 	self assert: (orionModel includes: class).
-	self deny: (sys sourceModel includes: class).
-	self assert: class parentPackage equals: (orionModel entityNamed: #'Orion-TestModel-Constellation2').
-	self assert: ((orionModel entityNamed: #'Orion-TestModel-Constellation2') childNamedEntities includes: class).
-	self deny: (((sys sourceModel entityNamed: #'Orion-TestModel-Constellation2') childNamedEntitiesOR: sys sourceModel) includes: class).
-	self deny: ((sys sourceModel entityNamed: #'Orion-TestModel-Constellation2') childNamedEntities includes: class).
-	self assert: (orionModel contains: (orionModel entityNamed: #'Orion-TestModel-Constellation2')).
-	self deny: (sys sourceModel contains: (orionModel entityNamed: #'Orion-TestModel-Constellation2')).
-	self assert: orionModel size equals: sys sourceModel size + 1
+	self deny: (model includes: class).
+
+	self
+		assert: class parentPackage
+		equals: (orionModel entityNamed: #'OrionForTest2').
+	self assert:
+		((orionModel entityNamed: #'OrionForTest2')
+			 types includes: class).
+	self deny:
+		((model entityNamed: #'OrionForTest2')
+			  types includes: class).
+
 ]
 
 { #category : 'testing' }
