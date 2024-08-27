@@ -19,9 +19,9 @@ ORModelTest >> testEntitiesCopiedInChildVersion [
 
 	| v2 |
 	v2 := model makeNewVersion.
-	
-	self assert: v2 entityStorage size = model entityStorage size.
-	self deny: model entityStorage size = 0
+
+	self assert: v2 entities size equals: model entities size.
+	self deny: model entities size equals: 0
 ]
 
 { #category : 'testing OrionModel' }
