@@ -6,47 +6,60 @@ Class {
 }
 
 { #category : 'testing OrionModel' }
-ORModelTest >> testModelCreation [
-	| asS orionModel |
-	asS := self model system.
-	orionModel := (ORModel withParent: self model) name: #AsM.
-	self assert: asS orionModels size equals: 2.
-	self assert: (asS sourceModel childrenModel includes: orionModel).
-	self assert: orionModel parentModel = asS sourceModel. 
-	self assert: orionModel system = asS.
-	self assert: orionModel sourceLanguage = asS sourceModel sourceLanguage.
-	self assert: orionModel entityStorage size = asS sourceModel entityStorage size.
-	self assert: orionModel entityStorage size ~= 0
+ORModelTest >> testBasename [
+
+	self assert: model basename equals: 'theModel'.
+	
+	model name: 'theModel_v2'.
+	self assert: model basename equals: 'theModel'.
 ]
 
-{ #category : 'as yet unclassified' }
-ORModelTest >> testORModelCreation [
+{ #category : 'testing OrionModel' }
+ORModelTest >> testEntitiesCopiedInChildVersion [
+
+	| v2 |
+	v2 := model makeNewVersion.
 	
-	|firstMod secMod sys|
-	sys := self model system. 
-	firstMod := sys sourceModel.
-	secMod := (ORModel withParent: self model) name: #orionModel.
-	
-	self assert: TMooseEntity users size = 1.
-	self assert: ORClass traits size = 1.
-	
-	self assert: sys orionModels size = 2.
-	self assert: (sys sourceModel childrenModel includes: secMod).
-	
-	self assert: firstMod parentModel = nil.
-	self assert: firstMod system = sys.
-	self assert: firstMod sourceLanguage = secMod sourceLanguage.
-	self assert: firstMod entityStorage size = secMod entityStorage size.
-	"self assert: firstMod entityStorage size = 30."
-	
-	firstMod entities do:[:e |
-		self assert: (e isKindOf: MooseEntity).
-	].
-	
-	self assert: secMod parentModel = sys sourceModel.
-	self assert: secMod system = sys.
-	self assert: secMod sourceLanguage = sys sourceModel sourceLanguage.
-	self assert: secMod entityStorage size = sys sourceModel entityStorage size.
-	self assert: secMod entityStorage size ~= 0.
-	
+	self assert: v2 entityStorage size = model entityStorage size.
+	self deny: model entityStorage size = 0
+]
+
+{ #category : 'testing OrionModel' }
+ORModelTest >> testIsFirstVersion [
+	| v2 |
+	self assert: model isFirstVersion.
+
+	v2 := model makeNewVersion name: 'v2'.
+	self assert: model isFirstVersion.
+	self deny: v2 isFirstVersion.
+]
+
+{ #category : 'testing OrionModel' }
+ORModelTest >> testIsLastVersion [
+	| v2 |
+	self assert: model isLastVersion.
+
+	v2 := model makeNewVersion name: 'v2'.
+	self deny: model isLastVersion.
+	self assert: v2 isLastVersion.
+]
+
+{ #category : 'testing OrionModel' }
+ORModelTest >> testMakeNewVersion [
+	| v2 |
+	self assert: model childrenVersions size equals: 0.
+
+	v2 := model makeNewVersion name: 'v2'.
+	self assert: model childrenVersions size equals: 1.
+	self assert: model childrenVersions anyOne equals: v2.
+	self assert: v2 parentVersion equals: model.
+]
+
+{ #category : 'testing OrionModel' }
+ORModelTest >> testMakeNewVersionName [
+
+	| v2 |
+	v2 := model makeNewVersion.
+	self assert: model basename equals: v2 basename.
+	self deny: model name equals: v2 name.
 ]

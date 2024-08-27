@@ -9,42 +9,68 @@ Class {
 }
 
 { #category : 'accessing' }
-ORTest >> model [
-	model
-		ifNil: [ | importer mod system |
-			mod := MooseModel new.
-			importer := MoosePharoImporterTask new.
-			importer importingContext mergeClassAndMetaclass.
-			importer candidateClass: CandidateListOperator.
-			importer importerClass: SmalltalkImporter.
-			importer
-				model: mod;
-				addFromPackagesNamed: #(#'Orion-TestModel-Constellation2' 'Orion-TestModel-Constellation1');
-				run.
-			model := ORConverter convertFromMooseModel: mod.
-			model name: 'Parent Model'.
-			system := ORSystem new.
-			system sourceModel: model.
-			model system: system.
-			^ model ]
-		ifNotNil: [ ^ model ]
+ORTest >> class: aString in: package [
+
+	^model newClass
+		name: aString ;
+		parentPackage: package ;
+		yourself
+]
+
+{ #category : 'accessing' }
+ORTest >> exampleModel1 [
+
+	| pckg clas mthd |
+	pckg := self package: 'Constellation1'.
+	clas := self class: 'Class1' in: pckg.
+	mthd := self method: 'accessOrion1Class2' in: clas.
+
+	pckg := self package: 'Constellation2'.
+]
+
+{ #category : 'accessing' }
+ORTest >> method: aString in: aClass [
+
+	^model newMethod
+		name: aString ;
+		parentType: aClass ;
+		yourself
 ]
 
 { #category : 'accessing' }
 ORTest >> modelNetwork [
 
 		| importer mod system as|
-		
+	self signal: 'not migrated from original Orion'.
+
 	mod := MooseModel new.
 	mod name: 'Network'.
-	importer := MoosePharoImporterTask new.
+	importer := FamixStPharoImporterTask new.
 	importer importingContext mergeClassAndMetaclass.
 	importer runCandidateOperator.
 	importer model: mod; addFromPackagesNamed: (MooseScripts packageNamesFor: 'Network*') ; runWithProgress .
 		
-		as := ORConverter convertFromMooseModel: mod.
-		system := ORSystem new.
+		"as := ORConverter convertFromMooseModel: mod.
+		system := ORSystem new."
 		system sourceModel: as.
 		as system: system.
 		^as
+]
+
+{ #category : 'accessing' }
+ORTest >> package: aString [
+
+	^model newPackage
+		name: aString ;
+		yourself
+]
+
+{ #category : 'accessing' }
+ORTest >> setUp [
+
+	super setUp.
+
+	model := FamixStModel new.
+	model name: 'theModel'.
+	self exampleModel1
 ]

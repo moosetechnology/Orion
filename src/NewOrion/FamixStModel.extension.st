@@ -1,0 +1,87 @@
+Extension { #name : 'FamixStModel' }
+
+{ #category : '*NewOrion' }
+FamixStModel >> addChildVersion: anObject [
+
+	self childrenVersions add: anObject
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> basename [
+
+	| i |
+	i := self name indexOf: $_ ifAbsent: [self name size + 1].
+	^self name
+		copyFrom: 1 to: (i - 1)
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> childrenVersions [
+
+	^self attributeAt: #childrenVersions ifAbsent: [ OrderedCollection new ]
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> initialize [
+
+	super initialize.
+
+	self attributeAt: #childrenVersions put: OrderedCollection new
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> isFirstVersion [
+
+	^self parentVersion isNil
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> isLastVersion [
+
+	^self childrenVersions isEmpty
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> makeNewVersion [
+	"Creates a new child version of the receiver"
+
+	^self class newVersionOf: self
+]
+
+{ #category : '*NewOrion' }
+FamixStModel class >> newVersionOf: aModel [
+
+	| childVersion |
+	childVersion := self new.
+	aModel addChildVersion: childVersion.
+
+	childVersion
+		parentVersion: aModel ;
+		name: (aModel basename , '_' , Date current yyyymmdd , '_' , Time current print24) ;
+		populateFrom: aModel.
+
+		^childVersion
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> parentVersion [
+
+	^self attributeAt: #parentVersion ifAbsent: [ nil ]
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> parentVersion: anObject [
+
+	self attributeAt: #parentVersion put: anObject
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> populateFrom: aModel [
+	"All entities from aModel are also put in the receiver
+	 Note that the entities are not duplicated"
+
+	aModel entityStorage
+		do: [ :anElement | 
+			self entityStorage add: anElement.
+			"anElement addModel: self" ]
+]
