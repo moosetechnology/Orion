@@ -123,14 +123,14 @@ ORActionTest >> testOPAddClass [
 		       orionModel: orionModel;
 		       parentPackage: (orionModel entityNamed: #'OrionForTest2');
 		       name: 'NewClass';
-		       postRun.
+		       yourself.
 
-	self assert: (orionModel entityNamed: 'OrionForTest2::NewClass') isNil.
+	self assert: (orionModel entityNamed: 'NewClass') isNil.
 
 	act run.
 	self assert: orionModel size equals: model size + 1.
 
-	class := orionModel entityNamed: 'OrionForTest2::NewClass'.
+	class := orionModel entityNamed: 'NewClass'.
 
 	self assert: class notNil.
 	self assert: (orionModel includes: class).
