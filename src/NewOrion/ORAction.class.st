@@ -14,41 +14,12 @@ Class {
 	#superclass : 'Object',
 	#instVars : [
 		'entity',
-		'orionModel',
-		'cost',
-		'parentAction',
-		'childrenActions'
+		'orionModel'
 	],
 	#category : 'NewOrion-actions',
 	#package : 'NewOrion',
 	#tag : 'actions'
 }
-
-{ #category : 'accessing' }
-ORAction >> addChildAction: anAction [
-	childrenActions add:  anAction
-]
-
-{ #category : 'testing' }
-ORAction >> belongsToParentModel [
-	"True if the entity of the change belongs to the parent model, else false. For the paired change, it is not appliable"
-	^ self subclassResponsibility
-]
-
-{ #category : 'accessing' }
-ORAction >> childrenActions [
-	^ childrenActions
-]
-
-{ #category : 'accessing' }
-ORAction >> cost [
-	^ cost
-]
-
-{ #category : 'accessing' }
-ORAction >> cost: anObject [
-	cost := anObject
-]
 
 { #category : 'accessing' }
 ORAction >> currentContext [
@@ -65,21 +36,9 @@ ORAction >> entity: anObject [
 	entity := anObject
 ]
 
-{ #category : 'initialize-release' }
-ORAction >> initialize [
-	cost := 1.
-	parentAction := nil.
-	childrenActions := OrderedCollection new.
-]
-
 { #category : 'testing' }
 ORAction >> isAddition [
 	^ self class isAddition
-]
-
-{ #category : 'accessing' }
-ORAction >> isManual [
-	^ parentAction isNil
 ]
 
 { #category : 'testing' }
@@ -102,13 +61,6 @@ ORAction >> isRename [
 	^ self class isRename
 ]
 
-{ #category : 'method execution' }
-ORAction >> manualRun [
-
-	self parentAction: nil.
-	self run
-]
-
 { #category : 'accessing' }
 ORAction >> orionModel [
 	^ orionModel
@@ -118,18 +70,6 @@ ORAction >> orionModel [
 ORAction >> orionModel: anObject [
 	orionModel := anObject.
 	"anObject changes add: self"
-]
-
-{ #category : 'accessing' }
-ORAction >> parentAction [
-	^ parentAction
-]
-
-{ #category : 'accessing' }
-ORAction >> parentAction: anAction [
-	parentAction ifNotNil: [parentAction removeChildAction: self].
-	parentAction := anAction.
-	anAction ifNotNil: [anAction addChildAction: self].
 ]
 
 { #category : 'initialize-release' }
@@ -156,20 +96,9 @@ ORAction >> printWorkspace [
 	^ '>', self class description, '>> '
 ]
 
-{ #category : 'accessing' }
-ORAction >> removeChildAction: anAction [
-	childrenActions remove: anAction ifAbsent: [nil].
-]
-
 { #category : 'method execution' }
 ORAction >> run [
 	self runOR: self orionModel
-]
-
-{ #category : 'method execution' }
-ORAction >> runExtendedPropertiesForEntity: anOREntity [
-	(Pragma allNamed: #toRun in: self class)
-		do: [ :pragma | self perform: pragma methodSelector with: anOREntity ]
 ]
 
 { #category : 'method execution' }
@@ -178,13 +107,4 @@ ORAction >> runOR: aVersion [
 	"aVersion system announcer announce: ORAnnouncement."
 	entity := entity versionIn: aVersion.
 	^ self
-]
-
-{ #category : 'method execution' }
-ORAction >> runOnNewVersionFrom: previousVersion [
-
-	| newModel |
-	newModel := previousVersion createNewChildVersion.
-	self orionModel: newModel.
-	^self manualRun.
 ]

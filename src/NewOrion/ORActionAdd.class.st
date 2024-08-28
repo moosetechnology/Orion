@@ -9,8 +9,3 @@ Class {
 	#package : 'NewOrion',
 	#tag : 'actions'
 }
-
-{ #category : 'testing' }
-ORActionAdd >> belongsToParentModel [
-	^ false
-]

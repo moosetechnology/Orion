@@ -104,6 +104,12 @@ ORActionAddClass >> parentPackage: aValue [
 	parentPackage := aValue
 ]
 
+{ #category : 'printing' }
+ORActionAddClass >> printWorkspace [
+
+	^ super printWorkspace , self entity mooseName, ' in ', self parentPackage mooseName
+]
+
 { #category : 'accessing - generated' }
 ORActionAddClass >> receivingInvocations [
 	^ receivingInvocations
@@ -118,7 +124,6 @@ ORActionAddClass >> receivingInvocations: aValue [
 ORActionAddClass >> run [
 
 	| newEntity |
-	super run.
 	newEntity := FamixStClass new.
 	self orionModel add: newEntity.
 
@@ -128,7 +133,7 @@ ORActionAddClass >> run [
 	self name ifNotNil: [ :string | newEntity name: string ].
 
 	"Set complex not derived properties of the entity"
-	self parentType ifNotNil: [ :parent | newEntity parentType: parent ].
+	self parentPackage ifNotNil: [ :parent | newEntity parentPackage: parent ].
 
 	"self subInheritances ifNotNil: [
 		| theNewEntities |
