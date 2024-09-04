@@ -56,6 +56,20 @@ ORModelTest >> testMakeNewVersion [
 ]
 
 { #category : 'tests' }
+ORModelTest >> testMakeNewVersionEntities [
+
+	| ent |
+	ent := model entities detect: [ :e | e name = 'Class1' ].
+	self assert: ent mooseModel equals: model.
+	self assert: ent orionModel equals: model.
+
+	model makeNewVersion name: 'v2'.
+
+	self assert: ent mooseModel equals: model.
+	self assert: ent orionModel equals: model.
+]
+
+{ #category : 'tests' }
 ORModelTest >> testMakeNewVersionName [
 
 	| v2 |
@@ -65,12 +79,29 @@ ORModelTest >> testMakeNewVersionName [
 ]
 
 { #category : 'tests' }
+ORModelTest >> testModelContains [
+
+	| ent v2 |
+	ent := model entities detect: [ :e | e name = 'Class1' ].
+	self assert: (model contains: ent).
+
+	v2 := model makeNewVersion name: 'v2'.
+
+	self assert: (model contains: ent).
+	self deny: (v2 contains: ent).
+]
+
+{ #category : 'tests' }
 ORModelTest >> testModelCreation [
 
-	self assert: model size equals: 11.
+	self assert: (model allWithType: FamixStPackage) size equals: 2.
+	self assert: (model allWithType: FamixStClass) size equals: 5.
+	self assert: (model allWithType: FamixStMethod) size equals: 4.
+	self assert: (model allWithType: FamixStInvocation) size equals: 4.
+	self assert: (model allWithType: FamixStReference) size equals: 4.
 
 	self assert: model entityStorage class equals: ORStorage.
-	self assert: model entityStorage size equals: 11.
+	self assert: model entityStorage size equals: 19.
 
 	self assert: model childrenVersions isEmpty.
 ]

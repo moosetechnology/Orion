@@ -20,11 +20,11 @@ ORStorage class >> new [
 { #category : 'adding' }
 ORStorage >> add: anElement [
 
-	"| key group |
+	| key group |
 
 	key := anElement class.
 	group := byType at: key ifAbsentPut: [ OrderedCollection new ].
-	group add: anElement."
+	group add: anElement.
 	elements add: (anElement mooseID -> anElement).
 
 	^ anElement
@@ -46,13 +46,13 @@ ORStorage >> at: uniqueName ifAbsent: exceptionBlock [
 	entity := byName at: na ifAbsent: nil.
 	entity
 		ifNotNil: [ ^ (self atID: entity mooseID ifAbsent: [  ])
-				versionIn: self model ].
+				versionLookup: self model ].
 	entity := self
-		detect: [ :each | na == (each versionIn: self model) mooseName asSymbol ]
+		detect: [ :each | na == (each versionLookup: self model) mooseName asSymbol ]
 		ifNone: exceptionBlock.
 	entity ifNotNil: [ byName at: na put: entity ].
 
-	^entity versionIn: self model
+	^entity versionLookup: self model
 ]
 
 { #category : 'accessing' }
