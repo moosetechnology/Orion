@@ -1,8 +1,8 @@
 Class {
 	#name : 'ORModelTest',
 	#superclass : 'ORTest',
-	#category : 'OrionTest',
-	#package : 'OrionTest'
+	#category : 'NewOrionTest',
+	#package : 'NewOrionTest'
 }
 
 { #category : 'tests' }
