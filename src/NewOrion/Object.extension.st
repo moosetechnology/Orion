@@ -1,6 +1,6 @@
 Extension { #name : 'Object' }
 
 { #category : '*NewOrion' }
-Object >> versionIn: anOrionModel [
+Object >> versionLookup: anOrionModel [
 	^self
 ]

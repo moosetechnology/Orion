@@ -1,23 +1,23 @@
 Extension { #name : 'FamixStEntity' }
 
 { #category : '*NewOrion' }
-FamixStEntity >> currentContext [
-	^self mooseModel
-]
-
-{ #category : '*NewOrion' }
 FamixStEntity >> currentContext: anOrionModel [
 	^self mooseModel: anOrionModel
 ]
 
 { #category : '*NewOrion' }
-FamixStEntity >> versionIn: anOrionModel [
+FamixStEntity >> orionModel [
+	^self mooseModel
+]
+
+{ #category : '*NewOrion' }
+FamixStEntity >> versionLookup: anOrionModel [
 
 	| upEntity |
 	anOrionModel ifNil: [ ^self ].
 
 	upEntity := anOrionModel entityStorage
-		            at: self mooseID
+		            atID: self mooseID
 		            ifAbsent: [ "OREntityNotFoundInCurrentModel signal: self model: anOrionModel."
 			            ^ nil "Should NEVER happen (excepted in one cases. See (*))... If it is happening, you are NOT in the right model and currentContext of the caller should have been set to the right model where the considered entity is existing. By set, I mean for at least the first entity where you begin the query; the currentContext is transmitted to the other entities  ---VB---
 				(*) In fact, this method should answer nil only in one case, and only in this one: 	if an entity of a previous model has been deleted and is acceeded by a single value selector (i.e. not a multivalued one). E.g:						

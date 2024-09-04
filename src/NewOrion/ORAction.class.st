@@ -22,11 +22,6 @@ Class {
 }
 
 { #category : 'accessing' }
-ORAction >> currentContext [
-	^ self orionModel
-]
-
-{ #category : 'accessing' }
 ORAction >> entity [
 	^ entity
 ]
@@ -105,6 +100,6 @@ ORAction >> run [
 ORAction >> runOR: aVersion [
 
 	"aVersion system announcer announce: ORAnnouncement."
-	entity := entity versionIn: aVersion.
+	entity := entity versionLookup: aVersion.
 	^ self
 ]

@@ -5,7 +5,7 @@ Class {
 	#package : 'OrionTest'
 }
 
-{ #category : 'testing OrionModel' }
+{ #category : 'tests' }
 ORModelTest >> testBasename [
 
 	self assert: model basename equals: 'theModel'.
@@ -14,7 +14,7 @@ ORModelTest >> testBasename [
 	self assert: model basename equals: 'theModel'.
 ]
 
-{ #category : 'testing OrionModel' }
+{ #category : 'tests' }
 ORModelTest >> testEntitiesCopiedInChildVersion [
 
 	| v2 |
@@ -24,7 +24,7 @@ ORModelTest >> testEntitiesCopiedInChildVersion [
 	self deny: model entities size equals: 0
 ]
 
-{ #category : 'testing OrionModel' }
+{ #category : 'tests' }
 ORModelTest >> testIsFirstVersion [
 	| v2 |
 	self assert: model isFirstVersion.
@@ -34,7 +34,7 @@ ORModelTest >> testIsFirstVersion [
 	self deny: v2 isFirstVersion.
 ]
 
-{ #category : 'testing OrionModel' }
+{ #category : 'tests' }
 ORModelTest >> testIsLastVersion [
 	| v2 |
 	self assert: model isLastVersion.
@@ -44,7 +44,7 @@ ORModelTest >> testIsLastVersion [
 	self assert: v2 isLastVersion.
 ]
 
-{ #category : 'testing OrionModel' }
+{ #category : 'tests' }
 ORModelTest >> testMakeNewVersion [
 	| v2 |
 	self assert: model childrenVersions size equals: 0.
@@ -55,11 +55,22 @@ ORModelTest >> testMakeNewVersion [
 	self assert: v2 parentVersion equals: model.
 ]
 
-{ #category : 'testing OrionModel' }
+{ #category : 'tests' }
 ORModelTest >> testMakeNewVersionName [
 
 	| v2 |
 	v2 := model makeNewVersion.
 	self assert: model basename equals: v2 basename.
 	self deny: model name equals: v2 name.
+]
+
+{ #category : 'tests' }
+ORModelTest >> testModelCreation [
+
+	self assert: model size equals: 11.
+
+	self assert: model entityStorage class equals: ORStorage.
+	self assert: model entityStorage size equals: 11.
+
+	self assert: model childrenVersions isEmpty.
 ]

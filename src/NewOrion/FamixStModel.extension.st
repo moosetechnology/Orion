@@ -16,6 +16,32 @@ FamixStModel >> basename [
 ]
 
 { #category : '*NewOrion' }
+FamixStModel >> beForOrion [
+	"take a MooseModel and convert it in a ORModel"
+
+	| oldStorage |
+	(storage class = ORStorage)
+		ifTrue: [ ^self ].
+
+	oldStorage := self entities.
+	self orionInitialization.
+
+	oldStorage
+		do: [ :anEntity | 
+			"| myNewClass newAtt |
+			myNewClass := self mapping at: anEntity class ifAbsent: [ nil ].
+			myNewClass
+				ifNotNil: [ anEntity primitiveChangeClassTo: myNewClass new.
+					state := anEntity privateState.
+					state primitiveChangeClassTo: anEntity defaultStateClass new.
+					newAtt := SmallDictionary new.
+					state privateAttributes do: [ :attr | newAtt at: attr key put: attr value ].
+					state privateAttributes: newAtt.
+					anEntity privateState: state."
+					self add: anEntity ]
+]
+
+{ #category : '*NewOrion' }
 FamixStModel >> childrenVersions [
 
 	^self attributeAt: #childrenVersions ifAbsent: [ OrderedCollection new ]
@@ -25,8 +51,7 @@ FamixStModel >> childrenVersions [
 FamixStModel >> initialize [
 
 	super initialize.
-
-	self attributeAt: #childrenVersions put: OrderedCollection new
+	self orionInitialization
 ]
 
 { #category : '*NewOrion' }
@@ -61,6 +86,14 @@ FamixStModel class >> newVersionOf: aModel [
 		populateFrom: aModel.
 
 		^childVersion
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> orionInitialization [
+
+	self attributeAt: #childrenVersions put: OrderedCollection new.
+	storage := ORStorage new.
+	storage model: self
 ]
 
 { #category : '*NewOrion' }
