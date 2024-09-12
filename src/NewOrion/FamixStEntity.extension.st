@@ -1,8 +1,13 @@
 Extension { #name : 'FamixStEntity' }
 
 { #category : '*NewOrion' }
-FamixStEntity >> currentContext: anOrionModel [
-	^self mooseModel: anOrionModel
+FamixStEntity >> orionContext [
+	^self attributeAt: #orionContext ifAbsent: [nil]
+]
+
+{ #category : '*NewOrion' }
+FamixStEntity >> orionContext: anOrionModel [
+	self attributeAt: #orionContext put: anOrionModel 
 ]
 
 { #category : '*NewOrion' }
@@ -12,6 +17,9 @@ FamixStEntity >> orionModel [
 
 { #category : '*NewOrion' }
 FamixStEntity >> versionLookup: anOrionModel [
+	"looks up the receiver in the context of anOrionModel
+	 The result might be a newer version of the receiver
+	 Sets anOrionModel as the context of returned entity for the next query irt might do"
 
 	| upEntity |
 	anOrionModel ifNil: [ ^self ].
@@ -26,6 +34,7 @@ FamixStEntity >> versionLookup: anOrionModel [
 						If B is deleted in M2, the call of m() on A, in M1 should give B and in M2, nil.
 						Calling m(), call privateM() that gives all the B in all the models: B. But, B does not exists in M2.
 						I, versionIn:, do not find B in M2 (as expected), so fall in this absent block. AND SHOULD RETURN nil... (so disagree with Jannik Thesis: https://tel.archives-ouvertes.fr/tel-00601546...)" ].
-	upEntity currentContext: anOrionModel.
+
+	upEntity orionContext: anOrionModel.
 	^ upEntity
 ]

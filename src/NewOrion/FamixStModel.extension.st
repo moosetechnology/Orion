@@ -20,7 +20,7 @@ FamixStModel >> beForOrion [
 	"take a MooseModel and convert it in a ORModel"
 
 	| oldStorage |
-	(storage class = ORStorage)
+	self isOrionModel
 		ifTrue: [ ^self ].
 
 	oldStorage := self entities.
@@ -57,7 +57,7 @@ FamixStModel >> createEntityFrom: anEntity [
 	| newEntity |
 	self remove: anEntity.
 	newEntity := anEntity shallowCopy.
-	newEntity orionModel: self.
+	newEntity mooseModel: self.
 	^ newEntity
 ]
 

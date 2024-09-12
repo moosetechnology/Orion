@@ -99,6 +99,12 @@ ORStorage >> initialize: capacity [
 	elements := HashTable new: capacity
 ]
 
+{ #category : 'testing' }
+ORStorage >> isOrion [
+
+	^true
+]
+
 { #category : 'accessing' }
 ORStorage >> model [
 	^ model
