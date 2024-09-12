@@ -57,6 +57,16 @@ ORTest >> exampleModel1 [
 ]
 
 { #category : 'factory' }
+ORTest >> inherit: aClass from: superClass [
+
+	^model newInheritance
+		superclass: superClass ;
+		subclass: aClass ;
+		yourself.
+
+]
+
+{ #category : 'factory' }
 ORTest >> invok: aMethode on: receiver from: sender [
 
 	| invok |

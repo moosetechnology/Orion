@@ -17,9 +17,9 @@ ORSlotReadTest >> testSettingOneToMany [
 
 	cmt commentedEntity: mth.
 
+	self assert: cmt commentedEntity equals: mth.
 	self assert: mth comments size equals: 1.
 	self assert: mth comments anyOne equals: cmt.
-	self assert: cmt commentedEntity equals: mth.
 
 ]
 
