@@ -55,10 +55,19 @@ FamixStModel >> contains: anElement [
 { #category : '*NewOrion' }
 FamixStModel >> createEntityFrom: anEntity [
 	| newEntity |
+	
 	self remove: anEntity.
 	newEntity := anEntity shallowCopy.
 	newEntity mooseModel: self.
 	^ newEntity
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> ensureOrionEntity: anEntity [
+
+	^ (self contains: anEntity)
+		ifTrue: [ anEntity ]
+		ifFalse: [ self createEntityFrom: (self at: anEntity mooseID) ]
 ]
 
 { #category : '*NewOrion' }
@@ -78,6 +87,12 @@ FamixStModel >> isFirstVersion [
 FamixStModel >> isLastVersion [
 
 	^self childrenVersions isEmpty
+]
+
+{ #category : '*NewOrion' }
+FamixStModel >> isOrionModel [
+
+	^storage isOrion
 ]
 
 { #category : '*NewOrion' }
@@ -131,14 +146,4 @@ FamixStModel >> populateFrom: aModel [
 		do: [ :anElement | 
 			self entityStorage add: anElement.
 			"anElement addModel: self" ]
-]
-
-{ #category : '*NewOrion' }
-FamixStModel >> retrieveEntity: anEntity [
-	^ (self contains: anEntity)
-		ifTrue: [ anEntity ]
-		ifFalse: [ | old new |
-			old := self at: anEntity mooseID.
-			new := self createEntityFrom: old.
-			new ]
 ]

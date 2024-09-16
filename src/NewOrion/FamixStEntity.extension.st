@@ -2,7 +2,7 @@ Extension { #name : 'FamixStEntity' }
 
 { #category : '*NewOrion' }
 FamixStEntity >> orionContext [
-	^self attributeAt: #orionContext ifAbsent: [nil]
+	^self attributeAt: #orionContext ifAbsent: [ self mooseModel ]
 ]
 
 { #category : '*NewOrion' }
