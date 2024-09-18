@@ -1153,6 +1153,45 @@ ORActionTest >> testOPUnextendMethod [
 ]
 
 { #category : 'testing' }
+ORActionTest >> testORAddAttribute [
+
+	| act att |
+
+	act := ORActionAddAttribute new
+		orionModel: orionModel;
+		name: 'NewAttribute';
+		isStub: true ;
+		isClassSide: false ;
+		parentType: (orionModel entityNamed: #Class4) ;
+		declaredType: (orionModel entityNamed: #Class3) ;
+		yourself.
+
+	self assert: (orionModel entityNamed: 'NewAttribute') isNil.
+
+	act run.
+	self assert: orionModel size equals: model size + 1.
+
+	att := orionModel entityNamed: 'NewAttribute'.
+
+	self assert: att notNil.
+	self assert: (orionModel includes: att).
+	self deny: (model includes: att).
+
+	self assert: att isStub.
+	self deny: att isClassSide.
+
+	self assert: att parentType identicalTo: (orionModel entityNamed: #Class4).
+	self deny:   att parentType identicalTo: (model entityNamed: #Class4).
+
+	self assert: att declaredType identicalTo: (orionModel entityNamed: #Class3).
+	self deny:   att declaredType identicalTo: (model entityNamed: #Class3).
+
+	self assert: ((orionModel entityNamed: #Class4) attributes includes: att).
+	self deny:   ((model entityNamed: #Class4) attributes includes: att).
+
+]
+
+{ #category : 'testing' }
 ORActionTest >> testORAddClass [
 
 	| act class |
