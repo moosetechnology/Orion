@@ -1159,19 +1159,19 @@ ORActionTest >> testORAddAttribute [
 
 	act := ORActionAddAttribute new
 		orionModel: orionModel;
-		name: 'NewAttribute';
+		name: 'anAttribute';
 		isStub: true ;
 		isClassSide: false ;
 		parentType: (orionModel entityNamed: #Class4) ;
 		declaredType: (orionModel entityNamed: #Class3) ;
 		yourself.
 
-	self assert: (orionModel entityNamed: 'NewAttribute') isNil.
+	self assert: (orionModel entityNamed: 'Class4.anAttribute') isNil.
 
 	act run.
 	self assert: orionModel size equals: model size + 1.
 
-	att := orionModel entityNamed: 'NewAttribute'.
+	att := orionModel entityNamed: 'Class4.anAttribute'.
 
 	self assert: att notNil.
 	self assert: (orionModel includes: att).

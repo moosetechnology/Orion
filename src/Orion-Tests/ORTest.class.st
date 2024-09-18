@@ -19,6 +19,7 @@ ORTest >> class: aString in: package [
 	theClass setWithoutInverse: #parentPackage value: package.
 	package addWithoutInverse: #childEntities value: theClass.
 
+	theClass resetMooseName.
 	^theClass
 ]
 
@@ -108,8 +109,10 @@ ORTest >> method: aString in: aClass [
 		name: aString ;
 		yourself.
 
-	theMethod setWithoutInverse: #parentPackage value: aClass.
+	theMethod setWithoutInverse: #parentType value: aClass.
 	aClass addWithoutInverse: #methods value: theMethod.
+
+	theMethod resetMooseName.
 
 	^theMethod 
 

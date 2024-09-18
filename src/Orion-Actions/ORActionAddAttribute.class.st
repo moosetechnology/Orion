@@ -82,6 +82,8 @@ ORActionAddAttribute >> run [
 	self declaredType ifNotNil: [ :type |
 		self setOn: newAttribute bidirectionalProperty: #declaredType value: type ].
 
+	newAttribute resetMooseName.
+
 	entity := newAttribute.
 	^ entity
 ]
