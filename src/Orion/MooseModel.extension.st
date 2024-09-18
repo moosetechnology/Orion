@@ -55,7 +55,6 @@ MooseModel >> createEntityFrom: anEntity [
 	
 	self remove: anEntity.
 	newEntity := anEntity orionCopy.
-	newEntity name: (newEntity name , 'x').
 	newEntity mooseModel: self.
 	^ newEntity
 ]
