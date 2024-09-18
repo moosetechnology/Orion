@@ -5,8 +5,8 @@ Class {
 		'orion1',
 		'orion2'
 	],
-	#category : 'NewOrionTest',
-	#package : 'NewOrionTest'
+	#category : 'Orion-Tests',
+	#package : 'Orion-Tests'
 }
 
 { #category : 'running' }

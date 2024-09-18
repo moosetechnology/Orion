@@ -4,8 +4,8 @@ Class {
 	#instVars : [
 		'model'
 	],
-	#category : 'NewOrionTest',
-	#package : 'NewOrionTest'
+	#category : 'Orion-Tests',
+	#package : 'Orion-Tests'
 }
 
 { #category : 'factory' }

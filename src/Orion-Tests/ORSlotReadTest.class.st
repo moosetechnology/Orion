@@ -1,8 +1,8 @@
 Class {
 	#name : 'ORSlotReadTest',
 	#superclass : 'TestCase',
-	#category : 'NewOrionTest',
-	#package : 'NewOrionTest'
+	#category : 'Orion-Tests',
+	#package : 'Orion-Tests'
 }
 
 { #category : 'tests' }
