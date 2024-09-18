@@ -5,28 +5,8 @@ Class {
 	#name : 'ORActionAddClass',
 	#superclass : 'ORActionAddEntity',
 	#instVars : [
-		'definedAnnotationTypes',
-		'typeAliases',
-		'instances',
-		'declaredSourceLanguage',
-		'container',
-		'annotationInstances',
-		'structuresWithDeclaredType',
 		'isStub',
 		'parentPackage',
-		'subInheritances',
-		'types',
-		'isInterface',
-		'attributes',
-		'modifiers',
-		'behavioursWithDeclaredType',
-		'functions',
-		'comments',
-		'incomingReferences',
-		'superInheritances',
-		'receivingInvocations',
-		'sourceAnchor',
-		'methods',
 		'name'
 	],
 	#category : 'Orion-Actions',
@@ -73,17 +53,15 @@ ORActionAddClass >> printWorkspace [
 ORActionAddClass >> run [
 
 	| newClass |
-	newClass := FamixStClass new.
-	self orionModel add: newClass.
-
-	self isStub ifNotNil: [ :bool | newClass isStub: bool ].
+	newClass := self orionModel newClass.
 
 	self name ifNotNil: [ :string | newClass name: string ].
+	self isStub ifNotNil: [ :bool | newClass isStub: bool ].
 
-	self parentPackage ifNotNil: [ :oldParent || newParent |
-		newParent := self orionModel ensureOrionEntity: oldParent.
-		newClass setWithoutInverse: #parentPackage value: newParent.
-		newParent addWithoutInverse: #childEntities value: newClass
+	self parentPackage ifNotNil: [ :parent || versionedParent |
+		versionedParent := self orionModel ensureOrionEntity: parent.
+		newClass setWithoutInverse: #parentPackage value: versionedParent.
+		versionedParent addWithoutInverse: #childEntities value: newClass
 	].
 
 	entity := newClass.
