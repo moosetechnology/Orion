@@ -76,17 +76,11 @@ ORActionAddAttribute >> run [
 	self isStub ifNotNil: [ :bool | newAttribute isStub: bool ].
 	self isClassSide ifNotNil: [ :bool | newAttribute isClassSide: bool ].
 
-	self parentType ifNotNil: [ :parent || versionedParent |
-		versionedParent := self orionModel ensureOrionEntity: parent.
-		newAttribute setWithoutInverse: #parentType value: versionedParent.
-		versionedParent addWithoutInverse: #attributes value: newAttribute
-	].
+	self parentType ifNotNil: [ :parent |
+		self setOn: newAttribute bidirectionalProperty: #parentType value: parent	].
 
-	self declaredType ifNotNil: [ :type || versionedType |
-		versionedType := self orionModel ensureOrionEntity: type.
-		newAttribute setWithoutInverse: #declaredType value: versionedType.
-		versionedType addWithoutInverse: #typedEntities value: newAttribute
-	].
+	self declaredType ifNotNil: [ :type |
+		self setOn: newAttribute bidirectionalProperty: #declaredType value: type ].
 
 	entity := newAttribute.
 	^ entity

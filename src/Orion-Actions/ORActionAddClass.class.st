@@ -58,11 +58,8 @@ ORActionAddClass >> run [
 	self name ifNotNil: [ :string | newClass name: string ].
 	self isStub ifNotNil: [ :bool | newClass isStub: bool ].
 
-	self parentPackage ifNotNil: [ :parent || versionedParent |
-		versionedParent := self orionModel ensureOrionEntity: parent.
-		newClass setWithoutInverse: #parentPackage value: versionedParent.
-		versionedParent addWithoutInverse: #childEntities value: newClass
-	].
+	self parentPackage ifNotNil: [ :parent |
+		self setOn: newClass bidirectionalProperty: #parentPackage value: parent ].
 
 	entity := newClass.
 	^ entity

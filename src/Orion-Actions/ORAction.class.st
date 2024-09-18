@@ -66,6 +66,15 @@ ORAction >> orionModel: anObject [
 	"anObject changes add: self"
 ]
 
+{ #category : 'method execution - generated' }
+ORAction >> orionPrimitiveSetSlot: aSlot on: anEntity value: aValue [
+
+	aSlot isToOne
+		ifTrue: [ aSlot orionPrimitiveWrite: aValue to: anEntity ]
+		ifFalse: [ (aSlot orionPrimitiveRead: anEntity) unsafeAdd: aValue ]
+
+]
+
 { #category : 'initialize-release' }
 ORAction >> postRun [
 
@@ -95,4 +104,18 @@ ORAction >> run [
 
 	"aVersion system announcer announce: ORAnnouncement."
 	entity := entity versionLookup: self orionModel.
+]
+
+{ #category : 'method execution - generated' }
+ORAction >> setOn: sourceEntity bidirectionalProperty: propertyName value: targetEntity [
+
+	| aSlot versionedTarget |
+	versionedTarget := self orionModel ensureOrionEntity: targetEntity.
+	
+	aSlot := sourceEntity class slotNamed: propertyName.
+	self orionPrimitiveSetSlot: aSlot on: sourceEntity value: versionedTarget.
+
+	aSlot := aSlot realInverseSlotFor: targetEntity.
+	self orionPrimitiveSetSlot: aSlot on: versionedTarget value: sourceEntity.
+
 ]
