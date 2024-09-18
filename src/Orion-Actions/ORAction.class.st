@@ -16,9 +16,8 @@ Class {
 		'entity',
 		'orionModel'
 	],
-	#category : 'NewOrion-actions',
-	#package : 'NewOrion',
-	#tag : 'actions'
+	#category : 'Orion-Actions',
+	#package : 'Orion-Actions'
 }
 
 { #category : 'accessing' }

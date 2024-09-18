@@ -1,6 +1,6 @@
 Extension { #name : 'MooseModel' }
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> addChildVersion: anObject [
 
 	self isOrionModel ifFalse: [ NotAnOrionModel signal ].
@@ -8,7 +8,7 @@ MooseModel >> addChildVersion: anObject [
 	self childrenVersions add: anObject
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> basename [
 
 	| i |
@@ -17,7 +17,7 @@ MooseModel >> basename [
 		copyFrom: 1 to: (i - 1)
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> beForOrion [
 	"take a MooseModel and convert it in a ORModel"
 
@@ -35,7 +35,7 @@ MooseModel >> beForOrion [
 	self flush
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> childrenVersions [
 
 	self isOrionModel ifFalse: [ NotAnOrionModel signal ].
@@ -43,13 +43,13 @@ MooseModel >> childrenVersions [
 	^self attributeAt: #childrenVersions ifAbsent: [ OrderedCollection new ]
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> containsOrion: anElement [
 
 	^anElement orionModel = self
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> createEntityFrom: anEntity [
 	| newEntity |
 	
@@ -60,7 +60,7 @@ MooseModel >> createEntityFrom: anEntity [
 	^ newEntity
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> ensureOrionEntity: anEntity [
 
 	self isOrionModel ifFalse: [ NotAnOrionModel signal ].
@@ -70,7 +70,7 @@ MooseModel >> ensureOrionEntity: anEntity [
 		ifFalse: [ self createEntityFrom: (self at: anEntity mooseID) ]
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> isFirstVersion [
 
 	self isOrionModel ifFalse: [ NotAnOrionModel signal ].
@@ -78,7 +78,7 @@ MooseModel >> isFirstVersion [
 	^self parentVersion isNil
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> isLastVersion [
 
 	self isOrionModel ifFalse: [ NotAnOrionModel signal ].
@@ -86,13 +86,13 @@ MooseModel >> isLastVersion [
 	^self childrenVersions isEmpty
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> isOrionModel [
 
 	^storage isOrion
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> makeNewVersion [
 	"Creates a new child version of the receiver"
 
@@ -101,7 +101,7 @@ MooseModel >> makeNewVersion [
 	^self class newOrionVersionOf: self
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel class >> newOrionVersionOf: aModel [
 
 	| newVersion |
@@ -121,7 +121,7 @@ MooseModel class >> newOrionVersionOf: aModel [
 	^newVersion
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> parentVersion [
 
 	self isOrionModel ifFalse: [ NotAnOrionModel signal ].
@@ -129,7 +129,7 @@ MooseModel >> parentVersion [
 	^self attributeAt: #parentVersion ifAbsent: [ nil ]
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> parentVersion: anObject [
 
 	self isOrionModel ifFalse: [ NotAnOrionModel signal ].
@@ -137,7 +137,7 @@ MooseModel >> parentVersion: anObject [
 	self attributeAt: #parentVersion put: anObject
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseModel >> populateFrom: aModel [
 	"All entities from aModel are also put in the receiver
 	 Note that the entities are not duplicated"

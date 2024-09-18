@@ -1,6 +1,6 @@
 Extension { #name : 'MooseGroupStorage' }
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseGroupStorage >> isOrion [
 
 	^false

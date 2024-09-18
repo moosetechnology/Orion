@@ -1,6 +1,6 @@
 Extension { #name : 'FMOne' }
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 FMOne >> read: anObject [
 
 	^(super read: anObject)

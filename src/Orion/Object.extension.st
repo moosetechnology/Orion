@@ -1,12 +1,12 @@
 Extension { #name : 'Object' }
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 Object >> orionCopy [
 
 	^self shallowCopy
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 Object >> versionLookup: anOrionModel [
 	^self
 ]

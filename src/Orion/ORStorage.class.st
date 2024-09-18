@@ -6,8 +6,8 @@ Class {
 		'model',
 		'sortedCollectionList'
 	],
-	#category : 'NewOrion-Core',
-	#package : 'NewOrion',
+	#category : 'Orion-Core',
+	#package : 'Orion',
 	#tag : 'Core'
 }
 

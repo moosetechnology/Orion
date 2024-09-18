@@ -1,6 +1,6 @@
 Extension { #name : 'FM3Property' }
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 FM3Property >> orionPrimitiveGetFrom: anEntity [
 	"gets the value of the property (for anEntity) without using Orion's slot"
 
@@ -17,7 +17,7 @@ FM3Property >> orionPrimitiveGetFrom: anEntity [
 	]
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 FM3Property >> orionPrimitiveSetOn: anEntity values: aValue [
 	"sets aValue to the property (for anEntity) without using Orion's slot"
 

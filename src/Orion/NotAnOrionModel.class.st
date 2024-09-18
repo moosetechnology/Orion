@@ -1,7 +1,7 @@
 Class {
 	#name : 'NotAnOrionModel',
 	#superclass : 'Error',
-	#category : 'NewOrion-Core',
-	#package : 'NewOrion',
+	#category : 'Orion-Core',
+	#package : 'Orion',
 	#tag : 'Core'
 }

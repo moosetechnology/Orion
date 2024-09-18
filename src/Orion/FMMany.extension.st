@@ -1,6 +1,6 @@
 Extension { #name : 'FMMany' }
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 FMMany >> read: anObject [
 	"Does an orionLookup: for all elements in the collection"
 

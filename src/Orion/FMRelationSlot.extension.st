@@ -1,6 +1,6 @@
 Extension { #name : 'FMRelationSlot' }
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 FMRelationSlot >> orionPrimitiveRead: anObject [
 	"the default #read: without using #orionLookup:
 	 needed when we want to access the collection itself to modify it (add/remove element)"
@@ -8,7 +8,7 @@ FMRelationSlot >> orionPrimitiveRead: anObject [
 	^super read: anObject
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 FMRelationSlot >> orionPrimitiveWrite: aValue to: anObject [
 	"the default #write:to: without using #orionLookup:
 	 needed when we want to access the collection itself to modify it (add/remove element)"

@@ -1,23 +1,23 @@
 Extension { #name : 'MooseEntity' }
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseEntity >> addWithoutInverse: propertyName value: aValue [
 
 	((self class slotNamed: propertyName) orionPrimitiveRead: self)
 		unsafeAdd: aValue
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseEntity >> orionContext [
 	^self attributeAt: #orionContext ifAbsent: [ self mooseModel ]
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseEntity >> orionContext: anOrionModel [
 	self attributeAt: #orionContext put: anOrionModel 
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseEntity >> orionCopy [
 	"Make a shallow copy of receiver to become a new version of it.
 
@@ -40,19 +40,19 @@ MooseEntity >> orionCopy [
 	^theCopy
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseEntity >> orionModel [
 	^self mooseModel
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseEntity >> setWithoutInverse: propertyName value: aValue [
 
 	(self class slotNamed: propertyName)
 		orionPrimitiveWrite: aValue to: self
 ]
 
-{ #category : '*NewOrion' }
+{ #category : '*Orion' }
 MooseEntity >> versionLookup: anOrionModel [
 	"looks up the receiver in the context of anOrionModel
 	 The result might be a newer version of the receiver
