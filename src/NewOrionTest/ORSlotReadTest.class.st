@@ -6,20 +6,37 @@ Class {
 }
 
 { #category : 'tests' }
-ORSlotReadTest >> testSettingOneToMany [
+ORSlotReadTest >> testAddWithoutInverseValue [
 
 	| cmt mth |
 	cmt := FamixStComment new.
 	mth := FamixStMethod new.
 
-	self assert: mth comments isEmpty.
-	self assert: cmt commentedEntity isNil.
+	self assert: cmt commentedEntity equals: nil.
+	self assert: mth comments size equals: 0.
 
-	cmt commentedEntity: mth.
+	mth addWithoutInverse: #comments value: cmt.
 
-	self assert: cmt commentedEntity equals: mth.
+	self assert: cmt commentedEntity equals: nil.
 	self assert: mth comments size equals: 1.
 	self assert: mth comments anyOne equals: cmt.
+
+]
+
+{ #category : 'tests' }
+ORSlotReadTest >> testSetWithoutInverseValue [
+
+	| cmt mth |
+	cmt := FamixStComment new.
+	mth := FamixStMethod new.
+
+	self assert: cmt commentedEntity isNil.
+	self assert: mth comments size equals: 0.
+
+	cmt setWithoutInverse: #commentedEntity value: mth.
+
+	self assert: cmt commentedEntity equals: mth.
+	self assert: mth comments size equals: 0.
 
 ]
 

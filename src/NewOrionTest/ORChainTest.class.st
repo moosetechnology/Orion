@@ -14,6 +14,7 @@ ORChainTest >> exampleModel1 [
 	"A small model to make some tests"
 
 	| pckg cls1 cls2 cls3 cls4 |
+
 	pckg := self package: 'OrionForTest'.
 	cls1 := self class: 'Class1' in: pckg.
 	cls2 := self class: 'Class2' in: pckg.
@@ -23,7 +24,7 @@ ORChainTest >> exampleModel1 [
 	self inherit: cls2 from: cls1.
 	self inherit: cls3 from: cls2.
 	self inherit: cls4 from: cls3.
-	
+
 ]
 
 { #category : 'running' }
@@ -50,6 +51,7 @@ ORChainTest >> setUp [
 
 	super setUp.
 
+	model beForOrion.
 	orion1 := model makeNewVersion
 		name: 'Orion-v1' ;
 		yourself.

@@ -25,9 +25,11 @@ ORActionRenameClass >> newName: anObject [
 ORActionRenameClass >> run [
 
 	| theEntity |
+
 	super run.
-	theEntity := (self orionModel retrieveEntity: entity).
+	theEntity := (self orionModel ensureOrionEntity: entity).
 	theEntity name: newName.
 	entity := theEntity.
+
 	^ entity
 ]

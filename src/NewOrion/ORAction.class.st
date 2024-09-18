@@ -93,13 +93,7 @@ ORAction >> printWorkspace [
 
 { #category : 'method execution' }
 ORAction >> run [
-	self runOR: self orionModel
-]
-
-{ #category : 'method execution' }
-ORAction >> runOR: aVersion [
 
 	"aVersion system announcer announce: ORAnnouncement."
-	entity := entity versionLookup: aVersion.
-	^ self
+	entity := entity versionLookup: self orionModel.
 ]

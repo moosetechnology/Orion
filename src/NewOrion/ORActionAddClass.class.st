@@ -123,17 +123,19 @@ ORActionAddClass >> receivingInvocations: aValue [
 { #category : 'method execution - generated' }
 ORActionAddClass >> run [
 
-	| newEntity |
-	newEntity := FamixStClass new.
-	self orionModel add: newEntity.
+	| newClass |
+	newClass := FamixStClass new.
+	self orionModel add: newClass.
 
-	"Set primitive not derived properties of the entity"
-	self isStub ifNotNil: [ :bool | newEntity isStub: bool ].
+	self isStub ifNotNil: [ :bool | newClass isStub: bool ].
 
-	self name ifNotNil: [ :string | newEntity name: string ].
+	self name ifNotNil: [ :string | newClass name: string ].
 
-	"Set complex not derived properties of the entity"
-	self parentPackage ifNotNil: [ :parent | newEntity parentPackage: parent ].
+	self parentPackage ifNotNil: [ :oldParent || newParent |
+		newParent := self orionModel ensureOrionEntity: oldParent.
+		newClass setWithoutInverse: #parentPackage value: newParent.
+		newParent addWithoutInverse: #childEntities value: newClass
+	].
 
 	"self subInheritances ifNotNil: [
 		| theNewEntities |
@@ -207,7 +209,7 @@ ORActionAddClass >> run [
 		theNewEntities do: [ :e | e privateParentType: newEntity ] ].
 	self runExtendedPropertiesForEntity: newEntity."
 
-	entity := newEntity.
+	entity := newClass.
 	^ entity
 ]
 

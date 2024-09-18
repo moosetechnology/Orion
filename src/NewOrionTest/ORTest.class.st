@@ -11,10 +11,15 @@ Class {
 { #category : 'factory' }
 ORTest >> class: aString in: package [
 
-	^model newClass
+	| theClass |
+	theClass := model newClass
 		name: aString ;
-		parentPackage: package ;
-		yourself
+		yourself.
+
+	theClass setWithoutInverse: #parentPackage value: package.
+	package addWithoutInverse: #childEntities value: theClass.
+
+	^theClass
 ]
 
 { #category : 'running' }
@@ -22,6 +27,7 @@ ORTest >> exampleModel1 [
 	"A small model to make some tests"
 
 	| pckg cls1 cls2 cls3 cls4 cls5 mth |
+
 	pckg := self package: 'OrionForTest1'.
 	cls1 := self class: 'Class1' in: pckg.
 	cls2 := self class: 'Class2' in: pckg.
@@ -53,39 +59,60 @@ ORTest >> exampleModel1 [
 		^Class3 new."
 	mth := self method: 'accessClass3' in: cls5.
 	(self invok: nil on: cls3 from: mth) signature: 'new()'.
-	self refer: cls3 from: mth
+	self refer: cls3 from: mth.
+
 ]
 
 { #category : 'factory' }
 ORTest >> inherit: aClass from: superClass [
 
-	^model newInheritance
-		superclass: superClass ;
-		subclass: aClass ;
-		yourself.
+	| assoc |
+	assoc := model newInheritance.
+
+	assoc setWithoutInverse: #superclass value: superClass.
+	superClass addWithoutInverse: #subInheritances value: assoc.
+
+	assoc setWithoutInverse: #subclass value: aClass.
+	aClass addWithoutInverse: #superInheritances value: assoc.
+
+	^assoc
 
 ]
 
 { #category : 'factory' }
 ORTest >> invok: aMethode on: receiver from: sender [
 
-	| invok |
-	invok := model newInvocation
-		         sender: sender;
-		         receiver: receiver;
-		         yourself.
-	aMethode ifNotNil: [ invok candidates: { aMethode } ].
+	| assoc |
+	assoc := model newInvocation.
 
-	^ invok
+	assoc setWithoutInverse: #sender value: sender.
+	sender addWithoutInverse: #outgoingInvocations value: assoc.
+
+	assoc setWithoutInverse: #receiver value: receiver.
+	receiver addWithoutInverse: #receivingInvocations value: assoc.
+
+	aMethode ifNotNil: [
+		assoc addWithoutInverse: #candidates value: aMethode.
+		aMethode addWithoutInverse: #incomingInvocations value: assoc
+	].
+
+	^assoc
+
 ]
 
 { #category : 'factory' }
 ORTest >> method: aString in: aClass [
 
-	^model newMethod
+	| theMethod |
+	theMethod := model newMethod
 		name: aString ;
-		parentType: aClass ;
-		yourself
+		yourself.
+
+	theMethod setWithoutInverse: #parentPackage value: aClass.
+	aClass addWithoutInverse: #methods value: theMethod.
+
+	^theMethod 
+
 ]
 
 { #category : 'running' }
@@ -119,10 +146,16 @@ ORTest >> package: aString [
 { #category : 'factory' }
 ORTest >> refer: aClass from: referer [
 
-	^model newReference
-		target: aClass ;
-		source: referer ;
-		yourself.
+	| assoc |
+	assoc := model newReference.
+
+	assoc setWithoutInverse: #referencer value: referer.
+	referer addWithoutInverse: #outgoingReferences value: assoc.
+
+	assoc setWithoutInverse: #referredType value: aClass.
+	aClass addWithoutInverse: #incomingReferences value: assoc.
+
+	^assoc
 
 ]
 

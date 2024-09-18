@@ -1,14 +1,6 @@
 Extension { #name : 'FMMany' }
 
 { #category : '*NewOrion' }
-FMMany >> primitiveOrionRead: anObject [
-	"the default #read: without using #orionLookup:
-	 needed when we want to access the collection itself to modify it (add/remove element)"
-
-	^super read: anObject
-]
-
-{ #category : '*NewOrion' }
 FMMany >> read: anObject [
 	"Does an orionLookup: for all elements in the collection"
 

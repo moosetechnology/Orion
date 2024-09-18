@@ -13,6 +13,7 @@ ORActionTest >> setUp [
 
 	super setUp.
 
+	model beForOrion.
 	orionModel := model makeNewVersion
 		name: #orionModel
 ]
@@ -141,10 +142,10 @@ ORActionTest >> testOPAddClass [
 		equals: (orionModel entityNamed: #'OrionForTest2').
 	self assert:
 		((orionModel entityNamed: #'OrionForTest2')
-			 types includes: class).
+			 classes includes: class).
 	self deny:
 		((model entityNamed: #'OrionForTest2')
-			  types includes: class).
+			  classes includes: class).
 
 ]
 

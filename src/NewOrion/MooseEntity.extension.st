@@ -1,22 +1,59 @@
-Extension { #name : 'FamixStEntity' }
+Extension { #name : 'MooseEntity' }
 
 { #category : '*NewOrion' }
-FamixStEntity >> orionContext [
+MooseEntity >> addWithoutInverse: propertyName value: aValue [
+
+	((self class slotNamed: propertyName) orionPrimitiveRead: self)
+		unsafeAdd: aValue
+]
+
+{ #category : '*NewOrion' }
+MooseEntity >> orionContext [
 	^self attributeAt: #orionContext ifAbsent: [ self mooseModel ]
 ]
 
 { #category : '*NewOrion' }
-FamixStEntity >> orionContext: anOrionModel [
+MooseEntity >> orionContext: anOrionModel [
 	self attributeAt: #orionContext put: anOrionModel 
 ]
 
 { #category : '*NewOrion' }
-FamixStEntity >> orionModel [
+MooseEntity >> orionCopy [
+	"Make a shallow copy of receiver to become a new version of it.
+
+	 For properties that are collection, we must also make a shallow copy of the collection otherwise
+	 adding/removing something from the orionCopy's property will add/remove it from the receiver
+	 This is tricky because there are some automatic actions set on the slots (for Orion access and Famix
+	 reciprocal property setting)
+
+	 This is also needed for the cache that is still shared between receiver and copy"
+
+	| theCopy |
+	theCopy := super orionCopy.
+	theCopy resetPrivateState.
+	
+	self mooseDescription allPropertiesDo: [ :prop |
+		prop isMultivalued ifTrue: [
+			prop orionPrimitiveSetOn: theCopy values: (prop orionPrimitiveGetFrom: self) shallowCopy
+		]
+	].
+	^theCopy
+]
+
+{ #category : '*NewOrion' }
+MooseEntity >> orionModel [
 	^self mooseModel
 ]
 
 { #category : '*NewOrion' }
-FamixStEntity >> versionLookup: anOrionModel [
+MooseEntity >> setWithoutInverse: propertyName value: aValue [
+
+	(self class slotNamed: propertyName)
+		orionPrimitiveWrite: aValue to: self
+]
+
+{ #category : '*NewOrion' }
+MooseEntity >> versionLookup: anOrionModel [
 	"looks up the receiver in the context of anOrionModel
 	 The result might be a newer version of the receiver
 	 Sets anOrionModel as the context of returned entity for the next query irt might do"

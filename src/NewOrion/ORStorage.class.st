@@ -62,6 +62,7 @@ ORStorage >> at: uniqueName withType: aType ifAbsent: exceptionBlock [
 	entity := super at: uniqueName ifAbsent: [ nil ].
 	entity ifNotNil: [
 		^ (self atID: entity mooseID ifAbsent: [  ]) versionLookup: self model].
+
 	entity := (self
 		shouldSort: (self selectAllWithType: aType)
 		withBlock: [ :a :b | a mooseName asSymbol <= b mooseName asSymbol ]
@@ -77,7 +78,8 @@ ORStorage >> at: uniqueName withType: aType ifAbsent: exceptionBlock [
 						ifFalse: [ 1 ] ] ]
 		ifNone: exceptionBlock.
 	entity ifNotNil: [ byName at: na put: entity ].
-	^ entity versionIn: self model
+
+	^ entity versionLookup: self model
 ]
 
 { #category : 'accessing' }
