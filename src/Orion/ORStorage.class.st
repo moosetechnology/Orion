@@ -83,8 +83,9 @@ ORStorage >> at: uniqueName withType: aType ifAbsent: exceptionBlock [
 ]
 
 { #category : 'accessing' }
-ORStorage >> atID: uniqueId ifAbsent: exceptionBlock [ 
-	^elements at: uniqueId ifAbsent:exceptionBlock.
+ORStorage >> atID: anInteger ifAbsent: exceptionBlock [
+
+	^elements at: anInteger ifAbsent: exceptionBlock
 ]
 
 { #category : 'private' }
