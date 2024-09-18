@@ -116,40 +116,6 @@ ORActionTest >> testMultipleActions [
 ]
 
 { #category : 'testing' }
-ORActionTest >> testOPAddClass [
-
-	| act class |
-
-	act := ORActionAddClass new
-		       orionModel: orionModel;
-		       parentPackage: (orionModel entityNamed: #'OrionForTest2');
-		       name: 'NewClass';
-		       yourself.
-
-	self assert: (orionModel entityNamed: 'NewClass') isNil.
-
-	act run.
-	self assert: orionModel size equals: model size + 1.
-
-	class := orionModel entityNamed: 'NewClass'.
-
-	self assert: class notNil.
-	self assert: (orionModel includes: class).
-	self deny: (model includes: class).
-
-	self
-		assert: class parentPackage
-		equals: (orionModel entityNamed: #'OrionForTest2').
-	self assert:
-		((orionModel entityNamed: #'OrionForTest2')
-			 classes includes: class).
-	self deny:
-		((model entityNamed: #'OrionForTest2')
-			  classes includes: class).
-
-]
-
-{ #category : 'testing' }
 ORActionTest >> testOPAddInheritance [
 	| asS asAction inheritance |
 	asS := self model system.
@@ -1184,6 +1150,39 @@ ORActionTest >> testOPUnextendMethod [
 		assert: (orionModel entityNamed: #'Smalltalk::Class5.accessOrion2Class3()') parentType
 		equals: (orionModel entityNamed: #Smalltalk::Class5).
 	self assert: (orionModel entityNamed: #Smalltalk::Class5) extendedInPackages size equals: 0
+]
+
+{ #category : 'testing' }
+ORActionTest >> testORAddClass [
+
+	| act class |
+
+	act := ORActionAddClass new
+		orionModel: orionModel;
+		name: 'NewClass';
+		isStub: true ;
+		parentPackage: (orionModel entityNamed: #'OrionForTest2');
+		yourself.
+
+	self assert: (orionModel entityNamed: 'NewClass') isNil.
+
+	act run.
+	self assert: orionModel size equals: model size + 1.
+
+	class := orionModel entityNamed: 'NewClass'.
+
+	self assert: class notNil.
+	self assert: (orionModel includes: class).
+	self deny: (model includes: class).
+
+	self assert: class isStub.
+
+	self assert: class parentPackage identicalTo: (orionModel entityNamed: #'OrionForTest2').
+	self deny:   class parentPackage identicalTo: (model entityNamed: #'OrionForTest2').
+
+	self assert: ((orionModel entityNamed: #'OrionForTest2') classes includes: class).
+	self deny:   ((model entityNamed: #'OrionForTest2') classes includes: class).
+
 ]
 
 { #category : 'testing OrionModel' }
