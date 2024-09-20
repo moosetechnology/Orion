@@ -13,32 +13,32 @@ Class {
 	#package : 'Orion-Actions'
 }
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddClass >> isStub [
 	^ isStub
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddClass >> isStub: aValue [
 	isStub := aValue
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddClass >> name [
 	^ name
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddClass >> name: aValue [
 	name := aValue
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddClass >> parentPackage [
 	^ parentPackage
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddClass >> parentPackage: aValue [
 	parentPackage := aValue
 ]
@@ -49,7 +49,7 @@ ORActionAddClass >> printWorkspace [
 	^ super printWorkspace , self entity mooseName, ' in ', self parentPackage mooseName
 ]
 
-{ #category : 'method execution - generated' }
+{ #category : 'method execution' }
 ORActionAddClass >> run [
 
 	| newClass |

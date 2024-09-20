@@ -17,42 +17,42 @@ Class {
 	#package : 'Orion-Actions'
 }
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> declaredType [
 	^ declaredType
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> declaredType: aValue [
 	declaredType := aValue
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> isClassSide [
 	^ isClassSide
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> isClassSide: aValue [
 	isClassSide := aValue
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> isStub [
 	^ isStub
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> isStub: aValue [
 	isStub := aValue
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> name [
 	^ name
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> name: aValue [
 	name := aValue
 ]
@@ -69,17 +69,17 @@ ORActionAddMethod >> parentPackage: anObject [
 	parentPackage := anObject
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> parentType [
 	^ parentType
 ]
 
-{ #category : 'accessing - generated' }
+{ #category : 'accessing' }
 ORActionAddMethod >> parentType: aValue [
 	parentType := aValue
 ]
 
-{ #category : 'method execution - generated' }
+{ #category : 'method execution' }
 ORActionAddMethod >> run [
 
 	| newMethod |
