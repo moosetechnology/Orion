@@ -40,23 +40,9 @@ ORActionAddAttributeTest >> testCopiesPrimitiveProperties [
 
 	att := orionModel entityNamed: 'Class4.anAttribute'.
 
+	self assert: att isNotNil.
 	self assert: att isStub.
 	self deny: att isClassSide.
-
-]
-
-{ #category : 'testing' }
-ORActionAddAttributeTest >> testCreatesNewVersionOfEntity [
-
-	| att |
-
-	action run.
-
-	att := orionModel entityNamed: 'Class4.anAttribute'.
-
-	self assert: att notNil.
-	self assert: (orionModel includes: att).
-	self deny: (model includes: att).
 
 ]
 
@@ -81,5 +67,20 @@ ORActionAddAttributeTest >> testCreatesVersionOfAssociatedEntities [
 
 	self assert: ((orionModel entityNamed: #Class4) attributes includes: att).
 	self deny:   ((model entityNamed: #Class4) attributes includes: att).
+
+]
+
+{ #category : 'testing' }
+ORActionAddAttributeTest >> testVersionOfEntityInModel [
+
+	| att |
+
+	action run.
+
+	att := orionModel entityNamed: 'Class4.anAttribute'.
+
+	self assert: att notNil.
+	self assert: (orionModel includes: att).
+	self deny: (model includes: att).
 
 ]

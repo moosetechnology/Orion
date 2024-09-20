@@ -43,21 +43,6 @@ ORActionAddClassTest >> testCopiesPrimitiveProperties [
 ]
 
 { #category : 'testing' }
-ORActionAddClassTest >> testCreatesNewVersionOfEntity [
-
-	| class |
-
-	action run.
-
-	class := orionModel entityNamed: 'NewClass'.
-
-	self assert: class notNil.
-	self assert: (orionModel includes: class).
-	self deny: (model includes: class).
-
-]
-
-{ #category : 'testing' }
 ORActionAddClassTest >> testCreatesVersionOfAssociatedEntities [
 
 	| class |
@@ -71,5 +56,20 @@ ORActionAddClassTest >> testCreatesVersionOfAssociatedEntities [
 
 	self assert: ((orionModel entityNamed: #'OrionForTest2') classes includes: class).
 	self deny:   ((model entityNamed: #'OrionForTest2') classes includes: class).
+
+]
+
+{ #category : 'testing' }
+ORActionAddClassTest >> testVersionOfEntityInModel [
+
+	| class |
+
+	action run.
+
+	class := orionModel entityNamed: 'NewClass'.
+
+	self assert: class notNil.
+	self assert: (orionModel includes: class).
+	self deny: (model includes: class).
 
 ]
