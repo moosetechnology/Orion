@@ -11,10 +11,16 @@ Class {
 { #category : 'factory' }
 ORTest >> class: aString in: package [
 
-	| theClass |
+	| theClass inh |
 	theClass := model newClass
 		name: aString ;
 		yourself.
+
+	inh := model newInheritance.
+	inh setWithoutInverse: #superclass value: (model entityNamed: 'Object').
+	inh setWithoutInverse: #subclass value: theClass.
+	(model entityNamed: 'Object') addWithoutInverse: #subInheritances value: inh.
+	theClass addWithoutInverse: #superInheritances value: inh.
 
 	theClass setWithoutInverse: #parentPackage value: package.
 	package addWithoutInverse: #childEntities value: theClass.
@@ -28,6 +34,7 @@ ORTest >> exampleModel1 [
 	"A small model to make some tests"
 
 	| pckg cls1 cls2 cls3 cls4 cls5 mth |
+	model newClass name: 'Object' ; isStub: true.
 
 	pckg := self package: 'OrionForTest1'.
 	cls1 := self class: 'Class1' in: pckg.

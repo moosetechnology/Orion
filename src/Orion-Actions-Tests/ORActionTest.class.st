@@ -116,35 +116,6 @@ ORActionTest >> testMultipleActions [
 ]
 
 { #category : 'testing' }
-ORActionTest >> testOPAddInheritance [
-	| asS asAction inheritance |
-	asS := self model system.
-	orionModel := orionModel name: 'AsM'.
-	asAction := ORActionAddInheritance new
-		orionModel: orionModel;
-		superclass: (orionModel entityNamed: 'Smalltalk::Class1');
-		subclass: (orionModel entityNamed: 'Smalltalk::Class2').
-	asAction run.
-	self assert: (orionModel contains: (orionModel entityNamed: 'Smalltalk::Class1')).
-	self deny: (asS sourceModel contains: (orionModel entityNamed: 'Smalltalk::Class1')).
-	self assert: (orionModel includes: (orionModel entityNamed: 'Smalltalk::Class1')).
-	self assert: (asS sourceModel includes: (asS sourceModel entityNamed: 'Smalltalk::Class1')).
-	self
-		deny:
-			(orionModel entityNamed: 'Smalltalk::Class1') hash
-				= (asS sourceModel entityNamed: 'Smalltalk::Class1') hash.
-	self assert: (orionModel entityNamed: 'Smalltalk::Class1') subInheritances size equals: 1.
-	self assert: (orionModel entityNamed: 'Smalltalk::Class2') superInheritances size equals: 2.
-	inheritance := (orionModel entityNamed: 'Smalltalk::Class1') subInheritances at: 1.
-	self assert: (orionModel contains: inheritance).
-	self deny: (asS sourceModel contains: inheritance).
-	self assert: (orionModel includes: inheritance).
-	self deny: (asS sourceModel includes: inheritance).
-	self assert: inheritance subclass equals: (orionModel entityNamed: 'Smalltalk::Class2').
-	self assert: inheritance superclass equals: (orionModel entityNamed: 'Smalltalk::Class1')
-]
-
-{ #category : 'testing' }
 ORActionTest >> testOPAddInvocation [
 	| asS asAction invoc |
 	asS := self model system.
@@ -1162,6 +1133,46 @@ ORActionTest >> testORAddClass [
 
 	self assert: ((orionModel entityNamed: #'OrionForTest2') classes includes: class).
 	self deny:   ((model entityNamed: #'OrionForTest2') classes includes: class).
+
+]
+
+{ #category : 'testing' }
+ORActionTest >> testORAddInheritance [
+	| act |
+
+	act := ORActionAddInheritance new
+		orionModel: orionModel;
+		superclass: (orionModel entityNamed: 'Class1');
+		subclass: (orionModel entityNamed: 'Class2').
+
+	self assert: (orionModel entityNamed: 'Class2') superInheritances size equals: 1.
+	self
+		assert: (orionModel entityNamed: 'Class2') superInheritances anyOne superclass
+		identicalTo: (orionModel entityNamed: 'Object').
+
+	self assert: (orionModel entityNamed: 'Class1') subInheritances size equals: 0.
+
+	act run.
+
+	self assert: orionModel size equals: model size + 1.
+	self assert: orionModel allInheritanceDefinitions size equals: model allInheritanceDefinitions size + 1.
+	self assert: orionModel allClasses size equals: model allClasses size + 1.
+
+	self assert: (orionModel entityNamed: 'Class2') superInheritances size equals: 2.
+	self
+		assertCollection: ((orionModel entityNamed: 'Class2') superInheritances collect: #superclass)
+		hasSameElements: { orionModel entityNamed: 'Class1' . orionModel entityNamed: 'Object'}.
+
+	self assert: (orionModel entityNamed: 'Class1') subInheritances size equals: 1.
+	self
+		assert: (orionModel entityNamed: 'Class1') subInheritances anyOne subclass
+		identicalTo: (orionModel entityNamed: 'Class2').
+
+	self assert: (model entityNamed: 'Class2') superInheritances size equals: 1.
+	self
+		assert: (model entityNamed: 'Class2') superInheritances anyOne superclass
+		identicalTo: (model entityNamed: 'Object').
+	self assert: (model entityNamed: 'Class1') subInheritances size equals: 0.
 
 ]
 
