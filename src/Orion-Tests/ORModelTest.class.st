@@ -33,6 +33,56 @@ ORModelTest >> testBeForOrion [
 ]
 
 { #category : 'tests' }
+ORModelTest >> testEnsureOrionEntityCreatesNewVersion [
+	| class1 class2 model2 |
+
+	model beForOrion.
+	model2 := model makeNewVersion.
+
+	class1 := model allClasses anyOne.
+	class2 := model2 ensureOrionEntity: class1.
+
+	self deny: class1 identicalTo: class2.
+	self assert: class1 name equals: class2 name.
+	self assert: class1 parentPackage equals: class2 parentPackage.
+	self assertCollection: class1 attributes hasSameElements: class2 attributes.
+	self assertCollection: class1 methods hasSameElements: class2 methods.
+]
+
+{ #category : 'tests' }
+ORModelTest >> testEnsureOrionEntityDoesNotDuplicate [
+	| class1 class2 model2 |
+
+	model beForOrion.
+	model2 := model makeNewVersion.
+
+	self assert: model allClasses size equals: model2 allClasses size.
+
+	class1 := model allClasses anyOne.
+	class2 := model2 ensureOrionEntity: class1.
+
+	self deny: class1 identicalTo: class2.
+	self assert: class2 identicalTo: (model2 ensureOrionEntity: class1).
+	self assert: class2 identicalTo: (model2 ensureOrionEntity: class2).
+
+]
+
+{ #category : 'tests' }
+ORModelTest >> testEnsureOrionEntityDoesNotIncreaseEntitySize [
+	| model2 |
+
+	model beForOrion.
+	model2 := model makeNewVersion.
+
+	self assert: model2 allClasses size equals: model allClasses size.
+
+	model2 ensureOrionEntity: (model allClasses anyOne).
+
+	self assert: model2 allClasses size equals: model allClasses size.
+
+]
+
+{ #category : 'tests' }
 ORModelTest >> testEntitiesCopiedInChildVersion [
 
 	| v2 |
@@ -115,4 +165,19 @@ ORModelTest >> testModelContainsOrion [
 
 	self assert: (model containsOrion: ent).
 	self deny: (v2 containsOrion: ent).
+]
+
+{ #category : 'tests' }
+ORModelTest >> testOrionCopy [
+
+	| class1 class2 |
+
+	class1 := model allClasses anyOne.
+	class2 := class1 orionCopy.
+
+	self deny: class1 identicalTo: class2.
+	self assert: class1 name equals: class2 name.
+	self assert: class1 parentPackage equals: class2 parentPackage.
+	self assertCollection: class1 attributes hasSameElements: class2 attributes.
+	self assertCollection: class1 methods hasSameElements: class2 methods.
 ]

@@ -1084,7 +1084,7 @@ ORActionTest >> testORAddAttribute [
 
 	self assert: orionModel size equals: model size + 1.
 	self assert: orionModel allAttributes size equals: model allAttributes size + 1.
-	self assert: orionModel allClasses size equals: model allClasses size + 1.
+	self assert: orionModel allClasses size equals: model allClasses size.
 
 	att := orionModel entityNamed: 'Class4.anAttribute'.
 
@@ -1099,7 +1099,11 @@ ORActionTest >> testORAddAttribute [
 	self deny:   att parentType identicalTo: (model entityNamed: #Class4).
 
 	self assert: att declaredType identicalTo: (orionModel entityNamed: #Class3).
-	self deny:   att declaredType identicalTo: (model entityNamed: #Class3).
+	self assert: (orionModel entityNamed: #Class3) typedEntities size equals: 1.
+	self
+		assert: (orionModel entityNamed: #Class3) typedEntities anyOne
+		identicalTo: att.
+	self assert: (model entityNamed: #Class3) typedEntities size equals: 0.
 
 	self assert: ((orionModel entityNamed: #Class4) attributes includes: att).
 	self deny:   ((model entityNamed: #Class4) attributes includes: att).
@@ -1161,7 +1165,7 @@ ORActionTest >> testORAddInheritance [
 
 	self assert: orionModel size equals: model size + 1.
 	self assert: orionModel allInheritanceDefinitions size equals: model allInheritanceDefinitions size + 1.
-	self assert: orionModel allClasses size equals: model allClasses size + 1.
+	self assert: orionModel allClasses size equals: model allClasses size.
 
 	self assert: (orionModel entityNamed: 'Class2') superInheritances size equals: 2.
 	self
@@ -1202,7 +1206,7 @@ ORActionTest >> testORAddMethod [
 
 	self assert: orionModel size equals: model size + 1.
 	self assert: orionModel allMethods size equals: model allMethods size + 1.
-	self assert: orionModel allClasses size equals: model allClasses size + 1.
+	self assert: orionModel allClasses size equals: model allClasses size.
 
 	mth := orionModel entityNamed: 'Class4.newMethod(...)'.
 
