@@ -1081,7 +1081,10 @@ ORActionTest >> testORAddAttribute [
 	self assert: (orionModel entityNamed: 'Class4.anAttribute') isNil.
 
 	act run.
+
 	self assert: orionModel size equals: model size + 1.
+	self assert: orionModel allAttributes size equals: model allAttributes size + 1.
+	self assert: orionModel allClasses size equals: model allClasses size + 1.
 
 	att := orionModel entityNamed: 'Class4.anAttribute'.
 
@@ -1118,7 +1121,9 @@ ORActionTest >> testORAddClass [
 	self assert: (orionModel entityNamed: 'NewClass') isNil.
 
 	act run.
+
 	self assert: orionModel size equals: model size + 1.
+	self assert: orionModel allClasses size equals: model allClasses size + 1.
 
 	class := orionModel entityNamed: 'NewClass'.
 
@@ -1194,7 +1199,10 @@ ORActionTest >> testORAddMethod [
 	self assert: (orionModel entityNamed: 'Class4.newMethod(...)') isNil.
 
 	act run.
+
 	self assert: orionModel size equals: model size + 1.
+	self assert: orionModel allMethods size equals: model allMethods size + 1.
+	self assert: orionModel allClasses size equals: model allClasses size + 1.
 
 	mth := orionModel entityNamed: 'Class4.newMethod(...)'.
 
