@@ -2,7 +2,8 @@ Class {
 	#name : 'ORActionTest',
 	#superclass : 'ORTest',
 	#instVars : [
-		'orionModel'
+		'orionModel',
+		'action'
 	],
 	#category : 'Orion-Actions-Tests',
 	#package : 'Orion-Actions-Tests'
@@ -15,7 +16,13 @@ ORActionTest >> setUp [
 
 	model beForOrion.
 	orionModel := model makeNewVersion
-		name: #orionModel
+		name: #orionModel.
+
+	self setUpAction
+]
+
+{ #category : 'testing OrionModel' }
+ORActionTest >> setUpAction [
 ]
 
 { #category : 'testing OrionModel' }
@@ -1062,87 +1069,6 @@ ORActionTest >> testOPUnextendMethod [
 		assert: (orionModel entityNamed: #'Smalltalk::Class5.accessOrion2Class3()') parentType
 		equals: (orionModel entityNamed: #Smalltalk::Class5).
 	self assert: (orionModel entityNamed: #Smalltalk::Class5) extendedInPackages size equals: 0
-]
-
-{ #category : 'testing' }
-ORActionTest >> testORAddAttribute [
-
-	| act att |
-
-	act := ORActionAddAttribute new
-		orionModel: orionModel;
-		name: 'anAttribute';
-		isStub: true ;
-		isClassSide: false ;
-		parentType: (orionModel entityNamed: #Class4) ;
-		declaredType: (orionModel entityNamed: #Class3) ;
-		yourself.
-
-	self assert: (orionModel entityNamed: 'Class4.anAttribute') isNil.
-
-	act run.
-
-	self assert: orionModel size equals: model size + 1.
-	self assert: orionModel allAttributes size equals: model allAttributes size + 1.
-	self assert: orionModel allClasses size equals: model allClasses size.
-
-	att := orionModel entityNamed: 'Class4.anAttribute'.
-
-	self assert: att notNil.
-	self assert: (orionModel includes: att).
-	self deny: (model includes: att).
-
-	self assert: att isStub.
-	self deny: att isClassSide.
-
-	self assert: att parentType identicalTo: (orionModel entityNamed: #Class4).
-	self deny:   att parentType identicalTo: (model entityNamed: #Class4).
-
-	self assert: att declaredType identicalTo: (orionModel entityNamed: #Class3).
-	self assert: (orionModel entityNamed: #Class3) typedEntities size equals: 1.
-	self
-		assert: (orionModel entityNamed: #Class3) typedEntities anyOne
-		identicalTo: att.
-	self assert: (model entityNamed: #Class3) typedEntities size equals: 0.
-
-	self assert: ((orionModel entityNamed: #Class4) attributes includes: att).
-	self deny:   ((model entityNamed: #Class4) attributes includes: att).
-
-]
-
-{ #category : 'testing' }
-ORActionTest >> testORAddClass [
-
-	| act class |
-
-	act := ORActionAddClass new
-		orionModel: orionModel;
-		name: 'NewClass';
-		isStub: true ;
-		parentPackage: (orionModel entityNamed: #'OrionForTest2');
-		yourself.
-
-	self assert: (orionModel entityNamed: 'NewClass') isNil.
-
-	act run.
-
-	self assert: orionModel size equals: model size + 1.
-	self assert: orionModel allClasses size equals: model allClasses size + 1.
-
-	class := orionModel entityNamed: 'NewClass'.
-
-	self assert: class notNil.
-	self assert: (orionModel includes: class).
-	self deny: (model includes: class).
-
-	self assert: class isStub.
-
-	self assert: class parentPackage identicalTo: (orionModel entityNamed: #'OrionForTest2').
-	self deny:   class parentPackage identicalTo: (model entityNamed: #'OrionForTest2').
-
-	self assert: ((orionModel entityNamed: #'OrionForTest2') classes includes: class).
-	self deny:   ((model entityNamed: #'OrionForTest2') classes includes: class).
-
 ]
 
 { #category : 'testing' }
