@@ -20,13 +20,14 @@ ORModelTest >> testBeForOrion [
 	model beForOrion.
 
 	self assert: (model allWithType: FamixStPackage) size equals: 2.
-	self assert: (model allWithType: FamixStClass) size equals: 5.
+	self assert: (model allWithType: FamixStClass) size equals: 6.
 	self assert: (model allWithType: FamixStMethod) size equals: 4.
+	self assert: (model allWithType: FamixStInheritance) size equals: 5.
 	self assert: (model allWithType: FamixStInvocation) size equals: 4.
 	self assert: (model allWithType: FamixStReference) size equals: 4.
 
 	self assert: model entityStorage class equals: ORStorage.
-	self assert: model entityStorage size equals: 19.
+	self assert: model entityStorage size equals: 25.
 
 	self assert: model childrenVersions isEmpty.
 ]

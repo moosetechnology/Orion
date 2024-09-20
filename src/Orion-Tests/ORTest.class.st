@@ -11,16 +11,12 @@ Class {
 { #category : 'factory' }
 ORTest >> class: aString in: package [
 
-	| theClass inh |
+	| theClass |
 	theClass := model newClass
 		name: aString ;
 		yourself.
 
-	inh := model newInheritance.
-	inh setWithoutInverse: #superclass value: (model entityNamed: 'Object').
-	inh setWithoutInverse: #subclass value: theClass.
-	(model entityNamed: 'Object') addWithoutInverse: #subInheritances value: inh.
-	theClass addWithoutInverse: #superInheritances value: inh.
+	self inherit: theClass from: (model entityNamed: 'Object').
 
 	theClass setWithoutInverse: #parentPackage value: package.
 	package addWithoutInverse: #childEntities value: theClass.

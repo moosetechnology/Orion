@@ -13,13 +13,12 @@ Class {
 ORChainTest >> exampleModel1 [
 	"A small model to make some tests"
 
-	| pckg cls1 cls2 cls3 cls4 |
+	| cls1 cls2 cls3 cls4 |
 
-	pckg := self package: 'OrionForTest'.
-	cls1 := self class: 'Class1' in: pckg.
-	cls2 := self class: 'Class2' in: pckg.
-	cls3 := self class: 'Class3' in: pckg.
-	cls4 := self class: 'Class4' in: pckg.
+	cls1 := model newClass name: 'Class1'.
+	cls2 := model newClass name:  'Class2'.
+	cls3 := model newClass name:  'Class3'.
+	cls4 := model newClass name:  'Class4'.
 
 	self inherit: cls2 from: cls1.
 	self inherit: cls3 from: cls2.
