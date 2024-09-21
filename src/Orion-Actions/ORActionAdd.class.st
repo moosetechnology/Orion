@@ -8,3 +8,8 @@ Class {
 	#category : 'Orion-Actions',
 	#package : 'Orion-Actions'
 }
+
+{ #category : 'testing' }
+ORActionAdd >> isAddition [
+	^true
+]

@@ -3,7 +3,7 @@ A ORActionAddClass is a generated class useful to Orion. It corresponds to an ac
 "
 Class {
 	#name : 'ORActionAddClass',
-	#superclass : 'ORActionAddEntity',
+	#superclass : 'ORActionAdd',
 	#instVars : [
 		'isStub',
 		'parentPackage',

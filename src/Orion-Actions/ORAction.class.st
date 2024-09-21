@@ -32,12 +32,12 @@ ORAction >> entity: anObject [
 
 { #category : 'testing' }
 ORAction >> isAddition [
-	^ self class isAddition
+	^false
 ]
 
 { #category : 'testing' }
 ORAction >> isMove [
-	^ self class isMove
+	^false
 ]
 
 { #category : 'testing' }
@@ -47,12 +47,12 @@ ORAction >> isPairedChange [
 
 { #category : 'testing' }
 ORAction >> isRemoval [
-	^ self class isRemoval
+	^false
 ]
 
 { #category : 'testing' }
 ORAction >> isRename [
-	^ self class isRename
+	^false
 ]
 
 { #category : 'accessing' }

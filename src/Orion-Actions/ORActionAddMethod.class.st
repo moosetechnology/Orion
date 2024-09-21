@@ -3,7 +3,7 @@ A ORActionAddAttribute is a generated class useful to Orion. It corresponds to a
 "
 Class {
 	#name : 'ORActionAddMethod',
-	#superclass : 'ORActionAddEntity',
+	#superclass : 'ORActionAdd',
 	#instVars : [
 		'declaredType',
 		'name',
@@ -83,7 +83,7 @@ ORActionAddMethod >> parentType: aValue [
 ORActionAddMethod >> run [
 
 	| newMethod |
-	super run.
+
 	newMethod := self orionModel newMethod.
 
 	self name ifNotNil: [ :string | newMethod name: string ].

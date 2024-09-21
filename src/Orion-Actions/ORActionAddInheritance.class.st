@@ -3,7 +3,7 @@ A ORActionAddInheritance is a generated class useful to Orion. It corresponds to
 "
 Class {
 	#name : 'ORActionAddInheritance',
-	#superclass : 'ORActionAddLink',
+	#superclass : 'ORActionAdd',
 	#instVars : [
 		'superclass',
 		'subclass'
@@ -21,7 +21,7 @@ ORActionAddInheritance class >> description [
 ORActionAddInheritance >> run [
 
 	| newInheritance |
-	super run.
+
 	newInheritance := self orionModel newInheritance.
 
 	self superclass
