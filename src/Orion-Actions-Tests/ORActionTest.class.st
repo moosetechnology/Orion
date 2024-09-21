@@ -441,13 +441,13 @@ ORActionTest >> testOPRemoveClassWithInvocationFrom [
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestFrom'.
 	asAction run.
-	asAction := ORActionAddMethod new
+	asAction := ORActionAddTMethod new
 		orionModel: orionModel;
 		name: 'aMethodFrom';
 		signature: 'aMethodFrom()';
 		parentType: (orionModel entityNamed: 'ClassTestFrom').
 	asAction run.
-	asAction := ORActionAddMethod new
+	asAction := ORActionAddTMethod new
 		orionModel: orionModel;
 		name: 'aMethodTo';
 		signature: 'aMethodTo()';
@@ -502,10 +502,10 @@ ORActionTest >> testOPRemoveClassWithInvocationTo [
 			parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2'); 
 			name: 'ClassTestFrom'.
 	asAction run.
-	asAction := ORActionAddMethod new orionModel: orionModel; name: 'aMethodFrom'; 
+	asAction := ORActionAddTMethod new orionModel: orionModel; name: 'aMethodFrom'; 
 			parentType: (orionModel entityNamed: 'ClassTestFrom'); signature: 'aMethodFrom()'.
 	asAction run.
-	asAction := ORActionAddMethod new orionModel: orionModel; name: 'aMethodTo'; 
+	asAction := ORActionAddTMethod new orionModel: orionModel; name: 'aMethodTo'; 
 			parentType: (orionModel entityNamed: 'ClassTestTo'); signature: 'aMethodTo()'.
 	asAction run.
 	asAction := ORActionAddInvocation new orionModel: orionModel; 
@@ -557,7 +557,7 @@ ORActionTest >> testOPRemoveClassWithReferenceFrom [
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestFrom'.
 	asAction run.
-	asAction := ORActionAddMethod new
+	asAction := ORActionAddTMethod new
 		orionModel: orionModel;
 		name: 'aMethodFrom';
 		signature: 'aMethodFrom()';
@@ -612,7 +612,7 @@ ORActionTest >> testOPRemoveClassWithReferenceTo [
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestFrom'.
 	asAction run.
-	asAction := ORActionAddMethod new
+	asAction := ORActionAddTMethod new
 		orionModel: orionModel;
 		name: 'aMethodFrom';
 		signature: 'aMethodFrom()';
@@ -739,7 +739,7 @@ ORActionTest >> testOPRemoveInvocation [
 ORActionTest >> testOPRemoveMethod [
 	| asAction asM2 asAction2 class5 |
 	class5 := orionModel entityNamed: 'Smalltalk::Class5'.
-	asAction := ORActionAddMethod new orionModel: orionModel; name: 'methodTest'; signature: 'methodTest()'; parentType: class5; 
+	asAction := ORActionAddTMethod new orionModel: orionModel; name: 'methodTest'; signature: 'methodTest()'; parentType: class5; 
 			parentPackage: class5 parentPackage.
 	asAction run.
 	asM2 := (ORModel withParent: orionModel) name: 'AsM2'.
