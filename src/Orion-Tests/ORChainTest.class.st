@@ -40,7 +40,7 @@ ORChainTest >> rename: entity to: newName [
 	(ORActionRenameClass new
 			orionModel: orion2 ;
 			entity: entity ;
-			newName: newName )
+			name: newName )
 		run
 
 ]

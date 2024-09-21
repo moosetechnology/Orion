@@ -1,7 +1,7 @@
-Extension { #name : 'FMRelationSlot' }
+Extension { #name : 'InstanceVariableSlot' }
 
 { #category : '*Orion' }
-FMRelationSlot >> orionPrimitiveRead: anObject [
+InstanceVariableSlot >> orionPrimitiveRead: anObject [
 	"the default #read: without using #orionLookup:
 	 needed when we want to access the collection itself to modify it (add/remove element)"
 
@@ -9,7 +9,7 @@ FMRelationSlot >> orionPrimitiveRead: anObject [
 ]
 
 { #category : '*Orion' }
-FMRelationSlot >> orionPrimitiveWrite: aValue to: anObject [
+InstanceVariableSlot >> orionPrimitiveWrite: aValue to: anObject [
 	"the default #write:to: without using #orionLookup:
 	 needed when we want to access the collection itself to modify it (add/remove element)"
 
