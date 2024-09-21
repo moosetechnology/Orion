@@ -6,6 +6,15 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'accessing' }
+ORActionMoveTPackageable >> entity: anEntity [
+
+	(anEntity usesFamixTrait: FamixTPackageable)
+		ifFalse: [ IllegalType signal: 'Entity needs to be a FamixTPackageable' ].
+
+	super entity: anEntity
+]
+
 { #category : 'method execution' }
 ORActionMoveTPackageable >> run [
 
@@ -15,4 +24,13 @@ ORActionMoveTPackageable >> run [
 	newEntity resetMooseName.
 
 	^ newEntity
+]
+
+{ #category : 'accessing' }
+ORActionMoveTPackageable >> to: newPackage [
+
+	(newPackage usesFamixTrait: FamixTPackage)
+		ifFalse: [ IllegalType signal: 'Destination needs to be a FamixTPackage' ].
+
+	super to: newPackage
 ]
