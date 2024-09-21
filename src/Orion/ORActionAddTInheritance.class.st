@@ -27,17 +27,8 @@ ORActionAddTInheritance >> run [
 	| newInheritance |
 	newInheritance := self orionModel newInheritance.
 
-	self superclass ifNotNil: [ :superClass |
-		self
-			setFamixProperty: #superclass
-			on: newInheritance
-			to: superClass ].
-
-	self subclass ifNotNil: [ :subClass |
-		self
-			setFamixProperty: #subclass
-			on: newInheritance
-			to: subClass ].
+	self setFamixProperty: #superclass on: newInheritance to: self superclass.
+	self setFamixProperty: #subclass on: newInheritance to: self subclass.
 
 	entity := newInheritance.
 	^ entity

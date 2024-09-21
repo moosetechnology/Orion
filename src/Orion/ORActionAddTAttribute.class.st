@@ -66,20 +66,11 @@ ORActionAddTAttribute >> run [
 	| newAttribute |
 	newAttribute := self orionModel newAttribute.
 
-	self name ifNotNil: [ :string | newAttribute name: string ].
-	self isStub ifNotNil: [ :bool | newAttribute isStub: bool ].
+	self setFamixProperty: #name on: newAttribute to: self name.
+	self setFamixProperty: #isStub on: newAttribute to: self isStub.
 
-	self parentType ifNotNil: [ :parent |
-		self
-			setFamixProperty: #parentType
-			on: newAttribute
-			to: parent ].
-
-	self declaredType ifNotNil: [ :type |
-		self
-			setFamixProperty: #declaredType
-			on: newAttribute
-			to: type ].
+	self setFamixProperty: #parentType on: newAttribute to: self parentType.
+	self setFamixProperty: #declaredType on: newAttribute to: self declaredType.
 
 	newAttribute resetMooseName.
 

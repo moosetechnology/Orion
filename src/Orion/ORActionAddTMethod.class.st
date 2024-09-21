@@ -68,21 +68,12 @@ ORActionAddTMethod >> run [
 	| newMethod |
 	newMethod := self orionModel newMethod.
 
-	self name ifNotNil: [ :string | newMethod name: string ].
-	self isStub ifNotNil: [ :bool | newMethod isStub: bool ].
-	self signature ifNotNil: [ :string | newMethod signature: string ].
+	self setFamixProperty: #name on: newMethod to: self name.
+	self setFamixProperty: #isStub on: newMethod to: self isStub.
+	self setFamixProperty: #signature on: newMethod to: self signature.
 
-	self parentType ifNotNil: [ :parent |
-		self
-			setFamixProperty: #parentType
-			on: newMethod
-			to: parent ].
-
-	self declaredType ifNotNil: [ :type |
-		self
-			setFamixProperty: #declaredType
-			on: newMethod
-			to: type ].
+	self setFamixProperty: #parentType on: newMethod to: self parentType.
+	self setFamixProperty: #declaredType on: newMethod to: self declaredType.
 
 	newMethod resetMooseName.
 
