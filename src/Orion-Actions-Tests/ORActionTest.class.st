@@ -655,7 +655,7 @@ ORActionTest >> testOPRemoveClassWithReferenceTo [
 { #category : 'testing' }
 ORActionTest >> testOPRemoveInheritance [
 	| asAction oldInh asM2 asAction2 |
-	asAction := ORActionAddInheritance new
+	asAction := ORActionAddTInheritance new
 		orionModel: orionModel;
 		superclass: (orionModel entityNamed: 'Smalltalk::Class1');
 		subclass: (orionModel entityNamed: 'Smalltalk::Class2').
@@ -690,7 +690,7 @@ ORActionTest >> testOPRemoveInheritedClass [
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestParent'.
 	asAction run.
-	asAction := ORActionAddInheritance new
+	asAction := ORActionAddTInheritance new
 		orionModel: orionModel;
 		superclass: (orionModel entityNamed: 'ClassTestParent');
 		subclass: (orionModel entityNamed: 'ClassTestChild').
@@ -879,12 +879,12 @@ ORActionTest >> testOPRemoveSuperClassWithSubInheritance [
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'SuperClassTestParent'.
 	asAction run.
-	asAction := ORActionAddInheritance new
+	asAction := ORActionAddTInheritance new
 		orionModel: orionModel;
 		superclass: (orionModel entityNamed: 'ClassTestParent');
 		subclass: (orionModel entityNamed: 'ClassTestChild').
 	asAction run.
-	asAction := ORActionAddInheritance new
+	asAction := ORActionAddTInheritance new
 		orionModel: orionModel;
 		subclass: (orionModel entityNamed: 'ClassTestParent');
 		superclass: (orionModel entityNamed: 'SuperClassTestParent').

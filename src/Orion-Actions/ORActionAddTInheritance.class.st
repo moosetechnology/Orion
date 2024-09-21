@@ -1,8 +1,11 @@
 "
-A ORActionAddInheritance is a generated class useful to Orion. It corresponds to an action that can be performed on a type of model element. See OrionGenerator in Moose/Orion on SmalltalkHub for more information.
+I add a new FamixTInheritance association in an OrionModel.
+I need the following properties of the new inheritance
+- the `superclass`
+- the `subclass`
 "
 Class {
-	#name : 'ORActionAddInheritance',
+	#name : 'ORActionAddTInheritance',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'superclass',
@@ -13,12 +16,12 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddInheritance class >> description [
+ORActionAddTInheritance class >> description [
 	^'add inheritance'
 ]
 
 { #category : 'method execution' }
-ORActionAddInheritance >> run [
+ORActionAddTInheritance >> run [
 
 	| newInheritance |
 
@@ -37,21 +40,21 @@ ORActionAddInheritance >> run [
 ]
 
 { #category : 'accessing' }
-ORActionAddInheritance >> subclass [
+ORActionAddTInheritance >> subclass [
 	^ subclass
 ]
 
 { #category : 'accessing' }
-ORActionAddInheritance >> subclass: aValue [
+ORActionAddTInheritance >> subclass: aValue [
 	subclass := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddInheritance >> superclass [
+ORActionAddTInheritance >> superclass [
 	^ superclass
 ]
 
 { #category : 'accessing' }
-ORActionAddInheritance >> superclass: aValue [
+ORActionAddTInheritance >> superclass: aValue [
 	superclass := aValue
 ]

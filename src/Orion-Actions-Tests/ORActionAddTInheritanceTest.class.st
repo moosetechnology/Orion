@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddInheritanceTest',
+	#name : 'ORActionAddTInheritanceTest',
 	#superclass : 'ORActionTest',
 	#category : 'Orion-Actions-Tests-Add',
 	#package : 'Orion-Actions-Tests',
@@ -7,9 +7,9 @@ Class {
 }
 
 { #category : 'testing OrionModel' }
-ORActionAddInheritanceTest >> setUpAction [
+ORActionAddTInheritanceTest >> setUpAction [
 
-	action := ORActionAddInheritance new
+	action := ORActionAddTInheritance new
 		orionModel: orionModel;
 		superclass: (orionModel entityNamed: 'Class1');
 		subclass: (orionModel entityNamed: 'Class2').
@@ -17,7 +17,7 @@ ORActionAddInheritanceTest >> setUpAction [
 ]
 
 { #category : 'testing' }
-ORActionAddInheritanceTest >> testAddsOneEntity [
+ORActionAddTInheritanceTest >> testAddsOneEntity [
 
 	action run.
 
@@ -28,7 +28,7 @@ ORActionAddInheritanceTest >> testAddsOneEntity [
 ]
 
 { #category : 'testing' }
-ORActionAddInheritanceTest >> testEntityIsVersioned [
+ORActionAddTInheritanceTest >> testEntityIsVersioned [
 
 	action run.
 
