@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddAttributeTest',
+	#name : 'ORActionAddTAttributeTest',
 	#superclass : 'ORActionTest',
 	#category : 'Orion-Actions-Tests-Add',
 	#package : 'Orion-Actions-Tests',
@@ -7,20 +7,19 @@ Class {
 }
 
 { #category : 'testing OrionModel' }
-ORActionAddAttributeTest >> setUpAction [
+ORActionAddTAttributeTest >> setUpAction [
 
-	action := ORActionAddAttribute new
+	action := ORActionAddTAttribute new
 		orionModel: orionModel;
 		name: 'anAttribute';
 		isStub: true ;
-		isClassSide: false ;
 		parentType: (orionModel entityNamed: #Class4) ;
 		declaredType: (orionModel entityNamed: #Class3) ;
 		yourself.
 ]
 
 { #category : 'testing' }
-ORActionAddAttributeTest >> testAddsOneEntity [
+ORActionAddTAttributeTest >> testAddsOneEntity [
 
 	action run.
 
@@ -31,7 +30,7 @@ ORActionAddAttributeTest >> testAddsOneEntity [
 ]
 
 { #category : 'testing' }
-ORActionAddAttributeTest >> testCopiesPrimitiveProperties [
+ORActionAddTAttributeTest >> testCopiesPrimitiveProperties [
 
 	| att |
 
@@ -43,12 +42,11 @@ ORActionAddAttributeTest >> testCopiesPrimitiveProperties [
 
 	self assert: att isNotNil.
 	self assert: att isStub.
-	self deny: att isClassSide.
 
 ]
 
 { #category : 'testing' }
-ORActionAddAttributeTest >> testCreatesVersionOfAssociatedEntities [
+ORActionAddTAttributeTest >> testCreatesVersionOfAssociatedEntities [
 
 	| att |
 
@@ -72,7 +70,7 @@ ORActionAddAttributeTest >> testCreatesVersionOfAssociatedEntities [
 ]
 
 { #category : 'testing' }
-ORActionAddAttributeTest >> testEntityIsVersioned [
+ORActionAddTAttributeTest >> testEntityIsVersioned [
 
 	| att |
 
