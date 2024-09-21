@@ -411,7 +411,7 @@ ORActionTest >> testOPMovePackage [
 { #category : 'testing' }
 ORActionTest >> testOPRemoveClass [
 	| asAction asM2 asAction2 |
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTest'.
@@ -431,12 +431,12 @@ ORActionTest >> testOPRemoveClass [
 { #category : 'testing' }
 ORActionTest >> testOPRemoveClassWithInvocationFrom [
 	| asAction asM2 |
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestTo'.
 	asAction run.
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestFrom'.
@@ -494,11 +494,11 @@ ORActionTest >> testOPRemoveClassWithInvocationFrom [
 { #category : 'testing' }
 ORActionTest >> testOPRemoveClassWithInvocationTo [
 	| asAction asM2 |
-	asAction := ORActionAddClass new orionModel: orionModel; 
+	asAction := ORActionAddTClass new orionModel: orionModel; 
 			parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2'); 
 			name: 'ClassTestTo'.
 	asAction run.
-	asAction := ORActionAddClass new orionModel: orionModel; 
+	asAction := ORActionAddTClass new orionModel: orionModel; 
 			parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2'); 
 			name: 'ClassTestFrom'.
 	asAction run.
@@ -547,12 +547,12 @@ ORActionTest >> testOPRemoveClassWithInvocationTo [
 { #category : 'testing' }
 ORActionTest >> testOPRemoveClassWithReferenceFrom [
 	| asAction asM2 |
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestTo'.
 	asAction run.
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestFrom'.
@@ -602,12 +602,12 @@ ORActionTest >> testOPRemoveClassWithReferenceFrom [
 { #category : 'testing' }
 ORActionTest >> testOPRemoveClassWithReferenceTo [
 	| asAction asM2 |
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestTo'.
 	asAction run.
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestFrom'.
@@ -680,12 +680,12 @@ ORActionTest >> testOPRemoveInheritance [
 { #category : 'testing' }
 ORActionTest >> testOPRemoveInheritedClass [
 	| asAction asM2 |
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestChild'.
 	asAction run.
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestParent'.
@@ -864,17 +864,17 @@ ORActionTest >> testOPRemoveReference [
 ORActionTest >> testOPRemoveSuperClassWithSubInheritance [
 	| asAction asM2 |
 		self flag: #FIXME.
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestParent'.
 	asAction run.
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'ClassTestChild'.
 	asAction run.
-	asAction := ORActionAddClass new
+	asAction := ORActionAddTClass new
 		orionModel: orionModel;
 		parentPackage: (orionModel entityNamed: 'Orion-TestModel-Constellation2');
 		name: 'SuperClassTestParent'.
@@ -982,12 +982,12 @@ ORActionTest >> testOPUnextendMethod [
 { #category : 'testing OrionModel' }
 ORActionTest >> testParentActions [
 	| act1 act2 act3 |
-	act1 := ORActionAddClass new
+	act1 := ORActionAddTClass new
 		name: 'parentAct';
 		yourself.
 	self assert: act1 childrenActions isEmpty.
 	self assert: act1 isManual.
-	act2 := ORActionAddClass new
+	act2 := ORActionAddTClass new
 		name: '1stChildAct';
 		parentAction: act1;
 		yourself.
@@ -995,7 +995,7 @@ ORActionTest >> testParentActions [
 	self deny: act2 isManual.
 	self assert: act2 parentAction equals: act1.
 	self assert: act1 childrenActions size equals: 1.
-	act3 := ORActionAddClass new
+	act3 := ORActionAddTClass new
 		name: '2ndChildAct';
 		parentAction: act1;
 		yourself.

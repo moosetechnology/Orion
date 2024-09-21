@@ -1,8 +1,12 @@
 "
-A ORActionAddClass is a generated class useful to Orion. It corresponds to an action that can be performed on a type of model element. See OrionGenerator in Moose/Orion on SmalltalkHub for more information.
+I add a new FamixTClass in an OrionModel.
+I need the following properties of the new class:
+- `name`
+- `parentPackage` (/!\ This is not from TClass but a common property)
+- whether it is a stub (`isStub`)
 "
 Class {
-	#name : 'ORActionAddClass',
+	#name : 'ORActionAddTClass',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'isStub',
@@ -14,43 +18,43 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddClass >> isStub [
+ORActionAddTClass >> isStub [
 	^ isStub
 ]
 
 { #category : 'accessing' }
-ORActionAddClass >> isStub: aValue [
+ORActionAddTClass >> isStub: aValue [
 	isStub := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddClass >> name [
+ORActionAddTClass >> name [
 	^ name
 ]
 
 { #category : 'accessing' }
-ORActionAddClass >> name: aValue [
+ORActionAddTClass >> name: aValue [
 	name := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddClass >> parentPackage [
+ORActionAddTClass >> parentPackage [
 	^ parentPackage
 ]
 
 { #category : 'accessing' }
-ORActionAddClass >> parentPackage: aValue [
+ORActionAddTClass >> parentPackage: aValue [
 	parentPackage := aValue
 ]
 
 { #category : 'printing' }
-ORActionAddClass >> printWorkspace [
+ORActionAddTClass >> printWorkspace [
 
 	^ super printWorkspace , self entity mooseName, ' in ', self parentPackage mooseName
 ]
 
 { #category : 'method execution' }
-ORActionAddClass >> run [
+ORActionAddTClass >> run [
 
 	| newClass |
 	newClass := self orionModel newClass.

@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddClassTest',
+	#name : 'ORActionAddTClassTest',
 	#superclass : 'ORActionTest',
 	#category : 'Orion-Actions-Tests-Add',
 	#package : 'Orion-Actions-Tests',
@@ -7,9 +7,9 @@ Class {
 }
 
 { #category : 'testing' }
-ORActionAddClassTest >> setUpAction [
+ORActionAddTClassTest >> setUpAction [
 
-	action := ORActionAddClass new
+	action := ORActionAddTClass new
 		       orionModel: orionModel;
 		       name: 'NewClass';
 		       isStub: true;
@@ -18,7 +18,7 @@ ORActionAddClassTest >> setUpAction [
 ]
 
 { #category : 'as yet unclassified' }
-ORActionAddClassTest >> testAddsOneEntity [
+ORActionAddTClassTest >> testAddsOneEntity [
 
 	action run.
 
@@ -29,7 +29,7 @@ ORActionAddClassTest >> testAddsOneEntity [
 ]
 
 { #category : 'as yet unclassified' }
-ORActionAddClassTest >> testCopiesPrimitiveProperties [
+ORActionAddTClassTest >> testCopiesPrimitiveProperties [
 
 	| class |
 
@@ -44,7 +44,7 @@ ORActionAddClassTest >> testCopiesPrimitiveProperties [
 ]
 
 { #category : 'as yet unclassified' }
-ORActionAddClassTest >> testCreatesVersionOfAssociatedEntities [
+ORActionAddTClassTest >> testCreatesVersionOfAssociatedEntities [
 
 	| class |
 
@@ -61,7 +61,7 @@ ORActionAddClassTest >> testCreatesVersionOfAssociatedEntities [
 ]
 
 { #category : 'as yet unclassified' }
-ORActionAddClassTest >> testEntityIsVersioned [
+ORActionAddTClassTest >> testEntityIsVersioned [
 
 	| class |
 
