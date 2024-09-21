@@ -9,8 +9,7 @@ Class {
 { #category : 'accessing' }
 ORActionMoveTPackageable >> entity: anEntity [
 
-	(anEntity usesFamixTrait: FamixTPackageable)
-		ifFalse: [ IllegalType signal: 'Entity needs to be a FamixTPackageable' ].
+	IllegalType check: anEntity useTrait: FamixTPackageable.
 
 	super entity: anEntity
 ]
@@ -29,8 +28,7 @@ ORActionMoveTPackageable >> run [
 { #category : 'accessing' }
 ORActionMoveTPackageable >> to: newPackage [
 
-	(newPackage usesFamixTrait: FamixTPackage)
-		ifFalse: [ IllegalType signal: 'Destination needs to be a FamixTPackage' ].
+	IllegalType check: newPackage useTrait:  FamixTPackage.
 
 	super to: newPackage
 ]

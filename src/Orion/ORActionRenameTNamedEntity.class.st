@@ -10,6 +10,14 @@ Class {
 }
 
 { #category : 'accessing' }
+ORActionRenameTNamedEntity >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTNamedEntity.
+
+	super entity: anEntity
+]
+
+{ #category : 'accessing' }
 ORActionRenameTNamedEntity >> name [
 	
 	^ name
@@ -18,7 +26,7 @@ ORActionRenameTNamedEntity >> name [
 { #category : 'accessing' }
 ORActionRenameTNamedEntity >> name: anObject [
 	
-	name := anObject
+	name := anObject asString
 ]
 
 { #category : 'accessing' }
