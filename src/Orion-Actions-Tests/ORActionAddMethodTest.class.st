@@ -1,8 +1,9 @@
 Class {
 	#name : 'ORActionAddMethodTest',
 	#superclass : 'ORActionTest',
-	#category : 'Orion-Actions-Tests',
-	#package : 'Orion-Actions-Tests'
+	#category : 'Orion-Actions-Tests-Add',
+	#package : 'Orion-Actions-Tests',
+	#tag : 'Add'
 }
 
 { #category : 'testing' }
@@ -93,7 +94,7 @@ ORActionAddMethodTest >> testCreatesVersionOfAssociatedEntities [
 ]
 
 { #category : 'testing' }
-ORActionAddMethodTest >> testVersionOfEntityInModel [
+ORActionAddMethodTest >> testEntityIsVersioned [
 
 	| mth |
 

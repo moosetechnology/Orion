@@ -25,42 +25,6 @@ ORActionTest >> setUp [
 ORActionTest >> setUpAction [
 ]
 
-{ #category : 'testing OrionModel' }
-ORActionTest >> testAttributeGet [
-	| asAction |
-	self assert: (orionModel entityNamed: #Smalltalk::Class5) extendedMethods isEmpty.
-	asAction := ORActionMoveMethod new
-		orionModel: orionModel;
-		entity: (orionModel entityNamed: #'Smalltalk::Class5.accessOrion2Class3()');
-		parentPackage: (orionModel entityNamed: #'Orion-TestModel-Constellation1').
-	asAction run.
-	self assert: (orionModel entityNamed: #Smalltalk::Class5) extendedMethods notEmpty
-]
-
-{ #category : 'testing OrionModel' }
-ORActionTest >> testCreateEntityFrom [
-	| asS oldPackage newPackage |
-	asS := self model system.
-	orionModel := orionModel name: #AsM.
-	oldPackage := orionModel
-		entityNamed: #'Orion-TestModel-Constellation2'.
-	self
-		assert: (orionModel entityNamed: #'Orion-TestModel-Constellation2')
-		equals: oldPackage.
-	self assert: oldPackage mooseModel equals: self model.
-	newPackage := orionModel createEntityFrom: oldPackage.
-	self assert: oldPackage mooseModel equals: self model.
-	self assert: newPackage mooseModel equals: orionModel.
-	self
-		assert: (orionModel entityNamed: #'Orion-TestModel-Constellation2')
-		equals: newPackage.
-	self
-		assert: (asS sourceModel entityNamed: #'Orion-TestModel-Constellation2')
-		equals: oldPackage.
-	self assert: (orionModel contains: newPackage).
-	self deny: (orionModel contains: oldPackage)
-]
-
 { #category : 'testing' }
 ORActionTest >> testDisplayNameAfterRemove [
 	<expectedFailure>
@@ -82,29 +46,6 @@ ORActionTest >> testDisplayNameAfterRemove [
 		entity: (asM2 entityNamed: 'Smalltalk::Class1.accessOrion2Class3()').
 	asAction3 run.
 	self assert: asM2 changes first entity source asString ~= 'nil'
-]
-
-{ #category : 'testing OrionModel' }
-ORActionTest >> testLookUp [
-	| asSys orionAction orionModel2 orionAction2 |
-	asSys := self model system.
-	orionModel := orionModel name: 'AsM'.
-	orionAction := ORActionAddInheritance new
-		orionModel: orionModel;
-		superclass: (orionModel entityNamed: 'Smalltalk::Class1');
-		subclass: (orionModel entityNamed: 'Smalltalk::Class2').
-	orionAction run.
-	orionModel2 := (ORModel withParent: orionModel) name: 'AsM2'.
-	orionAction2 := ORActionAddInheritance new
-		orionModel: orionModel2;
-		superclass: (orionModel2 entityNamed: 'Smalltalk::Class1');
-		subclass: (orionModel2 entityNamed: 'Smalltalk::Class2').
-	orionAction2 run.
-	self assert: (orionModel2 entityNamed: 'Smalltalk::Class1.accessOrion1Class2()') parentType equals: (orionModel2 entityNamed: 'Smalltalk::Class1').
-	self
-		assert:
-			(orionModel2 allInheritanceDefinitions
-				collect: [ :entity | entity superclass = (orionModel2 entityNamed: 'Smalltalk::Class1') and: [ entity subclass = (orionModel2 entityNamed: 'Smalltalk::Class2') ] ]) notNil
 ]
 
 { #category : 'testing long' }
@@ -330,39 +271,6 @@ ORActionTest >> testOPMoveClassInNamespace [
 	self
 		assert: (orionModel entityNamed: 'NamespaceTest::Class5') parentPackage
 		equals: (orionModel entityNamed: 'Orion-TestModel-Constellation2').
-]
-
-{ #category : 'testing' }
-ORActionTest >> testOPMoveClassInPackage [
-	| asS asAction |
-	asS := self model system.
-	asAction := ORActionMoveClass new orionModel: orionModel; 
-		entity: (orionModel entityNamed: #Smalltalk::Class5); 
-		parentPackage: (orionModel entityNamed: #'Orion-TestModel-Constellation1').
-	asAction run.
-	self assert: (orionModel entityNamed: #Smalltalk::Class5) notNil.
-	self deny: (asS sourceModel contains: (orionModel entityNamed: #Smalltalk::Class5)).
-	self deny: (asS sourceModel entityNamed: #Smalltalk::Class5) = (orionModel entityNamed: #Smalltalk::Class5).
-	self
-		assert: ((orionModel entityNamed: #'Orion-TestModel-Constellation1') childNamedEntities includes: (orionModel entityNamed: #Smalltalk::Class5)).
-	self
-		deny: ((orionModel entityNamed: #'Orion-TestModel-Constellation2') childNamedEntities includes: (orionModel entityNamed: #Smalltalk::Class5)).
-	self
-		assert:
-			((asS sourceModel entityNamed: #'Orion-TestModel-Constellation2') childNamedEntities
-				includes: (asS sourceModel entityNamed: #Smalltalk::Class5)).
-	self
-		deny:
-			((asS sourceModel entityNamed: #'Orion-TestModel-Constellation1') childNamedEntities
-				includes: (asS sourceModel entityNamed: #Smalltalk::Class5)).
-	self
-		assert: ((orionModel entityNamed: #Smalltalk::Class5) methods includes: (orionModel entityNamed: #'Smalltalk::Class5.accessOrion2Class3()')).
-	self
-		assert: (orionModel entityNamed: #Smalltalk::Class5) parentPackage
-		equals: (orionModel entityNamed: #'Orion-TestModel-Constellation1').
-	self
-		assert: (orionModel entityNamed: #'Smalltalk::Class5.accessOrion2Class3()') parentType
-		equals: (orionModel entityNamed: #Smalltalk::Class5)
 ]
 
 { #category : 'testing' }

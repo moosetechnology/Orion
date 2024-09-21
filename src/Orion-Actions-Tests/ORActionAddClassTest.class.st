@@ -1,8 +1,9 @@
 Class {
 	#name : 'ORActionAddClassTest',
 	#superclass : 'ORActionTest',
-	#category : 'Orion-Actions-Tests',
-	#package : 'Orion-Actions-Tests'
+	#category : 'Orion-Actions-Tests-Add',
+	#package : 'Orion-Actions-Tests',
+	#tag : 'Add'
 }
 
 { #category : 'testing' }
@@ -16,7 +17,7 @@ ORActionAddClassTest >> setUpAction [
 		       yourself.
 ]
 
-{ #category : 'testing' }
+{ #category : 'as yet unclassified' }
 ORActionAddClassTest >> testAddsOneEntity [
 
 	action run.
@@ -27,7 +28,7 @@ ORActionAddClassTest >> testAddsOneEntity [
 		equals: model allClasses size + 1
 ]
 
-{ #category : 'testing' }
+{ #category : 'as yet unclassified' }
 ORActionAddClassTest >> testCopiesPrimitiveProperties [
 
 	| class |
@@ -42,7 +43,7 @@ ORActionAddClassTest >> testCopiesPrimitiveProperties [
 
 ]
 
-{ #category : 'testing' }
+{ #category : 'as yet unclassified' }
 ORActionAddClassTest >> testCreatesVersionOfAssociatedEntities [
 
 	| class |
@@ -59,8 +60,8 @@ ORActionAddClassTest >> testCreatesVersionOfAssociatedEntities [
 
 ]
 
-{ #category : 'testing' }
-ORActionAddClassTest >> testVersionOfEntityInModel [
+{ #category : 'as yet unclassified' }
+ORActionAddClassTest >> testEntityIsVersioned [
 
 	| class |
 

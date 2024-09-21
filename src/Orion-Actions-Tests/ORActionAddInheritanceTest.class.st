@@ -1,8 +1,9 @@
 Class {
 	#name : 'ORActionAddInheritanceTest',
 	#superclass : 'ORActionTest',
-	#category : 'Orion-Actions-Tests',
-	#package : 'Orion-Actions-Tests'
+	#category : 'Orion-Actions-Tests-Add',
+	#package : 'Orion-Actions-Tests',
+	#tag : 'Add'
 }
 
 { #category : 'testing OrionModel' }
@@ -27,7 +28,7 @@ ORActionAddInheritanceTest >> testAddsOneEntity [
 ]
 
 { #category : 'testing' }
-ORActionAddInheritanceTest >> testVersionOfEntityInModel [
+ORActionAddInheritanceTest >> testEntityIsVersioned [
 
 	action run.
 
