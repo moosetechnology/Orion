@@ -5,8 +5,9 @@ Class {
 		'orion1',
 		'orion2'
 	],
-	#category : 'Orion-Tests',
-	#package : 'Orion-Tests'
+	#category : 'Orion-Tests-Core',
+	#package : 'Orion-Tests',
+	#tag : 'Core'
 }
 
 { #category : 'running' }
@@ -37,7 +38,7 @@ ORChainTest >> inheritanceRoot: aClass [
 { #category : 'running' }
 ORChainTest >> rename: entity to: newName [
 
-	(ORActionRenameClass new
+	(ORActionRenameTNamedEntity new
 			orionModel: orion2 ;
 			entity: entity ;
 			name: newName )
