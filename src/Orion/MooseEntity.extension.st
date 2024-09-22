@@ -34,7 +34,11 @@ MooseEntity >> orionCopy [
 	
 	self mooseDescription allPropertiesDo: [ :prop |
 		prop isMultivalued ifTrue: [
-			prop orionPrimitiveSetOn: theCopy values: (prop orionPrimitiveGetFrom: self) shallowCopy
+			(theCopy respondsTo: prop implementingSelector asMutator)
+				ifTrue: [
+					"working around bug: https://github.com/moosetechnology/Famix/issues/826"
+					prop orionPrimitiveSetOn: theCopy values: (prop orionPrimitiveGetFrom: self) shallowCopy
+				]
 		]
 	].
 	^theCopy
