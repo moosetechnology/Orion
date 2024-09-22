@@ -113,15 +113,13 @@ ORAction >> setFamixProperty: propertyName on: sourceEntity to: targetValue [
 
 	| versionedSource versionedTarget aSlot |
 
-	versionedSource := self orionModel ensureOrionEntity: sourceEntity.
-	versionedTarget := targetValue isMooseEntity
-		ifTrue:  [ self orionModel ensureOrionEntity: targetValue ]
-		ifFalse: [ targetValue ].
+	versionedSource := self orionModel ensureVersioned: sourceEntity.
+	versionedTarget := self orionModel ensureVersioned: targetValue.
 
 	aSlot := versionedSource class slotNamed: propertyName.
 
 	(aSlot orionPrimitiveRead: versionedSource) ifNotNil: [ :oldValue |
-		self twoWaysUnsetSlot: aSlot on: versionedSource to: oldValue ].
+		self twoWaysUnsetSlot: aSlot on: versionedSource to: (self orionModel ensureVersioned: oldValue) ].
 
 	versionedTarget ifNotNil: [
 		self twoWaysSetSlot: aSlot on: versionedSource to: versionedTarget ].

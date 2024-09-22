@@ -60,12 +60,14 @@ MooseModel >> createEntityFrom: anEntity [
 ]
 
 { #category : '*Orion' }
-MooseModel >> ensureOrionEntity: anEntity [
+MooseModel >> ensureVersioned: aValue [
 
 	| myEntity |
 	self isOrionModel ifFalse: [ NotAnOrionModel signal ].
 
-	myEntity := self versionLookup: anEntity.
+	aValue isMooseEntity ifFalse: [ ^aValue ].
+
+	myEntity := self versionLookup: aValue.
 	^ (self containsOrion: myEntity)
 		ifTrue: [ myEntity ]
 		ifFalse: [ self createEntityFrom: (self at: myEntity mooseID) ]

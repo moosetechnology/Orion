@@ -41,7 +41,7 @@ ORModelTest >> testEnsureOrionEntityCreatesNewVersion [
 	model2 := model makeNewVersion.
 
 	class1 := model allClasses anyOne.
-	class2 := model2 ensureOrionEntity: class1.
+	class2 := model2 ensureVersioned: class1.
 
 	self deny: class1 identicalTo: class2.
 	self assert: class1 name equals: class2 name.
@@ -60,11 +60,11 @@ ORModelTest >> testEnsureOrionEntityDoesNotDuplicate [
 	self assert: model allClasses size equals: model2 allClasses size.
 
 	class1 := model allClasses anyOne.
-	class2 := model2 ensureOrionEntity: class1.
+	class2 := model2 ensureVersioned: class1.
 
 	self deny: class1 identicalTo: class2.
-	self assert: class2 identicalTo: (model2 ensureOrionEntity: class1).
-	self assert: class2 identicalTo: (model2 ensureOrionEntity: class2).
+	self assert: class2 identicalTo: (model2 ensureVersioned: class1).
+	self assert: class2 identicalTo: (model2 ensureVersioned: class2).
 
 ]
 
@@ -77,7 +77,7 @@ ORModelTest >> testEnsureOrionEntityDoesNotIncreaseEntitySize [
 
 	self assert: model2 allClasses size equals: model allClasses size.
 
-	model2 ensureOrionEntity: (model allClasses anyOne).
+	model2 ensureVersioned: (model allClasses anyOne).
 
 	self assert: model2 allClasses size equals: model allClasses size.
 
