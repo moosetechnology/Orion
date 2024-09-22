@@ -16,23 +16,6 @@ ORActionRemoveTClassTest >> setUpAction [
 ]
 
 { #category : 'as yet unclassified' }
-ORActionRemoveTClassTest >> testCreatesVersionOfAssociatedEntities [
-
-	| class |
-
-	action run.
-
-	class := model entityNamed: 'Class3'.
-
-	self deny:   class parentPackage identicalTo: (orionModel entityNamed: #'OrionForTest2').
-	self assert: class parentPackage identicalTo: (model entityNamed: #'OrionForTest2').
-
-	self deny:   ((orionModel entityNamed: #'OrionForTest2') classes includes: class).
-	self assert: ((model entityNamed: #'OrionForTest2') classes includes: class).
-
-]
-
-{ #category : 'as yet unclassified' }
 ORActionRemoveTClassTest >> testEntityIsVersioned [
 
 	| class |
@@ -57,7 +40,21 @@ ORActionRemoveTClassTest >> testEntityWrongType [
 		raise: IllegalType
 ]
 
-{ #category : 'tests' }
+{ #category : 'as yet unclassified' }
+ORActionRemoveTClassTest >> testRemovedFromParentPackage [
+
+	action run.
+
+	self deny:
+		((orionModel entityNamed: #'OrionForTest2') classes
+		 anySatisfy: [ :class | class name = 'Class3']).
+	self assert:
+		((model entityNamed: #'OrionForTest2') classes
+		 anySatisfy: [ :class | class name = 'Class3']).
+
+]
+
+{ #category : 'testing' }
 ORActionRemoveTClassTest >> testRemovesOneEntity [
 
 	action run.

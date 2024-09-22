@@ -24,11 +24,9 @@ ORActionRemoveTClass >> entity: anEntity [
 { #category : 'method execution' }
 ORActionRemoveTClass >> run [
 
-	| versionedEntity |
-	versionedEntity := self orionModel versionLookup: self entity.
+	self setFamixProperty: #parentPackage on: entity to: nil.
 
-	self setFamixProperty: #parentPackage on: versionedEntity to: nil.
-	self orionModel remove: versionedEntity.
+	self orionModel remove: (self orionModel versionLookup: self entity).
 
 	^ entity
 ]
