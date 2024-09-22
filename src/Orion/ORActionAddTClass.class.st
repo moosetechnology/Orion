@@ -48,12 +48,6 @@ ORActionAddTClass >> parentPackage: aValue [
 	parentPackage := aValue
 ]
 
-{ #category : 'printing' }
-ORActionAddTClass >> printWorkspace [
-
-	^ super printWorkspace , self entity mooseName, ' in ', self parentPackage mooseName
-]
-
 { #category : 'method execution' }
 ORActionAddTClass >> run [
 

@@ -99,12 +99,6 @@ ORAction >> printOn: stream [
 		nextPutAll:  entity mooseName
 ]
 
-{ #category : 'printing' }
-ORAction >> printWorkspace [
-
-	^ '>', self class description, '>> '
-]
-
 { #category : 'method execution' }
 ORAction >> run [
 
@@ -119,7 +113,6 @@ ORAction >> setFamixProperty: propertyName on: sourceEntity to: targetValue [
 
 	| versionedSource versionedTarget aSlot |
 
-
 	versionedSource := self orionModel ensureOrionEntity: sourceEntity.
 	versionedTarget := targetValue isMooseEntity
 		ifTrue:  [ self orionModel ensureOrionEntity: targetValue ]
@@ -128,7 +121,7 @@ ORAction >> setFamixProperty: propertyName on: sourceEntity to: targetValue [
 	aSlot := versionedSource class slotNamed: propertyName.
 
 	(aSlot orionPrimitiveRead: versionedSource) ifNotNil: [ :oldValue |
-		self twoWaysUnsetSlot: aSlot on: versionedSource to: versionedTarget ].
+		self twoWaysUnsetSlot: aSlot on: versionedSource to: oldValue ].
 
 	versionedTarget ifNotNil: [
 		self twoWaysSetSlot: aSlot on: versionedSource to: versionedTarget ].
