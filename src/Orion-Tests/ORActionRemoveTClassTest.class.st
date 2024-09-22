@@ -49,6 +49,14 @@ ORActionRemoveTClassTest >> testEntityIsVersioned [
 
 ]
 
+{ #category : 'as yet unclassified' }
+ORActionRemoveTClassTest >> testEntityWrongType [
+
+	self
+		should: [ action entity: FamixStLocalVariable new ]
+		raise: IllegalType
+]
+
 { #category : 'tests' }
 ORActionRemoveTClassTest >> testRemovesOneEntity [
 

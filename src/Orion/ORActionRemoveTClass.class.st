@@ -13,6 +13,14 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'accessing' }
+ORActionRemoveTClass >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTClass.
+
+	super entity: anEntity
+]
+
 { #category : 'method execution' }
 ORActionRemoveTClass >> run [
 
