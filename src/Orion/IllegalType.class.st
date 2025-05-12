@@ -1,9 +1,9 @@
 Class {
 	#name : 'IllegalType',
 	#superclass : 'Error',
-	#category : 'Orion-Actions',
+	#category : 'Orion-Core',
 	#package : 'Orion',
-	#tag : 'Actions'
+	#tag : 'Core'
 }
 
 { #category : 'as yet unclassified' }
