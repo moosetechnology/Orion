@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionAddTAttributeTest',
-	#superclass : 'ORActionTest',
+	#superclass : 'ORActionAddNamedEntityTest',
 	#category : 'Orion-Tests-Actions',
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
@@ -10,11 +10,11 @@ Class {
 ORActionAddTAttributeTest >> setUpAction [
 
 	action := ORActionAddTAttribute new
-		orionModel: orionModel;
+		orionModel: modelV2;
 		name: 'anAttribute';
 		isStub: true ;
-		parentType: (orionModel entityNamed: #Class4) ;
-		declaredType: (orionModel entityNamed: #Class3) ;
+		parentType: (modelV2 entityNamed: #Class4) ;
+		declaredType: (modelV2 entityNamed: #Class3) ;
 		yourself.
 ]
 
@@ -23,9 +23,9 @@ ORActionAddTAttributeTest >> testAddsOneEntity [
 
 	action run.
 
-	self assert: orionModel size equals: model size + 1.
-	self assert: orionModel allAttributes size equals: model allAttributes size + 1.
-	self assert: orionModel allClasses size equals: model allClasses size.
+	self assert: modelV2 size equals: modelV1 size + 1.
+	self assert: modelV2 allAttributes size equals: modelV1 allAttributes size + 1.
+	self assert: modelV2 allClasses size equals: modelV1 allClasses size.
 
 ]
 
@@ -34,11 +34,11 @@ ORActionAddTAttributeTest >> testCopiesPrimitiveProperties [
 
 	| att |
 
-	self assert: (orionModel entityNamed: 'Class4.anAttribute') isNil.
+	self assert: (modelV2 entityNamed: 'Class4.anAttribute') isNil.
 
 	action run.
 
-	att := orionModel entityNamed: 'Class4.anAttribute'.
+	att := modelV2 entityNamed: 'Class4.anAttribute'.
 
 	self assert: att isNotNil.
 	self assert: att isStub.
@@ -52,20 +52,20 @@ ORActionAddTAttributeTest >> testCreatesVersionOfAssociatedEntities [
 
 	action run.
 
-	att := orionModel entityNamed: 'Class4.anAttribute'.
+	att := modelV2 entityNamed: 'Class4.anAttribute'.
 
-	self assert: att parentType identicalTo: (orionModel entityNamed: #Class4).
-	self deny:   att parentType identicalTo: (model entityNamed: #Class4).
+	self assert: att parentType identicalTo: (modelV2 entityNamed: #Class4).
+	self deny:   att parentType identicalTo: (modelV1 entityNamed: #Class4).
 
-	self assert: att declaredType identicalTo: (orionModel entityNamed: #Class3).
-	self assert: (orionModel entityNamed: #Class3) typedEntities size equals: 1.
+	self assert: att declaredType identicalTo: (modelV2 entityNamed: #Class3).
+	self assert: (modelV2 entityNamed: #Class3) typedEntities size equals: 1.
 	self
-		assert: (orionModel entityNamed: #Class3) typedEntities anyOne
+		assert: (modelV2 entityNamed: #Class3) typedEntities anyOne
 		identicalTo: att.
-	self assert: (model entityNamed: #Class3) typedEntities size equals: 0.
+	self assert: (modelV1 entityNamed: #Class3) typedEntities size equals: 0.
 
-	self assert: ((orionModel entityNamed: #Class4) attributes includes: att).
-	self deny:   ((model entityNamed: #Class4) attributes includes: att).
+	self assert: ((modelV2 entityNamed: #Class4) attributes includes: att).
+	self deny:   ((modelV1 entityNamed: #Class4) attributes includes: att).
 
 ]
 
@@ -76,10 +76,10 @@ ORActionAddTAttributeTest >> testEntityIsVersioned [
 
 	action run.
 
-	att := orionModel entityNamed: 'Class4.anAttribute'.
+	att := modelV2 entityNamed: 'Class4.anAttribute'.
 
 	self assert: att notNil.
-	self assert: (orionModel includes: att).
-	self deny: (model includes: att).
+	self assert: (modelV2 includes: att).
+	self deny: (modelV1 includes: att).
 
 ]

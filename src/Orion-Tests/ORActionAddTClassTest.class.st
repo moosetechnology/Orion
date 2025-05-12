@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionAddTClassTest',
-	#superclass : 'ORActionTest',
+	#superclass : 'ORActionAddNamedEntityTest',
 	#category : 'Orion-Tests-Actions',
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
@@ -10,10 +10,10 @@ Class {
 ORActionAddTClassTest >> setUpAction [
 
 	action := ORActionAddTClass new
-		       orionModel: orionModel;
+		       orionModel: modelV2;
 		       name: 'NewClass';
 		       isStub: true;
-		       parentPackage: (orionModel entityNamed: #OrionForTest2);
+		       parentPackage: (modelV2 entityNamed: #OrionForTest2);
 		       yourself.
 ]
 
@@ -22,10 +22,10 @@ ORActionAddTClassTest >> testAddsOneEntity [
 
 	action run.
 
-	self assert: orionModel size equals: model size + 1.
+	self assert: modelV2 size equals: modelV1 size + 1.
 	self
-		assert: orionModel allClasses size
-		equals: model allClasses size + 1
+		assert: modelV2 allClasses size
+		equals: modelV1 allClasses size + 1
 ]
 
 { #category : 'as yet unclassified' }
@@ -33,11 +33,11 @@ ORActionAddTClassTest >> testCopiesPrimitiveProperties [
 
 	| class |
 
-	self assert: (orionModel entityNamed: 'NewClass') equals: nil.
+	self assert: (modelV2 entityNamed: 'NewClass') equals: nil.
 
 	action run.
 
-	class := orionModel entityNamed: 'NewClass'.
+	class := modelV2 entityNamed: 'NewClass'.
 
 	self assert: class isStub.
 
@@ -50,13 +50,13 @@ ORActionAddTClassTest >> testCreatesVersionOfAssociatedEntities [
 
 	action run.
 
-	class := orionModel entityNamed: 'NewClass'.
+	class := modelV2 entityNamed: 'NewClass'.
 
-	self assert: class parentPackage identicalTo: (orionModel entityNamed: #'OrionForTest2').
-	self deny:   class parentPackage identicalTo: (model entityNamed: #'OrionForTest2').
+	self assert: class parentPackage identicalTo: (modelV2 entityNamed: #'OrionForTest2').
+	self deny:   class parentPackage identicalTo: (modelV1 entityNamed: #'OrionForTest2').
 
-	self assert: ((orionModel entityNamed: #'OrionForTest2') classes includes: class).
-	self deny:   ((model entityNamed: #'OrionForTest2') classes includes: class).
+	self assert: ((modelV2 entityNamed: #'OrionForTest2') classes includes: class).
+	self deny:   ((modelV1 entityNamed: #'OrionForTest2') classes includes: class).
 
 ]
 
@@ -67,10 +67,10 @@ ORActionAddTClassTest >> testEntityIsVersioned [
 
 	action run.
 
-	class := orionModel entityNamed: 'NewClass'.
+	class := modelV2 entityNamed: 'NewClass'.
 
 	self assert: class notNil.
-	self assert: (orionModel includes: class).
-	self deny: (model includes: class).
+	self assert: (modelV2 includes: class).
+	self deny: (modelV1 includes: class).
 
 ]

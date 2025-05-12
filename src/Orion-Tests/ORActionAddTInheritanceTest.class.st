@@ -10,9 +10,9 @@ Class {
 ORActionAddTInheritanceTest >> setUpAction [
 
 	action := ORActionAddTInheritance new
-		orionModel: orionModel;
-		superclass: (orionModel entityNamed: 'Class1');
-		subclass: (orionModel entityNamed: 'Class2').
+		orionModel: modelV2;
+		superclass: (modelV2 entityNamed: 'Class1');
+		subclass: (modelV2 entityNamed: 'Class2').
 
 ]
 
@@ -21,9 +21,9 @@ ORActionAddTInheritanceTest >> testAddsOneEntity [
 
 	action run.
 
-	self assert: orionModel size equals: model size + 1.
-	self assert: orionModel allInheritanceDefinitions size equals: model allInheritanceDefinitions size + 1.
-	self assert: orionModel allClasses size equals: model allClasses size.
+	self assert: modelV2 size equals: modelV1 size + 1.
+	self assert: modelV2 allInheritanceDefinitions size equals: modelV1 allInheritanceDefinitions size + 1.
+	self assert: modelV2 allClasses size equals: modelV1 allClasses size.
 
 ]
 
@@ -32,20 +32,20 @@ ORActionAddTInheritanceTest >> testEntityIsVersioned [
 
 	action run.
 
-	self assert: (orionModel entityNamed: 'Class2') superInheritances size equals: 2.
+	self assert: (modelV2 entityNamed: 'Class2') superInheritances size equals: 2.
 	self
-		assertCollection: ((orionModel entityNamed: 'Class2') superInheritances collect: #superclass)
-		hasSameElements: { orionModel entityNamed: 'Class1' . orionModel entityNamed: 'Object'}.
+		assertCollection: ((modelV2 entityNamed: 'Class2') superInheritances collect: #superclass)
+		hasSameElements: { modelV2 entityNamed: 'Class1' . modelV2 entityNamed: 'Object'}.
 
-	self assert: (orionModel entityNamed: 'Class1') subInheritances size equals: 1.
+	self assert: (modelV2 entityNamed: 'Class1') subInheritances size equals: 1.
 	self
-		assert: (orionModel entityNamed: 'Class1') subInheritances anyOne subclass
-		identicalTo: (orionModel entityNamed: 'Class2').
+		assert: (modelV2 entityNamed: 'Class1') subInheritances anyOne subclass
+		identicalTo: (modelV2 entityNamed: 'Class2').
 
-	self assert: (model entityNamed: 'Class2') superInheritances size equals: 1.
+	self assert: (modelV1 entityNamed: 'Class2') superInheritances size equals: 1.
 	self
-		assert: (model entityNamed: 'Class2') superInheritances anyOne superclass
-		identicalTo: (model entityNamed: 'Object').
-	self assert: (model entityNamed: 'Class1') subInheritances size equals: 0.
+		assert: (modelV1 entityNamed: 'Class2') superInheritances anyOne superclass
+		identicalTo: (modelV1 entityNamed: 'Object').
+	self assert: (modelV1 entityNamed: 'Class1') subInheritances size equals: 0.
 
 ]

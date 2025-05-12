@@ -10,8 +10,8 @@ Class {
 ORActionRemoveTClassTest >> setUpAction [
 
 	action := ORActionRemoveTClass new
-		       orionModel: orionModel;
-		       entity: (orionModel entityNamed: 'Class3');
+		       orionModel: modelV2;
+		       entity: (modelV2 entityNamed: 'Class3');
 		       yourself.
 ]
 
@@ -22,13 +22,13 @@ ORActionRemoveTClassTest >> testEntityIsVersioned [
 
 	action run.
 
-	class := model entityNamed: 'Class3'.
+	class := modelV1 entityNamed: 'Class3'.
 
 	self assert: class isNotNil.
-	self assert: (orionModel entityNamed: 'Class3') isNil.
+	self assert: (modelV2 entityNamed: 'Class3') isNil.
 
-	self deny: (orionModel includes: class).
-	self assert: (model includes: class).
+	self deny: (modelV2 includes: class).
+	self assert: (modelV1 includes: class).
 
 ]
 
@@ -46,10 +46,10 @@ ORActionRemoveTClassTest >> testRemovedFromParentPackage [
 	action run.
 
 	self deny:
-		((orionModel entityNamed: #'OrionForTest2') classes
+		((modelV2 entityNamed: #'OrionForTest2') classes
 		 anySatisfy: [ :class | class name = 'Class3']).
 	self assert:
-		((model entityNamed: #'OrionForTest2') classes
+		((modelV1 entityNamed: #'OrionForTest2') classes
 		 anySatisfy: [ :class | class name = 'Class3']).
 
 ]
@@ -59,8 +59,8 @@ ORActionRemoveTClassTest >> testRemovesOneEntity [
 
 	action run.
 
-	self assert: orionModel size equals: model size - 1.
+	self assert: modelV2 size equals: modelV1 size - 1.
 	self
-		assert: orionModel allClasses size
-		equals: model allClasses size - 1
+		assert: modelV2 allClasses size
+		equals: modelV1 allClasses size - 1
 ]

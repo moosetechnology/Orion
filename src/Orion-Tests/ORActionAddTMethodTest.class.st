@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionAddTMethodTest',
-	#superclass : 'ORActionTest',
+	#superclass : 'ORActionAddNamedEntityTest',
 	#category : 'Orion-Tests-Actions',
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
@@ -10,12 +10,12 @@ Class {
 ORActionAddTMethodTest >> setUpAction [
 
 	action := ORActionAddTMethod new
-		orionModel: orionModel;
+		orionModel: modelV2;
 		name: 'newMethod';
 		isStub: false ;
 		signature: 'newMethod(...)' ;
-		parentType: (orionModel entityNamed: #Class4) ;
-		declaredType: (orionModel entityNamed: #Class3) ;
+		parentType: (modelV2 entityNamed: #Class4) ;
+		declaredType: (modelV2 entityNamed: #Class3) ;
 		yourself.
 
 ]
@@ -25,15 +25,15 @@ ORActionAddTMethodTest >> testAddsOneEntity [
 
 	| mth |
 
-	self assert: (orionModel entityNamed: 'Class4.newMethod(...)') isNil.
+	self assert: (modelV2 entityNamed: 'Class4.newMethod(...)') isNil.
 
 	action run.
 
-	mth := orionModel entityNamed: 'Class4.newMethod(...)'.
+	mth := modelV2 entityNamed: 'Class4.newMethod(...)'.
 
 	self assert: mth notNil.
-	self assert: (orionModel includes: mth).
-	self deny: (model includes: mth).
+	self assert: (modelV2 includes: mth).
+	self deny: (modelV1 includes: mth).
 
 ]
 
@@ -42,11 +42,11 @@ ORActionAddTMethodTest >> testCopiesPrimitiveProperties [
 
 	| mth |
 
-	self assert: (orionModel entityNamed: 'Class4.newMethod(...)') isNil.
+	self assert: (modelV2 entityNamed: 'Class4.newMethod(...)') isNil.
 
 	action run.
 
-	mth := orionModel entityNamed: 'Class4.newMethod(...)'.
+	mth := modelV2 entityNamed: 'Class4.newMethod(...)'.
 
 	self assert: mth notNil.
 	self deny: mth isStub.
@@ -61,16 +61,16 @@ ORActionAddTMethodTest >> testCreatesVersionOfAssociatedEntities [
 
 	action run.
 
-	mth := orionModel entityNamed: 'Class4.newMethod(...)'.
+	mth := modelV2 entityNamed: 'Class4.newMethod(...)'.
 
-	self assert: mth parentType identicalTo: (orionModel entityNamed: #Class4).
-	self deny:   mth parentType identicalTo: (model entityNamed: #Class4).
+	self assert: mth parentType identicalTo: (modelV2 entityNamed: #Class4).
+	self deny:   mth parentType identicalTo: (modelV1 entityNamed: #Class4).
 
-	self assert: mth declaredType identicalTo: (orionModel entityNamed: #Class3).
-	self deny:   mth declaredType identicalTo: (model entityNamed: #Class3).
+	self assert: mth declaredType identicalTo: (modelV2 entityNamed: #Class3).
+	self deny:   mth declaredType identicalTo: (modelV1 entityNamed: #Class3).
 
-	self assert: ((orionModel entityNamed: #Class4) methods includes: mth).
-	self deny:   ((model entityNamed: #Class4) methods includes: mth).
+	self assert: ((modelV2 entityNamed: #Class4) methods includes: mth).
+	self deny:   ((modelV1 entityNamed: #Class4) methods includes: mth).
 
 ]
 
@@ -81,10 +81,10 @@ ORActionAddTMethodTest >> testEntityIsVersioned [
 
 	action run.
 
-	mth := orionModel entityNamed: 'Class4.newMethod(...)'.
+	mth := modelV2 entityNamed: 'Class4.newMethod(...)'.
 
 	self assert: mth notNil.
-	self assert: (orionModel includes: mth).
-	self deny: (model includes: mth).
+	self assert: (modelV2 includes: mth).
+	self deny: (modelV1 includes: mth).
 
 ]

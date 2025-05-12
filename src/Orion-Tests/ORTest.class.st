@@ -137,7 +137,7 @@ ORTest >> modelNetwork [
 		
 		"as := ORConverter convertFromMooseModel: mod.
 		system := ORSystem new."
-		system sourceModel: as.
+		system parentVersion: as.
 		as system: system.
 		^as
 ]

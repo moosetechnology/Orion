@@ -10,9 +10,9 @@ Class {
 ORActionMoveTPackageableTest >> setUpAction [
 
 	action := ORActionMoveTPackageable new
-		orionModel: orionModel; 
-		entity: (orionModel entityNamed: 'Class5'); 
-		to: (orionModel entityNamed: #'OrionForTest1')
+		orionModel: modelV2; 
+		entity: (modelV2 entityNamed: 'Class5'); 
+		to: (modelV2 entityNamed: #'OrionForTest1')
 		yourself.
 ]
 
@@ -21,10 +21,10 @@ ORActionMoveTPackageableTest >> testAddsNoEntity [
 
 	action run.
 
-	self assert: orionModel size equals: model size.
+	self assert: modelV2 size equals: modelV1 size.
 	self
-		assert: orionModel allClasses size
-		equals: model allClasses size
+		assert: modelV2 allClasses size
+		equals: modelV1 allClasses size
 ]
 
 { #category : 'testing' }
@@ -41,8 +41,8 @@ ORActionMoveTPackageableTest >> testEntityIsMoved [
 	action run.
 
 	self
-		assert: (orionModel entityNamed: 'Class5') parentPackage
-		identicalTo: (orionModel entityNamed: 'OrionForTest1').
+		assert: (modelV2 entityNamed: 'Class5') parentPackage
+		identicalTo: (modelV2 entityNamed: 'OrionForTest1').
 
 ]
 
@@ -60,7 +60,7 @@ ORActionMoveTPackageableTest >> testOldEntityIsNotMoved [
 	action run.
 
 	self
-		assert: (model entityNamed: 'Class5') parentPackage
-		identicalTo: (model entityNamed: 'OrionForTest2').
+		assert: (modelV1 entityNamed: 'Class5') parentPackage
+		identicalTo: (modelV1 entityNamed: 'OrionForTest2').
 
 ]

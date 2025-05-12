@@ -10,8 +10,8 @@ Class {
 ORActionRemoveTInheritanceTest >> setUpAction [
 
 	action := ORActionRemoveTInheritance new
-		       orionModel: orionModel;
-		       entity: (orionModel entityNamed: 'Class3') superInheritances anyOne;
+		       orionModel: modelV2;
+		       entity: (modelV2 entityNamed: 'Class3') superInheritances anyOne;
 		       yourself.
 ]
 
@@ -28,8 +28,8 @@ ORActionRemoveTInheritanceTest >> testRelatedEntitiesAreVersioned [
 
 	action run.
 
-	self deny: (orionModel entityNamed: 'Class3') identicalTo: (model entityNamed: 'Class3').
-	self deny: (orionModel entityNamed: 'Object') identicalTo: (model entityNamed: 'Object').
+	self deny: (modelV2 entityNamed: 'Class3') identicalTo: (modelV1 entityNamed: 'Class3').
+	self deny: (modelV2 entityNamed: 'Object') identicalTo: (modelV1 entityNamed: 'Object').
 ]
 
 { #category : 'testing' }
@@ -38,10 +38,10 @@ ORActionRemoveTInheritanceTest >> testRemovedFromSubClass [
 	action run.
 
 	self deny:
-		((orionModel entityNamed: #'Class3') superInheritances
+		((modelV2 entityNamed: #'Class3') superInheritances
 		 anySatisfy: [ :inh | inh superclass name = 'Object']).
 	self assert:
-		((model entityNamed: #'Class3') superInheritances
+		((modelV1 entityNamed: #'Class3') superInheritances
 		 anySatisfy: [ :inh | inh superclass name = 'Object']).
 ]
 
@@ -51,10 +51,10 @@ ORActionRemoveTInheritanceTest >> testRemovedFromSuperClass [
 	action run.
 
 	self deny:
-		((orionModel entityNamed: #'Object') subInheritances
+		((modelV2 entityNamed: #'Object') subInheritances
 		 anySatisfy: [ :inh | inh subclass name = 'Class3']).
 	self assert:
-		((model entityNamed: #'Object') subInheritances
+		((modelV1 entityNamed: #'Object') subInheritances
 		 anySatisfy: [ :inh | inh subclass name = 'Class3']).
 ]
 
@@ -63,8 +63,8 @@ ORActionRemoveTInheritanceTest >> testRemovesOneEntity [
 
 	action run.
 
-	self assert: orionModel size equals: model size - 1.
+	self assert: modelV2 size equals: modelV1 size - 1.
 	self
-		assert: (orionModel entityNamed: #'Object') subInheritances size
-		equals: (model entityNamed: #'Object') subInheritances size - 1
+		assert: (modelV2 entityNamed: #'Object') subInheritances size
+		equals: (modelV1 entityNamed: #'Object') subInheritances size - 1
 ]

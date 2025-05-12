@@ -10,9 +10,9 @@ Class {
 ORActionMoveTMethodTest >> setUpAction [
 
 	action := ORActionMoveTMethod new
-		orionModel: orionModel; 
-		entity: (orionModel entityNamed: 'Class5.accessClass3'); 
-		to: (orionModel entityNamed: #'Class4')
+		orionModel: modelV2; 
+		entity: (modelV2 entityNamed: 'Class5.accessClass3'); 
+		to: (modelV2 entityNamed: #'Class4')
 		yourself.
 ]
 
@@ -21,10 +21,10 @@ ORActionMoveTMethodTest >> testAddsNoEntity [
 
 	action run.
 
-	self assert: orionModel size equals: model size.
+	self assert: modelV2 size equals: modelV1 size.
 	self
-		assert: orionModel allClasses size
-		equals: model allClasses size
+		assert: modelV2 allClasses size
+		equals: modelV1 allClasses size
 ]
 
 { #category : 'testing' }
@@ -40,12 +40,12 @@ ORActionMoveTMethodTest >> testEntityIsMoved [
 
 	action run.
 
-	self assert: (orionModel entityNamed: 'Class4.accessClass3') isNotNil.
-	self assert: (orionModel entityNamed: 'Class5.accessClass3') isNil.
+	self assert: (modelV2 entityNamed: 'Class4.accessClass3') isNotNil.
+	self assert: (modelV2 entityNamed: 'Class5.accessClass3') isNil.
 
 	self
-		assert: (orionModel entityNamed: 'Class4.accessClass3') parentType
-		identicalTo: (orionModel entityNamed: 'Class4').
+		assert: (modelV2 entityNamed: 'Class4.accessClass3') parentType
+		identicalTo: (modelV2 entityNamed: 'Class4').
 
 ]
 
@@ -62,11 +62,11 @@ ORActionMoveTMethodTest >> testOldEntityIsNotMoved [
 
 	action run.
 
-	self assert: (model entityNamed: 'Class4.accessClass3') isNil.
-	self assert: (model entityNamed: 'Class5.accessClass3') isNotNil.
+	self assert: (modelV1 entityNamed: 'Class4.accessClass3') isNil.
+	self assert: (modelV1 entityNamed: 'Class5.accessClass3') isNotNil.
 
 	self
-		assert: (model entityNamed: 'Class5.accessClass3') parentType
-		identicalTo: (model entityNamed: 'Class5').
+		assert: (modelV1 entityNamed: 'Class5.accessClass3') parentType
+		identicalTo: (modelV1 entityNamed: 'Class5').
 
 ]

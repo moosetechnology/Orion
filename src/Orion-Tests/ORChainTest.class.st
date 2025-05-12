@@ -16,10 +16,10 @@ ORChainTest >> exampleModel1 [
 
 	| cls1 cls2 cls3 cls4 |
 
-	cls1 := model newClass name: 'Class1'.
-	cls2 := model newClass name:  'Class2'.
-	cls3 := model newClass name:  'Class3'.
-	cls4 := model newClass name:  'Class4'.
+	cls1 := modelV1 newClass name: 'Class1'.
+	cls2 := modelV1 newClass name:  'Class2'.
+	cls3 := modelV1 newClass name:  'Class3'.
+	cls4 := modelV1 newClass name:  'Class4'.
 
 	self inherit: cls2 from: cls1.
 	self inherit: cls3 from: cls2.
@@ -51,12 +51,12 @@ ORChainTest >> setUp [
 
 	super setUp.
 
-	model beForOrion.
-	orion1 := model makeNewVersion
+	modelV1 beForOrion.
+	orion1 := modelV1 makeNewVersion
 		name: 'Orion-v1' ;
 		yourself.
 
-	orion2 := model makeNewVersion
+	orion2 := modelV1 makeNewVersion
 		name: 'Orion-v2' ;
 		yourself.
 
@@ -67,12 +67,12 @@ ORChainTest >> testChain [
 
 	| leaf root |
 
-	leaf := model entityNamed: 'Class4'.
+	leaf := modelV1 entityNamed: 'Class4'.
 	self assert: (leaf versionLookup: orion1) identicalTo: (leaf versionLookup: orion2).
 	self rename: leaf to: 'Chain4-2'.
 	self deny: (leaf versionLookup: orion1) identicalTo: (leaf versionLookup: orion2).
 
-	root := model entityNamed: 'Class1'.
+	root := modelV1 entityNamed: 'Class1'.
 	self assert: (root versionLookup: orion1) identicalTo: (root versionLookup: orion2).
 	self rename: root to: 'Chain1-2'.
 	self deny: (root versionLookup: orion1) identicalTo: (root versionLookup: orion2).
