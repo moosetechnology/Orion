@@ -159,7 +159,7 @@ ORTest >> refer: aClass from: referer [
 	assoc setWithoutInverse: #referencer value: referer.
 	referer addWithoutInverse: #outgoingReferences value: assoc.
 
-	assoc setWithoutInverse: #referredType value: aClass.
+	assoc setWithoutInverse: #referredEntity value: aClass.
 	aClass addWithoutInverse: #incomingReferences value: assoc.
 
 	^assoc
