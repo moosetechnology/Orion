@@ -9,38 +9,38 @@ Class {
 { #category : 'tests' }
 ORModelTest >> testBasename [
 
-	self assert: model basename equals: 'theModel'.
+	self assert: modelV1 basename equals: 'theModel'.
 	
-	model name: 'theModel_v2'.
-	self assert: model basename equals: 'theModel'.
+	modelV1 name: 'theModel_v2'.
+	self assert: modelV1 basename equals: 'theModel'.
 ]
 
 { #category : 'tests' }
 ORModelTest >> testBeForOrion [
 
-	model beForOrion.
+	modelV1 beForOrion.
 
-	self assert: (model allWithType: FamixStPackage) size equals: 2.
-	self assert: (model allWithType: FamixStClass) size equals: 6.
-	self assert: (model allWithType: FamixStMethod) size equals: 4.
-	self assert: (model allWithType: FamixStInheritance) size equals: 5.
-	self assert: (model allWithType: FamixStInvocation) size equals: 4.
-	self assert: (model allWithType: FamixStReference) size equals: 4.
+	self assert: (modelV1 allWithType: FamixStPackage) size equals: 2.
+	self assert: (modelV1 allWithType: FamixStClass) size equals: 6.
+	self assert: (modelV1 allWithType: FamixStMethod) size equals: 4.
+	self assert: (modelV1 allWithType: FamixStInheritance) size equals: 5.
+	self assert: (modelV1 allWithType: FamixStInvocation) size equals: 4.
+	self assert: (modelV1 allWithType: FamixStReference) size equals: 4.
 
-	self assert: model entityStorage class equals: ORStorage.
-	self assert: model entityStorage size equals: 25.
+	self assert: modelV1 entityStorage class equals: ORStorage.
+	self assert: modelV1 entityStorage size equals: 25.
 
-	self assert: model childrenVersions isEmpty.
+	self assert: modelV1 childrenVersions isEmpty.
 ]
 
 { #category : 'tests' }
 ORModelTest >> testEnsureOrionEntityCreatesNewVersion [
 	| class1 class2 model2 |
 
-	model beForOrion.
-	model2 := model makeNewVersion.
+	modelV1 beForOrion.
+	model2 := modelV1 makeNewVersion.
 
-	class1 := model allClasses anyOne.
+	class1 := modelV1 allClasses anyOne.
 	class2 := model2 ensureVersioned: class1.
 
 	self deny: class1 identicalTo: class2.
@@ -54,12 +54,12 @@ ORModelTest >> testEnsureOrionEntityCreatesNewVersion [
 ORModelTest >> testEnsureOrionEntityDoesNotDuplicate [
 	| class1 class2 model2 |
 
-	model beForOrion.
-	model2 := model makeNewVersion.
+	modelV1 beForOrion.
+	model2 := modelV1 makeNewVersion.
 
-	self assert: model allClasses size equals: model2 allClasses size.
+	self assert: modelV1 allClasses size equals: model2 allClasses size.
 
-	class1 := model allClasses anyOne.
+	class1 := modelV1 allClasses anyOne.
 	class2 := model2 ensureVersioned: class1.
 
 	self deny: class1 identicalTo: class2.
@@ -72,14 +72,14 @@ ORModelTest >> testEnsureOrionEntityDoesNotDuplicate [
 ORModelTest >> testEnsureOrionEntityDoesNotIncreaseEntitySize [
 	| model2 |
 
-	model beForOrion.
-	model2 := model makeNewVersion.
+	modelV1 beForOrion.
+	model2 := modelV1 makeNewVersion.
 
-	self assert: model2 allClasses size equals: model allClasses size.
+	self assert: model2 allClasses size equals: modelV1 allClasses size.
 
-	model2 ensureVersioned: (model allClasses anyOne).
+	model2 ensureVersioned: (modelV1 allClasses anyOne).
 
-	self assert: model2 allClasses size equals: model allClasses size.
+	self assert: model2 allClasses size equals: modelV1 allClasses size.
 
 ]
 
@@ -87,84 +87,84 @@ ORModelTest >> testEnsureOrionEntityDoesNotIncreaseEntitySize [
 ORModelTest >> testEntitiesCopiedInChildVersion [
 
 	| v2 |
-	model beForOrion.
-	v2 := model makeNewVersion.
+	modelV1 beForOrion.
+	v2 := modelV1 makeNewVersion.
 
-	self assert: v2 entities size equals: model entities size.
-	self deny: model entities size equals: 0
+	self assert: v2 entities size equals: modelV1 entities size.
+	self deny: modelV1 entities size equals: 0
 ]
 
 { #category : 'tests' }
 ORModelTest >> testIsFirstVersion [
 	| v2 |
-	model beForOrion.
-	self assert: model isFirstVersion.
+	modelV1 beForOrion.
+	self assert: modelV1 isFirstVersion.
 
-	v2 := model makeNewVersion name: 'v2'.
-	self assert: model isFirstVersion.
+	v2 := modelV1 makeNewVersion name: 'v2'.
+	self assert: modelV1 isFirstVersion.
 	self deny: v2 isFirstVersion.
 ]
 
 { #category : 'tests' }
 ORModelTest >> testIsLastVersion [
 	| v2 |
-	model beForOrion.
-	self assert: model isLastVersion.
+	modelV1 beForOrion.
+	self assert: modelV1 isLastVersion.
 
-	v2 := model makeNewVersion name: 'v2'.
-	self deny: model isLastVersion.
+	v2 := modelV1 makeNewVersion name: 'v2'.
+	self deny: modelV1 isLastVersion.
 	self assert: v2 isLastVersion.
 ]
 
 { #category : 'tests' }
 ORModelTest >> testMakeNewVersion [
 	| v2 |
-	model beForOrion.
-	self assert: model childrenVersions size equals: 0.
+	modelV1 beForOrion.
+	self assert: modelV1 childrenVersions size equals: 0.
 
-	v2 := model makeNewVersion name: 'v2'.
-	self assert: model childrenVersions size equals: 1.
-	self assert: model childrenVersions anyOne equals: v2.
-	self assert: v2 parentVersion equals: model.
+	v2 := modelV1 makeNewVersion name: 'v2'.
+	self assert: modelV1 childrenVersions size equals: 1.
+	self assert: modelV1 childrenVersions anyOne equals: v2.
+	self assert: v2 parentVersion equals: modelV1.
 ]
 
 { #category : 'tests' }
 ORModelTest >> testMakeNewVersionEntities [
 
 	| ent |
-	ent := model entities detect: [ :e | e name = 'Class1' ].
-	self assert: ent mooseModel equals: model.
-	self assert: ent orionModel equals: model.
+	ent := modelV1 entities detect: [ :e | e name = 'Class1' ].
+	self assert: ent mooseModel equals: modelV1.
+	self assert: ent orionModel equals: modelV1.
 
-	model beForOrion.
-	model makeNewVersion name: 'v2'.
+	modelV1 beForOrion.
+	modelV1 makeNewVersion name: 'v2'.
 
-	self assert: ent mooseModel equals: model.
-	self assert: ent orionModel equals: model.
+	self assert: ent mooseModel equals: modelV1.
+	self assert: ent orionModel equals: modelV1.
 ]
 
 { #category : 'tests' }
 ORModelTest >> testMakeNewVersionName [
 
 	| v2 |
-	model beForOrion.
-	v2 := model makeNewVersion.
-	self assert: model basename equals: v2 basename.
-	self deny: model name equals: v2 name.
+	modelV1 beForOrion.
+	v2 := modelV1 makeNewVersion.
+	self assert: modelV1 basename equals: v2 basename.
+	self deny: modelV1 name equals: v2 name.
 ]
 
 { #category : 'tests' }
 ORModelTest >> testModelContainsOrion [
 
 	| ent v2 |
-	ent := model entities detect: [ :e | e name = 'Class1' ].
+	ent := modelV1 entities detect: [ :e | e name = 'Class1' ].
 
-	model beForOrion.
-	self assert: (model containsOrion: ent).
+	modelV1 beForOrion.
+	self assert: (modelV1 containsOrion: ent).
 
-	v2 := model makeNewVersion name: 'v2'.
+	v2 := modelV1 makeNewVersion name: 'v2'.
 
-	self assert: (model containsOrion: ent).
+	self assert: (modelV1 containsOrion: ent).
 	self deny: (v2 containsOrion: ent).
 ]
 
@@ -173,7 +173,7 @@ ORModelTest >> testOrionCopy [
 
 	| class1 class2 |
 
-	class1 := model allClasses anyOne.
+	class1 := modelV1 allClasses anyOne.
 	class2 := class1 orionCopy.
 
 	self deny: class1 identicalTo: class2.

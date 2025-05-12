@@ -2,7 +2,7 @@ Class {
 	#name : 'ORTest',
 	#superclass : 'TestCase',
 	#instVars : [
-		'model'
+		'modelV1'
 	],
 	#category : 'Orion-Tests-Core',
 	#package : 'Orion-Tests',
@@ -13,11 +13,11 @@ Class {
 ORTest >> class: aString in: package [
 
 	| theClass |
-	theClass := model newClass
+	theClass := modelV1 newClass
 		name: aString ;
 		yourself.
 
-	self inherit: theClass from: (model entityNamed: 'Object').
+	self inherit: theClass from: (modelV1 entityNamed: 'Object').
 
 	theClass setWithoutInverse: #parentPackage value: package.
 	package addWithoutInverse: #childEntities value: theClass.
@@ -31,7 +31,7 @@ ORTest >> exampleModel1 [
 	"A small model to make some tests"
 
 	| pckg cls1 cls2 cls3 cls4 cls5 mth |
-	model newClass name: 'Object' ; isStub: true.
+	modelV1 newClass name: 'Object' ; isStub: true.
 
 	pckg := self package: 'OrionForTest1'.
 	cls1 := self class: 'Class1' in: pckg.
@@ -72,7 +72,7 @@ ORTest >> exampleModel1 [
 ORTest >> inherit: aClass from: superClass [
 
 	| assoc |
-	assoc := model newInheritance.
+	assoc := modelV1 newInheritance.
 
 	assoc setWithoutInverse: #superclass value: superClass.
 	superClass addWithoutInverse: #subInheritances value: assoc.
@@ -88,7 +88,7 @@ ORTest >> inherit: aClass from: superClass [
 ORTest >> invok: aMethode on: receiver from: sender [
 
 	| assoc |
-	assoc := model newInvocation.
+	assoc := modelV1 newInvocation.
 
 	assoc setWithoutInverse: #sender value: sender.
 	sender addWithoutInverse: #outgoingInvocations value: assoc.
@@ -109,7 +109,7 @@ ORTest >> invok: aMethode on: receiver from: sender [
 ORTest >> method: aString in: aClass [
 
 	| theMethod |
-	theMethod := model newMethod
+	theMethod := modelV1 newMethod
 		name: aString ;
 		yourself.
 
@@ -145,7 +145,7 @@ ORTest >> modelNetwork [
 { #category : 'factory' }
 ORTest >> package: aString [
 
-	^model newPackage
+	^modelV1 newPackage
 		name: aString ;
 		yourself
 ]
@@ -154,7 +154,7 @@ ORTest >> package: aString [
 ORTest >> refer: aClass from: referer [
 
 	| assoc |
-	assoc := model newReference.
+	assoc := modelV1 newReference.
 
 	assoc setWithoutInverse: #referencer value: referer.
 	referer addWithoutInverse: #outgoingReferences value: assoc.
@@ -171,7 +171,7 @@ ORTest >> setUp [
 
 	super setUp.
 
-	model := FamixStModel new.
-	model name: 'theModel'.
+	modelV1 := FamixStModel new.
+	modelV1 name: 'theModel'.
 	self exampleModel1
 ]
