@@ -99,8 +99,6 @@ MooseModel >> isOrionModel [
 MooseModel >> makeNewVersion [
 	"Creates a new child version of the receiver"
 
-	self isOrionModel ifFalse: [ NotAnOrionModel signal ].
-
 	^self class newOrionVersionOf: self
 ]
 
