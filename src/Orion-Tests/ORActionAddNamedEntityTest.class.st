@@ -6,6 +6,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'testing' }
+ORActionAddNamedEntityTest class >> isAbstract [ 
+
+	^self == ORActionAddNamedEntityTest
+]
+
 { #category : 'tests' }
 ORActionAddNamedEntityTest >> testAddsOneEntity [
 
