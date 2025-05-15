@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionRemoveTClassTest',
-	#superclass : 'ORActionTest',
+	#superclass : 'ORActionRemoveTest',
 	#category : 'Orion-Tests-Actions',
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
