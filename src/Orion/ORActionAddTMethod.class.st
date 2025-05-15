@@ -9,7 +9,7 @@ I need the following properties of the new method:
 "
 Class {
 	#name : 'ORActionAddTMethod',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddTNamedEntity',
 	#instVars : [
 		'declaredType',
 		'name',
