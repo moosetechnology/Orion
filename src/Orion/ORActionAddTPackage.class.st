@@ -7,7 +7,7 @@ I need the following properties :
 "
 Class {
 	#name : 'ORActionAddTPackage',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddTNamedEntity',
 	#instVars : [
 		'name',
 		'parentPackage',
