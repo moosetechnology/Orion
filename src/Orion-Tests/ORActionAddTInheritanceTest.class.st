@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionAddTInheritanceTest',
-	#superclass : 'ORActionTest',
+	#superclass : 'ORActionAddTest',
 	#category : 'Orion-Tests-Actions',
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
@@ -13,6 +13,16 @@ ORActionAddTInheritanceTest >> setUpAction [
 		orionModel: modelV2;
 		superclass: (modelV2 entityNamed: 'Class1');
 		subclass: (modelV2 entityNamed: 'Class2').
+
+]
+
+{ #category : 'testing' }
+ORActionAddTInheritanceTest >> testAddsCorrectEntity [ 
+
+	action run.
+
+	self assert: modelV2 allInheritanceDefinitions size equals: modelV1 allInheritanceDefinitions size + 1.
+	self assert: modelV2 allClasses size equals: modelV1 allClasses size.
 
 ]
 
