@@ -8,7 +8,7 @@ I need the following properties of the new attribute:
 "
 Class {
 	#name : 'ORActionAddTAttribute',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddTNamedEntity',
 	#instVars : [
 		'declaredType',
 		'name',
