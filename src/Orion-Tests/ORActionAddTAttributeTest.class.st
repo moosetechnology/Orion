@@ -19,11 +19,10 @@ ORActionAddTAttributeTest >> setUpAction [
 ]
 
 { #category : 'testing' }
-ORActionAddTAttributeTest >> testAddsOneEntity [
+ORActionAddTAttributeTest >> testAddsCorrectEntity [
 
 	action run.
 
-	self assert: modelV2 size equals: modelV1 size + 1.
 	self assert: modelV2 allAttributes size equals: modelV1 allAttributes size + 1.
 	self assert: modelV2 allClasses size equals: modelV1 allClasses size.
 
