@@ -7,7 +7,7 @@ I need the following properties of the new class:
 "
 Class {
 	#name : 'ORActionAddTClass',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddTNamedEntity',
 	#instVars : [
 		'isStub',
 		'parentPackage',
