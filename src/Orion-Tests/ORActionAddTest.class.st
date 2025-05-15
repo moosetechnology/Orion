@@ -11,3 +11,21 @@ ORActionAddTest class >> isAbstract [
 
 	^self == ORActionAddTest
 ]
+
+{ #category : 'tests' }
+ORActionAddTest >> testAddsCorrectEntity [ 
+	self subclassResponsibility .
+]
+
+{ #category : 'tests' }
+ORActionAddTest >> testAddsOneEntity [
+
+	action run.
+
+	self assert: modelV2 size equals: (modelV1 size + 1).
+]
+
+{ #category : 'tests' }
+ORActionAddTest >> testEntityIsVersioned [
+	self subclassResponsibility .
+]
