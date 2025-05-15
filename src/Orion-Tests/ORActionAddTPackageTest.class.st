@@ -16,6 +16,29 @@ ORActionAddTPackageTest >> setUpAction [
 ]
 
 { #category : 'tests' }
+ORActionAddTPackageTest >> testAddsCorrectEntity [ 
+
+	action run.
+	self
+		assert: modelV2 allPackages size
+		equals: modelV1 allPackages size + 1
+]
+
+{ #category : 'tests' }
+ORActionAddTPackageTest >> testEntityIsVersioned [
+
+	| package |
+
+	action run.
+
+	package := modelV2 entityNamed: 'PackageTest'.
+
+	self assert: package notNil.
+	self assert: (modelV2 includes: package ).
+	self deny: (modelV1 includes: package ).
+]
+
+{ #category : 'tests' }
 ORActionAddTPackageTest >> testNoAssociatedEntities [
 
 	| entity |
