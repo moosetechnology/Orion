@@ -1,0 +1,30 @@
+Class {
+	#name : 'ORActionRemoveMethod',
+	#superclass : 'ORActionRemove',
+	#instVars : [
+		'isSynchronized',
+		'isAbstract',
+		'isClassSide',
+		'isFinal',
+		'kind',
+		'visibility',
+		'incomingImports',
+		'parentType',
+		'signature',
+		'incomingInvocations',
+		'declaredType',
+		'implicitVariables',
+		'localVariables',
+		'parameters',
+		'isStub',
+		'accesses',
+		'outgoingInvocations',
+		'outgoingReferences',
+		'comments',
+		'caughtExceptions',
+		'declaredExceptions',
+		'thrownExceptions'
+	],
+	#category : 'Orion',
+	#package : 'Orion'
+}
