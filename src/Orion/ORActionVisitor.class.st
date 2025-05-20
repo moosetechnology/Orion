@@ -54,42 +54,33 @@ ORActionVisitor >> getSubclasses: aClass [
 ]
 
 { #category : 'visiting' }
-ORActionVisitor >> visitPackage: aPackage with: aFamixEntitiesClass [
+ORActionVisitor >> visitSuperclass: aSuperclass with: aFamixEntitiesClass [
 
-	| packageSuffix famixEntitySuffixList |
-	Transcript
-		show: aPackage name;
-		cr.
-	packageSuffix := aPackage name
-		                 copyFrom: 'ORAction' size + 1
-		                 to: aPackage name size. "Extract Add, Move, Remove ou Rename"
+	| superclassSuffix famixEntitySuffixList |
+	superclassSuffix := aSuperclass name
+		                    copyFrom: 'ORAction' size + 1
+		                    to: aSuperclass name size. "Extract Add, Move, Remove or Rename"
 	famixEntitySuffixList := self visitFor: aFamixEntitiesClass.
-	Transcript
-		show: famixEntitySuffixList;
-		cr.
+
 
 	famixEntitySuffixList do: [ :famixEntitySuffix |
 		| className superclass |
-		className := 'ORAction' , packageSuffix , famixEntitySuffix.
+		className := 'ORAction' , superclassSuffix , 'T' , famixEntitySuffix.
 		superclass := Smalltalk
-			              at: ('ORAction' , packageSuffix) asSymbol
+			              at: ('ORAction' , superclassSuffix) asSymbol
 			              ifAbsent: [ nil ].
-		((self getSubclasses: aPackage) includes: className)
-			ifFalse: [
-				Transcript
-					show: (self fillSlots: famixEntitySuffix);
-					cr.
-				Transcript
-					show: famixEntitySuffix;
-					cr.
-				Smalltalk classInstaller make: [ :builder |
-					builder
-						superclass: superclass;
-						name: className;
-						slots: (self fillSlots: famixEntitySuffix);
-						sharedVariablesFromString: '';
-						sharedPools: '';
-						package: aPackage package;
-						environment: Object environment ] ]
- ]
+		((self getSubclasses: aSuperclass) includes:
+			 (Smalltalk at: className asSymbol ifAbsent: [ nil ])) ifFalse: [
+			Smalltalk classInstaller make: [ :builder |
+				builder
+					superclass: superclass;
+					name: className;
+					slots: (self fillSlots: famixEntitySuffix);
+					sharedVariablesFromString: '';
+					sharedPools: '';
+					tag: #Actions;
+					package: aSuperclass package;
+					environment: Object environment ] ].
+		self visitClass:
+			(Smalltalk at: className asSymbol ifAbsent: [ nil ]) ]
 ]
