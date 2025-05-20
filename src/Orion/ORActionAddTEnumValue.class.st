@@ -1,14 +1,14 @@
 Class {
-	#name : 'ORActionAddLocalVariable',
+	#name : 'ORActionAddTEnumValue',
 	#superclass : 'ORActionAdd',
 	#instVars : [
-		'isFinal',
-		'parentBehaviouralEntity',
+		'parentEnum',
 		'incomingAccesses',
 		'isStub',
 		'declaredType',
 		'comments'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }

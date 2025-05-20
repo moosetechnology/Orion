@@ -1,20 +1,18 @@
 Class {
-	#name : 'ORActionAddInterface',
+	#name : 'ORActionAddTAnnotationType',
 	#superclass : 'ORActionAdd',
 	#instVars : [
-		'isClassSide',
-		'isFinal',
+		'annotationTypesContainer',
+		'instances',
 		'visibility',
 		'implementations',
-		'incomingImports',
-		'receivingInvocations',
 		'parentPackage',
 		'attributes',
 		'comments',
-		'imports',
 		'superInheritances',
 		'subInheritances'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }

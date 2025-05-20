@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddImport',
+	#name : 'ORActionAddTImport',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'importedEntity',
@@ -8,6 +8,7 @@ Class {
 		'previous',
 		'sourceAnchor'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }

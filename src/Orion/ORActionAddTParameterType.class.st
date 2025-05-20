@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddParameterType',
+	#name : 'ORActionAddTParameterType',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'concretizations',
@@ -11,6 +11,7 @@ Class {
 		'superInheritances',
 		'subInheritances'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }

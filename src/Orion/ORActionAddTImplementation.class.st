@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddImplementation',
+	#name : 'ORActionAddTImplementation',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'implementingClass',
@@ -8,6 +8,7 @@ Class {
 		'previous',
 		'sourceAnchor'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }

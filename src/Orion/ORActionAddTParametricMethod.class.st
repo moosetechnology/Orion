@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddParametricInterface',
+	#name : 'ORActionAddTParametricMethod',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'concreteParameters',
@@ -7,6 +7,7 @@ Class {
 		'genericParameters',
 		'genericization'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }

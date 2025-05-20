@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddIndexedFileAnchor',
+	#name : 'ORActionAddTIndexedFileAnchor',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'endPos',
@@ -8,6 +8,7 @@ Class {
 		'encoding',
 		'fileName'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }

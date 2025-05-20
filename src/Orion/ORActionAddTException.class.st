@@ -1,11 +1,12 @@
 Class {
-	#name : 'ORActionAddException',
+	#name : 'ORActionAddTException',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'catchingEntities',
 		'declaringEntities',
 		'throwingEntities'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }

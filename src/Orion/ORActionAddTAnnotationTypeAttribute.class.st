@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddAnnotationTypeAttribute',
+	#name : 'ORActionAddTAnnotationTypeAttribute',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'annotationAttributeInstances',
@@ -9,6 +9,7 @@ Class {
 		'declaredType',
 		'comments'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }

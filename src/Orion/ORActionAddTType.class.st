@@ -1,5 +1,5 @@
 Class {
-	#name : 'ORActionAddType',
+	#name : 'ORActionAddTType',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'lowerBoundedWildcards',
@@ -12,6 +12,7 @@ Class {
 		'incomingReferences',
 		'methods'
 	],
-	#category : 'Orion',
-	#package : 'Orion'
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
 }
