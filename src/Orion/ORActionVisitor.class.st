@@ -54,6 +54,89 @@ ORActionVisitor >> getSubclasses: aClass [
 ]
 
 { #category : 'visiting' }
+ORActionVisitor >> visitAddClass: aClass [
+
+	| code setFamixLines entityName |
+	aClass slots size > 0 ifFalse: [ ^ nil ].
+	entityName := aClass name
+		              copyFrom: 'ORActionAddT' size + 1
+		              to: aClass name size.
+	setFamixLines := aClass slots collect: [ :slot |
+		                 'self setFamixProperty: #' , slot name
+		                 , ' on: newEntity to: self ' , slot name , '.' ].
+	setFamixLines := setFamixLines
+		                 inject: setFamixLines first
+		                 into: [ :str :each | str , ' ' , each ].
+	code := 'run
+
+	| newEntity |
+	newEntity := self orionModel new' , entityName , '.
+
+	' , setFamixLines , '
+
+	newEntity resetMooseName.
+
+	entity := newEntity.
+	^ entity'.
+	aClass compile: code classified: 'method execution'
+]
+
+{ #category : 'visiting' }
+ORActionVisitor >> visitClass: aClass [
+
+	aClass superclass name = 'ORActionAdd' ifTrue: [
+		self createAssessors: aClass.
+		self visitAddClass: aClass ].
+	aClass superclass name = 'ORActionRemove' ifTrue: [
+		self visitDelClass: aClass ].
+	aClass superclass name = 'ORActionMove' ifTrue: [
+		self visitMovClass: aClass ].
+	aClass superclass name = 'ORActionRename' ifTrue: [
+		self visitRenClass: aClass ]
+]
+
+{ #category : 'visiting' }
+ORActionVisitor >> visitDelClass: aClass [
+
+	| code setFamixLines entityName |
+	entityName := aClass copyFrom: 'ORActionRemoveT' size + 1.
+	setFamixLines := aClass slots do: [ :slot |
+		                 ^ 'self setFamixProperty: #' , slot
+		                   , ' on: entity to: nil.' ].
+	code := 'run
+
+	' , setFamixLines , '
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity'.
+
+	aClass compile: code classified: 'method execution'
+]
+
+{ #category : 'visiting' }
+ORActionVisitor >> visitFor: aFamixLanguageEntityClass [
+
+	| classes cleanedNames prefixLength |
+	classes := aFamixLanguageEntityClass withAllSubclasses.
+	prefixLength := 'FamixJava' size. "aFamixLanguageEntityClass name"
+
+	cleanedNames := classes collect: [ :each |
+		                | name |
+		                name := each name asString.
+
+		                name size > prefixLength
+			                ifTrue: [
+			                name := name
+				                        copyFrom: prefixLength + 1
+				                        to: name size ]
+			                ifFalse: [ name := name ].
+
+		                name ].
+	^ cleanedNames
+]
+
+{ #category : 'visiting' }
 ORActionVisitor >> visitSuperclass: aSuperclass with: aFamixEntitiesClass [
 
 	| superclassSuffix famixEntitySuffixList |
