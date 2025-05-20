@@ -11,6 +11,22 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
+ORActionVisitor >> createAssessors: aClass [
+
+	| slotNames |
+	slotNames := aClass slots.
+	Transcript
+		show: slotNames;
+		cr.
+	slotNames do: [ :slot |
+		| get set |
+		get := slot name , ' ^' , slot name.
+		set := slot name , ': aValue ' , slot name , ' := aValue'.
+		aClass compile: get classified: 'accessing'.
+		aClass compile: set classified: 'accessing' ]
+]
+
+{ #category : 'as yet unclassified' }
 ORActionVisitor >> fillSlots: aClass [
 
 	| fullClassName target slots |
