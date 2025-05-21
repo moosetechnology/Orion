@@ -167,3 +167,35 @@ ORActionVisitor >> visitSuperclass: aSuperclass with: aFamixEntitiesClass [
 		self visitClass:
 			(Smalltalk at: className asSymbol ifAbsent: [ nil ]) ]
 ]
+
+{ #category : 'visiting' }
+ORActionVisitor >> visitSuperclassTest: aSuperclass with: aFamixEntitiesClass [
+
+	| superclassSuffix famixEntitySuffixList |
+	superclassSuffix := aSuperclass name
+		                    copyFrom: 'ORAction' size + 1
+		                    to: aSuperclass name size. "Extract Add, Move, Remove or Rename"
+	famixEntitySuffixList := self visitFor: aFamixEntitiesClass.
+
+
+	famixEntitySuffixList do: [ :famixEntitySuffix |
+		| className superclass |
+		className := 'ORAction' , superclassSuffix , 'T' , famixEntitySuffix, 'Test'.
+		superclass := Smalltalk
+			              at: ('ORAction' , superclassSuffix) asSymbol
+			              ifAbsent: [ nil ].
+		((self getSubclasses: aSuperclass) includes:
+			 (Smalltalk at: className asSymbol ifAbsent: [ nil ])) ifFalse: [
+			Smalltalk classInstaller make: [ :builder |
+				builder
+					superclass: superclass;
+					name: className;
+					slots: {};
+					sharedVariablesFromString: '';
+					sharedPools: '';
+					tag: #Actions;
+					package: aSuperclass package;
+					environment: Object environment ] ].
+		self visitClassTest:
+			(Smalltalk at: className asSymbol ifAbsent: [ nil ]) ]
+]
