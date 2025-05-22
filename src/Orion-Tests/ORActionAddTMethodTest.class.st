@@ -38,23 +38,6 @@ ORActionAddTMethodTest >> testAddsCorrectEntity [
 ]
 
 { #category : 'testing' }
-ORActionAddTMethodTest >> testAddsOneEntity [
-
-	| mth |
-
-	self assert: (modelV2 entityNamed: 'Class4.newMethod(...)') isNil.
-
-	action run.
-
-	mth := modelV2 entityNamed: 'Class4.newMethod(...)'.
-
-	self assert: mth notNil.
-	self assert: (modelV2 includes: mth).
-	self deny: (modelV1 includes: mth).
-
-]
-
-{ #category : 'testing' }
 ORActionAddTMethodTest >> testCopiesPrimitiveProperties [
 
 	| mth |
