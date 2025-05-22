@@ -11,3 +11,19 @@ ORActionRemoveTest class >> isAbstract [
 
 	^self == ORActionRemoveTest 
 ]
+
+{ #category : 'tests' }
+ORActionRemoveTest >> testEntityWrongType [
+
+	self
+		should: [ action entity: FamixStLocalVariable new ]
+		raise: IllegalType
+]
+
+{ #category : 'tests' }
+ORActionRemoveTest >> testRemovesOneEntity [
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size - 1.
+]
