@@ -1,3 +1,6 @@
+"
+The Builder that creates ORAction based on Traits 
+"
 Class {
 	#name : 'ORActionBuilder',
 	#superclass : 'Object',
