@@ -3,7 +3,7 @@ An ORActionMoveTAttributeTest is a test class for testing the behavior of ORActi
 "
 Class {
 	#name : 'ORActionMoveTAttributeTest',
-	#superclass : 'ORActionMoveTest',
+	#superclass : 'ORActionMoveNamedEntityTest',
 	#category : 'Orion-Tests-Actions',
 	#package : 'Orion-Tests',
 	#tag : 'Actions'

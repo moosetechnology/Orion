@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionMoveTMethodTest',
-	#superclass : 'ORActionMoveTest',
+	#superclass : 'ORActionMoveNamedEntityTest',
 	#category : 'Orion-Tests-Actions',
 	#package : 'Orion-Tests',
 	#tag : 'Actions'

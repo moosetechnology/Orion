@@ -1,8 +1,5 @@
-"
-An ORActionMoveTPackageTest is a test class for testing the behavior of ORActionMoveTPackage
-"
 Class {
-	#name : 'ORActionMoveTPackageTest',
+	#name : 'ORActionMoveTExceptionTest',
 	#superclass : 'ORActionMoveNamedEntityTest',
 	#category : 'Orion-Tests-Actions',
 	#package : 'Orion-Tests',

@@ -3,7 +3,7 @@ An ORActionAddTParameterTest is a test class for testing the behavior of ORActio
 "
 Class {
 	#name : 'ORActionAddTParameterTest',
-	#superclass : 'ORActionAddTest',
+	#superclass : 'ORActionAddNamedEntityTest',
 	#category : 'Orion-Tests-Actions',
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
