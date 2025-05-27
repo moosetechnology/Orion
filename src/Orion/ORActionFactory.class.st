@@ -10,6 +10,35 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
+ORActionFactory >> buildAddClass: aClass [
+	| code setFamixLines entityName |
+	aClass slots size > 0 ifFalse: [ ^ nil ].
+	entityName := aClass name
+		              copyFrom: 'ORActionAddT' size + 1
+		              to: aClass name size.
+	setFamixLines := aClass slots collect: [ :slot |
+		                 'self setFamixProperty: #' , slot name
+		                 , ' on: newEntity to: self ' , slot name , '.' ].
+	setFamixLines := setFamixLines
+		                 inject: setFamixLines first
+		                 into: [ :str :each | str , ' ' , each ].
+	code := 'run
+
+	| newEntity |
+	newEntity := self orionModel new' , entityName , '.
+
+	' , setFamixLines , '
+
+	newEntity resetMooseName.
+
+	entity := newEntity.
+	^ entity'.
+	aClass compile: code classified: 'method execution'
+
+	
+]
+
+{ #category : 'as yet unclassified' }
 ORActionFactory >> buildClass: aClass ofType: aType [
 
 	self createAssessors: aClass.
@@ -21,6 +50,33 @@ ORActionFactory >> buildClass: aClass ofType: aType [
 		self buildMoveClass: aClass ].
 	aType = 'Ren' ifTrue: [
 		self buildRenClass: aClass ]
+]
+
+{ #category : 'as yet unclassified' }
+ORActionFactory >> buildDelClass: aClass [
+
+	| code setFamixLines entityName |
+	entityName := aClass copyFrom: 'ORActionRemoveT' size + 1.
+	setFamixLines := aClass slots do: [ :slot |
+		                 ^ 'self setFamixProperty: #' , slot name
+		                   , ' on: entity to: nil.' ].
+	code := 'run
+
+	' , setFamixLines , '
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity'.
+
+	aClass compile: code classified: 'method execution'
+]
+
+{ #category : 'as yet unclassified' }
+ORActionFactory >> buildMoveClass: aClass [
+]
+
+{ #category : 'as yet unclassified' }
+ORActionFactory >> buildRenClass: aClass [
 ]
 
 { #category : 'as yet unclassified' }
