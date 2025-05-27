@@ -80,6 +80,19 @@ ORActionFactory >> buildRenClass: aClass [
 ]
 
 { #category : 'as yet unclassified' }
+ORActionFactory >> createAssessors: aClass [
+
+	| slotNames |
+	slotNames := aClass slots.
+	slotNames do: [ :slot |
+		| get set |
+		get := slot name , ' ^' , slot name.
+		set := slot name , ': aValue ' , slot name , ' := aValue'.
+		aClass compile: get classified: 'accessing'.
+		aClass compile: set classified: 'accessing' ]
+]
+
+{ #category : 'as yet unclassified' }
 ORActionFactory >> orActionBuilder: aPackage [
 	self orActionCreator: aPackage ofType: 'Add'.
 	self orActionCreator: aPackage ofType: 'Remove'.
