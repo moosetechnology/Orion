@@ -137,6 +137,10 @@ ORActionFactory >> buildRenClass: aClass [
 ]
 
 { #category : 'as yet unclassified' }
+ORActionFactory >> buildTestClass: aClass ofType: aType [
+]
+
+{ #category : 'as yet unclassified' }
 ORActionFactory >> createAssessors: aClass [
 
 	| slotNames |
@@ -205,6 +209,30 @@ ORActionFactory >> orActionCreator: aPackageName ofType: aType [
 			self
 				buildClass: (Smalltalk at: className asSymbol ifAbsent: [ nil ])
 				ofType: aType ] ]
+]
+
+{ #category : 'as yet unclassified' }
+ORActionFactory >> orActionTestCreator [
+
+	| classes |
+	classes := ORAction allSubclasses select: [ :e | e isAbstract not ].
+
+
+	classes do: [ :class |
+		| superclassName className |
+		superclassName := class superclass asString , 'Test'.
+		className := class name , 'Test'.
+		Smalltalk at: (class name , 'Test') asSymbol ifAbsent: [ nil ].
+		Smalltalk classInstaller make: [ :builder |
+			builder
+				superclass: (Smalltalk at: superclassName asSymbol);
+				name: className;
+				slots: {  };
+				sharedVariablesFromString: '';
+				sharedPools: '';
+				tag: #Actions;
+				package: 'Orion-Tests';
+				environment: Object environment ] ]
 ]
 
 { #category : 'as yet unclassified' }
