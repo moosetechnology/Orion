@@ -2,7 +2,6 @@ Class {
 	#name : 'ORActionAddTConcretization',
 	#superclass : 'ORActionAdd',
 	#instVars : [
-		'parameterConcretizations',
 		'genericEntity',
 		'concreteEntity',
 		'next',
@@ -60,7 +59,7 @@ ORActionAddTConcretization >> run [
 	| newEntity |
 	newEntity := self orionModel newConcretization.
 
-	self setFamixProperty: #parameterConcretizations on: newEntity to: self parameterConcretizations. self setFamixProperty: #parameterConcretizations on: newEntity to: self parameterConcretizations. self setFamixProperty: #genericEntity on: newEntity to: self genericEntity. self setFamixProperty: #concreteEntity on: newEntity to: self concreteEntity. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+	self setFamixProperty: #genericEntity on: newEntity to: self genericEntity. self setFamixProperty: #concreteEntity on: newEntity to: self concreteEntity. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
 	newEntity resetMooseName.
 

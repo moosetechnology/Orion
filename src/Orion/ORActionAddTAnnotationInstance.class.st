@@ -3,8 +3,7 @@ Class {
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'annotatedEntity',
-		'annotationType',
-		'attributes'
+		'annotationType'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -41,7 +40,7 @@ ORActionAddTAnnotationInstance >> run [
 	| newEntity |
 	newEntity := self orionModel newAnnotationInstance.
 
-	self setFamixProperty: #annotatedEntity on: newEntity to: self annotatedEntity. self setFamixProperty: #annotatedEntity on: newEntity to: self annotatedEntity. self setFamixProperty: #annotationType on: newEntity to: self annotationType. self setFamixProperty: #attributes on: newEntity to: self attributes.
+	self setFamixProperty: #annotatedEntity on: newEntity to: self annotatedEntity. self setFamixProperty: #annotationType on: newEntity to: self annotationType.
 
 	newEntity resetMooseName.
 

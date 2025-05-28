@@ -1,0 +1,69 @@
+Class {
+	#name : 'ORActionRenameTAnnotationTypeAttribute',
+	#superclass : 'ORActionRenameNamedEntity',
+	#instVars : [
+		'parentType',
+		'isStub',
+		'sourceAnchor',
+		'declaredType'
+	],
+	#category : 'Orion-Actions',
+	#package : 'Orion',
+	#tag : 'Actions'
+}
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> annotationAttributeInstances [ ^annotationAttributeInstances
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> annotationAttributeInstances: aValue [ annotationAttributeInstances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> name [ ^name
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> name: aValue [ name := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> parentType [ ^parentType
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> parentType: aValue [ parentType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRenameTAnnotationTypeAttribute >> sourceAnchor: aValue [ sourceAnchor := aValue
+]

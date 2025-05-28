@@ -11,6 +11,7 @@ Class {
 
 { #category : 'as yet unclassified' }
 ORActionFactory >> buildAddClass: aClass [
+
 	| code setFamixLines entityName |
 	aClass slots size > 0 ifFalse: [ ^ nil ].
 	entityName := aClass name
@@ -19,7 +20,7 @@ ORActionFactory >> buildAddClass: aClass [
 	setFamixLines := aClass slots collect: [ :slot |
 		                 'self setFamixProperty: #' , slot name
 		                 , ' on: newEntity to: self ' , slot name , '.' ].
-	setFamixLines := setFamixLines
+	setFamixLines := setFamixLines allButFirst 
 		                 inject: setFamixLines first
 		                 into: [ :str :each | str , ' ' , each ].
 	code := 'run
@@ -34,8 +35,6 @@ ORActionFactory >> buildAddClass: aClass [
 	entity := newEntity.
 	^ entity'.
 	aClass compile: code classified: 'method execution'
-
-	
 ]
 
 { #category : 'as yet unclassified' }
@@ -166,18 +165,18 @@ ORActionFactory >> orActionCreator: aPackageName ofType: aType [
 
 	| package classes fj |
 	package := PackageOrganizer default packageNamed: aPackageName.
-	classes := package classes asOrderedCollection
-		           "copyFrom: 1
-		           to: (50 min: package classes size)".
+	classes := package classes asOrderedCollection.
+	"copyFrom: 1
+		           to: (50 min: package classes size)"
 
-	fj := FamixJavaTEntityCreator allMethods asOrderedCollection.
-	fj := fj collect: [ :e | e signature ].
-	fj := fj select: [ :e | (e asString includes: $:) not ].
-	fj := fj collect: [ :e | e copyFrom: 1 to: e size - 2 ].
-	fj := fj collect: [ :e | e copyFrom: 4 to: e size ].
+	fj := FamixJavaTEntityCreator allMethods asOrderedCollection. "methods of FAmixJavaTEntityCreator"
+	fj := fj collect: [ :e | e signature ]. "keeping only their signature"
+	fj := fj select: [ :e | (e asString includes: $:) not ]. "removing the methods that have a parameter"
+	fj := fj collect: [ :e | e copyFrom: 1 to: e size - 2 ]. "removing the '()' at the end of method signature"
+	fj := fj collect: [ :e | e copyFrom: 4 to: e size ]. "removing the 'new' at the beginning of method signature"
 
-	classes do: [ :class |
-		| className superclass classSuffix |
+	classes do: [ :class | "]"
+		| className superclass classSuffix slots |
 		classSuffix := class name
 			               copyFrom: 'FamixT' size + 1
 			               to: class name size.
@@ -188,24 +187,27 @@ ORActionFactory >> orActionCreator: aPackageName ofType: aType [
 				              at: ('ORAction' , aType) asSymbol
 				              ifAbsent: [ nil ].
 
+			slots := class allSlots select: [ :e | e isToOne ].
+
 			(((Smalltalk at: ('FamixT' , classSuffix) asSymbol) allSlots
 				  collect: [ :each | each name ]) includes: 'name') ifTrue: [
 				superclass := Smalltalk
 					              at: ('ORAction' , aType , 'NamedEntity') asSymbol
-					              ifAbsent: [ nil ] ].
+					              ifAbsent: [ nil ] .
+					slots := slots reject: [:e|e name = 'name']].
 
-			(package classes asOrderedCollection includes:
-				 (Smalltalk at: className asSymbol ifAbsent: [ nil ])) ifFalse: [
-				Smalltalk classInstaller make: [ :builder |
-					builder
-						superclass: superclass;
-						name: className;
-						slots: (class allSlots collect: [ :e | e name ]);
-						sharedVariablesFromString: '';
-						sharedPools: '';
-						tag: #Actions;
-						package: 'Orion';
-						environment: Object environment ] ].
+			"(package classes asOrderedCollection includes:
+				 (Smalltalk at: className asSymbol ifAbsent: [ nil ])) ifFalse: ["
+			Smalltalk classInstaller make: [ :builder |
+				builder
+					superclass: superclass;
+					name: className;
+					slots: (slots collect: [ :e | e name ]);
+					sharedVariablesFromString: '';
+					sharedPools: '';
+					tag: #Actions;
+					package: 'Orion';
+					environment: Object environment ].
 			self
 				buildClass: (Smalltalk at: className asSymbol ifAbsent: [ nil ])
 				ofType: aType ] ]
@@ -240,9 +242,11 @@ ORActionFactory >> orJavaActionCreatorOfType: aType [
 
 	| classes package |
 	package := PackageOrganizer default packageNamed: 'Orion'.
-	classes := ((Smalltalk at: ('ORAction' , aType) asSymbol)
-		           allSubclasses "copyFrom: 1 to: 15") union: ((Smalltalk at: ('ORAction' , aType, 'NamedEntity') asSymbol)
-		           allSubclasses "copyFrom: 1 to: 15").
+	classes := (Smalltalk at: ('ORAction' , aType) asSymbol)
+		           allSubclasses union:
+		           (Smalltalk at:
+			            ('ORAction' , aType , 'NamedEntity') asSymbol)
+			           allSubclasses. "copyFrom: 1 to: 15" "copyFrom: 1 to: 15"
 
 
 	classes do: [ :class |
@@ -272,7 +276,7 @@ ORActionFactory >> orJavaActionCreatorOfType: aType [
 						builder
 							superclass: class;
 							name: className;
-							slots: slots;
+							slots: (slots select: [:e | e isToOne]);
 							sharedVariablesFromString: '';
 							sharedPools: '';
 							tag: #Actions;

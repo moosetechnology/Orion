@@ -2,7 +2,6 @@ Class {
 	#name : 'ORActionAddTInvocation',
 	#superclass : 'ORActionAdd',
 	#instVars : [
-		'candidates',
 		'receiver',
 		'sender',
 		'next',
@@ -53,7 +52,7 @@ ORActionAddTInvocation >> run [
 	| newEntity |
 	newEntity := self orionModel newInvocation.
 
-	self setFamixProperty: #candidates on: newEntity to: self candidates. self setFamixProperty: #candidates on: newEntity to: self candidates. self setFamixProperty: #receiver on: newEntity to: self receiver. self setFamixProperty: #sender on: newEntity to: self sender. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #signature on: newEntity to: self signature.
+	self setFamixProperty: #receiver on: newEntity to: self receiver. self setFamixProperty: #sender on: newEntity to: self sender. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #signature on: newEntity to: self signature.
 
 	newEntity resetMooseName.
 

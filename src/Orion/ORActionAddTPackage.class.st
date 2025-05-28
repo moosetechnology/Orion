@@ -1,17 +1,9 @@
-"
-I add a new FamixTPackage in an OrionModel.
-I need the following properties :
-- `isStub`
-- `name`
-- `parentPackage`
-"
 Class {
 	#name : 'ORActionAddTPackage',
-	#superclass : 'ORActionAddTNamedEntity',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
-		'name',
-		'parentPackage',
-		'isStub'
+		'isStub',
+		'sourceAnchor'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -19,50 +11,47 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddTPackage >> isStub [
-
-	^ isStub
+ORActionAddTPackage >> childEntities [ ^childEntities
 ]
 
 { #category : 'accessing' }
-ORActionAddTPackage >> isStub: anObject [
-
-	isStub := anObject
+ORActionAddTPackage >> childEntities: aValue [ childEntities := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTPackage >> name [
-
-	^ name
+ORActionAddTPackage >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
-ORActionAddTPackage >> name: anObject [
-
-	name := anObject
+ORActionAddTPackage >> isStub: aValue [ isStub := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTPackage >> parentPackage [
-
-	^ parentPackage
+ORActionAddTPackage >> name [ ^name
 ]
 
 { #category : 'accessing' }
-ORActionAddTPackage >> parentPackage: anObject [
-
-	parentPackage := anObject
+ORActionAddTPackage >> name: aValue [ name := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTPackage >> run [
-	| newPackage |
-	newPackage := self orionModel newPackage .
 
-	self setFamixProperty: #isStub on: newPackage to: self isStub .
-	self setFamixProperty: #name on: newPackage to: self name .
+	| newEntity |
+	newEntity := self orionModel newPackage.
 
-	newPackage resetMooseName.
-	entity := newPackage .
-	^entity
+	self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+
+	newEntity resetMooseName.
+
+	entity := newEntity.
+	^ entity
+]
+
+{ #category : 'accessing' }
+ORActionAddTPackage >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionAddTPackage >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]

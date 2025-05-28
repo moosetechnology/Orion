@@ -52,7 +52,7 @@ ORActionAddTAccess >> run [
 	| newEntity |
 	newEntity := self orionModel newAccess.
 
-	self setFamixProperty: #accessor on: newEntity to: self accessor. self setFamixProperty: #accessor on: newEntity to: self accessor. self setFamixProperty: #isWrite on: newEntity to: self isWrite. self setFamixProperty: #variable on: newEntity to: self variable. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+	self setFamixProperty: #accessor on: newEntity to: self accessor. self setFamixProperty: #isWrite on: newEntity to: self isWrite. self setFamixProperty: #variable on: newEntity to: self variable. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
 	newEntity resetMooseName.
 

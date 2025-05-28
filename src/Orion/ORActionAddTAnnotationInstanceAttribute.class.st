@@ -33,7 +33,7 @@ ORActionAddTAnnotationInstanceAttribute >> run [
 	| newEntity |
 	newEntity := self orionModel newAnnotationInstanceAttribute.
 
-	self setFamixProperty: #annotationTypeAttribute on: newEntity to: self annotationTypeAttribute. self setFamixProperty: #annotationTypeAttribute on: newEntity to: self annotationTypeAttribute. self setFamixProperty: #parentAnnotationInstance on: newEntity to: self parentAnnotationInstance. self setFamixProperty: #value on: newEntity to: self value.
+	self setFamixProperty: #annotationTypeAttribute on: newEntity to: self annotationTypeAttribute. self setFamixProperty: #parentAnnotationInstance on: newEntity to: self parentAnnotationInstance. self setFamixProperty: #value on: newEntity to: self value.
 
 	newEntity resetMooseName.
 

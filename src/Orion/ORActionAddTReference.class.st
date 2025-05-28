@@ -51,7 +51,7 @@ ORActionAddTReference >> run [
 	| newEntity |
 	newEntity := self orionModel newReference.
 
-	self setFamixProperty: #referencer on: newEntity to: self referencer. self setFamixProperty: #referencer on: newEntity to: self referencer. self setFamixProperty: #referredEntity on: newEntity to: self referredEntity. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+	self setFamixProperty: #referencer on: newEntity to: self referencer. self setFamixProperty: #referredEntity on: newEntity to: self referredEntity. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
 	newEntity resetMooseName.
 

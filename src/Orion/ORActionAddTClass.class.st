@@ -1,17 +1,10 @@
-"
-I add a new FamixTClass in an OrionModel.
-I need the following properties of the new class:
-- `name`
-- `parentPackage` (/!\ This is not from TClass but a common property)
-- whether it is a stub (`isStub`)
-"
 Class {
 	#name : 'ORActionAddTClass',
-	#superclass : 'ORActionAddTNamedEntity',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'typeContainer',
 		'isStub',
-		'parentPackage',
-		'name'
+		'sourceAnchor'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -19,46 +12,111 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddTClass >> isStub [
-	^ isStub
+ORActionAddTClass >> attributes [ ^attributes
 ]
 
 { #category : 'accessing' }
-ORActionAddTClass >> isStub: aValue [
-	isStub := aValue
+ORActionAddTClass >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTClass >> name [
-	^ name
+ORActionAddTClass >> comments [ ^comments
 ]
 
 { #category : 'accessing' }
-ORActionAddTClass >> name: aValue [
-	name := aValue
+ORActionAddTClass >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTClass >> parentPackage [
-	^ parentPackage
+ORActionAddTClass >> incomingReferences [ ^incomingReferences
 ]
 
 { #category : 'accessing' }
-ORActionAddTClass >> parentPackage: aValue [
-	parentPackage := aValue
+ORActionAddTClass >> incomingReferences: aValue [ incomingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> methods [ ^methods
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> methods: aValue [ methods := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> name [ ^name
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> name: aValue [ name := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> receivingInvocations [ ^receivingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> receivingInvocations: aValue [ receivingInvocations := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTClass >> run [
 
-	| newClass |
-	newClass := self orionModel newClass.
+	| newEntity |
+	newEntity := self orionModel newClass.
 
-	self setFamixProperty: #name on: newClass to: self name.
-	self setFamixProperty: #isStub on: newClass to: self isStub.
+	self setFamixProperty: #typeContainer on: newEntity to: self typeContainer. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
-	self setFamixProperty: #parentPackage on: newClass to: self parentPackage.
+	newEntity resetMooseName.
 
-	entity := newClass.
+	entity := newEntity.
 	^ entity
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> sourceAnchor: aValue [ sourceAnchor := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> subInheritances [ ^subInheritances
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> subInheritances: aValue [ subInheritances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> superInheritances [ ^superInheritances
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> superInheritances: aValue [ superInheritances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> typeContainer [ ^typeContainer
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddTClass >> typedEntities: aValue [ typedEntities := aValue
 ]

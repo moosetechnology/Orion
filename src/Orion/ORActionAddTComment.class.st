@@ -24,7 +24,7 @@ ORActionAddTComment >> run [
 	| newEntity |
 	newEntity := self orionModel newComment.
 
-	self setFamixProperty: #commentedEntity on: newEntity to: self commentedEntity. self setFamixProperty: #commentedEntity on: newEntity to: self commentedEntity. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+	self setFamixProperty: #commentedEntity on: newEntity to: self commentedEntity. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
 	newEntity resetMooseName.
 

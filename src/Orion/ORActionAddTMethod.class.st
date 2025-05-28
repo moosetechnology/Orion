@@ -1,21 +1,12 @@
-"
-I add a new FamixTMethod in an OrionModel.
-I need the following properties of the new method:
-- `name`
-- `signature`
-- `parentType`
-- `declaredType`
-- whether it is a stub (`isStub`)
-"
 Class {
 	#name : 'ORActionAddTMethod',
-	#superclass : 'ORActionAddTNamedEntity',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
-		'declaredType',
-		'name',
-		'signature',
 		'parentType',
-		'isStub'
+		'signature',
+		'declaredType',
+		'isStub',
+		'sourceAnchor'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -23,72 +14,119 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddTMethod >> declaredType [
-	^ declaredType
+ORActionAddTMethod >> accesses [ ^accesses
 ]
 
 { #category : 'accessing' }
-ORActionAddTMethod >> declaredType: aValue [
-	declaredType := aValue
+ORActionAddTMethod >> accesses: aValue [ accesses := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTMethod >> isStub [
-	^ isStub
+ORActionAddTMethod >> declaredType [ ^declaredType
 ]
 
 { #category : 'accessing' }
-ORActionAddTMethod >> isStub: aValue [
-	isStub := aValue
+ORActionAddTMethod >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTMethod >> name [
-	^ name
+ORActionAddTMethod >> implicitVariables [ ^implicitVariables
 ]
 
 { #category : 'accessing' }
-ORActionAddTMethod >> name: aValue [
-	name := aValue
+ORActionAddTMethod >> implicitVariables: aValue [ implicitVariables := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTMethod >> parentType [
-	^ parentType
+ORActionAddTMethod >> incomingInvocations [ ^incomingInvocations
 ]
 
 { #category : 'accessing' }
-ORActionAddTMethod >> parentType: aValue [
-	parentType := aValue
+ORActionAddTMethod >> incomingInvocations: aValue [ incomingInvocations := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> localVariables [ ^localVariables
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> localVariables: aValue [ localVariables := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> name [ ^name
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> name: aValue [ name := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> outgoingInvocations [ ^outgoingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> outgoingInvocations: aValue [ outgoingInvocations := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> outgoingReferences [ ^outgoingReferences
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> outgoingReferences: aValue [ outgoingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> parameters [ ^parameters
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> parameters: aValue [ parameters := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> parentType [ ^parentType
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> parentType: aValue [ parentType := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTMethod >> run [
 
-	| newMethod |
-	newMethod := self orionModel newMethod.
+	| newEntity |
+	newEntity := self orionModel newMethod.
 
-	self setFamixProperty: #name on: newMethod to: self name.
-	self setFamixProperty: #isStub on: newMethod to: self isStub.
-	self setFamixProperty: #signature on: newMethod to: self signature.
+	self setFamixProperty: #parentType on: newEntity to: self parentType. self setFamixProperty: #signature on: newEntity to: self signature. self setFamixProperty: #declaredType on: newEntity to: self declaredType. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
-	self setFamixProperty: #parentType on: newMethod to: self parentType.
-	self setFamixProperty: #declaredType on: newMethod to: self declaredType.
+	newEntity resetMooseName.
 
-	newMethod resetMooseName.
-
-	entity := newMethod.
+	entity := newEntity.
 	^ entity
 ]
 
 { #category : 'accessing' }
-ORActionAddTMethod >> signature [
-
-	^ signature
+ORActionAddTMethod >> signature [ ^signature
 ]
 
 { #category : 'accessing' }
-ORActionAddTMethod >> signature: anObject [
+ORActionAddTMethod >> signature: aValue [ signature := aValue
+]
 
-	signature := anObject
+{ #category : 'accessing' }
+ORActionAddTMethod >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionAddTMethod >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]

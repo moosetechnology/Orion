@@ -13,11 +13,6 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'as yet unclassified' }
-ORActionAddTInheritance class >> description [
-	^'add inheritance'
-]
-
 { #category : 'accessing' }
 ORActionAddTInheritance >> next [ ^next
 ]
@@ -40,7 +35,7 @@ ORActionAddTInheritance >> run [
 	| newEntity |
 	newEntity := self orionModel newInheritance.
 
-	self setFamixProperty: #subclass on: newEntity to: self subclass. self setFamixProperty: #subclass on: newEntity to: self subclass. self setFamixProperty: #superclass on: newEntity to: self superclass. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+	self setFamixProperty: #subclass on: newEntity to: self subclass. self setFamixProperty: #superclass on: newEntity to: self superclass. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
 	newEntity resetMooseName.
 

@@ -1,32 +1,108 @@
-"
-I add a new FamixTClass in an OrionModel.
-I need the following properties of the new class:
-- `name`
-- `parentPackage` (/!\ This is not from TClass but a common property)
-- whether it is a stub (`isStub`)
-"
 Class {
 	#name : 'ORActionRemoveTClass',
-	#superclass : 'ORActionRemove',
+	#superclass : 'ORActionRemoveNamedEntity',
+	#instVars : [
+		'typeContainer',
+		'isStub',
+		'sourceAnchor'
+	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
 
 { #category : 'accessing' }
-ORActionRemoveTClass >> entity: anEntity [
-
-	IllegalType check: anEntity useTrait: FamixTClass.
-
-	super entity: anEntity
+ORActionRemoveTClass >> attributes [ ^attributes
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveTClass >> run [
+{ #category : 'accessing' }
+ORActionRemoveTClass >> attributes: aValue [ attributes := aValue
+]
 
-	self setFamixProperty: #parentPackage on: entity to: nil.
+{ #category : 'accessing' }
+ORActionRemoveTClass >> comments [ ^comments
+]
 
-	self orionModel remove: (self orionModel versionLookup: self entity).
+{ #category : 'accessing' }
+ORActionRemoveTClass >> comments: aValue [ comments := aValue
+]
 
-	^ entity
+{ #category : 'accessing' }
+ORActionRemoveTClass >> incomingReferences [ ^incomingReferences
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> incomingReferences: aValue [ incomingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> methods [ ^methods
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> methods: aValue [ methods := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> name [ ^name
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> name: aValue [ name := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> receivingInvocations [ ^receivingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> receivingInvocations: aValue [ receivingInvocations := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> sourceAnchor: aValue [ sourceAnchor := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> subInheritances [ ^subInheritances
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> subInheritances: aValue [ subInheritances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> superInheritances [ ^superInheritances
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> superInheritances: aValue [ superInheritances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> typeContainer [ ^typeContainer
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTClass >> typedEntities: aValue [ typedEntities := aValue
 ]

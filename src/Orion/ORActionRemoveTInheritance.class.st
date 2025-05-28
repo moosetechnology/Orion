@@ -1,33 +1,54 @@
-"
-I add a new FamixTClass in an OrionModel.
-I need the following properties of the new class:
-- `name`
-- `parentPackage` (/!\ This is not from TClass but a common property)
-- whether it is a stub (`isStub`)
-"
 Class {
 	#name : 'ORActionRemoveTInheritance',
 	#superclass : 'ORActionRemove',
+	#instVars : [
+		'subclass',
+		'superclass',
+		'next',
+		'previous',
+		'sourceAnchor'
+	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
 
 { #category : 'accessing' }
-ORActionRemoveTInheritance >> entity: anEntity [
-
-	IllegalType check: anEntity useTrait: FamixTInheritance.
-
-	super entity: anEntity
+ORActionRemoveTInheritance >> next [ ^next
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveTInheritance >> run [
+{ #category : 'accessing' }
+ORActionRemoveTInheritance >> next: aValue [ next := aValue
+]
 
-	self setFamixProperty: #superclass on: entity to: nil.
-	self setFamixProperty: #subclass on: entity to: nil.
+{ #category : 'accessing' }
+ORActionRemoveTInheritance >> previous [ ^previous
+]
 
-	self orionModel remove: (self orionModel versionLookup: self entity).
+{ #category : 'accessing' }
+ORActionRemoveTInheritance >> previous: aValue [ previous := aValue
+]
 
-	^ entity
+{ #category : 'accessing' }
+ORActionRemoveTInheritance >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInheritance >> sourceAnchor: aValue [ sourceAnchor := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInheritance >> subclass [ ^subclass
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInheritance >> subclass: aValue [ subclass := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInheritance >> superclass [ ^superclass
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInheritance >> superclass: aValue [ superclass := aValue
 ]

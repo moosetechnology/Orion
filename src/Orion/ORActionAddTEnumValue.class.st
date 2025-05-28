@@ -1,14 +1,75 @@
 Class {
 	#name : 'ORActionAddTEnumValue',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
 		'parentEnum',
-		'incomingAccesses',
 		'isStub',
-		'declaredType',
-		'comments'
+		'sourceAnchor',
+		'declaredType'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> incomingAccesses: aValue [ incomingAccesses := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> name [ ^name
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> name: aValue [ name := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> parentEnum [ ^parentEnum
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> parentEnum: aValue [ parentEnum := aValue
+]
+
+{ #category : 'method execution' }
+ORActionAddTEnumValue >> run [
+
+	| newEntity |
+	newEntity := self orionModel newEnumValue.
+
+	self setFamixProperty: #parentEnum on: newEntity to: self parentEnum. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
+
+	newEntity resetMooseName.
+
+	entity := newEntity.
+	^ entity
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnumValue >> sourceAnchor: aValue [ sourceAnchor := aValue
+]

@@ -10,3 +10,27 @@ Class {
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveTAnnotationInstanceAttribute >> annotationTypeAttribute [ ^annotationTypeAttribute
+]
+
+{ #category : 'accessing' }
+ORActionMoveTAnnotationInstanceAttribute >> annotationTypeAttribute: aValue [ annotationTypeAttribute := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveTAnnotationInstanceAttribute >> parentAnnotationInstance [ ^parentAnnotationInstance
+]
+
+{ #category : 'accessing' }
+ORActionMoveTAnnotationInstanceAttribute >> parentAnnotationInstance: aValue [ parentAnnotationInstance := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveTAnnotationInstanceAttribute >> value [ ^value
+]
+
+{ #category : 'accessing' }
+ORActionMoveTAnnotationInstanceAttribute >> value: aValue [ value := aValue
+]

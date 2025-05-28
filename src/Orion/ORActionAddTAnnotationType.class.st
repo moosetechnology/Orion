@@ -2,8 +2,7 @@ Class {
 	#name : 'ORActionAddTAnnotationType',
 	#superclass : 'ORActionAdd',
 	#instVars : [
-		'annotationTypesContainer',
-		'instances'
+		'annotationTypesContainer'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -32,7 +31,7 @@ ORActionAddTAnnotationType >> run [
 	| newEntity |
 	newEntity := self orionModel newAnnotationType.
 
-	self setFamixProperty: #annotationTypesContainer on: newEntity to: self annotationTypesContainer. self setFamixProperty: #annotationTypesContainer on: newEntity to: self annotationTypesContainer. self setFamixProperty: #instances on: newEntity to: self instances.
+	self setFamixProperty: #annotationTypesContainer on: newEntity to: self annotationTypesContainer.
 
 	newEntity resetMooseName.
 

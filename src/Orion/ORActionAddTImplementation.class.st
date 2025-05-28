@@ -51,7 +51,7 @@ ORActionAddTImplementation >> run [
 	| newEntity |
 	newEntity := self orionModel newImplementation.
 
-	self setFamixProperty: #implementingClass on: newEntity to: self implementingClass. self setFamixProperty: #implementingClass on: newEntity to: self implementingClass. self setFamixProperty: #interface on: newEntity to: self interface. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+	self setFamixProperty: #implementingClass on: newEntity to: self implementingClass. self setFamixProperty: #interface on: newEntity to: self interface. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
 	newEntity resetMooseName.
 

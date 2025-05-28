@@ -1,10 +1,15 @@
 Class {
 	#name : 'ORActionMoveTSourceLanguage',
 	#superclass : 'ORActionMove',
-	#instVars : [
-		'sourcedEntities'
-	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveTSourceLanguage >> sourcedEntities [ ^sourcedEntities
+]
+
+{ #category : 'accessing' }
+ORActionMoveTSourceLanguage >> sourcedEntities: aValue [ sourcedEntities := aValue
+]

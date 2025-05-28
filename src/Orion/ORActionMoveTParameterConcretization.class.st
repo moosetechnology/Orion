@@ -2,7 +2,6 @@ Class {
 	#name : 'ORActionMoveTParameterConcretization',
 	#superclass : 'ORActionMove',
 	#instVars : [
-		'concretizations',
 		'genericParameter',
 		'concreteParameter',
 		'next',
@@ -13,3 +12,51 @@ Class {
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> concreteParameter [ ^concreteParameter
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> concreteParameter: aValue [ concreteParameter := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> concretizations [ ^concretizations
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> concretizations: aValue [ concretizations := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> genericParameter [ ^genericParameter
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> genericParameter: aValue [ genericParameter := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> next [ ^next
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> next: aValue [ next := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> previous [ ^previous
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> previous: aValue [ previous := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionMoveTParameterConcretization >> sourceAnchor: aValue [ sourceAnchor := aValue
+]

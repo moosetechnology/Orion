@@ -1,19 +1,10 @@
-"
-I add a new FamixTEnum in an OrionModel.
-I need the following properties :
-- `isStub`
-- `name`
-- `typeContainer`
-- `visibility`
-"
 Class {
 	#name : 'ORActionAddTEnum',
-	#superclass : 'ORActionAddTNamedEntity',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
-		'name',
 		'typeContainer',
 		'isStub',
-		'visibility'
+		'sourceAnchor'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -21,56 +12,71 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddTEnum >> isStub [ 
-	^isStub 
+ORActionAddTEnum >> enumValues [ ^enumValues
 ]
 
 { #category : 'accessing' }
-ORActionAddTEnum >> isStub: aValue [
-	isStub := aValue 
+ORActionAddTEnum >> enumValues: aValue [ enumValues := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTEnum >> name [
-	^name 
+ORActionAddTEnum >> incomingReferences [ ^incomingReferences
 ]
 
 { #category : 'accessing' }
-ORActionAddTEnum >> name: aValue [
-	name := aValue 
+ORActionAddTEnum >> incomingReferences: aValue [ incomingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnum >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnum >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnum >> name [ ^name
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnum >> name: aValue [ name := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTEnum >> run [
-	| newEnum |
-	newEnum := self orionModel newClass .
 
-	self setFamixProperty: #isStub  on: newEnum to: self isStub .
-	self setFamixProperty: #name on: newEnum to: self name .
-	self setFamixProperty: #typeContainer on: newEnum to: self typeContainer .
-	"self setFamixProperty: #visibility on: newEnum to: self visibility ."
+	| newEntity |
+	newEntity := self orionModel newEnum.
 
-	newEnum resetMooseName.
-	entity := newEnum .
-	^entity
+	self setFamixProperty: #typeContainer on: newEntity to: self typeContainer. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+
+	newEntity resetMooseName.
+
+	entity := newEntity.
+	^ entity
 ]
 
 { #category : 'accessing' }
-ORActionAddTEnum >> typeContainer [ 
-	^typeContainer 
+ORActionAddTEnum >> sourceAnchor [ ^sourceAnchor
 ]
 
 { #category : 'accessing' }
-ORActionAddTEnum >> typeContainer: aValue [
-	typeContainer := aValue 
+ORActionAddTEnum >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTEnum >> visibility [
-	^visibility 
+ORActionAddTEnum >> typeContainer [ ^typeContainer
 ]
 
 { #category : 'accessing' }
-ORActionAddTEnum >> visibility: aValue [
-	visibility := aValue 
+ORActionAddTEnum >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnum >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddTEnum >> typedEntities: aValue [ typedEntities := aValue
 ]

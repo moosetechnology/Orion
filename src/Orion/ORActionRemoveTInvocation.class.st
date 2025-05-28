@@ -1,7 +1,71 @@
 Class {
 	#name : 'ORActionRemoveTInvocation',
 	#superclass : 'ORActionRemove',
+	#instVars : [
+		'receiver',
+		'sender',
+		'next',
+		'previous',
+		'sourceAnchor',
+		'signature'
+	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> candidates [ ^candidates
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> candidates: aValue [ candidates := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> next [ ^next
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> next: aValue [ next := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> previous [ ^previous
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> previous: aValue [ previous := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> receiver [ ^receiver
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> receiver: aValue [ receiver := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> sender [ ^sender
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> sender: aValue [ sender := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> signature [ ^signature
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> signature: aValue [ signature := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTInvocation >> sourceAnchor: aValue [ sourceAnchor := aValue
+]
