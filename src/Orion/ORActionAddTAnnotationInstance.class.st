@@ -1,15 +1,10 @@
-"
-I add a new FamixTAnnotationInstance in an OrionModel.
-I need the following properties :
-- `annotatedEntity`
-- `annotationType`
-"
 Class {
 	#name : 'ORActionAddTAnnotationInstance',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'annotatedEntity',
-		'annotationType'
+		'annotationType',
+		'attributes'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -17,34 +12,39 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddTAnnotationInstance >> annotatedEntity [
-	^annotatedEntity 
+ORActionAddTAnnotationInstance >> annotatedEntity [ ^annotatedEntity
 ]
 
 { #category : 'accessing' }
-ORActionAddTAnnotationInstance >> annotatedEntity: aValue [
-	annotatedEntity := aValue 
+ORActionAddTAnnotationInstance >> annotatedEntity: aValue [ annotatedEntity := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTAnnotationInstance >> annotationType [
-	^annotationType 
+ORActionAddTAnnotationInstance >> annotationType [ ^annotationType
 ]
 
 { #category : 'accessing' }
-ORActionAddTAnnotationInstance >> annotationType: aValue [
-	annotationType := aValue 
+ORActionAddTAnnotationInstance >> annotationType: aValue [ annotationType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTAnnotationInstance >> attributes [ ^attributes
+]
+
+{ #category : 'accessing' }
+ORActionAddTAnnotationInstance >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTAnnotationInstance >> run [
-	| newAnnotationInstance |
-	newAnnotationInstance := self orionModel newAnnotationInstance.
 
-	self setFamixProperty: #annotatedEntity on: newAnnotationInstance to: self annotatedEntity .
-	self setFamixProperty: #annotationType on: newAnnotationInstance to: self annotationType .
+	| newEntity |
+	newEntity := self orionModel newAnnotationInstance.
 
-	newAnnotationInstance resetMooseName.
-	entity := newAnnotationInstance .
-	^entity
+	self setFamixProperty: #annotatedEntity on: newEntity to: self annotatedEntity. self setFamixProperty: #annotatedEntity on: newEntity to: self annotatedEntity. self setFamixProperty: #annotationType on: newEntity to: self annotationType. self setFamixProperty: #attributes on: newEntity to: self attributes.
+
+	newEntity resetMooseName.
+
+	entity := newEntity.
+	^ entity
 ]

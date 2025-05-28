@@ -1,15 +1,13 @@
-"
-I add a new FamixTParameterConcretization in an OrionModel.
-I need the following properties :
-- `concreteParameter`
-- `genericParameter`
-"
 Class {
 	#name : 'ORActionAddTParameterConcretization',
 	#superclass : 'ORActionAdd',
 	#instVars : [
+		'concretizations',
+		'genericParameter',
 		'concreteParameter',
-		'genericParameter'
+		'next',
+		'previous',
+		'sourceAnchor'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -17,38 +15,63 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddTParameterConcretization >> concreteParameter [
-
-	^ concreteParameter
+ORActionAddTParameterConcretization >> concreteParameter [ ^concreteParameter
 ]
 
 { #category : 'accessing' }
-ORActionAddTParameterConcretization >> concreteParameter: anObject [
-
-	concreteParameter := anObject
+ORActionAddTParameterConcretization >> concreteParameter: aValue [ concreteParameter := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTParameterConcretization >> genericParameter [
-
-	^ genericParameter
+ORActionAddTParameterConcretization >> concretizations [ ^concretizations
 ]
 
 { #category : 'accessing' }
-ORActionAddTParameterConcretization >> genericParameter: anObject [
+ORActionAddTParameterConcretization >> concretizations: aValue [ concretizations := aValue
+]
 
-	genericParameter := anObject
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> genericParameter [ ^genericParameter
+]
+
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> genericParameter: aValue [ genericParameter := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> next [ ^next
+]
+
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> next: aValue [ next := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> previous [ ^previous
+]
+
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> previous: aValue [ previous := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTParameterConcretization >> run [
-	| newParameterConcretization |
-	newParameterConcretization := self orionModel newParameterConcretization .
 
-	self setFamixProperty: #concreteParameter on: newParameterConcretization to: self concreteParameter .
-	self setFamixProperty: #genericParameter on: newParameterConcretization to: self genericParameter .
+	| newEntity |
+	newEntity := self orionModel newParameterConcretization.
 
-	newParameterConcretization resetMooseName.
-	entity := newParameterConcretization .
-	^entity
+	self setFamixProperty: #concretizations on: newEntity to: self concretizations. self setFamixProperty: #concretizations on: newEntity to: self concretizations. self setFamixProperty: #genericParameter on: newEntity to: self genericParameter. self setFamixProperty: #concreteParameter on: newEntity to: self concreteParameter. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+
+	newEntity resetMooseName.
+
+	entity := newEntity.
+	^ entity
+]
+
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]

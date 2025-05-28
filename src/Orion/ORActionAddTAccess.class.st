@@ -1,15 +1,13 @@
-"
-I add a new FamixTAccess in an OrionModel.
-I need the following properties:
-- `accessor`
-- `variable`
-"
 Class {
 	#name : 'ORActionAddTAccess',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'accessor',
-		'variable'
+		'isWrite',
+		'variable',
+		'next',
+		'previous',
+		'sourceAnchor'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -17,34 +15,63 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddTAccess >> accessor [
-	^accessor 
+ORActionAddTAccess >> accessor [ ^accessor
 ]
 
 { #category : 'accessing' }
-ORActionAddTAccess >> accessor: aValue [
-	accessor := aValue
+ORActionAddTAccess >> accessor: aValue [ accessor := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTAccess >> isWrite [ ^isWrite
+]
+
+{ #category : 'accessing' }
+ORActionAddTAccess >> isWrite: aValue [ isWrite := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTAccess >> next [ ^next
+]
+
+{ #category : 'accessing' }
+ORActionAddTAccess >> next: aValue [ next := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTAccess >> previous [ ^previous
+]
+
+{ #category : 'accessing' }
+ORActionAddTAccess >> previous: aValue [ previous := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTAccess >> run [
-	| newAccess |
-	newAccess := self orionModel newAccess.
 
-	self setFamixProperty: #accessor on: newAccess to: self accessor.
-	self setFamixProperty: #variable on: newAccess to: self variable.
+	| newEntity |
+	newEntity := self orionModel newAccess.
 
-	newAccess resetMooseName.
-	entity := newAccess .
-	^entity
+	self setFamixProperty: #accessor on: newEntity to: self accessor. self setFamixProperty: #accessor on: newEntity to: self accessor. self setFamixProperty: #isWrite on: newEntity to: self isWrite. self setFamixProperty: #variable on: newEntity to: self variable. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+
+	newEntity resetMooseName.
+
+	entity := newEntity.
+	^ entity
 ]
 
 { #category : 'accessing' }
-ORActionAddTAccess >> variable [
-	^variable 
+ORActionAddTAccess >> sourceAnchor [ ^sourceAnchor
 ]
 
 { #category : 'accessing' }
-ORActionAddTAccess >> variable: aValue [
-	variable := aValue
+ORActionAddTAccess >> sourceAnchor: aValue [ sourceAnchor := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTAccess >> variable [ ^variable
+]
+
+{ #category : 'accessing' }
+ORActionAddTAccess >> variable: aValue [ variable := aValue
 ]

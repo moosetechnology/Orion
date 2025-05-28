@@ -1,15 +1,12 @@
-"
-I add a new FamixTInheritance association in an OrionModel.
-I need the following properties of the new inheritance
-- the `superclass`
-- the `subclass`
-"
 Class {
 	#name : 'ORActionAddTInheritance',
 	#superclass : 'ORActionAdd',
 	#instVars : [
+		'subclass',
 		'superclass',
-		'subclass'
+		'next',
+		'previous',
+		'sourceAnchor'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -21,35 +18,56 @@ ORActionAddTInheritance class >> description [
 	^'add inheritance'
 ]
 
+{ #category : 'accessing' }
+ORActionAddTInheritance >> next [ ^next
+]
+
+{ #category : 'accessing' }
+ORActionAddTInheritance >> next: aValue [ next := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTInheritance >> previous [ ^previous
+]
+
+{ #category : 'accessing' }
+ORActionAddTInheritance >> previous: aValue [ previous := aValue
+]
+
 { #category : 'method execution' }
 ORActionAddTInheritance >> run [
 
-	| newInheritance |
-	newInheritance := self orionModel newInheritance.
+	| newEntity |
+	newEntity := self orionModel newInheritance.
 
-	self setFamixProperty: #superclass on: newInheritance to: self superclass.
-	self setFamixProperty: #subclass on: newInheritance to: self subclass.
+	self setFamixProperty: #subclass on: newEntity to: self subclass. self setFamixProperty: #subclass on: newEntity to: self subclass. self setFamixProperty: #superclass on: newEntity to: self superclass. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
-	entity := newInheritance.
+	newEntity resetMooseName.
+
+	entity := newEntity.
 	^ entity
 ]
 
 { #category : 'accessing' }
-ORActionAddTInheritance >> subclass [
-	^ subclass
+ORActionAddTInheritance >> sourceAnchor [ ^sourceAnchor
 ]
 
 { #category : 'accessing' }
-ORActionAddTInheritance >> subclass: aValue [
-	subclass := aValue
+ORActionAddTInheritance >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTInheritance >> superclass [
-	^ superclass
+ORActionAddTInheritance >> subclass [ ^subclass
 ]
 
 { #category : 'accessing' }
-ORActionAddTInheritance >> superclass: aValue [
-	superclass := aValue
+ORActionAddTInheritance >> subclass: aValue [ subclass := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTInheritance >> superclass [ ^superclass
+]
+
+{ #category : 'accessing' }
+ORActionAddTInheritance >> superclass: aValue [ superclass := aValue
 ]

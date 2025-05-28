@@ -1,13 +1,9 @@
-"
-I add a new FamixTComment in an OrionModel.
-I need the following property :
-- `commentedEntity`
-"
 Class {
 	#name : 'ORActionAddTComment',
 	#superclass : 'ORActionAdd',
 	#instVars : [
-		'commentedEntity'
+		'commentedEntity',
+		'sourceAnchor'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -15,23 +11,31 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddTComment >> commentedEntity [ 
-	^commentedEntity 
+ORActionAddTComment >> commentedEntity [ ^commentedEntity
 ]
 
 { #category : 'accessing' }
-ORActionAddTComment >> commentedEntity: aValue [
-	commentedEntity := aValue 
+ORActionAddTComment >> commentedEntity: aValue [ commentedEntity := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTComment >> run [
-	| newComment |
-	newComment := self orionModel newComment.
 
-	self setFamixProperty: #commentedEntity on: newComment to: self commentedEntity.
+	| newEntity |
+	newEntity := self orionModel newComment.
 
-	newComment resetMooseName.
-	entity := newComment .
-	^entity
+	self setFamixProperty: #commentedEntity on: newEntity to: self commentedEntity. self setFamixProperty: #commentedEntity on: newEntity to: self commentedEntity. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+
+	newEntity resetMooseName.
+
+	entity := newEntity.
+	^ entity
+]
+
+{ #category : 'accessing' }
+ORActionAddTComment >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionAddTComment >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
