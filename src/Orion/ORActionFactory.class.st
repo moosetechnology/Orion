@@ -9,7 +9,7 @@ Class {
 	#tag : 'Core'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> buildAddClass: aClass [
 
 	| code setFamixLines entityName |
@@ -37,7 +37,7 @@ ORActionFactory >> buildAddClass: aClass [
 	aClass compile: code classified: 'method execution'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> buildAddJavaClass: aClass [
 
 	| code setFamixLines entityName |
@@ -65,7 +65,7 @@ ORActionFactory >> buildAddJavaClass: aClass [
 	aClass compile: code classified: 'method execution'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> buildClass: aClass ofType: aType [
 
 	self createAssessors: aClass.
@@ -79,7 +79,7 @@ ORActionFactory >> buildClass: aClass ofType: aType [
 		self buildRenClass: aClass ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> buildDelClass: aClass [
 
 	| code setFamixLines entityName |
@@ -98,7 +98,7 @@ ORActionFactory >> buildDelClass: aClass [
 	aClass compile: code classified: 'method execution'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> buildDelJavaClass: aClass [
 
 	| code setFamixLines entityName |
@@ -117,7 +117,7 @@ ORActionFactory >> buildDelJavaClass: aClass [
 	aClass compile: code classified: 'method execution'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> buildJavaClass: aClass ofType: aType [
 
 	self createAssessors: aClass.
@@ -127,19 +127,19 @@ ORActionFactory >> buildJavaClass: aClass ofType: aType [
 	aType = 'Ren' ifTrue: [ self buildRenClass: aClass ]"
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> buildMoveClass: aClass [
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> buildRenClass: aClass [
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> buildTestClass: aClass ofType: aType [
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> createAssessors: aClass [
 
 	| slotNames |
@@ -152,7 +152,7 @@ ORActionFactory >> createAssessors: aClass [
 		aClass compile: set classified: 'accessing' ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> orActionBuilder: aPackage [
 	self orActionCreator: aPackage ofType: 'Add'.
 	self orActionCreator: aPackage ofType: 'Remove'.
@@ -160,7 +160,7 @@ ORActionFactory >> orActionBuilder: aPackage [
 	self orActionCreator: aPackage ofType: 'Rename'.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> orActionCreator: aPackageName ofType: aType [
 
 	| package classes fj |
@@ -213,7 +213,7 @@ ORActionFactory >> orActionCreator: aPackageName ofType: aType [
 				ofType: aType ] ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> orActionTestCreator [
 
 	| classes |
@@ -237,7 +237,7 @@ ORActionFactory >> orActionTestCreator [
 				environment: Object environment ] ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'class building' }
 ORActionFactory >> orJavaActionCreatorOfType: aType [
 
 	| classes package |
