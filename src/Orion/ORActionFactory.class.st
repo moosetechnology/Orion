@@ -13,20 +13,14 @@ Class {
 ORActionFactory >> buildAddClass: aClass [
 
 	| code setFamixLines entityName |
-	aClass slots size > 0 ifFalse: [ ^ nil ].
+	aClass slots isEmpty ifTrue: [ ^ nil ].
 	entityName := aClass name
 		              copyFrom: 'ORActionAddT' size + 1
 		              to: aClass name size.
-	setFamixLines := aClass slots collect: [ :slot |
-		                 'self setFamixProperty: #' , slot name
-		                 , ' on: newEntity to: self ' , slot name , '.' ].
-	setFamixLines := setFamixLines allButFirst 
-		                 inject: setFamixLines first
-		                 into: [ :str :each | str , ' ' , each ].
+	setFamixLines := self getSetFamixLines: aClass.
 	code := 'run
 
-	| newEntity |
-	newEntity := self orionModel new' , entityName , '.
+	super run.
 
 	' , setFamixLines , '
 
@@ -40,15 +34,15 @@ ORActionFactory >> buildAddClass: aClass [
 { #category : 'class building' }
 ORActionFactory >> buildClass: aClass ofType: aType [
 
+	| selector |
 	self createAssessors: aClass.
-	aType = 'Add' ifTrue: [
-		self buildAddClass: aClass ].
-	aType = 'Del' ifTrue: [
-		self buildDelClass: aClass ].
-	aType = 'Move' ifTrue: [
-		self buildMoveClass: aClass ].
-	aType = 'Ren' ifTrue: [
-		self buildRenClass: aClass ]
+
+	selector := 'build' , aType , 'Class:'.
+	self perform: selector asSymbol with:  aClass.
+	"aType = 'Add' ifTrue: [ self buildAddClass: aClass ].
+	aType = 'Del' ifTrue: [ self buildDelClass: aClass ].
+	aType = 'Move' ifTrue: [ self buildMoveClass: aClass ].
+	aType = 'Ren' ifTrue: [ self buildRenClass: aClass ]"
 ]
 
 { #category : 'class building' }
@@ -59,6 +53,10 @@ ORActionFactory >> buildDelClass: aClass [
 	setFamixLines := aClass slots do: [ :slot |
 		                 ^ 'self setFamixProperty: #' , slot name
 		                   , ' on: entity to: nil.' ].
+	setFamixLines := setFamixLines allButFirst
+		                 inject: setFamixLines first
+		                 into: [ :str :each | str , ' ' , each ].
+		
 	code := 'run
 
 	' , setFamixLines , '
@@ -92,62 +90,96 @@ ORActionFactory >> createAssessors: aClass [
 ]
 
 { #category : 'class building' }
-ORActionFactory >> orActionBuilder: aPackage [
-	self orActionCreator: aPackage ofType: 'Add'.
-	self orActionCreator: aPackage ofType: 'Remove'.
-	self orActionCreator: aPackage ofType: 'Move'.
-	self orActionCreator: aPackage ofType: 'Rename'.
+ORActionFactory >> createClass: class with: aType ofType: famixJava [
+
+	| className classSuffix slots superclass |
+	classSuffix := class name
+		               copyFrom: 'FamixT' size + 1
+		               to: class name size.
+
+	^ (famixJava includes: classSuffix) ifTrue: [
+		  className := 'ORAction' , aType , 'T' , classSuffix.
+		  superclass := Smalltalk
+			                at: ('ORAction' , aType) asSymbol
+			                ifAbsent: [ nil ].
+
+		  slots := class allSlots select: [ :e | e isToOne ].
+
+		  (((Smalltalk at: ('FamixT' , classSuffix) asSymbol) allSlots
+			    collect: [ :each | each name ]) includes: 'name') ifTrue: [
+			  superclass := Smalltalk
+				                at: ('ORAction' , aType , 'NamedEntity') asSymbol
+				                ifAbsent: [ nil ].
+			  slots := slots reject: [ :e | e name = 'name' ] ].
+
+		  self
+			  makeClass: className
+			  with: slots
+			  inheriting: superclass
+			  in: 'Orion'.
+		  self
+			  buildClass: (Smalltalk at: className asSymbol ifAbsent: [ nil ])
+			  ofType: aType ]
 ]
 
 { #category : 'class building' }
-ORActionFactory >> orActionCreator: aPackageName ofType: aType [
+ORActionFactory >> getNewEntitySelector [
 
-	| package classes fj |
+	| famixJava |
+	famixJava := FamixJavaTEntityCreator allMethods asOrderedCollection. "methods of FamixJavaTEntityCreator"
+	famixJava := famixJava select: [ :m | m argumentNames isEmpty ] thenCollect: #selector. "extracting selectors that does not take any parameters"
+	famixJava := famixJava collect: [ :e | e copyFrom: 4 to: e size ]. "removing the 'new' at the beginning of method signature"
+
+	^ famixJava
+]
+
+{ #category : 'class building' }
+ORActionFactory >> getSetFamixLines: aClass [
+
+	| setFamixLines |
+	setFamixLines := aClass slots collect: [ :slot |
+		                 'self setFamixProperty: #' , slot name
+		                 , ' on: newEntity to: self ' , slot name , '.' ].
+	setFamixLines := setFamixLines allButFirst
+		                 inject: setFamixLines first
+		                 into: [ :str :each | str , ' ' , each ].
+	^ setFamixLines
+]
+
+{ #category : 'class building' }
+ORActionFactory >> makeClass: className with: slots inheriting: superclass in: package [
+
+	Smalltalk classInstaller make: [ :builder |
+		builder
+			superclass: superclass;
+			name: className;
+			slots: (slots collect: [ :e | e name ]);
+			sharedVariablesFromString: '';
+			sharedPools: '';
+			tag: #Actions;
+			package: package;
+			environment: Object environment ]
+]
+
+{ #category : 'class building' }
+ORActionFactory >> orActionBuilder: aPackageName [
+
+	| package classes |
 	package := PackageOrganizer default packageNamed: aPackageName.
 	classes := package classes asOrderedCollection.
-	"copyFrom: 1
-		           to: (50 min: package classes size)"
 
-	fj := FamixJavaTEntityCreator allMethods asOrderedCollection. "methods of FAmixJavaTEntityCreator"
-	fj := fj collect: [ :e | e signature ]. "keeping only their signature"
-	fj := fj select: [ :e | (e asString includes: $:) not ]. "removing the methods that have a parameter"
-	fj := fj collect: [ :e | e copyFrom: 1 to: e size - 2 ]. "removing the '()' at the end of method signature"
-	fj := fj collect: [ :e | e copyFrom: 4 to: e size ]. "removing the 'new' at the beginning of method signature"
+	self orActionCreator: classes ofType: 'Add'.
+	self orActionCreator: classes ofType: 'Remove'.
+	self orActionCreator: classes ofType: 'Move'.
+	self orActionCreator: classes ofType: 'Rename'
+]
 
-	classes do: [ :class | "]"
-		| className superclass classSuffix slots |
-		classSuffix := class name
-			               copyFrom: 'FamixT' size + 1
-			               to: class name size.
+{ #category : 'class building' }
+ORActionFactory >> orActionCreator: classes ofType: aType [
 
-		(fj includes: classSuffix) ifTrue: [
-			className := 'ORAction' , aType , 'T' , classSuffix.
-			superclass := Smalltalk
-				              at: ('ORAction' , aType) asSymbol
-				              ifAbsent: [ nil ].
+	| famixJava |
+	famixJava := self getNewEntitySelector.
 
-			slots := class allSlots select: [ :e | e isToOne ].
 
-			(((Smalltalk at: ('FamixT' , classSuffix) asSymbol) allSlots
-				  collect: [ :each | each name ]) includes: 'name') ifTrue: [
-				superclass := Smalltalk
-					              at: ('ORAction' , aType , 'NamedEntity') asSymbol
-					              ifAbsent: [ nil ] .
-					slots := slots reject: [:e|e name = 'name']].
-
-			"(package classes asOrderedCollection includes:
-				 (Smalltalk at: className asSymbol ifAbsent: [ nil ])) ifFalse: ["
-			Smalltalk classInstaller make: [ :builder |
-				builder
-					superclass: superclass;
-					name: className;
-					slots: (slots collect: [ :e | e name ]);
-					sharedVariablesFromString: '';
-					sharedPools: '';
-					tag: #Actions;
-					package: 'Orion';
-					environment: Object environment ].
-			self
-				buildClass: (Smalltalk at: className asSymbol ifAbsent: [ nil ])
-				ofType: aType ] ]
+	classes do: [ :class | self createClass: class with: aType ofType: famixJava ]
 ]
