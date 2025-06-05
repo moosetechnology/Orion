@@ -14,12 +14,19 @@ Class {
 	#superclass : 'Object',
 	#instVars : [
 		'entity',
-		'orionModel'
+		'orionModel',
+		'newEntity'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'method execution' }
+ORAction >> createVersionnedEntitySelector [
+
+	self subclassResponsibility 
+]
 
 { #category : 'accessing' }
 ORAction >> entity [
