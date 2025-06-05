@@ -11,20 +11,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionMoveTEnum >> enumValues [ ^enumValues
-]
+{ #category : 'method execution' }
+ORActionMoveTEnum >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionMoveTEnum >> enumValues: aValue [ enumValues := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTEnum >> incomingReferences [ ^incomingReferences
-]
-
-{ #category : 'accessing' }
-ORActionMoveTEnum >> incomingReferences: aValue [ incomingReferences := aValue
+	^ #newEnum
 ]
 
 { #category : 'accessing' }
@@ -33,14 +23,6 @@ ORActionMoveTEnum >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionMoveTEnum >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTEnum >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionMoveTEnum >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }
@@ -57,12 +39,4 @@ ORActionMoveTEnum >> typeContainer [ ^typeContainer
 
 { #category : 'accessing' }
 ORActionMoveTEnum >> typeContainer: aValue [ typeContainer := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTEnum >> typedEntities [ ^typedEntities
-]
-
-{ #category : 'accessing' }
-ORActionMoveTEnum >> typedEntities: aValue [ typedEntities := aValue
 ]

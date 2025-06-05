@@ -12,6 +12,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTParameter >> createVersionnedEntitySelector [
+
+	^ #newParameter
+]
+
 { #category : 'accessing' }
 ORActionAddTParameter >> declaredType [ ^declaredType
 ]
@@ -21,27 +27,11 @@ ORActionAddTParameter >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTParameter >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionAddTParameter >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddTParameter >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionAddTParameter >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddTParameter >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionAddTParameter >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }
@@ -55,8 +45,7 @@ ORActionAddTParameter >> parentBehaviouralEntity: aValue [ parentBehaviouralEnti
 { #category : 'method execution' }
 ORActionAddTParameter >> run [
 
-	| newEntity |
-	newEntity := self orionModel newParameter.
+	super run.
 
 	self setFamixProperty: #parentBehaviouralEntity on: newEntity to: self parentBehaviouralEntity. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
 

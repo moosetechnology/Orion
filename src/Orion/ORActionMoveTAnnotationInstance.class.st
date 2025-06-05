@@ -26,10 +26,8 @@ ORActionMoveTAnnotationInstance >> annotationType [ ^annotationType
 ORActionMoveTAnnotationInstance >> annotationType: aValue [ annotationType := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionMoveTAnnotationInstance >> attributes [ ^attributes
-]
+{ #category : 'method execution' }
+ORActionMoveTAnnotationInstance >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionMoveTAnnotationInstance >> attributes: aValue [ attributes := aValue
+	^ #newAnnotationInstance
 ]

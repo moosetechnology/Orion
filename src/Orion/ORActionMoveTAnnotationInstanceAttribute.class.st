@@ -19,6 +19,12 @@ ORActionMoveTAnnotationInstanceAttribute >> annotationTypeAttribute [ ^annotatio
 ORActionMoveTAnnotationInstanceAttribute >> annotationTypeAttribute: aValue [ annotationTypeAttribute := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionMoveTAnnotationInstanceAttribute >> createVersionnedEntitySelector [
+
+	^ #newAnnotationInstanceAttribute
+]
+
 { #category : 'accessing' }
 ORActionMoveTAnnotationInstanceAttribute >> parentAnnotationInstance [ ^parentAnnotationInstance
 ]

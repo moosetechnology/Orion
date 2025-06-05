@@ -21,6 +21,12 @@ ORActionMoveTConcretization >> concreteEntity [ ^concreteEntity
 ORActionMoveTConcretization >> concreteEntity: aValue [ concreteEntity := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionMoveTConcretization >> createVersionnedEntitySelector [
+
+	^ #newConcretization
+]
+
 { #category : 'accessing' }
 ORActionMoveTConcretization >> genericEntity [ ^genericEntity
 ]
@@ -35,14 +41,6 @@ ORActionMoveTConcretization >> next [ ^next
 
 { #category : 'accessing' }
 ORActionMoveTConcretization >> next: aValue [ next := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTConcretization >> parameterConcretizations [ ^parameterConcretizations
-]
-
-{ #category : 'accessing' }
-ORActionMoveTConcretization >> parameterConcretizations: aValue [ parameterConcretizations := aValue
 ]
 
 { #category : 'accessing' }

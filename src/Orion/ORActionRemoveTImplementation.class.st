@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRemoveTImplementation >> createVersionnedEntitySelector [
+
+	^ #newImplementation
+]
+
 { #category : 'accessing' }
 ORActionRemoveTImplementation >> implementingClass [ ^implementingClass
 ]
@@ -43,6 +49,16 @@ ORActionRemoveTImplementation >> previous [ ^previous
 
 { #category : 'accessing' }
 ORActionRemoveTImplementation >> previous: aValue [ previous := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTImplementation >> run [
+
+	self setFamixProperty: #implementingClass on: entity to: nil. self setFamixProperty: #interface on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }

@@ -12,12 +12,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddTAnnotationTypeAttribute >> annotationAttributeInstances [ ^annotationAttributeInstances
-]
+{ #category : 'method execution' }
+ORActionAddTAnnotationTypeAttribute >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddTAnnotationTypeAttribute >> annotationAttributeInstances: aValue [ annotationAttributeInstances := aValue
+	^ #newAnnotationTypeAttribute
 ]
 
 { #category : 'accessing' }
@@ -29,27 +27,11 @@ ORActionAddTAnnotationTypeAttribute >> declaredType: aValue [ declaredType := aV
 ]
 
 { #category : 'accessing' }
-ORActionAddTAnnotationTypeAttribute >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionAddTAnnotationTypeAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddTAnnotationTypeAttribute >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionAddTAnnotationTypeAttribute >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddTAnnotationTypeAttribute >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionAddTAnnotationTypeAttribute >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }
@@ -63,8 +45,7 @@ ORActionAddTAnnotationTypeAttribute >> parentType: aValue [ parentType := aValue
 { #category : 'method execution' }
 ORActionAddTAnnotationTypeAttribute >> run [
 
-	| newEntity |
-	newEntity := self orionModel newAnnotationTypeAttribute.
+	super run.
 
 	self setFamixProperty: #parentType on: newEntity to: self parentType. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
 

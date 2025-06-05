@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRenameTReference >> createVersionnedEntitySelector [
+
+	^ #newReference
+]
+
 { #category : 'accessing' }
 ORActionRenameTReference >> next [ ^next
 ]

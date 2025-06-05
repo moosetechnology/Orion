@@ -11,12 +11,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionMoveTType >> incomingReferences [ ^incomingReferences
-]
+{ #category : 'method execution' }
+ORActionMoveTType >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionMoveTType >> incomingReferences: aValue [ incomingReferences := aValue
+	^ #newType
 ]
 
 { #category : 'accessing' }
@@ -25,14 +23,6 @@ ORActionMoveTType >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionMoveTType >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTType >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionMoveTType >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }
@@ -49,12 +39,4 @@ ORActionMoveTType >> typeContainer [ ^typeContainer
 
 { #category : 'accessing' }
 ORActionMoveTType >> typeContainer: aValue [ typeContainer := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTType >> typedEntities [ ^typedEntities
-]
-
-{ #category : 'accessing' }
-ORActionMoveTType >> typedEntities: aValue [ typedEntities := aValue
 ]

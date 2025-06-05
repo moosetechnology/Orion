@@ -12,6 +12,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionMoveTEnumValue >> createVersionnedEntitySelector [
+
+	^ #newEnumValue
+]
+
 { #category : 'accessing' }
 ORActionMoveTEnumValue >> declaredType [ ^declaredType
 ]
@@ -21,27 +27,11 @@ ORActionMoveTEnumValue >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveTEnumValue >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionMoveTEnumValue >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionMoveTEnumValue >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionMoveTEnumValue >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTEnumValue >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionMoveTEnumValue >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }

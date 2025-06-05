@@ -11,28 +11,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveTClass >> attributes [ ^attributes
-]
+{ #category : 'method execution' }
+ORActionRemoveTClass >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRemoveTClass >> attributes: aValue [ attributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> comments [ ^comments
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> comments: aValue [ comments := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> incomingReferences [ ^incomingReferences
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> incomingReferences: aValue [ incomingReferences := aValue
+	^ #newClass
 ]
 
 { #category : 'accessing' }
@@ -43,28 +25,14 @@ ORActionRemoveTClass >> isStub [ ^isStub
 ORActionRemoveTClass >> isStub: aValue [ isStub := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveTClass >> methods [ ^methods
-]
+{ #category : 'method execution' }
+ORActionRemoveTClass >> run [
 
-{ #category : 'accessing' }
-ORActionRemoveTClass >> methods: aValue [ methods := aValue
-]
+	self setFamixProperty: #typeContainer on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
 
-{ #category : 'accessing' }
-ORActionRemoveTClass >> name [ ^name
-]
+	self orionModel remove: (self orionModel versionLookup: self entity).
 
-{ #category : 'accessing' }
-ORActionRemoveTClass >> name: aValue [ name := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> receivingInvocations [ ^receivingInvocations
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> receivingInvocations: aValue [ receivingInvocations := aValue
+	^ entity
 ]
 
 { #category : 'accessing' }
@@ -76,33 +44,9 @@ ORActionRemoveTClass >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRemoveTClass >> subInheritances [ ^subInheritances
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> subInheritances: aValue [ subInheritances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> superInheritances [ ^superInheritances
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> superInheritances: aValue [ superInheritances := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveTClass >> typeContainer [ ^typeContainer
 ]
 
 { #category : 'accessing' }
 ORActionRemoveTClass >> typeContainer: aValue [ typeContainer := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> typedEntities [ ^typedEntities
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTClass >> typedEntities: aValue [ typedEntities := aValue
 ]

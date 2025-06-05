@@ -12,6 +12,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRenameTParameter >> createVersionnedEntitySelector [
+
+	^ #newParameter
+]
+
 { #category : 'accessing' }
 ORActionRenameTParameter >> declaredType [ ^declaredType
 ]
@@ -21,27 +27,11 @@ ORActionRenameTParameter >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRenameTParameter >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionRenameTParameter >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRenameTParameter >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionRenameTParameter >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameTParameter >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionRenameTParameter >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }

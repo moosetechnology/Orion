@@ -19,6 +19,12 @@ ORActionAddTAnnotationInstanceAttribute >> annotationTypeAttribute [ ^annotation
 ORActionAddTAnnotationInstanceAttribute >> annotationTypeAttribute: aValue [ annotationTypeAttribute := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddTAnnotationInstanceAttribute >> createVersionnedEntitySelector [
+
+	^ #newAnnotationInstanceAttribute
+]
+
 { #category : 'accessing' }
 ORActionAddTAnnotationInstanceAttribute >> parentAnnotationInstance [ ^parentAnnotationInstance
 ]
@@ -30,8 +36,7 @@ ORActionAddTAnnotationInstanceAttribute >> parentAnnotationInstance: aValue [ pa
 { #category : 'method execution' }
 ORActionAddTAnnotationInstanceAttribute >> run [
 
-	| newEntity |
-	newEntity := self orionModel newAnnotationInstanceAttribute.
+	super run.
 
 	self setFamixProperty: #annotationTypeAttribute on: newEntity to: self annotationTypeAttribute. self setFamixProperty: #parentAnnotationInstance on: newEntity to: self parentAnnotationInstance. self setFamixProperty: #value on: newEntity to: self value.
 

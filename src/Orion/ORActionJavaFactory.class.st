@@ -106,7 +106,7 @@ ORActionJavaFactory >> orJavaActionCreatorOfType: aType [
 							sharedVariablesFromString: '';
 							sharedPools: '';
 							tag: #Actions;
-							package: 'Orion';
+							package: 'Orion-Java';
 							environment: Object environment ].
 					self
 						buildJavaClass:

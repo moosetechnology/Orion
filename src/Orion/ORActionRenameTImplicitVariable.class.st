@@ -12,6 +12,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRenameTImplicitVariable >> createVersionnedEntitySelector [
+
+	^ #newImplicitVariable
+]
+
 { #category : 'accessing' }
 ORActionRenameTImplicitVariable >> declaredType [ ^declaredType
 ]
@@ -21,27 +27,11 @@ ORActionRenameTImplicitVariable >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRenameTImplicitVariable >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionRenameTImplicitVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRenameTImplicitVariable >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionRenameTImplicitVariable >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameTImplicitVariable >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionRenameTImplicitVariable >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }

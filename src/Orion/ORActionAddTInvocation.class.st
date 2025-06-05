@@ -14,12 +14,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddTInvocation >> candidates [ ^candidates
-]
+{ #category : 'method execution' }
+ORActionAddTInvocation >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddTInvocation >> candidates: aValue [ candidates := aValue
+	^ #newInvocation
 ]
 
 { #category : 'accessing' }
@@ -49,8 +47,7 @@ ORActionAddTInvocation >> receiver: aValue [ receiver := aValue
 { #category : 'method execution' }
 ORActionAddTInvocation >> run [
 
-	| newEntity |
-	newEntity := self orionModel newInvocation.
+	super run.
 
 	self setFamixProperty: #receiver on: newEntity to: self receiver. self setFamixProperty: #sender on: newEntity to: self sender. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #signature on: newEntity to: self signature.
 

@@ -7,6 +7,12 @@ Class {
 }
 
 { #category : 'method execution' }
+ORActionAddTSourceLanguage >> createVersionnedEntitySelector [
+
+	^ #newSourceLanguage
+]
+
+{ #category : 'method execution' }
 ORActionAddTSourceLanguage >> run [
 
 	| newEntity |
@@ -18,12 +24,4 @@ ORActionAddTSourceLanguage >> run [
 
 	entity := newEntity.
 	^ entity
-]
-
-{ #category : 'accessing' }
-ORActionAddTSourceLanguage >> sourcedEntities [ ^sourcedEntities
-]
-
-{ #category : 'accessing' }
-ORActionAddTSourceLanguage >> sourcedEntities: aValue [ sourcedEntities := aValue
 ]

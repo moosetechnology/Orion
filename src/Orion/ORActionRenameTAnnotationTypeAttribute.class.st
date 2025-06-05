@@ -12,12 +12,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRenameTAnnotationTypeAttribute >> annotationAttributeInstances [ ^annotationAttributeInstances
-]
+{ #category : 'method execution' }
+ORActionRenameTAnnotationTypeAttribute >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRenameTAnnotationTypeAttribute >> annotationAttributeInstances: aValue [ annotationAttributeInstances := aValue
+	^ #newAnnotationTypeAttribute
 ]
 
 { #category : 'accessing' }
@@ -29,27 +27,11 @@ ORActionRenameTAnnotationTypeAttribute >> declaredType: aValue [ declaredType :=
 ]
 
 { #category : 'accessing' }
-ORActionRenameTAnnotationTypeAttribute >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionRenameTAnnotationTypeAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRenameTAnnotationTypeAttribute >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionRenameTAnnotationTypeAttribute >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameTAnnotationTypeAttribute >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionRenameTAnnotationTypeAttribute >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }

@@ -12,6 +12,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTEnumValue >> createVersionnedEntitySelector [
+
+	^ #newEnumValue
+]
+
 { #category : 'accessing' }
 ORActionAddTEnumValue >> declaredType [ ^declaredType
 ]
@@ -21,27 +27,11 @@ ORActionAddTEnumValue >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTEnumValue >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionAddTEnumValue >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddTEnumValue >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionAddTEnumValue >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddTEnumValue >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionAddTEnumValue >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }
@@ -55,8 +45,7 @@ ORActionAddTEnumValue >> parentEnum: aValue [ parentEnum := aValue
 { #category : 'method execution' }
 ORActionAddTEnumValue >> run [
 
-	| newEntity |
-	newEntity := self orionModel newEnumValue.
+	super run.
 
 	self setFamixProperty: #parentEnum on: newEntity to: self parentEnum. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
 

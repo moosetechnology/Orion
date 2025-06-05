@@ -21,12 +21,10 @@ ORActionMoveTParameterConcretization >> concreteParameter [ ^concreteParameter
 ORActionMoveTParameterConcretization >> concreteParameter: aValue [ concreteParameter := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionMoveTParameterConcretization >> concretizations [ ^concretizations
-]
+{ #category : 'method execution' }
+ORActionMoveTParameterConcretization >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionMoveTParameterConcretization >> concretizations: aValue [ concretizations := aValue
+	^ #newParameterConcretization
 ]
 
 { #category : 'accessing' }

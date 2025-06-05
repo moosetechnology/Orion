@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTInheritance >> createVersionnedEntitySelector [
+
+	^ #newInheritance
+]
+
 { #category : 'accessing' }
 ORActionAddTInheritance >> next [ ^next
 ]
@@ -32,8 +38,7 @@ ORActionAddTInheritance >> previous: aValue [ previous := aValue
 { #category : 'method execution' }
 ORActionAddTInheritance >> run [
 
-	| newEntity |
-	newEntity := self orionModel newInheritance.
+	super run.
 
 	self setFamixProperty: #subclass on: newEntity to: self subclass. self setFamixProperty: #superclass on: newEntity to: self superclass. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 

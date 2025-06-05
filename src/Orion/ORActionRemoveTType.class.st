@@ -11,12 +11,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveTType >> incomingReferences [ ^incomingReferences
-]
+{ #category : 'method execution' }
+ORActionRemoveTType >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRemoveTType >> incomingReferences: aValue [ incomingReferences := aValue
+	^ #newType
 ]
 
 { #category : 'accessing' }
@@ -27,12 +25,14 @@ ORActionRemoveTType >> isStub [ ^isStub
 ORActionRemoveTType >> isStub: aValue [ isStub := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveTType >> name [ ^name
-]
+{ #category : 'method execution' }
+ORActionRemoveTType >> run [
 
-{ #category : 'accessing' }
-ORActionRemoveTType >> name: aValue [ name := aValue
+	self setFamixProperty: #typeContainer on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }
@@ -49,12 +49,4 @@ ORActionRemoveTType >> typeContainer [ ^typeContainer
 
 { #category : 'accessing' }
 ORActionRemoveTType >> typeContainer: aValue [ typeContainer := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTType >> typedEntities [ ^typedEntities
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTType >> typedEntities: aValue [ typedEntities := aValue
 ]

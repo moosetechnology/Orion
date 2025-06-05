@@ -19,10 +19,15 @@ ORActionAddTComment >> commentedEntity: aValue [ commentedEntity := aValue
 ]
 
 { #category : 'method execution' }
+ORActionAddTComment >> createVersionnedEntitySelector [
+
+	^ #newComment
+]
+
+{ #category : 'method execution' }
 ORActionAddTComment >> run [
 
-	| newEntity |
-	newEntity := self orionModel newComment.
+	super run.
 
 	self setFamixProperty: #commentedEntity on: newEntity to: self commentedEntity. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 

@@ -14,12 +14,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionMoveTInvocation >> candidates [ ^candidates
-]
+{ #category : 'method execution' }
+ORActionMoveTInvocation >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionMoveTInvocation >> candidates: aValue [ candidates := aValue
+	^ #newInvocation
 ]
 
 { #category : 'accessing' }

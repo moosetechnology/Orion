@@ -21,12 +21,10 @@ ORActionRemoveTParameterConcretization >> concreteParameter [ ^concreteParameter
 ORActionRemoveTParameterConcretization >> concreteParameter: aValue [ concreteParameter := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveTParameterConcretization >> concretizations [ ^concretizations
-]
+{ #category : 'method execution' }
+ORActionRemoveTParameterConcretization >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRemoveTParameterConcretization >> concretizations: aValue [ concretizations := aValue
+	^ #newParameterConcretization
 ]
 
 { #category : 'accessing' }
@@ -51,6 +49,16 @@ ORActionRemoveTParameterConcretization >> previous [ ^previous
 
 { #category : 'accessing' }
 ORActionRemoveTParameterConcretization >> previous: aValue [ previous := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTParameterConcretization >> run [
+
+	self setFamixProperty: #genericParameter on: entity to: nil. self setFamixProperty: #concreteParameter on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }

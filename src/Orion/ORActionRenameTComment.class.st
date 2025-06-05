@@ -18,6 +18,12 @@ ORActionRenameTComment >> commentedEntity [ ^commentedEntity
 ORActionRenameTComment >> commentedEntity: aValue [ commentedEntity := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRenameTComment >> createVersionnedEntitySelector [
+
+	^ #newComment
+]
+
 { #category : 'accessing' }
 ORActionRenameTComment >> sourceAnchor [ ^sourceAnchor
 ]

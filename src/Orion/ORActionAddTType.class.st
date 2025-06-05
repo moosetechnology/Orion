@@ -11,12 +11,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddTType >> incomingReferences [ ^incomingReferences
-]
+{ #category : 'method execution' }
+ORActionAddTType >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddTType >> incomingReferences: aValue [ incomingReferences := aValue
+	^ #newType
 ]
 
 { #category : 'accessing' }
@@ -27,19 +25,10 @@ ORActionAddTType >> isStub [ ^isStub
 ORActionAddTType >> isStub: aValue [ isStub := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddTType >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionAddTType >> name: aValue [ name := aValue
-]
-
 { #category : 'method execution' }
 ORActionAddTType >> run [
 
-	| newEntity |
-	newEntity := self orionModel newType.
+	super run.
 
 	self setFamixProperty: #typeContainer on: newEntity to: self typeContainer. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 
@@ -63,12 +52,4 @@ ORActionAddTType >> typeContainer [ ^typeContainer
 
 { #category : 'accessing' }
 ORActionAddTType >> typeContainer: aValue [ typeContainer := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddTType >> typedEntities [ ^typedEntities
-]
-
-{ #category : 'accessing' }
-ORActionAddTType >> typedEntities: aValue [ typedEntities := aValue
 ]

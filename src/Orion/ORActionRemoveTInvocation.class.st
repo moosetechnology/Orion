@@ -14,12 +14,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveTInvocation >> candidates [ ^candidates
-]
+{ #category : 'method execution' }
+ORActionRemoveTInvocation >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRemoveTInvocation >> candidates: aValue [ candidates := aValue
+	^ #newInvocation
 ]
 
 { #category : 'accessing' }
@@ -44,6 +42,16 @@ ORActionRemoveTInvocation >> receiver [ ^receiver
 
 { #category : 'accessing' }
 ORActionRemoveTInvocation >> receiver: aValue [ receiver := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTInvocation >> run [
+
+	self setFamixProperty: #receiver on: entity to: nil. self setFamixProperty: #sender on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil. self setFamixProperty: #signature on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }

@@ -12,6 +12,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTAttribute >> createVersionnedEntitySelector [
+
+	^ #newAttribute
+]
+
 { #category : 'accessing' }
 ORActionAddTAttribute >> declaredType [ ^declaredType
 ]
@@ -21,27 +27,11 @@ ORActionAddTAttribute >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTAttribute >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionAddTAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddTAttribute >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionAddTAttribute >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddTAttribute >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionAddTAttribute >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }
@@ -55,8 +45,7 @@ ORActionAddTAttribute >> parentType: aValue [ parentType := aValue
 { #category : 'method execution' }
 ORActionAddTAttribute >> run [
 
-	| newEntity |
-	newEntity := self orionModel newAttribute.
+	super run.
 
 	self setFamixProperty: #parentType on: newEntity to: self parentType. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
 

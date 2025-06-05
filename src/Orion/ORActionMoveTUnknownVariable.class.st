@@ -11,6 +11,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionMoveTUnknownVariable >> createVersionnedEntitySelector [
+
+	^ #newUnknownVariable
+]
+
 { #category : 'accessing' }
 ORActionMoveTUnknownVariable >> declaredType [ ^declaredType
 ]
@@ -20,27 +26,11 @@ ORActionMoveTUnknownVariable >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveTUnknownVariable >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionMoveTUnknownVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionMoveTUnknownVariable >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionMoveTUnknownVariable >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTUnknownVariable >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionMoveTUnknownVariable >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }

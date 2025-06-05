@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRemoveTReference >> createVersionnedEntitySelector [
+
+	^ #newReference
+]
+
 { #category : 'accessing' }
 ORActionRemoveTReference >> next [ ^next
 ]
@@ -43,6 +49,16 @@ ORActionRemoveTReference >> referredEntity [ ^referredEntity
 
 { #category : 'accessing' }
 ORActionRemoveTReference >> referredEntity: aValue [ referredEntity := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTReference >> run [
+
+	self setFamixProperty: #referencer on: entity to: nil. self setFamixProperty: #referredEntity on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }

@@ -17,10 +17,18 @@ ORActionRemoveTAnnotationType >> annotationTypesContainer [ ^annotationTypesCont
 ORActionRemoveTAnnotationType >> annotationTypesContainer: aValue [ annotationTypesContainer := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveTAnnotationType >> instances [ ^instances
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationType >> createVersionnedEntitySelector [
+
+	^ #newAnnotationType
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveTAnnotationType >> instances: aValue [ instances := aValue
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationType >> run [
+
+	self setFamixProperty: #annotationTypesContainer on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]

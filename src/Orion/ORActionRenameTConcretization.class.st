@@ -21,6 +21,12 @@ ORActionRenameTConcretization >> concreteEntity [ ^concreteEntity
 ORActionRenameTConcretization >> concreteEntity: aValue [ concreteEntity := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRenameTConcretization >> createVersionnedEntitySelector [
+
+	^ #newConcretization
+]
+
 { #category : 'accessing' }
 ORActionRenameTConcretization >> genericEntity [ ^genericEntity
 ]

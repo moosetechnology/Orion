@@ -17,10 +17,8 @@ ORActionMoveTAnnotationType >> annotationTypesContainer [ ^annotationTypesContai
 ORActionMoveTAnnotationType >> annotationTypesContainer: aValue [ annotationTypesContainer := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionMoveTAnnotationType >> instances [ ^instances
-]
+{ #category : 'method execution' }
+ORActionMoveTAnnotationType >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionMoveTAnnotationType >> instances: aValue [ instances := aValue
+	^ #newAnnotationType
 ]

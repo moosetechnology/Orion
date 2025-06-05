@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRenameTInheritance >> createVersionnedEntitySelector [
+
+	^ #newInheritance
+]
+
 { #category : 'accessing' }
 ORActionRenameTInheritance >> next [ ^next
 ]

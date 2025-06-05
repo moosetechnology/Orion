@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRemoveTInheritance >> createVersionnedEntitySelector [
+
+	^ #newInheritance
+]
+
 { #category : 'accessing' }
 ORActionRemoveTInheritance >> next [ ^next
 ]
@@ -27,6 +33,16 @@ ORActionRemoveTInheritance >> previous [ ^previous
 
 { #category : 'accessing' }
 ORActionRemoveTInheritance >> previous: aValue [ previous := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTInheritance >> run [
+
+	self setFamixProperty: #subclass on: entity to: nil. self setFamixProperty: #superclass on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }

@@ -14,6 +14,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRenameTInvocation >> createVersionnedEntitySelector [
+
+	^ #newInvocation
+]
+
 { #category : 'accessing' }
 ORActionRenameTInvocation >> next [ ^next
 ]

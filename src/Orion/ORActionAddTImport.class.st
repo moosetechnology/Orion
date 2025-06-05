@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTImport >> createVersionnedEntitySelector [
+
+	^ #newImport
+]
+
 { #category : 'accessing' }
 ORActionAddTImport >> importedEntity [ ^importedEntity
 ]
@@ -48,8 +54,7 @@ ORActionAddTImport >> previous: aValue [ previous := aValue
 { #category : 'method execution' }
 ORActionAddTImport >> run [
 
-	| newEntity |
-	newEntity := self orionModel newImport.
+	super run.
 
 	self setFamixProperty: #importedEntity on: newEntity to: self importedEntity. self setFamixProperty: #importingEntity on: newEntity to: self importingEntity. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 

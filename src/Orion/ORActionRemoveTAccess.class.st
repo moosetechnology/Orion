@@ -22,6 +22,12 @@ ORActionRemoveTAccess >> accessor [ ^accessor
 ORActionRemoveTAccess >> accessor: aValue [ accessor := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRemoveTAccess >> createVersionnedEntitySelector [
+
+	^ #newAccess
+]
+
 { #category : 'accessing' }
 ORActionRemoveTAccess >> isWrite [ ^isWrite
 ]
@@ -44,6 +50,16 @@ ORActionRemoveTAccess >> previous [ ^previous
 
 { #category : 'accessing' }
 ORActionRemoveTAccess >> previous: aValue [ previous := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTAccess >> run [
+
+	self setFamixProperty: #accessor on: entity to: nil. self setFamixProperty: #isWrite on: entity to: nil. self setFamixProperty: #variable on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }

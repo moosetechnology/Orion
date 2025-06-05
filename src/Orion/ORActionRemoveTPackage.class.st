@@ -10,12 +10,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveTPackage >> childEntities [ ^childEntities
-]
+{ #category : 'method execution' }
+ORActionRemoveTPackage >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRemoveTPackage >> childEntities: aValue [ childEntities := aValue
+	^ #newPackage
 ]
 
 { #category : 'accessing' }
@@ -26,12 +24,14 @@ ORActionRemoveTPackage >> isStub [ ^isStub
 ORActionRemoveTPackage >> isStub: aValue [ isStub := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveTPackage >> name [ ^name
-]
+{ #category : 'method execution' }
+ORActionRemoveTPackage >> run [
 
-{ #category : 'accessing' }
-ORActionRemoveTPackage >> name: aValue [ name := aValue
+	self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }

@@ -10,12 +10,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRenameTPackage >> childEntities [ ^childEntities
-]
+{ #category : 'method execution' }
+ORActionRenameTPackage >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRenameTPackage >> childEntities: aValue [ childEntities := aValue
+	^ #newPackage
 ]
 
 { #category : 'accessing' }
@@ -24,14 +22,6 @@ ORActionRenameTPackage >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionRenameTPackage >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameTPackage >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionRenameTPackage >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }

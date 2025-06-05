@@ -13,12 +13,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionMoveTMethod >> accesses [ ^accesses
-]
+{ #category : 'method execution' }
+ORActionMoveTMethod >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionMoveTMethod >> accesses: aValue [ accesses := aValue
+	^ #newMethod
 ]
 
 { #category : 'accessing' }
@@ -30,67 +28,11 @@ ORActionMoveTMethod >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveTMethod >> implicitVariables [ ^implicitVariables
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> implicitVariables: aValue [ implicitVariables := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> incomingInvocations [ ^incomingInvocations
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> incomingInvocations: aValue [ incomingInvocations := aValue
-]
-
-{ #category : 'accessing' }
 ORActionMoveTMethod >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionMoveTMethod >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> localVariables [ ^localVariables
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> localVariables: aValue [ localVariables := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> name: aValue [ name := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> outgoingInvocations [ ^outgoingInvocations
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> outgoingInvocations: aValue [ outgoingInvocations := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> outgoingReferences [ ^outgoingReferences
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> outgoingReferences: aValue [ outgoingReferences := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> parameters [ ^parameters
-]
-
-{ #category : 'accessing' }
-ORActionMoveTMethod >> parameters: aValue [ parameters := aValue
 ]
 
 { #category : 'accessing' }

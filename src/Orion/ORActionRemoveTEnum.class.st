@@ -11,20 +11,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveTEnum >> enumValues [ ^enumValues
-]
+{ #category : 'method execution' }
+ORActionRemoveTEnum >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRemoveTEnum >> enumValues: aValue [ enumValues := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTEnum >> incomingReferences [ ^incomingReferences
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTEnum >> incomingReferences: aValue [ incomingReferences := aValue
+	^ #newEnum
 ]
 
 { #category : 'accessing' }
@@ -35,12 +25,14 @@ ORActionRemoveTEnum >> isStub [ ^isStub
 ORActionRemoveTEnum >> isStub: aValue [ isStub := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveTEnum >> name [ ^name
-]
+{ #category : 'method execution' }
+ORActionRemoveTEnum >> run [
 
-{ #category : 'accessing' }
-ORActionRemoveTEnum >> name: aValue [ name := aValue
+	self setFamixProperty: #typeContainer on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }
@@ -57,12 +49,4 @@ ORActionRemoveTEnum >> typeContainer [ ^typeContainer
 
 { #category : 'accessing' }
 ORActionRemoveTEnum >> typeContainer: aValue [ typeContainer := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTEnum >> typedEntities [ ^typedEntities
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTEnum >> typedEntities: aValue [ typedEntities := aValue
 ]

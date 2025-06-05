@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionMoveTImplementation >> createVersionnedEntitySelector [
+
+	^ #newImplementation
+]
+
 { #category : 'accessing' }
 ORActionMoveTImplementation >> implementingClass [ ^implementingClass
 ]

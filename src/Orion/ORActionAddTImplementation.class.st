@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTImplementation >> createVersionnedEntitySelector [
+
+	^ #newImplementation
+]
+
 { #category : 'accessing' }
 ORActionAddTImplementation >> implementingClass [ ^implementingClass
 ]
@@ -48,8 +54,7 @@ ORActionAddTImplementation >> previous: aValue [ previous := aValue
 { #category : 'method execution' }
 ORActionAddTImplementation >> run [
 
-	| newEntity |
-	newEntity := self orionModel newImplementation.
+	super run.
 
 	self setFamixProperty: #implementingClass on: newEntity to: self implementingClass. self setFamixProperty: #interface on: newEntity to: self interface. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 

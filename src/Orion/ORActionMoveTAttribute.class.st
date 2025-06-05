@@ -12,6 +12,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionMoveTAttribute >> createVersionnedEntitySelector [
+
+	^ #newAttribute
+]
+
 { #category : 'accessing' }
 ORActionMoveTAttribute >> declaredType [ ^declaredType
 ]
@@ -21,27 +27,11 @@ ORActionMoveTAttribute >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveTAttribute >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionMoveTAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionMoveTAttribute >> isStub [ ^isStub
 ]
 
 { #category : 'accessing' }
 ORActionMoveTAttribute >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveTAttribute >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionMoveTAttribute >> name: aValue [ name := aValue
 ]
 
 { #category : 'accessing' }

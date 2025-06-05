@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTReference >> createVersionnedEntitySelector [
+
+	^ #newReference
+]
+
 { #category : 'accessing' }
 ORActionAddTReference >> next [ ^next
 ]
@@ -48,8 +54,7 @@ ORActionAddTReference >> referredEntity: aValue [ referredEntity := aValue
 { #category : 'method execution' }
 ORActionAddTReference >> run [
 
-	| newEntity |
-	newEntity := self orionModel newReference.
+	super run.
 
 	self setFamixProperty: #referencer on: newEntity to: self referencer. self setFamixProperty: #referredEntity on: newEntity to: self referredEntity. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 

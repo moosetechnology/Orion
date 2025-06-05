@@ -10,12 +10,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddTPackage >> childEntities [ ^childEntities
-]
+{ #category : 'method execution' }
+ORActionAddTPackage >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddTPackage >> childEntities: aValue [ childEntities := aValue
+	^ #newPackage
 ]
 
 { #category : 'accessing' }
@@ -26,19 +24,10 @@ ORActionAddTPackage >> isStub [ ^isStub
 ORActionAddTPackage >> isStub: aValue [ isStub := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddTPackage >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionAddTPackage >> name: aValue [ name := aValue
-]
-
 { #category : 'method execution' }
 ORActionAddTPackage >> run [
 
-	| newEntity |
-	newEntity := self orionModel newPackage.
+	super run.
 
 	self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 

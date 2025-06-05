@@ -21,6 +21,12 @@ ORActionRenameTParameterConcretization >> concreteParameter [ ^concreteParameter
 ORActionRenameTParameterConcretization >> concreteParameter: aValue [ concreteParameter := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRenameTParameterConcretization >> createVersionnedEntitySelector [
+
+	^ #newParameterConcretization
+]
+
 { #category : 'accessing' }
 ORActionRenameTParameterConcretization >> genericParameter [ ^genericParameter
 ]

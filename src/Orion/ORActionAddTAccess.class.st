@@ -22,6 +22,12 @@ ORActionAddTAccess >> accessor [ ^accessor
 ORActionAddTAccess >> accessor: aValue [ accessor := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddTAccess >> createVersionnedEntitySelector [
+
+	^ #newAccess
+]
+
 { #category : 'accessing' }
 ORActionAddTAccess >> isWrite [ ^isWrite
 ]
@@ -49,8 +55,7 @@ ORActionAddTAccess >> previous: aValue [ previous := aValue
 { #category : 'method execution' }
 ORActionAddTAccess >> run [
 
-	| newEntity |
-	newEntity := self orionModel newAccess.
+	super run.
 
 	self setFamixProperty: #accessor on: newEntity to: self accessor. self setFamixProperty: #isWrite on: newEntity to: self isWrite. self setFamixProperty: #variable on: newEntity to: self variable. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 

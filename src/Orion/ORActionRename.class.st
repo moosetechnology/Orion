@@ -8,3 +8,11 @@ Class {
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'method execution' }
+ORActionRename >> run [
+
+	self setFamixProperty: #name on: self entity to: self name.
+
+	^ entity
+]

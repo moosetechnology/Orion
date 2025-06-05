@@ -12,20 +12,18 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRemoveTImplicitVariable >> createVersionnedEntitySelector [
+
+	^ #newImplicitVariable
+]
+
 { #category : 'accessing' }
 ORActionRemoveTImplicitVariable >> declaredType [ ^declaredType
 ]
 
 { #category : 'accessing' }
 ORActionRemoveTImplicitVariable >> declaredType: aValue [ declaredType := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTImplicitVariable >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTImplicitVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -37,19 +35,21 @@ ORActionRemoveTImplicitVariable >> isStub: aValue [ isStub := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRemoveTImplicitVariable >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTImplicitVariable >> name: aValue [ name := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveTImplicitVariable >> parentBehaviouralEntity [ ^parentBehaviouralEntity
 ]
 
 { #category : 'accessing' }
 ORActionRemoveTImplicitVariable >> parentBehaviouralEntity: aValue [ parentBehaviouralEntity := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTImplicitVariable >> run [
+
+	self setFamixProperty: #parentBehaviouralEntity on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil. self setFamixProperty: #declaredType on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }

@@ -22,6 +22,12 @@ ORActionRenameTAccess >> accessor [ ^accessor
 ORActionRenameTAccess >> accessor: aValue [ accessor := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRenameTAccess >> createVersionnedEntitySelector [
+
+	^ #newAccess
+]
+
 { #category : 'accessing' }
 ORActionRenameTAccess >> isWrite [ ^isWrite
 ]

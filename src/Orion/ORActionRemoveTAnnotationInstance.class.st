@@ -26,10 +26,18 @@ ORActionRemoveTAnnotationInstance >> annotationType [ ^annotationType
 ORActionRemoveTAnnotationInstance >> annotationType: aValue [ annotationType := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveTAnnotationInstance >> attributes [ ^attributes
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationInstance >> createVersionnedEntitySelector [
+
+	^ #newAnnotationInstance
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveTAnnotationInstance >> attributes: aValue [ attributes := aValue
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationInstance >> run [
+
+	self setFamixProperty: #annotatedEntity on: entity to: nil. self setFamixProperty: #annotationType on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]

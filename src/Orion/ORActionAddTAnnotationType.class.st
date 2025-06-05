@@ -17,19 +17,16 @@ ORActionAddTAnnotationType >> annotationTypesContainer [ ^annotationTypesContain
 ORActionAddTAnnotationType >> annotationTypesContainer: aValue [ annotationTypesContainer := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddTAnnotationType >> instances [ ^instances
-]
+{ #category : 'method execution' }
+ORActionAddTAnnotationType >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddTAnnotationType >> instances: aValue [ instances := aValue
+	^ #newAnnotationType
 ]
 
 { #category : 'method execution' }
 ORActionAddTAnnotationType >> run [
 
-	| newEntity |
-	newEntity := self orionModel newAnnotationType.
+	super run.
 
 	self setFamixProperty: #annotationTypesContainer on: newEntity to: self annotationTypesContainer.
 

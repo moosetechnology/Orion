@@ -21,6 +21,12 @@ ORActionAddTConcretization >> concreteEntity [ ^concreteEntity
 ORActionAddTConcretization >> concreteEntity: aValue [ concreteEntity := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddTConcretization >> createVersionnedEntitySelector [
+
+	^ #newConcretization
+]
+
 { #category : 'accessing' }
 ORActionAddTConcretization >> genericEntity [ ^genericEntity
 ]
@@ -38,14 +44,6 @@ ORActionAddTConcretization >> next: aValue [ next := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddTConcretization >> parameterConcretizations [ ^parameterConcretizations
-]
-
-{ #category : 'accessing' }
-ORActionAddTConcretization >> parameterConcretizations: aValue [ parameterConcretizations := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddTConcretization >> previous [ ^previous
 ]
 
@@ -56,8 +54,7 @@ ORActionAddTConcretization >> previous: aValue [ previous := aValue
 { #category : 'method execution' }
 ORActionAddTConcretization >> run [
 
-	| newEntity |
-	newEntity := self orionModel newConcretization.
+	super run.
 
 	self setFamixProperty: #genericEntity on: newEntity to: self genericEntity. self setFamixProperty: #concreteEntity on: newEntity to: self concreteEntity. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
 

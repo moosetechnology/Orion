@@ -25,3 +25,9 @@ ORActionRenameTAnnotationInstance >> annotationType [ ^annotationType
 { #category : 'accessing' }
 ORActionRenameTAnnotationInstance >> annotationType: aValue [ annotationType := aValue
 ]
+
+{ #category : 'method execution' }
+ORActionRenameTAnnotationInstance >> createVersionnedEntitySelector [
+
+	^ #newAnnotationInstance
+]

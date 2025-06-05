@@ -6,10 +6,8 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveTSourceLanguage >> sourcedEntities [ ^sourcedEntities
-]
+{ #category : 'method execution' }
+ORActionRemoveTSourceLanguage >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRemoveTSourceLanguage >> sourcedEntities: aValue [ sourcedEntities := aValue
+	^ #newSourceLanguage
 ]

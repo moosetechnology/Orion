@@ -12,12 +12,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveTAnnotationTypeAttribute >> annotationAttributeInstances [ ^annotationAttributeInstances
-]
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationTypeAttribute >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionRemoveTAnnotationTypeAttribute >> annotationAttributeInstances: aValue [ annotationAttributeInstances := aValue
+	^ #newAnnotationTypeAttribute
 ]
 
 { #category : 'accessing' }
@@ -29,14 +27,6 @@ ORActionRemoveTAnnotationTypeAttribute >> declaredType: aValue [ declaredType :=
 ]
 
 { #category : 'accessing' }
-ORActionRemoveTAnnotationTypeAttribute >> incomingAccesses [ ^incomingAccesses
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTAnnotationTypeAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveTAnnotationTypeAttribute >> isStub [ ^isStub
 ]
 
@@ -45,19 +35,21 @@ ORActionRemoveTAnnotationTypeAttribute >> isStub: aValue [ isStub := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRemoveTAnnotationTypeAttribute >> name [ ^name
-]
-
-{ #category : 'accessing' }
-ORActionRemoveTAnnotationTypeAttribute >> name: aValue [ name := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveTAnnotationTypeAttribute >> parentType [ ^parentType
 ]
 
 { #category : 'accessing' }
 ORActionRemoveTAnnotationTypeAttribute >> parentType: aValue [ parentType := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationTypeAttribute >> run [
+
+	self setFamixProperty: #parentType on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil. self setFamixProperty: #declaredType on: entity to: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^ entity
 ]
 
 { #category : 'accessing' }

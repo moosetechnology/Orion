@@ -13,6 +13,12 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionMoveTImport >> createVersionnedEntitySelector [
+
+	^ #newImport
+]
+
 { #category : 'accessing' }
 ORActionMoveTImport >> importedEntity [ ^importedEntity
 ]
