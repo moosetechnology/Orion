@@ -109,7 +109,8 @@ ORAction >> printOn: stream [
 { #category : 'method execution' }
 ORAction >> run [
 
-	self subclassResponsibility 
+	newEntity := self orionModel perform: self createVersionnedEntitySelector.
+
 ]
 
 { #category : 'writing properties' }
