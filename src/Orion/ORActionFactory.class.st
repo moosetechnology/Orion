@@ -46,9 +46,14 @@ ORActionFactory >> buildClass: aClass ofType: aType [
 ]
 
 { #category : 'class building' }
-ORActionFactory >> buildDelClass: aClass [
+ORActionFactory >> buildMoveClass: aClass [
+]
+
+{ #category : 'class building' }
+ORActionFactory >> buildRemoveClass: aClass [
 
 	| code setFamixLines entityName |
+	aClass slots isEmpty ifTrue: [ ^ nil ].
 	entityName := aClass copyFrom: 'ORActionRemoveT' size + 1.
 	setFamixLines := aClass slots do: [ :slot |
 		                 ^ 'self setFamixProperty: #' , slot name
@@ -69,11 +74,7 @@ ORActionFactory >> buildDelClass: aClass [
 ]
 
 { #category : 'class building' }
-ORActionFactory >> buildMoveClass: aClass [
-]
-
-{ #category : 'class building' }
-ORActionFactory >> buildRenClass: aClass [
+ORActionFactory >> buildRenameClass: aClass [
 ]
 
 { #category : 'class building' }
