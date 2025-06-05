@@ -100,6 +100,29 @@ ORActionFactory >> buildRemoveClass: aClass [
 ORActionFactory >> buildRenameClass: aClass [
 ]
 
+{ #category : 'class cleaning' }
+ORActionFactory >> cleanClass: aClass [
+
+	| gettersNameFromSlots settersNameFromSlots accessorsNameFromSlots methodsSelectorFromClass unusedMethodsSelector unusedMethods system|
+	system := SystemNavigation new.
+	
+	gettersNameFromSlots := aClass slots collect: [ :e | e name ].
+	settersNameFromSlots := aClass slots collect: [ :e | e name , ':' ].
+	accessorsNameFromSlots := gettersNameFromSlots union: settersNameFromSlots.
+	methodsSelectorFromClass := aClass methods collect: [ :e | e selector ].
+	methodsSelectorFromClass := (methodsSelectorFromClass select: [ :e | accessorsNameFromSlots includes: e ]) asOrderedCollection.
+	
+	unusedMethodsSelector := (aClass methods collect: [ :e | e selector ]) reject: [ :e |
+		       methodsSelectorFromClass includes: e ].
+	unusedMethodsSelector := unusedMethodsSelector reject: [ :e | e = 'run' ].
+	unusedMethodsSelector := unusedMethodsSelector reject: [ :e | e = 'createVersionnedEntitySelector' ].
+	
+	unusedMethods := unusedMethodsSelector collect: [ :m | (aClass compiledMethodAt: m) ].
+	unusedMethods do: [ :e | system removeMethod: e inClass: aClass ]
+	
+	
+]
+
 { #category : 'class building' }
 ORActionFactory >> createAssessors: aClass [
 
