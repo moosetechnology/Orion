@@ -10,6 +10,29 @@ Class {
 }
 
 { #category : 'class building' }
+ORActionFactory >> actionBuilder: aPackageName [
+
+	| package classes |
+	package := PackageOrganizer default packageNamed: aPackageName.
+	classes := package classes asOrderedCollection.
+
+	self actionCreator: classes ofType: 'Add'.
+	self actionCreator: classes ofType: 'Remove'.
+	self actionCreator: classes ofType: 'Move'.
+	self actionCreator: classes ofType: 'Rename'
+]
+
+{ #category : 'class building' }
+ORActionFactory >> actionCreator: classes ofType: aType [
+
+	| famixJava |
+	famixJava := self getNewEntitySelector.
+
+
+	classes do: [ :class | self createClass: class with: aType ofType: famixJava ]
+]
+
+{ #category : 'class building' }
 ORActionFactory >> buildAddClass: aClass [
 
 	| code setFamixLines entityName |
@@ -160,27 +183,4 @@ ORActionFactory >> makeClass: className with: slots inheriting: superclass in: p
 			tag: #Actions;
 			package: package;
 			environment: Object environment ]
-]
-
-{ #category : 'class building' }
-ORActionFactory >> orActionBuilder: aPackageName [
-
-	| package classes |
-	package := PackageOrganizer default packageNamed: aPackageName.
-	classes := package classes asOrderedCollection.
-
-	self orActionCreator: classes ofType: 'Add'.
-	self orActionCreator: classes ofType: 'Remove'.
-	self orActionCreator: classes ofType: 'Move'.
-	self orActionCreator: classes ofType: 'Rename'
-]
-
-{ #category : 'class building' }
-ORActionFactory >> orActionCreator: classes ofType: aType [
-
-	| famixJava |
-	famixJava := self getNewEntitySelector.
-
-
-	classes do: [ :class | self createClass: class with: aType ofType: famixJava ]
 ]
