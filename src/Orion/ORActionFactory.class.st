@@ -59,9 +59,10 @@ ORActionFactory >> buildClass: aClass ofType: aType [
 
 	| selector |
 	self createAssessors: aClass.
-
+	self cleanClass: aClass.
 	selector := 'build' , aType , 'Class:'.
 	self perform: selector asSymbol with:  aClass.
+	self getCreateVersionnedEntitySelector: aClass ofType: aType.
 	"aType = 'Add' ifTrue: [ self buildAddClass: aClass ].
 	aType = 'Del' ifTrue: [ self buildDelClass: aClass ].
 	aType = 'Move' ifTrue: [ self buildMoveClass: aClass ].
@@ -167,6 +168,22 @@ ORActionFactory >> createClass: class with: aType ofType: famixJava [
 		  self
 			  buildClass: (Smalltalk at: className asSymbol ifAbsent: [ nil ])
 			  ofType: aType ]
+]
+
+{ #category : 'class building' }
+ORActionFactory >> getCreateVersionnedEntitySelector: aClass ofType: aType [
+
+	| code entity|
+	entity := aClass name
+		              copyFrom: ('ORAction',aType,'T') size + 1
+		              to: aClass name size.
+	
+	code := 'createVersionnedEntitySelector
+
+	^ #new',entity.
+	aClass compile: code classified: 'method execution'
+	
+
 ]
 
 { #category : 'class building' }
