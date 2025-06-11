@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionRenameTImplicitVariable',
-	#superclass : 'ORActionRenameNamedEntity',
+	#superclass : 'ORActionRenameTNamedEntity',
 	#instVars : [
 		'parentBehaviouralEntity',
 		'isStub',

@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionRenameTNamedEntity',
-	#superclass : 'ORAction',
+	#superclass : 'ORActionRename',
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'

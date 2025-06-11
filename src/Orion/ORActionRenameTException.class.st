@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionRenameTException',
-	#superclass : 'ORActionRenameNamedEntity',
+	#superclass : 'ORActionRenameTNamedEntity',
 	#instVars : [
 		'typeContainer',
 		'isStub',

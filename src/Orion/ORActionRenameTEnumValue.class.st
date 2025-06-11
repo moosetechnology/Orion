@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionRenameTEnumValue',
-	#superclass : 'ORActionRenameNamedEntity',
+	#superclass : 'ORActionRenameTNamedEntity',
 	#instVars : [
 		'parentEnum',
 		'isStub',

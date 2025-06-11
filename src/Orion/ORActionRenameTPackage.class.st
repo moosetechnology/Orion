@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionRenameTPackage',
-	#superclass : 'ORActionRenameNamedEntity',
+	#superclass : 'ORActionRenameTNamedEntity',
 	#instVars : [
 		'isStub',
 		'sourceAnchor'

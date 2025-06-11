@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionRenameTMethod',
-	#superclass : 'ORActionRenameNamedEntity',
+	#superclass : 'ORActionRenameTNamedEntity',
 	#instVars : [
 		'parentType',
 		'signature',

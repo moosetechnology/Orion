@@ -1,6 +1,6 @@
 Class {
 	#name : 'ORActionRenameTUnknownVariable',
-	#superclass : 'ORActionRenameNamedEntity',
+	#superclass : 'ORActionRenameTNamedEntity',
 	#instVars : [
 		'isStub',
 		'sourceAnchor',
