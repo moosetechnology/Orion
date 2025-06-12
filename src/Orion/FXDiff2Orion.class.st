@@ -6,6 +6,14 @@ Class {
 	#tag : 'Core'
 }
 
+{ #category : 'applying' }
+FXDiff2Orion class >> applyORAction: anORActionList onModel: aModel [
+
+	anORActionList do: [ :e | e orionModel: aModel ].
+	anORActionList do: [ :e | e run ].
+	^ aModel
+]
+
 { #category : 'converting' }
 FXDiff2Orion class >> fxChangetoORActionConverter: aFamixDiffResult [
 
