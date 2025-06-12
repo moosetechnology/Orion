@@ -9,107 +9,159 @@ Class {
 }
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaAccess: aAccess [ ^ORActionMoveTAccess new.
+FamixMoveChangeVisitor >> visitFamixJavaAccess: aAccess [
+
+	^ ORActionMoveTAccess new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaAnnotationInstance: aAnnotationInstance [  ^ORActionMoveJavaAnnotationInstance new.
+FamixMoveChangeVisitor >> visitFamixJavaAnnotationInstance: aAnnotationInstance [
+
+	^ ORActionMoveJavaAnnotationInstance new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaAnnotationInstanceAttribute: aAnnotationInstanceAttribute [  ^ORActionMoveJavaAnnotationInstanceAttribute new.
+FamixMoveChangeVisitor >> visitFamixJavaAnnotationInstanceAttribute: aAnnotationInstanceAttribute [
+
+	^ ORActionMoveJavaAnnotationInstanceAttribute new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaAnnotationType: aAnnotationType [  ^ORActionMoveJavaAnnotationType new.
+FamixMoveChangeVisitor >> visitFamixJavaAnnotationType: aAnnotationType [
+
+	^ ORActionMoveJavaAnnotationType new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaAnnotationTypeAttribute: aAnnotationTypeAttribute [  ^ORActionMoveJavaAnnotationTypeAttribute new.
+FamixMoveChangeVisitor >> visitFamixJavaAnnotationTypeAttribute: aAnnotationTypeAttribute [
+
+	^ ORActionMoveJavaAnnotationTypeAttribute new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaAttribute: aAttribute [  ^ORActionMoveJavaAttribute new.
+FamixMoveChangeVisitor >> visitFamixJavaAttribute: aAttribute [
+
+	^ ORActionMoveJavaAttribute new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaClass: aClass [  ^ORActionMoveJavaClass new.
+FamixMoveChangeVisitor >> visitFamixJavaClass: aClass [
+
+	^ ORActionMoveJavaClass new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaComment: aComment [ ^ORActionMoveTComment new.
+FamixMoveChangeVisitor >> visitFamixJavaComment: aComment [
+
+	^ ORActionMoveTComment new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaConcretization: aConcretization [ ^ORActionMoveTConcretization new.
+FamixMoveChangeVisitor >> visitFamixJavaConcretization: aConcretization [
+
+	^ ORActionMoveTConcretization new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaEnum: aEnum [  ^ORActionMoveJavaEnum new.
+FamixMoveChangeVisitor >> visitFamixJavaEnum: aEnum [
+
+	^ ORActionMoveJavaEnum new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaEnumValue: aEnumValue [  ^ORActionMoveJavaEnumValue new.
+FamixMoveChangeVisitor >> visitFamixJavaEnumValue: aEnumValue [
+
+	^ ORActionMoveJavaEnumValue new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaException: aException [  ^ORActionMoveJavaException new.
+FamixMoveChangeVisitor >> visitFamixJavaException: aException [
+
+	^ ORActionMoveJavaException new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaImplicitVariable: aImplicitVariable [  ^ORActionMoveJavaImplicitVariable new.
+FamixMoveChangeVisitor >> visitFamixJavaImplicitVariable: aImplicitVariable [
+
+	^ ORActionMoveJavaImplicitVariable new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaImport: aImport [ ^ORActionMoveTImport new.
+FamixMoveChangeVisitor >> visitFamixJavaImport: aImport [
+
+	^ ORActionMoveTImport new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaInheritance: aInheritance [ ^ORActionMoveTInheritance new.
+FamixMoveChangeVisitor >> visitFamixJavaInheritance: aInheritance [
+
+	^ ORActionMoveTInheritance new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaInvocation: aInvocation [ ^ORActionMoveTInvocation new.
+FamixMoveChangeVisitor >> visitFamixJavaInvocation: aInvocation [
+
+	^ ORActionMoveTInvocation new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaLocalVariable: aLocalVariable [  ^ORActionMoveJavaLocalVariable new.
+FamixMoveChangeVisitor >> visitFamixJavaLocalVariable: aLocalVariable [
+
+	^ ORActionMoveJavaLocalVariable new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaMethod: aMethod [  ^ORActionMoveJavaMethod new.
+FamixMoveChangeVisitor >> visitFamixJavaMethod: aMethod [
+
+	^ ORActionMoveJavaMethod new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaPackage: aPackage [  ^ORActionMoveJavaPackage new.
+FamixMoveChangeVisitor >> visitFamixJavaPackage: aPackage [
+
+	^ ORActionMoveJavaPackage new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaParameter: aParameter [  ^ORActionMoveJavaParameter new.
+FamixMoveChangeVisitor >> visitFamixJavaParameter: aParameter [
+
+	^ ORActionMoveJavaParameter new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaParameterConcretization: aParameterConcretization [ ^ORActionMoveTParameterConcretization new.
+FamixMoveChangeVisitor >> visitFamixJavaParameterConcretization: aParameterConcretization [
+
+	^ ORActionMoveTParameterConcretization new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaPrimitiveType: aPrimitiveType [  ^ORActionMoveJavaPrimitiveType new.
+FamixMoveChangeVisitor >> visitFamixJavaPrimitiveType: aPrimitiveType [
+
+	^ ORActionMoveJavaPrimitiveType new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaReference: aReference [ ^ORActionMoveTReference new.
+FamixMoveChangeVisitor >> visitFamixJavaReference: aReference [
+
+	^ ORActionMoveTReference new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaSourceLanguage: aSourceLanguage [ ^ORActionMoveTSourceLanguage new.
+FamixMoveChangeVisitor >> visitFamixJavaSourceLanguage: aSourceLanguage [
+
+	^ ORActionMoveTSourceLanguage new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaType: aType [  ^ORActionMoveJavaType new.
+FamixMoveChangeVisitor >> visitFamixJavaType: aType [
+
+	^ ORActionMoveJavaType new.
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixJavaUnknownVariable: aUnknownVariable [  ^ORActionMoveJavaUnknownVariable new.
+FamixMoveChangeVisitor >> visitFamixJavaUnknownVariable: aUnknownVariable [
+
+	^ ORActionMoveJavaUnknownVariable new.
 ]
 
 { #category : 'visiting' }
@@ -169,7 +221,9 @@ FamixMoveChangeVisitor >> visitFamixTImplicitVariable: anImplicitVariable [  ^OR
 ]
 
 { #category : 'visiting' }
-FamixMoveChangeVisitor >> visitFamixTImport: anImport [  ^ORActionMoveTImport new.
+FamixMoveChangeVisitor >> visitFamixTImport: anImport [
+
+	^ ORActionMoveTImport new.
 ]
 
 { #category : 'visiting' }
