@@ -7,6 +7,21 @@ Class {
 }
 
 { #category : 'converting' }
+FXDiff2Orion class >> fxChangetoORActionConverter: aFamixDiffResult [
+
+	| visitors realChanges orActions visitorForVisitors |
+	visitorForVisitors := FamixChangeSelectorVisitor new.
+	realChanges := (self getUsefulChanges: aFamixDiffResult)
+		               asOrderedCollection.
+	visitors := realChanges collect: [ :e | e selectorForVisitor ].
+	"visitors := realChanges collect: [ :e | e accept: visitorForVisitors ]."
+
+	orActions := (1 to: realChanges size) collect: [ :i |
+		             (realChanges at: i) entity accept: (visitors at: i) ].
+	^ orActions
+]
+
+{ #category : 'converting' }
 FXDiff2Orion class >> getUsefulChanges: aFamixDiffResult [
 
 	| res |
