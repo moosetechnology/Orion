@@ -7,9 +7,11 @@ Class {
 
 { #category : 'baselines' }
 BaselineOfOrion >> baseline: spec [
+
 	<baseline>
-	spec for: #'common' do: [
-		spec 
+	spec for: #common do: [
+		spec
 			package: 'Orion';
+			package: 'Orion-Java';
 			package: 'Orion-Tests' ]
 ]
