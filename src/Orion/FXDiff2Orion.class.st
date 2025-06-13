@@ -17,8 +17,8 @@ FXDiff2Orion class >> applyORAction: anORActionList onModel: aModel [
 { #category : 'converting' }
 FXDiff2Orion class >> fxChangetoORActionConverter: aFamixDiffResult [
 
-	| visitors realChanges orActions visitorForVisitors |
-	visitorForVisitors := FamixChangeSelectorVisitor new.
+	| visitors realChanges orActions "visitorForVisitors" |
+	"visitorForVisitors := FamixChangeSelectorVisitor new."
 	realChanges := (self getUsefulChanges: aFamixDiffResult)
 		               asOrderedCollection.
 	visitors := realChanges collect: [ :e | e selectorForVisitor ].
