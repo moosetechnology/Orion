@@ -13,5 +13,6 @@ BaselineOfOrion >> baseline: spec [
 		spec
 			package: 'Orion';
 			package: 'Orion-Java';
-			package: 'Orion-Tests' ]
+			package: 'Orion-Tests';
+			package: 'Orion-New-Tests' ]
 ]
