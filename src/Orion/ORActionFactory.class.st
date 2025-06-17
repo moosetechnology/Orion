@@ -10,10 +10,10 @@ Class {
 }
 
 { #category : 'class building' }
-ORActionFactory >> actionBuilder: aPackageName [
+ORActionFactory >> actionBuilder [
 
 	| package classes |
-	package := PackageOrganizer default packageNamed: aPackageName.
+	package := PackageOrganizer default packageNamed: 'Famix-Traits'.
 	classes := package classes asOrderedCollection.
 
 	self actionCreator: classes ofType: 'Add'.
