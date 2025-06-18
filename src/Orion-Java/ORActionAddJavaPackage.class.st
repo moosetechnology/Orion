@@ -1,3 +1,14 @@
+"
+I add a new FamixJavaPackage in a MooseModel
+I need the following properties of the new package
+
+-`annotationInstances`
+-`types`
+-`definedAnnotationTypes`
+-`incomingImports`
+-`parentPackage`
+-`comments`
+"
 Class {
 	#name : 'ORActionAddJavaPackage',
 	#superclass : 'ORActionAddTPackage',

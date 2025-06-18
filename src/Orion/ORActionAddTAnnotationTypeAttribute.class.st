@@ -1,3 +1,12 @@
+"
+I add a new FamixTAnnotationTypeAttribute in a MooseModel
+I need the following properties of the new annotationtypeattribute
+
+-`parentType`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTAnnotationTypeAttribute',
 	#superclass : 'ORActionAddNamedEntity',

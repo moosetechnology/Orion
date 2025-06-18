@@ -1,3 +1,14 @@
+"
+I move a new FamixTInvocation in a MooseModel
+I need the following properties of the new invocation
+
+-`receiver`
+-`sender`
+-`next`
+-`previous`
+-`sourceAnchor`
+-`signature`
+"
 Class {
 	#name : 'ORActionMoveTInvocation',
 	#superclass : 'ORActionMove',

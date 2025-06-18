@@ -1,3 +1,12 @@
+"
+I move a new FamixTAttribute in a MooseModel
+I need the following properties of the new attribute
+
+-`parentType`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionMoveTAttribute',
 	#superclass : 'ORActionMoveNamedEntity',

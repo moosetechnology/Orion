@@ -1,3 +1,11 @@
+"
+I move a new FamixTEnum in a MooseModel
+I need the following properties of the new enum
+
+-`typeContainer`
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionMoveTEnum',
 	#superclass : 'ORActionMoveNamedEntity',

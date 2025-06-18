@@ -1,3 +1,23 @@
+"
+I remove a new FamixJavaException in a MooseModel
+I need the following properties of the new exception
+
+-`annotationInstances`
+-`types`
+-`definedAnnotationTypes`
+-`lowerBoundedWildcards`
+-`upperBoundedWildcards`
+-`concreteEntities`
+-`generics`
+-`isAbstract`
+-`isClassSide`
+-`isFinal`
+-`interfaceImplementations`
+-`visibility`
+-`incomingImports`
+-`parentPackage`
+-`imports`
+"
 Class {
 	#name : 'ORActionRemoveJavaException',
 	#superclass : 'ORActionRemoveTException',

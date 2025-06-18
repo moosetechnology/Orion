@@ -1,3 +1,11 @@
+"
+I add a new FamixTUnknownVariable in a MooseModel
+I need the following properties of the new unknownvariable
+
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTUnknownVariable',
 	#superclass : 'ORActionAddNamedEntity',

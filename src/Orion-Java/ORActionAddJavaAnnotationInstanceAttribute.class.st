@@ -1,3 +1,9 @@
+"
+I add a new FamixJavaAnnotationInstanceAttribute in a MooseModel
+I need the following properties of the new annotationinstanceattribute
+
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddJavaAnnotationInstanceAttribute',
 	#superclass : 'ORActionAddTAnnotationInstanceAttribute',

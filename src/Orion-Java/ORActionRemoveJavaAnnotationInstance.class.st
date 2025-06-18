@@ -1,3 +1,9 @@
+"
+I remove a new FamixJavaAnnotationInstance in a MooseModel
+I need the following properties of the new annotationinstance
+
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionRemoveJavaAnnotationInstance',
 	#superclass : 'ORActionRemoveTAnnotationInstance',

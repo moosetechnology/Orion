@@ -1,3 +1,12 @@
+"
+I remove a new FamixTAnnotationTypeAttribute in a MooseModel
+I need the following properties of the new annotationtypeattribute
+
+-`parentType`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionRemoveTAnnotationTypeAttribute',
 	#superclass : 'ORActionRemoveNamedEntity',

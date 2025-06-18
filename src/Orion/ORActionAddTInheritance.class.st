@@ -1,3 +1,13 @@
+"
+I add a new FamixTInheritance in a MooseModel
+I need the following properties of the new inheritance
+
+-`subclass`
+-`superclass`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTInheritance',
 	#superclass : 'ORActionAdd',

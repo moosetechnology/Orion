@@ -1,3 +1,11 @@
+"
+I remove a new FamixTPrimitiveType in a MooseModel
+I need the following properties of the new primitivetype
+
+-`typeContainer`
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionRemoveTPrimitiveType',
 	#superclass : 'ORActionRemoveNamedEntity',

@@ -1,3 +1,13 @@
+"
+I remove a new FamixTImport in a MooseModel
+I need the following properties of the new import
+
+-`importedEntity`
+-`importingEntity`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionRemoveTImport',
 	#superclass : 'ORActionRemove',

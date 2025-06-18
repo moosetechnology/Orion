@@ -1,3 +1,12 @@
+"
+I move a new FamixTEnumValue in a MooseModel
+I need the following properties of the new enumvalue
+
+-`parentEnum`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionMoveTEnumValue',
 	#superclass : 'ORActionMoveNamedEntity',

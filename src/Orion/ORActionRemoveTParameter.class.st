@@ -1,3 +1,12 @@
+"
+I remove a new FamixTParameter in a MooseModel
+I need the following properties of the new parameter
+
+-`parentBehaviouralEntity`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionRemoveTParameter',
 	#superclass : 'ORActionRemoveNamedEntity',

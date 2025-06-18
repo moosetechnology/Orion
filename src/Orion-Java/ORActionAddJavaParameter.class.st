@@ -1,3 +1,12 @@
+"
+I add a new FamixJavaParameter in a MooseModel
+I need the following properties of the new parameter
+
+-`annotationInstances`
+-`receivingInvocations`
+-`isFinal`
+-`comments`
+"
 Class {
 	#name : 'ORActionAddJavaParameter',
 	#superclass : 'ORActionAddTParameter',

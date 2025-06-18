@@ -1,3 +1,12 @@
+"
+I add a new FamixTAttribute in a MooseModel
+I need the following properties of the new attribute
+
+-`parentType`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTAttribute',
 	#superclass : 'ORActionAddNamedEntity',

@@ -1,3 +1,11 @@
+"
+I rename a new FamixTClass in a MooseModel
+I need the following properties of the new class
+
+-`typeContainer`
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionRenameTClass',
 	#superclass : 'ORActionRenameTNamedEntity',

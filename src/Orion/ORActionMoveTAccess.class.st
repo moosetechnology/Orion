@@ -1,3 +1,14 @@
+"
+I move a new FamixTAccess in a MooseModel
+I need the following properties of the new access
+
+-`accessor`
+-`isWrite`
+-`variable`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionMoveTAccess',
 	#superclass : 'ORActionMove',

@@ -1,3 +1,11 @@
+"
+I rename a new FamixTException in a MooseModel
+I need the following properties of the new exception
+
+-`typeContainer`
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionRenameTException',
 	#superclass : 'ORActionRenameTNamedEntity',

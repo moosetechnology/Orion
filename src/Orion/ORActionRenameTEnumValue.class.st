@@ -1,3 +1,12 @@
+"
+I rename a new FamixTEnumValue in a MooseModel
+I need the following properties of the new enumvalue
+
+-`parentEnum`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionRenameTEnumValue',
 	#superclass : 'ORActionRenameTNamedEntity',

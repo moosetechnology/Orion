@@ -1,3 +1,10 @@
+"
+I move a new FamixTAnnotationInstance in a MooseModel
+I need the following properties of the new annotationinstance
+
+-`annotatedEntity`
+-`annotationType`
+"
 Class {
 	#name : 'ORActionMoveTAnnotationInstance',
 	#superclass : 'ORActionMove',

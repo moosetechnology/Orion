@@ -1,3 +1,11 @@
+"
+I move a new FamixTAnnotationInstanceAttribute in a MooseModel
+I need the following properties of the new annotationinstanceattribute
+
+-`annotationTypeAttribute`
+-`parentAnnotationInstance`
+-`value`
+"
 Class {
 	#name : 'ORActionMoveTAnnotationInstanceAttribute',
 	#superclass : 'ORActionMove',

@@ -1,3 +1,10 @@
+"
+I rename a new FamixTPackage in a MooseModel
+I need the following properties of the new package
+
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionRenameTPackage',
 	#superclass : 'ORActionRenameTNamedEntity',

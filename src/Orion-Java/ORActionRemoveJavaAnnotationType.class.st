@@ -1,3 +1,29 @@
+"
+I remove a new FamixJavaAnnotationType in a MooseModel
+I need the following properties of the new annotationtype
+
+-`sourceAnchor`
+-`name`
+-`annotationInstances`
+-`types`
+-`definedAnnotationTypes`
+-`lowerBoundedWildcards`
+-`upperBoundedWildcards`
+-`concreteEntities`
+-`generics`
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`incomingReferences`
+-`methods`
+-`visibility`
+-`implementations`
+-`parentPackage`
+-`attributes`
+-`comments`
+-`superInheritances`
+-`subInheritances`
+"
 Class {
 	#name : 'ORActionRemoveJavaAnnotationType',
 	#superclass : 'ORActionRemoveTAnnotationType',

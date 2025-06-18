@@ -1,3 +1,9 @@
+"
+I remove a new FamixTAnnotationType in a MooseModel
+I need the following properties of the new annotationtype
+
+-`annotationTypesContainer`
+"
 Class {
 	#name : 'ORActionRemoveTAnnotationType',
 	#superclass : 'ORActionRemove',

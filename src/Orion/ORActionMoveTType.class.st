@@ -1,3 +1,11 @@
+"
+I move a new FamixTType in a MooseModel
+I need the following properties of the new type
+
+-`typeContainer`
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionMoveTType',
 	#superclass : 'ORActionMoveNamedEntity',

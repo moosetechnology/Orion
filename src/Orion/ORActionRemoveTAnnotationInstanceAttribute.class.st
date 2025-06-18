@@ -1,3 +1,11 @@
+"
+I remove a new FamixTAnnotationInstanceAttribute in a MooseModel
+I need the following properties of the new annotationinstanceattribute
+
+-`annotationTypeAttribute`
+-`parentAnnotationInstance`
+-`value`
+"
 Class {
 	#name : 'ORActionRemoveTAnnotationInstanceAttribute',
 	#superclass : 'ORActionRemove',

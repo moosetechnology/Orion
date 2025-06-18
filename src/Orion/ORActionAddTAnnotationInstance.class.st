@@ -1,3 +1,10 @@
+"
+I add a new FamixTAnnotationInstance in a MooseModel
+I need the following properties of the new annotationinstance
+
+-`annotatedEntity`
+-`annotationType`
+"
 Class {
 	#name : 'ORActionAddTAnnotationInstance',
 	#superclass : 'ORActionAdd',

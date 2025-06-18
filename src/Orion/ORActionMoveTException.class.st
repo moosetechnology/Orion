@@ -1,3 +1,11 @@
+"
+I move a new FamixTException in a MooseModel
+I need the following properties of the new exception
+
+-`typeContainer`
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionMoveTException',
 	#superclass : 'ORActionMoveNamedEntity',

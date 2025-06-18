@@ -1,3 +1,11 @@
+"
+I add a new FamixTClass in a MooseModel
+I need the following properties of the new class
+
+-`typeContainer`
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTClass',
 	#superclass : 'ORActionAddNamedEntity',

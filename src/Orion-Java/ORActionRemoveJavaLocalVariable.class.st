@@ -1,3 +1,12 @@
+"
+I remove a new FamixJavaLocalVariable in a MooseModel
+I need the following properties of the new localvariable
+
+-`annotationInstances`
+-`receivingInvocations`
+-`isFinal`
+-`comments`
+"
 Class {
 	#name : 'ORActionRemoveJavaLocalVariable',
 	#superclass : 'ORActionRemoveTLocalVariable',

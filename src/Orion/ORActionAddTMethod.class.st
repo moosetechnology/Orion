@@ -1,3 +1,13 @@
+"
+I add a new FamixTMethod in a MooseModel
+I need the following properties of the new method
+
+-`parentType`
+-`signature`
+-`declaredType`
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTMethod',
 	#superclass : 'ORActionAddNamedEntity',

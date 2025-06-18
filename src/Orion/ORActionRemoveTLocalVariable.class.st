@@ -1,3 +1,12 @@
+"
+I remove a new FamixTLocalVariable in a MooseModel
+I need the following properties of the new localvariable
+
+-`parentBehaviouralEntity`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionRemoveTLocalVariable',
 	#superclass : 'ORActionRemoveNamedEntity',

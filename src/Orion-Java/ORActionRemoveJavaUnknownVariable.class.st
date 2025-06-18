@@ -1,3 +1,10 @@
+"
+I remove a new FamixJavaUnknownVariable in a MooseModel
+I need the following properties of the new unknownvariable
+
+-`annotationInstances`
+-`receivingInvocations`
+"
 Class {
 	#name : 'ORActionRemoveJavaUnknownVariable',
 	#superclass : 'ORActionRemoveTUnknownVariable',

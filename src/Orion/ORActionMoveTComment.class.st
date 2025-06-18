@@ -1,3 +1,10 @@
+"
+I move a new FamixTComment in a MooseModel
+I need the following properties of the new comment
+
+-`commentedEntity`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionMoveTComment',
 	#superclass : 'ORActionMove',

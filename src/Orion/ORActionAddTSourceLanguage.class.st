@@ -1,3 +1,8 @@
+"
+I add a new FamixTSourceLanguage in a MooseModel
+I need the following properties of the new sourcelanguage
+
+"
 Class {
 	#name : 'ORActionAddTSourceLanguage',
 	#superclass : 'ORActionAdd',

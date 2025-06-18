@@ -1,3 +1,11 @@
+"
+I rename a new FamixTUnknownVariable in a MooseModel
+I need the following properties of the new unknownvariable
+
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionRenameTUnknownVariable',
 	#superclass : 'ORActionRenameTNamedEntity',

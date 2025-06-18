@@ -1,3 +1,13 @@
+"
+I add a new FamixTImport in a MooseModel
+I need the following properties of the new import
+
+-`importedEntity`
+-`importingEntity`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTImport',
 	#superclass : 'ORActionAdd',

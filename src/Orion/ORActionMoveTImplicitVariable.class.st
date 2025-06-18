@@ -1,3 +1,12 @@
+"
+I move a new FamixTImplicitVariable in a MooseModel
+I need the following properties of the new implicitvariable
+
+-`parentBehaviouralEntity`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionMoveTImplicitVariable',
 	#superclass : 'ORActionMoveNamedEntity',

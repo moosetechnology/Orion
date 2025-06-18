@@ -1,3 +1,13 @@
+"
+I remove a new FamixTImplementation in a MooseModel
+I need the following properties of the new implementation
+
+-`implementingClass`
+-`interface`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionRemoveTImplementation',
 	#superclass : 'ORActionRemove',

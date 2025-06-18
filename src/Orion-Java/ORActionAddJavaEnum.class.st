@@ -1,3 +1,24 @@
+"
+I add a new FamixJavaEnum in a MooseModel
+I need the following properties of the new enum
+
+-`annotationInstances`
+-`types`
+-`definedAnnotationTypes`
+-`lowerBoundedWildcards`
+-`upperBoundedWildcards`
+-`concreteEntities`
+-`generics`
+-`methods`
+-`visibility`
+-`incomingImports`
+-`receivingInvocations`
+-`attributes`
+-`comments`
+-`imports`
+-`superInheritances`
+-`subInheritances`
+"
 Class {
 	#name : 'ORActionAddJavaEnum',
 	#superclass : 'ORActionAddTEnum',

@@ -1,3 +1,11 @@
+"
+I add a new FamixJavaAnnotationTypeAttribute in a MooseModel
+I need the following properties of the new annotationtypeattribute
+
+-`annotationInstances`
+-`receivingInvocations`
+-`comments`
+"
 Class {
 	#name : 'ORActionAddJavaAnnotationTypeAttribute',
 	#superclass : 'ORActionAddTAnnotationTypeAttribute',

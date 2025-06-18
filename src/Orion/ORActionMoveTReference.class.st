@@ -1,3 +1,13 @@
+"
+I move a new FamixTReference in a MooseModel
+I need the following properties of the new reference
+
+-`referencer`
+-`referredEntity`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionMoveTReference',
 	#superclass : 'ORActionMove',

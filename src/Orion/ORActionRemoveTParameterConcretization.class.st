@@ -1,3 +1,13 @@
+"
+I remove a new FamixTParameterConcretization in a MooseModel
+I need the following properties of the new parameterconcretization
+
+-`genericParameter`
+-`concreteParameter`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionRemoveTParameterConcretization',
 	#superclass : 'ORActionRemove',

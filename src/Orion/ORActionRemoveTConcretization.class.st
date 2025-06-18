@@ -1,3 +1,13 @@
+"
+I remove a new FamixTConcretization in a MooseModel
+I need the following properties of the new concretization
+
+-`genericEntity`
+-`concreteEntity`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionRemoveTConcretization',
 	#superclass : 'ORActionRemove',
