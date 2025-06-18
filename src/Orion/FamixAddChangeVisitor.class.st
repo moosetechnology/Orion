@@ -1,3 +1,6 @@
+"
+The visitor to create the corresponding ORAction for an FamixAddChange
+"
 Class {
 	#name : 'FamixAddChangeVisitor',
 	#superclass : 'Object',

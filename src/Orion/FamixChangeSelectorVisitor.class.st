@@ -1,3 +1,6 @@
+"
+The visitor to create the corresponding visitor for an FamixAddChange
+"
 Class {
 	#name : 'FamixChangeSelectorVisitor',
 	#superclass : 'FamixChangeVisitor',
@@ -10,6 +13,11 @@ Class {
 FamixChangeSelectorVisitor >> visitAddChange: aAddChange [
 
 	^FamixAddChangeVisitor new.
+]
+
+{ #category : 'visiting' }
+FamixChangeSelectorVisitor >> visitChange: aChange [
+	self subclassResponsibility
 ]
 
 { #category : 'visiting' }

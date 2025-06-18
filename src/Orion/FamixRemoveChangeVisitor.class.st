@@ -1,3 +1,6 @@
+"
+The visitor to create the corresponding ORAction for an FamixRemoveChange
+"
 Class {
 	#name : 'FamixRemoveChangeVisitor',
 	#superclass : 'Object',
