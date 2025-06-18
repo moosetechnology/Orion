@@ -223,3 +223,34 @@ ORActionFactory >> makeClass: className with: slots inheriting: superclass in: p
 			package: package;
 			environment: Object environment ]
 ]
+
+{ #category : 'writing' }
+ORActionFactory >> writeAllComments [
+
+	| superclasses |
+	superclasses := #( ORActionAdd ORActionRemove ORActionRename
+	                   ORActionMove ).
+	superclasses do: [ :e |
+		| subclasses type |
+		type := e copyFrom: 'ORAction' size + 1 to: e size.
+		subclasses := (Smalltalk at: e asSymbol) allSubclasses.
+		subclasses do: [ :f | self writeComment: f ofType: type ] ]
+]
+
+{ #category : 'writing' }
+ORActionFactory >> writeComment: aClass ofType: aType [
+
+	| comment entity src|
+	(aClass name includesSubstring: 'Java') ifTrue: [src:= 'Java'] ifFalse: [src:= 'T'].
+	entity := aClass name
+		          copyFrom: ('ORAction' , aType , src) size + 1
+		          to: aClass name size.
+	comment := 'I ' , aType asLowercase , ' a new Famix', src, entity
+	           , ' in a MooseModel'.
+	comment := comment , Character cr asString
+	           , 'I need the following properties of the new '
+	           , entity asLowercase , Character cr asString.
+	aClass slotNames do: [ :e |
+		comment := comment , Character cr asString , '-`' , e , '`' ].
+	aClass comment: comment
+]
