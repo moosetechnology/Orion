@@ -1,3 +1,6 @@
+"
+The Factory that creates ORAction based on FamixJavaEntity
+"
 Class {
 	#name : 'ORActionJavaFactory',
 	#superclass : 'ORActionFactory',

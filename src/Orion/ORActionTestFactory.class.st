@@ -1,3 +1,6 @@
+"
+The Factory that creates test based on ORAction
+"
 Class {
 	#name : 'ORActionTestFactory',
 	#superclass : 'ORActionFactory',

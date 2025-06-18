@@ -1,5 +1,5 @@
 "
-The Builder that creates ORAction based on Traits 
+The Factory that creates ORAction based on Traits 
 "
 Class {
 	#name : 'ORActionFactory',
