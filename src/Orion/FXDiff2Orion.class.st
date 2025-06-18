@@ -1,3 +1,6 @@
+"
+The class that convert the FamixChange given by FamixDiff into ORAction to apply to the model
+"
 Class {
 	#name : 'FXDiff2Orion',
 	#superclass : 'Object',
