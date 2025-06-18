@@ -50,8 +50,9 @@ Class {
 		'superInheritances',
 		'subInheritances'
 	],
-	#category : 'Orion-Java',
-	#package : 'Orion-Java'
+	#category : 'Orion-Java-Move',
+	#package : 'Orion-Java',
+	#tag : 'Move'
 }
 
 { #category : 'accessing' }

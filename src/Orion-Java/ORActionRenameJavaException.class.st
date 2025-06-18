@@ -38,8 +38,9 @@ Class {
 		'parentPackage',
 		'imports'
 	],
-	#category : 'Orion-Java',
-	#package : 'Orion-Java'
+	#category : 'Orion-Java-Rename',
+	#package : 'Orion-Java',
+	#tag : 'Rename'
 }
 
 { #category : 'accessing' }

@@ -40,8 +40,9 @@ Class {
 		'superInheritances',
 		'subInheritances'
 	],
-	#category : 'Orion-Java',
-	#package : 'Orion-Java'
+	#category : 'Orion-Java-Remove',
+	#package : 'Orion-Java',
+	#tag : 'Remove'
 }
 
 { #category : 'accessing' }

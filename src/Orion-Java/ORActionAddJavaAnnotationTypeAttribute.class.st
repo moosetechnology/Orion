@@ -14,8 +14,9 @@ Class {
 		'receivingInvocations',
 		'comments'
 	],
-	#category : 'Orion-Java',
-	#package : 'Orion-Java'
+	#category : 'Orion-Java-Add',
+	#package : 'Orion-Java',
+	#tag : 'Add'
 }
 
 { #category : 'accessing' }
