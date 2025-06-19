@@ -125,32 +125,31 @@ ORActionTestFactory >> generateSetUpSourceFor: anActionClass [
 
 { #category : 'class building' }
 ORActionTestFactory >> injectMethodsIntoTestClassFor: anActionClass [
-	"Finds the corresponding test class and compiles the generated test methods directly into it."
 
 	| testClass setUpSource testSources |
 	(anActionClass name = 'ORActionAdd' or:
 		 (anActionClass name = 'ORActionRemove' or:
 			  (anActionClass name = 'ORActionRename' or:
-				   anActionClass name = 'ORActionMove'))) ifFalse: [
-		testClass := Smalltalk globals
-			             at: (anActionClass name , 'TestNew') asSymbol
-			             ifAbsent: [^ nil ].
+				   anActionClass name = 'ORActionMove'))) ifTrue: [ ^ self ].
+	testClass := Smalltalk globals
+		             at: (anActionClass name , 'TestNew') asSymbol
+		             ifAbsent: [ ^ nil ].
 
-		"Generate et compile setUpAction"
-		setUpSource := self generateSetUpSourceFor: anActionClass.
-		testClass compile: setUpSource classified: #running.
-
-		"Generate and compile specific test methods"
-		testSources := #(  ).
-		(anActionClass name beginsWith: 'ORActionAdd') ifTrue: [
-			testSources := self generateAddTestSourcesFor: anActionClass ].
-		(anActionClass name beginsWith: 'ORActionRemove') ifTrue: [
-			testSources := self generateRemoveTestSourcesFor: anActionClass ].
-
-		testSources do: [ :eachSource |
-			testClass compile: eachSource classified: #tests ].
-
-		^ testClass ]
+	"Generate et compile setUpAction"
+	setUpSource := self generateSetUpSourceFor: anActionClass.
+	testClass compile: setUpSource classified: #running.
+	testSources := #(  ).
+	(anActionClass name beginsWith: 'ORActionAdd') ifTrue: [
+		testSources := self generateAddTestSourcesFor: anActionClass ].
+	(anActionClass name beginsWith: 'ORActionRemove') ifTrue: [
+		testSources := self generateRemoveTestSourcesFor: anActionClass ].
+	(anActionClass name beginsWith: 'ORActionRename') ifTrue: [
+		testSources := self generateRenameTestSourcesFor: anActionClass ].
+	(anActionClass name beginsWith: 'ORActionMove') ifTrue: [
+		testSources := self generateMoveTestSourcesFor: anActionClass ].
+	testSources do: [ :eachSource |
+		testClass compile: eachSource classified: #tests ].
+	^ testClass
 ]
 
 { #category : 'class building' }
