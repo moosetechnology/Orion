@@ -17,7 +17,7 @@ ORActionTestFactory >> defaultValueForSlot: aSlot [
 	^ 'nil'
 ]
 
-{ #category : 'class building' }
+{ #category : 'generate test sources' }
 ORActionTestFactory >> generateAddTestSourcesFor: anActionClass [
 	"Returns a collection of source codes for addition tests"
 
@@ -60,7 +60,14 @@ ORActionTestFactory >> generateEntityIsVersionedSourceFor: anActionClass [
 	^ source
 ]
 
-{ #category : 'class building' }
+{ #category : 'generate test sources' }
+ORActionTestFactory >> generateMoveTestSourcesFor: anActionClass [
+	"Returns a collection of source codes for moving tests"
+
+	
+]
+
+{ #category : 'generate test sources' }
 ORActionTestFactory >> generateRemoveTestSourcesFor: anActionClass [
 	"Returns a collection of source codes for deletion tests"
 
@@ -90,6 +97,12 @@ ORActionTestFactory >> generateRemovesCorrectEntitySourceFor: anActionClass [
 	          , 's size) equals: (initialCount - 1).'.
 
 	^ source
+]
+
+{ #category : 'generate test sources' }
+ORActionTestFactory >> generateRenameTestSourcesFor: anActionClass [
+	"Returns a collection of source codes for renaming tests"
+	
 ]
 
 { #category : 'class building' }
