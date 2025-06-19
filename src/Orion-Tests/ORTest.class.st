@@ -170,8 +170,9 @@ ORTest >> refer: aClass from: referer [
 ORTest >> setUp [
 
 	super setUp.
-
-	modelV1 := FamixStModel new.
+	modelV1 := (ORTestJavaModel new) buildFullTestModel .
 	modelV1 name: 'theModel'.
-	self exampleModel1
+	"modelV1 := FamixStModel new.
+	modelV1 name: 'theModel'.
+	self exampleModel1"
 ]
