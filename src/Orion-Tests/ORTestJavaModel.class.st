@@ -56,6 +56,29 @@ ORTestJavaModel >> createBasicEntities [
 	modelV1 add: unknownVar.
 ]
 
+{ #category : 'entity creation' }
+ORTestJavaModel >> linkBasicEntities [
+
+	| pkg testClass testMethod otherClass attr param localVar implicitVar |
+	pkg := modelV1 entityNamed: 'testPackage'.
+	testClass := modelV1 entityNamed: 'TestClass'.
+	otherClass := modelV1 entityNamed: 'OtherClass'.
+	testMethod := modelV1 entityNamed: 'testMethod'.
+	attr := modelV1 entityNamed: 'testAttribute'.
+	param := modelV1 entityNamed: 'testParam'.
+	localVar := modelV1 entityNamed: 'testLocalVar'.
+	implicitVar := modelV1 entityNamed: 'this'.
+
+	"Composition"
+	pkg addType: testClass.
+	pkg addType: otherClass.
+	testClass addMethod: testMethod.
+	testClass addAttribute: attr.
+	testMethod addParameter: param.
+	testMethod addLocalVariable: localVar.
+	testMethod addImplicitVariable: implicitVar
+]
+
 { #category : 'running' }
 ORTestJavaModel >> setUp [
 	super setUp.
