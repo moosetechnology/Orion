@@ -10,6 +10,18 @@ Class {
 	#tag : 'Java-Model'
 }
 
+{ #category : 'model building' }
+ORTestJavaModel >> buildFullTestModel [
+	"Creates and returns a FamixJavaModel containing instances of all the entities required for tests."
+
+	modelV1 := FamixJavaModel new.
+	self createBasicEntities.
+	self linkBasicEntities.
+	self createComplexEntities.
+
+	^ modelV1
+]
+
 { #category : 'entity creation' }
 ORTestJavaModel >> createBasicEntities [
 	"PHASE 1 : On ne fait que créer et ajouter chaque entité au modèle."
