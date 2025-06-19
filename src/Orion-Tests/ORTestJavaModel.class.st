@@ -57,6 +57,71 @@ ORTestJavaModel >> createBasicEntities [
 ]
 
 { #category : 'entity creation' }
+ORTestJavaModel >> createComplexEntities [
+	"Creates more complex entities such as Enums, Annotations, Exceptions..."
+
+	| pkg testClass testMethod comment myEnum myEnumValue annType annAttr annInstance annInstanceAttr genericClass concreteClass concretization paramConcretization genericMethod genericParam param exception |
+	pkg := modelV1 entityNamed: 'testPackage'.
+	testClass := modelV1 entityNamed: 'TestClass'.
+	testMethod := modelV1 entityNamed: 'testMethod'.
+
+	"Source Language"
+	modelV1 sourceLanguage: FamixJavaSourceLanguage new.
+
+	"Comment"
+	comment := FamixJavaComment new.
+	"comment commentedEntity: testMethod."
+	modelV1 add: comment.
+
+	"Enum and EnumValue"
+	myEnum := FamixJavaEnum named: 'TestEnum'.
+	pkg addType: myEnum.
+	modelV1 add: myEnum.
+	myEnumValue := FamixJavaEnumValue named: 'VALUE_A'.
+	myEnum addEnumValue: myEnumValue.
+	modelV1 add: myEnumValue.
+
+	"Annotation and its attributes"
+	annType := FamixJavaAnnotationType named: 'TestAnnotation'.
+	pkg addType: annType.
+	modelV1 add: annType.
+	annAttr := FamixJavaAnnotationTypeAttribute named: 'value'.
+	annType addType: annAttr.
+	modelV1 add: annAttr.
+	annInstance := FamixJavaAnnotationInstance new.
+	testMethod addAnnotationInstance: annInstance.
+	annType addAnnotationInstance: annInstance.
+	modelV1 add: annInstance.
+	annInstanceAttr := FamixJavaAnnotationInstanceAttribute new.
+	annAttr addAnnotationAttributeInstance: annInstanceAttr.
+	annInstance addAttribute: annInstanceAttr.
+	modelV1 add: annInstanceAttr.
+
+	"Exception"
+	exception := FamixJavaException named: 'TestException'.
+	modelV1 add: exception.
+	testMethod addThrownException: exception.
+
+	"Genericity and Concretization"
+	genericClass := FamixJavaClass named: 'GenericClass'.
+	modelV1 add: genericClass.
+	concreteClass := FamixJavaClass named: 'ConcreteClass'.
+	modelV1 add: concreteClass.
+	concretization := FamixJavaConcretization new.
+	modelV1 add: concretization.
+
+	genericMethod := FamixJavaMethod named: 'genericMethod'.
+	genericClass addType: genericMethod.
+	modelV1 add: genericMethod.
+	genericParam := FamixJavaParameter named: 'genericParam'.
+	genericMethod addType: genericParam.
+	modelV1 add: genericParam.
+	param := modelV1 entityNamed: 'testParam'.
+	paramConcretization := FamixJavaParameterConcretization new.
+	modelV1 add: paramConcretization
+]
+
+{ #category : 'entity creation' }
 ORTestJavaModel >> linkBasicEntities [
 
 	| pkg testClass testMethod otherClass attr param localVar implicitVar |
