@@ -23,7 +23,7 @@ ORActionTestFactory >> generateAddTestSourcesFor: anActionClass [
 
 	^ {
 		  (self generateAddsCorrectEntitySourceFor: anActionClass).
-		  (self generateEntityIsVersionedSourceFor: anActionClass) }
+		  (self generateEntityIsVersionedSourceFor: anActionClass) }.
 ]
 
 { #category : 'class building' }
@@ -132,7 +132,7 @@ ORActionTestFactory >> injectMethodsIntoTestClassFor: anActionClass [
 			  (anActionClass name = 'ORActionRename' or:
 				   anActionClass name = 'ORActionMove'))) ifTrue: [ ^ self ].
 	testClass := Smalltalk globals
-		             at: (anActionClass name , 'TestNew') asSymbol
+		             at: (anActionClass name , 'Test') asSymbol
 		             ifAbsent: [ ^ nil ].
 
 	"Generate et compile setUpAction"
@@ -173,7 +173,7 @@ ORActionTestFactory >> testBuilder [
 				sharedVariablesFromString: '';
 				sharedPools: '';
 				tag: #Actions;
-				package: 'Orion-New-Tests';
+				package: 'Orion-Tests';
 				environment: Object environment ].
 		fact injectMethodsIntoTestClassFor: class ]
 ]
