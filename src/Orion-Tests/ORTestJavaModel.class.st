@@ -24,17 +24,15 @@ ORTestJavaModel >> buildFullTestModel [
 
 { #category : 'entity creation' }
 ORTestJavaModel >> createBasicEntities [
-	"PHASE 1 : On ne fait que créer et ajouter chaque entité au modèle."
 
-	| pkg testClass testMethod otherClass stringType attr param localVar implicitVar unknownVar |
-	
+	| pkg testClass testMethod otherClass attr param localVar implicitVar unknownVar |
 	"Package"
 	pkg := FamixJavaPackage named: 'testPackage'.
 	modelV1 add: pkg.
 
 	"Types"
-	"stringType := FamixJavaPrimitiveType named: 'String'.
-	modelV1 add: stringType."
+	"charType := FamixJavaPrimitiveType named: 'Char'.
+	modelV1 add: charType."
 
 	"Classes"
 	testClass := FamixJavaClass named: 'TestClass'.
@@ -65,7 +63,7 @@ ORTestJavaModel >> createBasicEntities [
 
 	"Unknown Variable"
 	unknownVar := FamixJavaUnknownVariable named: 'someUnknownVar'.
-	modelV1 add: unknownVar.
+	modelV1 add: unknownVar
 ]
 
 { #category : 'entity creation' }
