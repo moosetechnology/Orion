@@ -8,3 +8,9 @@ Class {
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
+
+{ #category : 'initialization' }
+ORActionTestJavaModel >> setUpAction [
+
+	self subclassResponsibility 
+]
