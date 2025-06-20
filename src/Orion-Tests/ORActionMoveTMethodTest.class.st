@@ -6,14 +6,8 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'testing' }
-ORActionMoveTMethodTest >> setUpAction [
-
-	action := ORActionMoveTMethod new
-		orionModel: modelV2; 
-		entity: (modelV2 entityNamed: 'Class5.accessClass3'); 
-		to: (modelV2 entityNamed: #'Class4')
-		yourself.
+{ #category : 'running' }
+ORActionMoveTMethodTest >> setUpAction [ action := ORActionMoveTMethod new orionModel: modelV2; parentType: nil; signature: nil; declaredType: nil; isStub: nil; sourceAnchor: nil; yourself.
 ]
 
 { #category : 'testing' }

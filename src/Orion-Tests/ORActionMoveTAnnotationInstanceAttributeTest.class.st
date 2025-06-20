@@ -5,3 +5,7 @@ Class {
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
 }
+
+{ #category : 'running' }
+ORActionMoveTAnnotationInstanceAttributeTest >> setUpAction [ action := ORActionMoveTAnnotationInstanceAttribute new orionModel: modelV2; annotationTypeAttribute: nil; parentAnnotationInstance: nil; value: nil; yourself.
+]

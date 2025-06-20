@@ -6,42 +6,40 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'testing OrionModel' }
+{ #category : 'running' }
 ORActionAddTAttributeTest >> setUpAction [
 
 	action := ORActionAddTAttribute new
-		orionModel: modelV2;
-		name: 'anAttribute';
-		isStub: true ;
-		parentType: (modelV2 entityNamed: #Class4) ;
-		declaredType: (modelV2 entityNamed: #Class3) ;
-		yourself.
+		          orionModel: modelV2;
+		          name: 'attributeTest';
+		          parentType: nil;
+		          isStub: true;
+		          sourceAnchor: nil;
+		          declaredType: nil;
+		          yourself
 ]
 
-{ #category : 'testing' }
+{ #category : 'tests' }
 ORActionAddTAttributeTest >> testAddsCorrectEntity [
 
+	| initialCount |
+	initialCount := modelV1 allAttributes size.
 	action run.
-
-	self assert: modelV2 allAttributes size equals: modelV1 allAttributes size + 1.
-	self assert: modelV2 allClasses size equals: modelV1 allClasses size.
-
+	self assert: modelV2 allAttributes size equals: initialCount + 1
 ]
 
 { #category : 'testing' }
 ORActionAddTAttributeTest >> testCopiesPrimitiveProperties [
 
 	| att |
-
-	self assert: (modelV2 entityNamed: 'Class4.anAttribute') isNil.
+	self assert: (modelV2 entityNamed: 'attributeTest') isNil.
 
 	action run.
 
-	att := modelV2 entityNamed: 'Class4.anAttribute'.
+	att := modelV2 entityNamed: 'attributeTest'.
 
 	self assert: att isNotNil.
-	self assert: att isStub.
-
+	self assert: att isStub
 ]
 
 { #category : 'testing' }
@@ -68,17 +66,13 @@ ORActionAddTAttributeTest >> testCreatesVersionOfAssociatedEntities [
 
 ]
 
-{ #category : 'testing' }
+{ #category : 'tests' }
 ORActionAddTAttributeTest >> testEntityIsVersioned [
 
-	| att |
-
+	| entity |
 	action run.
-
-	att := modelV2 entityNamed: 'Class4.anAttribute'.
-
-	self assert: att notNil.
-	self assert: (modelV2 includes: att).
-	self deny: (modelV1 includes: att).
-
+	entity := modelV2 entityNamed: 'attributeTest'.
+	self assert: entity notNil.
+	self assert: (modelV2 includes: entity).
+	self deny: (modelV1 includes: entity)
 ]

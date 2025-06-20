@@ -12,6 +12,10 @@ ORActionAddTest class >> isAbstract [
 	^self == ORActionAddTest
 ]
 
+{ #category : 'running' }
+ORActionAddTest >> setUpAction [ action := ORActionAdd new orionModel: modelV2; yourself.
+]
+
 { #category : 'tests' }
 ORActionAddTest >> testAddsCorrectEntity [ 
 	self subclassResponsibility .

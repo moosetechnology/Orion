@@ -13,34 +13,30 @@ Class {
 ORActionAddTEnumTest >> setUpAction [
 
 	action := ORActionAddTEnum new
-		       orionModel: modelV2;
-		       name: 'NewEnum';
-		       isStub: true;
-		       typeContainer: (modelV2 entityNamed: #OrionForTest1);
-				 "visibility: 'public';"
-		       yourself.
+		          orionModel: modelV2;
+		name: 'enumTest';
+		          typeContainer: nil;
+		          isStub: nil;
+		          sourceAnchor: nil;
+		          yourself
 ]
 
 { #category : 'tests' }
-ORActionAddTEnumTest >> testAddsCorrectEntity [ 
+ORActionAddTEnumTest >> testAddsCorrectEntity [
 
+	| initialCount |
+	initialCount := modelV1 allEnums size.
 	action run.
-	self
-		assert: modelV2 allClasses size
-		equals: modelV1 allClasses size + 1
+	self assert: modelV2 allEnums size equals: initialCount + 1
 ]
 
 { #category : 'tests' }
 ORActionAddTEnumTest >> testEntityIsVersioned [
 
-	| enum |
-
+	| entity |
 	action run.
-
-	enum := modelV2 entityNamed: 'NewEnum'.
-
-	self assert: enum notNil.
-	self assert: (modelV2 includes: enum).
-	self deny: (modelV1 includes: enum).
-
+	entity := modelV2 entityNamed: 'enumTest'.
+	self assert: entity notNil.
+	self assert: (modelV2 includes: entity).
+	self deny: (modelV1 includes: entity)
 ]

@@ -8,3 +8,7 @@ Class {
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
 }
+
+{ #category : 'running' }
+ORActionMoveTPackageTest >> setUpAction [ action := ORActionMoveTPackage new orionModel: modelV2; isStub: nil; sourceAnchor: nil; yourself.
+]

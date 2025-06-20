@@ -6,39 +6,33 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'testing' }
+{ #category : 'running' }
 ORActionAddTClassTest >> setUpAction [
 
 	action := ORActionAddTClass new
-		       orionModel: modelV2;
-		       name: 'NewClass';
-		       isStub: true;
-		       parentPackage: (modelV2 entityNamed: #OrionForTest2);
-		       yourself.
+		          orionModel: modelV2;
+		          name: 'classTest';
+		          typeContainer: nil;
+		          isStub: true;
+		          sourceAnchor: nil;
+		          yourself
 ]
 
-{ #category : 'as yet unclassified' }
-ORActionAddTClassTest >> testAddsCorrectEntity [ 
-
-	action run.
-	self
-		assert: modelV2 allClasses size
-		equals: modelV1 allClasses size + 1
+{ #category : 'tests' }
+ORActionAddTClassTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allClasses size. action run. self assert: (modelV2 allClasses size) equals: (initialCount + 1).
 ]
 
 { #category : 'as yet unclassified' }
 ORActionAddTClassTest >> testCopiesPrimitiveProperties [
 
 	| class |
-
-	self assert: (modelV2 entityNamed: 'NewClass') equals: nil.
+	self assert: (modelV2 entityNamed: 'classTest') equals: nil.
 
 	action run.
 
-	class := modelV2 entityNamed: 'NewClass'.
+	class := modelV2 entityNamed: 'classTest'.
 
-	self assert: class isStub.
-
+	self assert: class isStub
 ]
 
 { #category : 'as yet unclassified' }
@@ -58,17 +52,13 @@ ORActionAddTClassTest >> testCreatesVersionOfAssociatedEntities [
 
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'tests' }
 ORActionAddTClassTest >> testEntityIsVersioned [
 
-	| class |
-
+	| entity |
 	action run.
-
-	class := modelV2 entityNamed: 'NewClass'.
-
-	self assert: class notNil.
-	self assert: (modelV2 includes: class).
-	self deny: (modelV1 includes: class).
-
+	entity := modelV2 entityNamed: 'classTest'.
+	self assert: entity notNil.
+	self assert: (modelV2 includes: entity).
+	self deny: (modelV1 includes: entity)
 ]

@@ -6,13 +6,8 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'testing' }
-ORActionRemoveTClassTest >> setUpAction [
-
-	action := ORActionRemoveTClass new
-		       orionModel: modelV2;
-		       entity: (modelV2 entityNamed: 'Class3');
-		       yourself.
+{ #category : 'running' }
+ORActionRemoveTClassTest >> setUpAction [ action := ORActionRemoveTClass new orionModel: modelV2; typeContainer: nil; isStub: nil; sourceAnchor: nil; yourself.
 ]
 
 { #category : 'as yet unclassified' }
@@ -52,6 +47,10 @@ ORActionRemoveTClassTest >> testRemovedFromParentPackage [
 		((modelV1 entityNamed: #'OrionForTest2') classes
 		 anySatisfy: [ :class | class name = 'Class3']).
 
+]
+
+{ #category : 'tests' }
+ORActionRemoveTClassTest >> testRemovesCorrectEntity [ | initialCount entityToRemove | entityToRemove := modelV1 allClasss anyOne. self assert: entityToRemove notNil description: 'Le modèle V1 doit contenir une entité à supprimer pour ce test'. action entity: entityToRemove. initialCount := modelV1 allClasss size. action run. self assert: (modelV2 allClasss size) equals: (initialCount - 1).
 ]
 
 { #category : 'testing' }

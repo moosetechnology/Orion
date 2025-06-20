@@ -6,52 +6,37 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'testing' }
+{ #category : 'running' }
 ORActionAddTMethodTest >> setUpAction [
 
 	action := ORActionAddTMethod new
-		orionModel: modelV2;
-		name: 'newMethod';
-		isStub: false ;
-		signature: 'newMethod(...)' ;
-		parentType: (modelV2 entityNamed: #Class4) ;
-		declaredType: (modelV2 entityNamed: #Class3) ;
-		yourself.
-
+		          orionModel: modelV2;
+		          name: 'methodTest';
+		          parentType: nil;
+		          signature: 'methodTest';
+		          declaredType: nil;
+		          isStub: nil;
+		          sourceAnchor: nil;
+		          yourself
 ]
 
-{ #category : 'testing' }
-ORActionAddTMethodTest >> testAddsCorrectEntity [ 
-
-	| mth |
-
-	self assert: (modelV2 entityNamed: 'Class4.newMethod(...)') isNil.
-
-	action run.
-
-	mth := modelV2 entityNamed: 'Class4.newMethod(...)'.
-
-	self assert: mth notNil.
-	self assert: (modelV2 includes: mth).
-	self deny: (modelV1 includes: mth).
-
+{ #category : 'tests' }
+ORActionAddTMethodTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allMethods size. action run. self assert: (modelV2 allMethods size) equals: (initialCount + 1).
 ]
 
 { #category : 'testing' }
 ORActionAddTMethodTest >> testCopiesPrimitiveProperties [
 
 	| mth |
-
-	self assert: (modelV2 entityNamed: 'Class4.newMethod(...)') isNil.
+	self assert: (modelV2 entityNamed: 'methodTest') isNil.
 
 	action run.
 
-	mth := modelV2 entityNamed: 'Class4.newMethod(...)'.
+	mth := modelV2 entityNamed: 'methodTest'.
 
 	self assert: mth notNil.
 	self deny: mth isStub.
-	self assert: mth signature equals: 'newMethod(...)'.
-
+	self assert: mth signature equals: 'methodTest'
 ]
 
 { #category : 'testing' }
@@ -74,17 +59,13 @@ ORActionAddTMethodTest >> testCreatesVersionOfAssociatedEntities [
 
 ]
 
-{ #category : 'testing' }
+{ #category : 'tests' }
 ORActionAddTMethodTest >> testEntityIsVersioned [
 
-	| mth |
-
+	| entity |
 	action run.
-
-	mth := modelV2 entityNamed: 'Class4.newMethod(...)'.
-
-	self assert: mth notNil.
-	self assert: (modelV2 includes: mth).
-	self deny: (modelV1 includes: mth).
-
+	entity := modelV2 entityNamed: 'methodTest'.
+	self assert: entity notNil.
+	self assert: (modelV2 includes: entity).
+	self deny: (modelV1 includes: entity)
 ]

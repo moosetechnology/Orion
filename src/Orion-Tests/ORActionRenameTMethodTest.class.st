@@ -5,3 +5,7 @@ Class {
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
 }
+
+{ #category : 'running' }
+ORActionRenameTMethodTest >> setUpAction [ action := ORActionRenameTMethod new orionModel: modelV2; parentType: nil; signature: nil; declaredType: nil; isStub: nil; sourceAnchor: nil; yourself.
+]

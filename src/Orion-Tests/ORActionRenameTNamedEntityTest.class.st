@@ -5,3 +5,7 @@ Class {
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
 }
+
+{ #category : 'running' }
+ORActionRenameTNamedEntityTest >> setUpAction [ action := ORActionRenameTNamedEntity new orionModel: modelV2; yourself.
+]

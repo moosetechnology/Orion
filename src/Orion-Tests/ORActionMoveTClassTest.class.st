@@ -5,3 +5,7 @@ Class {
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
 }
+
+{ #category : 'running' }
+ORActionMoveTClassTest >> setUpAction [ action := ORActionMoveTClass new orionModel: modelV2; typeContainer: nil; isStub: nil; sourceAnchor: nil; yourself.
+]

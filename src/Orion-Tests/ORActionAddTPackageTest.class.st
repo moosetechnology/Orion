@@ -10,32 +10,26 @@ Class {
 ORActionAddTPackageTest >> setUpAction [
 
 	action := ORActionAddTPackage new
-		orionModel: modelV2;
-		name: 'PackageTest'.
-
+		          orionModel: modelV2;
+		name: 'packageTest';
+		          isStub: nil;
+		          sourceAnchor: nil;
+		          yourself
 ]
 
 { #category : 'tests' }
-ORActionAddTPackageTest >> testAddsCorrectEntity [ 
-
-	action run.
-	self
-		assert: modelV2 allPackages size
-		equals: modelV1 allPackages size + 1
+ORActionAddTPackageTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allPackages size. action run. self assert: (modelV2 allPackages size) equals: (initialCount + 1).
 ]
 
 { #category : 'tests' }
 ORActionAddTPackageTest >> testEntityIsVersioned [
 
-	| package |
-
+	| entity |
 	action run.
-
-	package := modelV2 entityNamed: 'PackageTest'.
-
-	self assert: package notNil.
-	self assert: (modelV2 includes: package ).
-	self deny: (modelV1 includes: package ).
+	entity := modelV2 entityNamed: 'packageTest'.
+	self assert: entity notNil.
+	self assert: (modelV2 includes: entity).
+	self deny: (modelV1 includes: entity)
 ]
 
 { #category : 'tests' }
@@ -44,9 +38,9 @@ ORActionAddTPackageTest >> testNoAssociatedEntities [
 	| entity |
 	action run.
 
-	entity := modelV2 entityNamed: #PackageTest.
+	entity := modelV2 entityNamed: #packageTest.
 
-	self assert: entity childEntities isEmpty.
+	self assert: entity childEntities isEmpty
 ]
 
 { #category : 'tests' }
@@ -55,7 +49,7 @@ ORActionAddTPackageTest >> testSetsPrimitiveProperties [
 	| entity |
 	action run.
 
-	entity := modelV2 entityNamed: #PackageTest.
+	entity := modelV2 entityNamed: #packageTest.
 
-	self deny: entity isStub.
+	self deny: entity isStub
 ]

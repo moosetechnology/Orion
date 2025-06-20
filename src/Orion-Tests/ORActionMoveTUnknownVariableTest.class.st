@@ -5,3 +5,7 @@ Class {
 	#package : 'Orion-Tests',
 	#tag : 'Actions'
 }
+
+{ #category : 'running' }
+ORActionMoveTUnknownVariableTest >> setUpAction [ action := ORActionMoveTUnknownVariable new orionModel: modelV2; isStub: nil; sourceAnchor: nil; declaredType: nil; yourself.
+]
