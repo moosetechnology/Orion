@@ -11,5 +11,16 @@ ORActionRemoveJavaUnknownVariableTest >> setUpAction [ action := ORActionRemoveJ
 ]
 
 { #category : 'tests' }
-ORActionRemoveJavaUnknownVariableTest >> testRemovesCorrectEntity [ | initialCount entityToRemove | entityToRemove := modelV1 allavaUnknownVariables anyOne. self assert: entityToRemove notNil description: 'Le modèle V1 doit contenir une entité à supprimer pour ce test'. action entity: entityToRemove. initialCount := modelV1 allavaUnknownVariables size. action run. self assert: (modelV2 allavaUnknownVariables size) equals: (initialCount - 1).
+ORActionRemoveJavaUnknownVariableTest >> testRemovesCorrectEntity [
+
+	| initialCount entityToRemove |
+	entityToRemove := modelV1 allUnknownVariables anyOne.
+	self
+		assert: entityToRemove notNil.
+	action entity: entityToRemove.
+	initialCount := modelV1 allUnknownVariables size.
+	action run.
+	self
+		assert: modelV2 allUnknownVariables size
+		equals: initialCount - 1
 ]

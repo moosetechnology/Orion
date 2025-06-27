@@ -11,5 +11,14 @@ ORActionRemoveJavaPackageTest >> setUpAction [ action := ORActionRemoveJavaPacka
 ]
 
 { #category : 'tests' }
-ORActionRemoveJavaPackageTest >> testRemovesCorrectEntity [ | initialCount entityToRemove | entityToRemove := modelV1 allavaPackages anyOne. self assert: entityToRemove notNil description: 'Le modèle V1 doit contenir une entité à supprimer pour ce test'. action entity: entityToRemove. initialCount := modelV1 allavaPackages size. action run. self assert: (modelV2 allavaPackages size) equals: (initialCount - 1).
+ORActionRemoveJavaPackageTest >> testRemovesCorrectEntity [
+
+	| initialCount entityToRemove |
+	entityToRemove := modelV1 allPackages anyOne.
+	self
+		assert: entityToRemove notNil.
+	action entity: entityToRemove.
+	initialCount := modelV1 allPackages size.
+	action run.
+	self assert: modelV2 allPackages size equals: initialCount - 1
 ]

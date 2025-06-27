@@ -11,5 +11,14 @@ ORActionRemoveJavaParameterTest >> setUpAction [ action := ORActionRemoveJavaPar
 ]
 
 { #category : 'tests' }
-ORActionRemoveJavaParameterTest >> testRemovesCorrectEntity [ | initialCount entityToRemove | entityToRemove := modelV1 allavaParameters anyOne. self assert: entityToRemove notNil description: 'Le modèle V1 doit contenir une entité à supprimer pour ce test'. action entity: entityToRemove. initialCount := modelV1 allavaParameters size. action run. self assert: (modelV2 allavaParameters size) equals: (initialCount - 1).
+ORActionRemoveJavaParameterTest >> testRemovesCorrectEntity [
+
+	| initialCount entityToRemove |
+	entityToRemove := modelV1 allParameters anyOne.
+	self
+		assert: entityToRemove notNil.
+	action entity: entityToRemove.
+	initialCount := modelV1 allParameters size.
+	action run.
+	self assert: modelV2 allParameters size equals: initialCount - 1
 ]

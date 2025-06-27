@@ -11,7 +11,14 @@ ORActionAddJavaPrimitiveTypeTest >> setUpAction [ action := ORActionAddJavaPrimi
 ]
 
 { #category : 'tests' }
-ORActionAddJavaPrimitiveTypeTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaPrimitiveTypes size. action run. self assert: (modelV2 allavaPrimitiveTypes size) equals: (initialCount + 1).
+ORActionAddJavaPrimitiveTypeTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allPrimitiveTypes size.
+	action run.
+	self
+		assert: modelV2 allPrimitiveTypes size
+		equals: initialCount + 1
 ]
 
 { #category : 'tests' }

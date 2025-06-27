@@ -11,7 +11,14 @@ ORActionAddJavaImplicitVariableTest >> setUpAction [ action := ORActionAddJavaIm
 ]
 
 { #category : 'tests' }
-ORActionAddJavaImplicitVariableTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaImplicitVariables size. action run. self assert: (modelV2 allavaImplicitVariables size) equals: (initialCount + 1).
+ORActionAddJavaImplicitVariableTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allImplicitVariables size.
+	action run.
+	self
+		assert: modelV2 allImplicitVariables size
+		equals: initialCount + 1
 ]
 
 { #category : 'tests' }

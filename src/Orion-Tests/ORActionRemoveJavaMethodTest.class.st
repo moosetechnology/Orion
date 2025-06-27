@@ -11,5 +11,14 @@ ORActionRemoveJavaMethodTest >> setUpAction [ action := ORActionRemoveJavaMethod
 ]
 
 { #category : 'tests' }
-ORActionRemoveJavaMethodTest >> testRemovesCorrectEntity [ | initialCount entityToRemove | entityToRemove := modelV1 allavaMethods anyOne. self assert: entityToRemove notNil description: 'Le modèle V1 doit contenir une entité à supprimer pour ce test'. action entity: entityToRemove. initialCount := modelV1 allavaMethods size. action run. self assert: (modelV2 allavaMethods size) equals: (initialCount - 1).
+ORActionRemoveJavaMethodTest >> testRemovesCorrectEntity [
+
+	| initialCount entityToRemove |
+	entityToRemove := modelV1 allMethods anyOne.
+	self
+		assert: entityToRemove notNil.
+	action entity: entityToRemove.
+	initialCount := modelV1 allMethods size.
+	action run.
+	self assert: modelV2 allMethods size equals: initialCount - 1
 ]

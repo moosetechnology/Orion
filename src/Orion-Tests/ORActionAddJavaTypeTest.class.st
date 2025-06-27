@@ -11,7 +11,12 @@ ORActionAddJavaTypeTest >> setUpAction [ action := ORActionAddJavaType new orion
 ]
 
 { #category : 'tests' }
-ORActionAddJavaTypeTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaTypes size. action run. self assert: (modelV2 allavaTypes size) equals: (initialCount + 1).
+ORActionAddJavaTypeTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allTypes size.
+	action run.
+	self assert: modelV2 allTypes size equals: initialCount + 1
 ]
 
 { #category : 'tests' }

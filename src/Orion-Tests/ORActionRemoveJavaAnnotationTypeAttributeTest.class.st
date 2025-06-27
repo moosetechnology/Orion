@@ -11,5 +11,16 @@ ORActionRemoveJavaAnnotationTypeAttributeTest >> setUpAction [ action := ORActio
 ]
 
 { #category : 'tests' }
-ORActionRemoveJavaAnnotationTypeAttributeTest >> testRemovesCorrectEntity [ | initialCount entityToRemove | entityToRemove := modelV1 allavaAnnotationTypeAttributes anyOne. self assert: entityToRemove notNil description: 'Le modèle V1 doit contenir une entité à supprimer pour ce test'. action entity: entityToRemove. initialCount := modelV1 allavaAnnotationTypeAttributes size. action run. self assert: (modelV2 allavaAnnotationTypeAttributes size) equals: (initialCount - 1).
+ORActionRemoveJavaAnnotationTypeAttributeTest >> testRemovesCorrectEntity [
+
+	| initialCount entityToRemove |
+	entityToRemove := modelV1 allAnnotationTypeAttributes anyOne.
+	self
+		assert: entityToRemove notNil.
+	action entity: entityToRemove.
+	initialCount := modelV1 allAnnotationTypeAttributes size.
+	action run.
+	self
+		assert: modelV2 allAnnotationTypeAttributes size
+		equals: initialCount - 1
 ]

@@ -11,7 +11,14 @@ ORActionAddJavaLocalVariableTest >> setUpAction [ action := ORActionAddJavaLocal
 ]
 
 { #category : 'tests' }
-ORActionAddJavaLocalVariableTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaLocalVariables size. action run. self assert: (modelV2 allavaLocalVariables size) equals: (initialCount + 1).
+ORActionAddJavaLocalVariableTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allLocalVariables size.
+	action run.
+	self
+		assert: modelV2 allLocalVariables size
+		equals: initialCount + 1
 ]
 
 { #category : 'tests' }

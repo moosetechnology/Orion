@@ -11,7 +11,14 @@ ORActionAddJavaUnknownVariableTest >> setUpAction [ action := ORActionAddJavaUnk
 ]
 
 { #category : 'tests' }
-ORActionAddJavaUnknownVariableTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaUnknownVariables size. action run. self assert: (modelV2 allavaUnknownVariables size) equals: (initialCount + 1).
+ORActionAddJavaUnknownVariableTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allUnknownVariables size.
+	action run.
+	self
+		assert: modelV2 allUnknownVariables size
+		equals: initialCount + 1
 ]
 
 { #category : 'tests' }

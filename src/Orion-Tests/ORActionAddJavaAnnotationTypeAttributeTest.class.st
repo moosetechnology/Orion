@@ -11,7 +11,14 @@ ORActionAddJavaAnnotationTypeAttributeTest >> setUpAction [ action := ORActionAd
 ]
 
 { #category : 'tests' }
-ORActionAddJavaAnnotationTypeAttributeTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaAnnotationTypeAttributes size. action run. self assert: (modelV2 allavaAnnotationTypeAttributes size) equals: (initialCount + 1).
+ORActionAddJavaAnnotationTypeAttributeTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allAnnotationTypeAttributes size.
+	action run.
+	self
+		assert: modelV2 allAnnotationTypeAttributes size
+		equals: initialCount + 1
 ]
 
 { #category : 'tests' }

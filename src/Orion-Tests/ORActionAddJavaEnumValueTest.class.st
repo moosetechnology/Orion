@@ -11,7 +11,12 @@ ORActionAddJavaEnumValueTest >> setUpAction [ action := ORActionAddJavaEnumValue
 ]
 
 { #category : 'tests' }
-ORActionAddJavaEnumValueTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaEnumValues size. action run. self assert: (modelV2 allavaEnumValues size) equals: (initialCount + 1).
+ORActionAddJavaEnumValueTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allEnumValues size.
+	action run.
+	self assert: modelV2 allEnumValues size equals: initialCount + 1
 ]
 
 { #category : 'tests' }

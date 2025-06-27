@@ -11,5 +11,14 @@ ORActionRemoveJavaAttributeTest >> setUpAction [ action := ORActionRemoveJavaAtt
 ]
 
 { #category : 'tests' }
-ORActionRemoveJavaAttributeTest >> testRemovesCorrectEntity [ | initialCount entityToRemove | entityToRemove := modelV1 allavaAttributes anyOne. self assert: entityToRemove notNil description: 'Le modèle V1 doit contenir une entité à supprimer pour ce test'. action entity: entityToRemove. initialCount := modelV1 allavaAttributes size. action run. self assert: (modelV2 allavaAttributes size) equals: (initialCount - 1).
+ORActionRemoveJavaAttributeTest >> testRemovesCorrectEntity [
+
+	| initialCount entityToRemove |
+	entityToRemove := modelV1 allAttributes anyOne.
+	self
+		assert: entityToRemove notNil.
+	action entity: entityToRemove.
+	initialCount := modelV1 allAttributes size.
+	action run.
+	self assert: modelV2 allAttributes size equals: initialCount - 1
 ]

@@ -11,7 +11,12 @@ ORActionAddJavaExceptionTest >> setUpAction [ action := ORActionAddJavaException
 ]
 
 { #category : 'tests' }
-ORActionAddJavaExceptionTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaExceptions size. action run. self assert: (modelV2 allavaExceptions size) equals: (initialCount + 1).
+ORActionAddJavaExceptionTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allExceptions size.
+	action run.
+	self assert: modelV2 allExceptions size equals: initialCount + 1
 ]
 
 { #category : 'tests' }

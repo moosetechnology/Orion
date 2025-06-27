@@ -78,9 +78,9 @@ ORActionTestFactory >> generateRemoveTestSourcesFor: anActionClass [
 ORActionTestFactory >> generateRemovesCorrectEntitySourceFor: anActionClass [
 
 	| entityName source |
-	entityName := (anActionClass name
-		               copyFrom: 'ORActionRemoveT' size + 1
-		               to: anActionClass name size).
+	entityName := anActionClass name
+		              copyFrom: 'ORActionRemoveT' size + 1
+		              to: anActionClass name size.
 
 	source := 'testRemovesCorrectEntity '.
 	source := source , '| initialCount entityToRemove | '.
@@ -88,7 +88,7 @@ ORActionTestFactory >> generateRemovesCorrectEntitySourceFor: anActionClass [
 	          , 's anyOne. '.
 	source := source
 	          ,
-	          'self assert: entityToRemove notNil description: ''Le modèle V1 doit contenir une entité à supprimer pour ce test''. '.
+	          'self assert: entityToRemove notNil . '.
 	source := source , 'action entity: entityToRemove. '.
 	source := source , 'initialCount := modelV1 all' , entityName
 	          , 's size. '.

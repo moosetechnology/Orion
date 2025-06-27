@@ -11,5 +11,14 @@ ORActionRemoveJavaEnumValueTest >> setUpAction [ action := ORActionRemoveJavaEnu
 ]
 
 { #category : 'tests' }
-ORActionRemoveJavaEnumValueTest >> testRemovesCorrectEntity [ | initialCount entityToRemove | entityToRemove := modelV1 allavaEnumValues anyOne. self assert: entityToRemove notNil description: 'Le modèle V1 doit contenir une entité à supprimer pour ce test'. action entity: entityToRemove. initialCount := modelV1 allavaEnumValues size. action run. self assert: (modelV2 allavaEnumValues size) equals: (initialCount - 1).
+ORActionRemoveJavaEnumValueTest >> testRemovesCorrectEntity [
+
+	| initialCount entityToRemove |
+	entityToRemove := modelV1 allEnumValues anyOne.
+	self
+		assert: entityToRemove notNil.
+	action entity: entityToRemove.
+	initialCount := modelV1 allEnumValues size.
+	action run.
+	self assert: modelV2 allEnumValues size equals: initialCount - 1
 ]

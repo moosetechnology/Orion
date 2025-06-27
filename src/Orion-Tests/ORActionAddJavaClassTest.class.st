@@ -11,7 +11,12 @@ ORActionAddJavaClassTest >> setUpAction [ action := ORActionAddJavaClass new ori
 ]
 
 { #category : 'tests' }
-ORActionAddJavaClassTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaClasss size. action run. self assert: (modelV2 allavaClasss size) equals: (initialCount + 1).
+ORActionAddJavaClassTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allClasses size.
+	action run.
+	self assert: modelV2 allClasses size equals: initialCount + 1
 ]
 
 { #category : 'tests' }

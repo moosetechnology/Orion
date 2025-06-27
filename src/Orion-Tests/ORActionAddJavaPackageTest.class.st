@@ -11,7 +11,12 @@ ORActionAddJavaPackageTest >> setUpAction [ action := ORActionAddJavaPackage new
 ]
 
 { #category : 'tests' }
-ORActionAddJavaPackageTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaPackages size. action run. self assert: (modelV2 allavaPackages size) equals: (initialCount + 1).
+ORActionAddJavaPackageTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allPackages size.
+	action run.
+	self assert: modelV2 allPackages size equals: initialCount + 1
 ]
 
 { #category : 'tests' }

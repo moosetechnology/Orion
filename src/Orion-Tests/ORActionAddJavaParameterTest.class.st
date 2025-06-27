@@ -11,7 +11,12 @@ ORActionAddJavaParameterTest >> setUpAction [ action := ORActionAddJavaParameter
 ]
 
 { #category : 'tests' }
-ORActionAddJavaParameterTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allavaParameters size. action run. self assert: (modelV2 allavaParameters size) equals: (initialCount + 1).
+ORActionAddJavaParameterTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allParameters size.
+	action run.
+	self assert: modelV2 allParameters size equals: initialCount + 1
 ]
 
 { #category : 'tests' }
