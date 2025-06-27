@@ -1,0 +1,11 @@
+Class {
+	#name : 'ORActionRenameJavaPrimitiveTypeTest',
+	#superclass : 'ORActionRenameJavaTest',
+	#category : 'Orion-Tests-Java-Model',
+	#package : 'Orion-Tests',
+	#tag : 'Java-Model'
+}
+
+{ #category : 'running' }
+ORActionRenameJavaPrimitiveTypeTest >> setUpAction [ action := ORActionRenameJavaPrimitiveType new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; lowerBoundedWildcards: nil; upperBoundedWildcards: nil; concreteEntities: nil; generics: nil; methods: nil; yourself.
+]
