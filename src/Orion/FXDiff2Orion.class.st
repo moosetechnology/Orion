@@ -17,6 +17,20 @@ FXDiff2Orion class >> applyORAction: anORActionList onModel: aModel [
 	^ aModel
 ]
 
+{ #category : 'as yet unclassified' }
+FXDiff2Orion class >> fillActionSlots: orActions from: realChanges [
+
+	1 to: orActions size do: [ :i |
+		| action change |
+		action := orActions at: i.
+		change := realChanges at: i.
+
+		change entity class allInstVarNames do: [ :slot |
+			(change entity instVarNamed: slot) ifNotNil: [
+				(action class allInstVarNames includes: slot) ifTrue: [
+					action instVarNamed: slot put: (change entity instVarNamed: slot) ] ] ] ]
+]
+
 { #category : 'converting' }
 FXDiff2Orion class >> fxChangetoORActionConverter: aFamixDiffResult [
 
@@ -29,6 +43,7 @@ FXDiff2Orion class >> fxChangetoORActionConverter: aFamixDiffResult [
 
 	orActions := (1 to: realChanges size) collect: [ :i |
 		             (realChanges at: i) entity accept: (visitors at: i) ].
+	self fillActionSlots: orActions from: realChanges.
 	^ orActions
 ]
 
