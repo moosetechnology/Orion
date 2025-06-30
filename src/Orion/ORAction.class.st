@@ -14,19 +14,12 @@ Class {
 	#superclass : 'Object',
 	#instVars : [
 		'entity',
-		'orionModel',
-		'newEntity'
+		'orionModel'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
-
-{ #category : 'method execution' }
-ORAction >> createVersionnedEntitySelector [
-
-	self subclassResponsibility 
-]
 
 { #category : 'accessing' }
 ORAction >> entity [
@@ -61,15 +54,6 @@ ORAction >> isRemoval [
 { #category : 'testing' }
 ORAction >> isRename [
 	^false
-]
-
-{ #category : 'writing low-level' }
-ORAction >> oneWaySetSlot: aSlot on: anEntity to: aValue [
-
-	aSlot isToOne
-		ifTrue: [ aSlot orionPrimitiveWrite: aValue to: anEntity ]
-		ifFalse: [ (aSlot orionPrimitiveRead: anEntity) unsafeAdd: aValue ]
-
 ]
 
 { #category : 'writing low-level' }
@@ -109,7 +93,7 @@ ORAction >> printOn: stream [
 { #category : 'method execution' }
 ORAction >> run [
 
-	newEntity := self orionModel perform: self createVersionnedEntitySelector.
+	self subclassResponsibility 
 
 ]
 

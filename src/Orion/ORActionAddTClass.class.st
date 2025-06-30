@@ -38,11 +38,10 @@ ORActionAddTClass >> run [
 
 	super run.
 
-	self setFamixProperty: #typeContainer on: newEntity to: self typeContainer. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity typeContainer: self typeContainer.
 
-	newEntity resetMooseName.
-
-	entity := newEntity.
 	^ entity
 ]
 

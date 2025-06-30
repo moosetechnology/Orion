@@ -38,5 +38,6 @@ ORActionAddNamedEntity >> run [
 
 	super run.
 
-	self setFamixProperty: #name on: newEntity to: self name
+	entity name: self name.
+	entity resetMooseName 
 ]
