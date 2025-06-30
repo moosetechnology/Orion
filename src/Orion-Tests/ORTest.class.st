@@ -9,6 +9,12 @@ Class {
 	#tag : 'Core'
 }
 
+{ #category : 'running' }
+ORTest >> buildFullTestModel [
+
+	self subclassResponsibility 
+]
+
 { #category : 'factory' }
 ORTest >> class: aString in: package [
 
@@ -170,9 +176,7 @@ ORTest >> refer: aClass from: referer [
 ORTest >> setUp [
 
 	super setUp.
-	modelV1 := (ORTestJavaModel new) buildFullTestModel .
+
+	modelV1 := self buildFullTestModel .
 	modelV1 name: 'theModel'.
-	"modelV1 := FamixStModel new.
-	modelV1 name: 'theModel'.
-	self exampleModel1"
 ]
