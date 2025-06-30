@@ -106,7 +106,8 @@ ORActionAddJavaClass >> interfaceImplementations: aValue [ interfaceImplementati
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaClass >> isAbstract [ ^isAbstract
+ORActionAddJavaClass >> isAbstract [
+	^isAbstract
 ]
 
 { #category : 'accessing' }
@@ -138,7 +139,9 @@ ORActionAddJavaClass >> lowerBoundedWildcards: aValue [ lowerBoundedWildcards :=
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaClass >> parentPackage [ ^parentPackage
+ORActionAddJavaClass >> parentPackage [
+
+	^parentPackage versionLookup: orionModel
 ]
 
 { #category : 'accessing' }
