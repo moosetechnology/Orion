@@ -19,10 +19,14 @@ ORActionAddTClassTest >> setUpAction [
 ]
 
 { #category : 'tests' }
-ORActionAddTClassTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allClasses size. action run. self assert: (modelV2 allClasses size) equals: (initialCount + 1).
+ORActionAddTClassTest >> testAddsCorrectEntity [
+	| initialCount |
+	initialCount := modelV1 allClasses size.
+	action run. 
+	self assert: (modelV2 allClasses size) equals: (initialCount + 1).
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'tests' }
 ORActionAddTClassTest >> testCopiesPrimitiveProperties [
 
 	| class |
@@ -35,7 +39,7 @@ ORActionAddTClassTest >> testCopiesPrimitiveProperties [
 	self assert: class isStub
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'tests' }
 ORActionAddTClassTest >> testCreatesVersionOfAssociatedEntities [
 
 	| class |
