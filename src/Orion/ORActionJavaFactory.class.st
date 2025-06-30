@@ -66,53 +66,65 @@ ORActionJavaFactory >> buildJavaClass: aClass ofType: aType [
 	aType = 'Ren' ifTrue: [ self buildRenClass: aClass ]"
 ]
 
+{ #category : 'as yet unclassified' }
+ORActionJavaFactory >> javaClassBuilder [
+
+	self orJavaActionCreatorOfType: 'Add'.
+	self orJavaActionCreatorOfType: 'Remove'.
+	self orJavaActionCreatorOfType: 'Rename'.
+	self orJavaActionCreatorOfType: 'Move'
+]
+
 { #category : 'class building' }
 ORActionJavaFactory >> orJavaActionCreatorOfType: aType [
 
 	| classes package |
 	package := PackageOrganizer default packageNamed: 'Orion'.
 	classes := (Smalltalk at: ('ORAction' , aType) asSymbol)
-		           allSubclasses union:
-		           (Smalltalk at:
-			            ('ORAction' , aType , 'NamedEntity') asSymbol)
+		           allSubclasses union: (Smalltalk
+			            at: ('ORAction' , aType , 'NamedEntity') asSymbol
+			            ifAbsent: [
+			            Smalltalk at: 'ORActionRenameTNamedEntity' asSymbol ])
 			           allSubclasses. "copyFrom: 1 to: 15" "copyFrom: 1 to: 15"
+	classes := classes select: [ :e | e package name = 'Orion' ].
+	classes := classes reject: [ :e | ORAction subclasses includes: e ].
+	classes := classes reject: [ :e | e name includesSubstring: 'Named' ].
 
 
-	classes do: [ :class |
-		| className classSuffix traitSlots javaSlots slots |
-		class hasSubclasses ifFalse: [
-			class name size >= (('ORAction' , aType , 'T') size + 1) ifTrue: [
-				classSuffix := class name
-					               copyFrom: ('ORAction' , aType , 'T') size + 1
-					               to: class name size.
+	classes do: [ :class | " ]"
+		| className classSuffix traitSlots javaSlots slots superclass baseSlots |
+		"class hasSubclasses ifFalse: ["
+		class name size >= (('ORAction' , aType , 'T') size + 1) ifTrue: [
+			classSuffix := class name
+				               copyFrom: ('ORAction' , aType , 'T') size + 1
+				               to: class name size.
 
-				className := 'ORAction' , aType , 'Java' , classSuffix.
+			className := 'ORAction' , aType , 'Java' , classSuffix.
+			superclass := Smalltalk at:
+				              ('ORAction' , aType , 'T' , classSuffix) asSymbol.
+			traitSlots := (Smalltalk at: ('FamixT' , classSuffix) asSymbol)
+				              allSlots. "collect: [ :e | e name ]"
+			javaSlots := (Smalltalk at: ('FamixJava' , classSuffix) asSymbol)
+				             allSlots. "collect: [ :e | e name ]"
+			traitSlots := traitSlots collect: [ :e | e name ].
+			slots := javaSlots reject: [ :e | traitSlots includes: e name ].
 
-				traitSlots := (Smalltalk at: ('FamixT' , classSuffix) asSymbol)
-					              allSlots collect: [ :e | e name ].
-				javaSlots := (Smalltalk at: ('FamixJava' , classSuffix) asSymbol)
-					             allSlots collect: [ :e | e name ].
-				slots := javaSlots reject: [ :e | traitSlots includes: e ].
+			baseSlots := #('mooseID' 'mooseName' 'mooseModel' 'cache' 'entityAttributes').
+			slots := slots select: [ :e | (baseSlots includes: e name) or: e isToOne ].
 
-				slots := slots reject: [ :e | e = 'mooseID' ].
-				slots := slots reject: [ :e | e = 'mooseName' ].
-				slots := slots reject: [ :e | e = 'mooseModel' ].
-				slots := slots reject: [ :e | e = 'cache' ].
-				slots := slots reject: [ :e | e = 'entityAttributes' ].
-
-				slots isEmpty ifFalse: [
-					Smalltalk classInstaller make: [ :builder |
-						builder
-							superclass: class;
-							name: className;
-							slots: (slots select: [:e | e isToOne]);
-							sharedVariablesFromString: '';
-							sharedPools: '';
-							tag: #Actions;
-							package: 'Orion-Java';
-							environment: Object environment ].
-					self
-						buildJavaClass:
-						(Smalltalk at: className asSymbol ifAbsent: [ nil ])
-						ofType: aType ] ] ] ]
+			slots isEmpty ifFalse: [
+				Smalltalk classInstaller make: [ :builder |
+					builder
+						superclass: superclass;
+						name: className;
+						slots: slots;
+						sharedVariablesFromString: '';
+						sharedPools: '';
+						tag: aType;
+						package: 'Orion-Java';
+						environment: Object environment ].
+				self
+					buildJavaClass:
+					(Smalltalk at: className asSymbol ifAbsent: [ nil ])
+					ofType: aType ] ] ]
 ]
