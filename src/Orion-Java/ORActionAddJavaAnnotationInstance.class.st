@@ -16,6 +16,12 @@ Class {
 }
 
 { #category : 'method execution' }
+ORActionAddJavaAnnotationInstance >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
+{ #category : 'method execution' }
 ORActionAddJavaAnnotationInstance >> run [
 
 	| newEntity |

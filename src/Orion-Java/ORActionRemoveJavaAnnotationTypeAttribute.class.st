@@ -35,6 +35,12 @@ ORActionRemoveJavaAnnotationTypeAttribute >> comments [ ^comments
 ORActionRemoveJavaAnnotationTypeAttribute >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRemoveJavaAnnotationTypeAttribute >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationTypeAttribute >> receivingInvocations [ ^receivingInvocations
 ]

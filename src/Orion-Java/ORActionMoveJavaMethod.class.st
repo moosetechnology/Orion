@@ -65,6 +65,12 @@ ORActionMoveJavaMethod >> comments [ ^comments
 ORActionMoveJavaMethod >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionMoveJavaMethod >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionMoveJavaMethod >> declaredExceptions [ ^declaredExceptions
 ]

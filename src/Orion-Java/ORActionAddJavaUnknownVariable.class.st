@@ -25,6 +25,12 @@ ORActionAddJavaUnknownVariable >> annotationInstances [ ^annotationInstances
 ORActionAddJavaUnknownVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddJavaUnknownVariable >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionAddJavaUnknownVariable >> receivingInvocations [ ^receivingInvocations
 ]

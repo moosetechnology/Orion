@@ -59,6 +59,12 @@ ORActionRenameJavaClass >> concreteEntities [ ^concreteEntities
 ORActionRenameJavaClass >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRenameJavaClass >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRenameJavaClass >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]

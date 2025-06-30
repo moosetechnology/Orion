@@ -41,6 +41,12 @@ ORActionAddJavaPackage >> comments [ ^comments
 ORActionAddJavaPackage >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddJavaPackage >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionAddJavaPackage >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]

@@ -65,6 +65,12 @@ ORActionRenameJavaMethod >> comments [ ^comments
 ORActionRenameJavaMethod >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRenameJavaMethod >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRenameJavaMethod >> declaredExceptions [ ^declaredExceptions
 ]

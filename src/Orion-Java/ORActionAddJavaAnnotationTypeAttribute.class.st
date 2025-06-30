@@ -35,6 +35,12 @@ ORActionAddJavaAnnotationTypeAttribute >> comments [ ^comments
 ORActionAddJavaAnnotationTypeAttribute >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddJavaAnnotationTypeAttribute >> createVersionnedEntitySelector [
+
+	^super createVersionnedEntitySelector
+]
+
 { #category : 'accessing' }
 ORActionAddJavaAnnotationTypeAttribute >> receivingInvocations [ ^receivingInvocations
 ]
@@ -46,10 +52,17 @@ ORActionAddJavaAnnotationTypeAttribute >> receivingInvocations: aValue [ receivi
 { #category : 'method execution' }
 ORActionAddJavaAnnotationTypeAttribute >> run [
 
-	| newEntity |
-	newEntity := self orionModel newAnnotationTypeAttribute.
+	super run.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #receivingInvocations on: newEntity to: self receivingInvocations. self setFamixProperty: #comments on: newEntity to: self comments.
+	self
+		setFamixProperty: #annotationInstances
+		on: newEntity
+		to: self annotationInstances.
+	self
+		setFamixProperty: #receivingInvocations
+		on: newEntity
+		to: self receivingInvocations.
+	self setFamixProperty: #comments on: newEntity to: self comments.
 
 	newEntity resetMooseName.
 

@@ -45,6 +45,12 @@ ORActionRenameJavaAttribute >> comments [ ^comments
 ORActionRenameJavaAttribute >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRenameJavaAttribute >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRenameJavaAttribute >> isClassSide [ ^isClassSide
 ]

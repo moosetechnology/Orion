@@ -25,6 +25,12 @@ ORActionAddJavaImplicitVariable >> annotationInstances [ ^annotationInstances
 ORActionAddJavaImplicitVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddJavaImplicitVariable >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionAddJavaImplicitVariable >> receivingInvocations [ ^receivingInvocations
 ]

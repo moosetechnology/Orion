@@ -37,6 +37,12 @@ ORActionAddJavaLocalVariable >> comments [ ^comments
 ORActionAddJavaLocalVariable >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddJavaLocalVariable >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionAddJavaLocalVariable >> isFinal [ ^isFinal
 ]

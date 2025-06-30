@@ -59,6 +59,12 @@ ORActionRemoveJavaClass >> concreteEntities [ ^concreteEntities
 ORActionRemoveJavaClass >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRemoveJavaClass >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRemoveJavaClass >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]

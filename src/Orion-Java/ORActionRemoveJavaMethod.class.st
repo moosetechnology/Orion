@@ -65,6 +65,12 @@ ORActionRemoveJavaMethod >> comments [ ^comments
 ORActionRemoveJavaMethod >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRemoveJavaMethod >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRemoveJavaMethod >> declaredExceptions [ ^declaredExceptions
 ]

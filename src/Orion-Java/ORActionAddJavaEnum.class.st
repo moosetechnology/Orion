@@ -77,6 +77,12 @@ ORActionAddJavaEnum >> concreteEntities [ ^concreteEntities
 ORActionAddJavaEnum >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddJavaEnum >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionAddJavaEnum >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]

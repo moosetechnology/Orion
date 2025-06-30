@@ -37,6 +37,12 @@ ORActionMoveJavaParameter >> comments [ ^comments
 ORActionMoveJavaParameter >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionMoveJavaParameter >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionMoveJavaParameter >> isFinal [ ^isFinal
 ]

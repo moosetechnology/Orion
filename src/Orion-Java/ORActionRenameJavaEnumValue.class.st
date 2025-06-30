@@ -35,6 +35,12 @@ ORActionRenameJavaEnumValue >> comments [ ^comments
 ORActionRenameJavaEnumValue >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRenameJavaEnumValue >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRenameJavaEnumValue >> receivingInvocations [ ^receivingInvocations
 ]

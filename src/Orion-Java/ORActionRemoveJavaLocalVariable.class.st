@@ -37,6 +37,12 @@ ORActionRemoveJavaLocalVariable >> comments [ ^comments
 ORActionRemoveJavaLocalVariable >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRemoveJavaLocalVariable >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRemoveJavaLocalVariable >> isFinal [ ^isFinal
 ]

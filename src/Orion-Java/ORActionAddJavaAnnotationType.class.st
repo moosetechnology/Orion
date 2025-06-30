@@ -87,6 +87,12 @@ ORActionAddJavaAnnotationType >> concreteEntities [ ^concreteEntities
 ORActionAddJavaAnnotationType >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddJavaAnnotationType >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionAddJavaAnnotationType >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]
@@ -162,10 +168,73 @@ ORActionAddJavaAnnotationType >> parentPackage: aValue [ parentPackage := aValue
 { #category : 'method execution' }
 ORActionAddJavaAnnotationType >> run [
 
-	| newEntity |
-	newEntity := self orionModel newAnnotationType.
-
-	self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #name on: newEntity to: self name. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #types on: newEntity to: self types. self setFamixProperty: #definedAnnotationTypes on: newEntity to: self definedAnnotationTypes. self setFamixProperty: #lowerBoundedWildcards on: newEntity to: self lowerBoundedWildcards. self setFamixProperty: #upperBoundedWildcards on: newEntity to: self upperBoundedWildcards. self setFamixProperty: #concreteEntities on: newEntity to: self concreteEntities. self setFamixProperty: #generics on: newEntity to: self generics. self setFamixProperty: #typeContainer on: newEntity to: self typeContainer. self setFamixProperty: #typedEntities on: newEntity to: self typedEntities. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #incomingReferences on: newEntity to: self incomingReferences. self setFamixProperty: #methods on: newEntity to: self methods. self setFamixProperty: #visibility on: newEntity to: self visibility. self setFamixProperty: #implementations on: newEntity to: self implementations. self setFamixProperty: #parentPackage on: newEntity to: self parentPackage. self setFamixProperty: #attributes on: newEntity to: self attributes. self setFamixProperty: #comments on: newEntity to: self comments. self setFamixProperty: #superInheritances on: newEntity to: self superInheritances. self setFamixProperty: #subInheritances on: newEntity to: self subInheritances.
+	"| newEntity |
+	newEntity := self orionModel newAnnotationType."
+	super run.
+	self
+		setFamixProperty: #sourceAnchor
+		on: newEntity
+		to: self sourceAnchor.
+	self
+		setFamixProperty: #sourceAnchor
+		on: newEntity
+		to: self sourceAnchor.
+	self setFamixProperty: #name on: newEntity to: self name.
+	self
+		setFamixProperty: #annotationInstances
+		on: newEntity
+		to: self annotationInstances.
+	self setFamixProperty: #types on: newEntity to: self types.
+	self
+		setFamixProperty: #definedAnnotationTypes
+		on: newEntity
+		to: self definedAnnotationTypes.
+	self
+		setFamixProperty: #lowerBoundedWildcards
+		on: newEntity
+		to: self lowerBoundedWildcards.
+	self
+		setFamixProperty: #upperBoundedWildcards
+		on: newEntity
+		to: self upperBoundedWildcards.
+	self
+		setFamixProperty: #concreteEntities
+		on: newEntity
+		to: self concreteEntities.
+	self setFamixProperty: #generics on: newEntity to: self generics.
+	self
+		setFamixProperty: #typeContainer
+		on: newEntity
+		to: self typeContainer.
+	self
+		setFamixProperty: #typedEntities
+		on: newEntity
+		to: self typedEntities.
+	self setFamixProperty: #isStub on: newEntity to: self isStub.
+	self
+		setFamixProperty: #incomingReferences
+		on: newEntity
+		to: self incomingReferences.
+	self setFamixProperty: #methods on: newEntity to: self methods.
+	self setFamixProperty: #visibility on: newEntity to: self visibility.
+	self
+		setFamixProperty: #implementations
+		on: newEntity
+		to: self implementations.
+	self
+		setFamixProperty: #parentPackage
+		on: newEntity
+		to: self parentPackage.
+	self setFamixProperty: #attributes on: newEntity to: self attributes.
+	self setFamixProperty: #comments on: newEntity to: self comments.
+	self
+		setFamixProperty: #superInheritances
+		on: newEntity
+		to: self superInheritances.
+	self
+		setFamixProperty: #subInheritances
+		on: newEntity
+		to: self subInheritances.
 
 	newEntity resetMooseName.
 
