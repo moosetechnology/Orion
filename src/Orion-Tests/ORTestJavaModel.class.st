@@ -10,49 +10,37 @@ Class {
 	#tag : 'Java-Model'
 }
 
-{ #category : 'model building' }
-ORTestJavaModel >> buildFullTestModel [
-	"Creates and returns a FamixJavaModel containing instances of all the entities required for tests."
-
-	modelV1 := FamixJavaModel new.
-	self createBasicEntities.
-	self linkBasicEntities.
-	self createComplexEntities.
-
-	^ modelV1
-]
-
 { #category : 'entity creation' }
 ORTestJavaModel >> createBasicEntities [
 
+	self subclassResponsibility 
+]
+
+{ #category : 'deprecated' }
+ORTestJavaModel >> createBasicEntitiesBCKUP [
+
 	| pkg testClass testMethod otherClass attr param localVar implicitVar unknownVar |
 	"Package"
-	pkg := FamixJavaPackage named:'testPackage'.
+	pkg := modelV1 newPackageNamed: 'testPackage'.
 	pkg parentPackage: nil .
-	modelV1 add: pkg.
 
 	"Types"
 	"charType := FamixJavaPrimitiveType named: 'Char'.
 	modelV1 add: charType."
 
 	"Classes"
-	testClass := FamixJavaClass named: 'TestClass'.
-	modelV1 add: testClass.
+	testClass := modelV1 newClassNamed: 'TestClass'.
 
-	otherClass := FamixJavaClass named: 'OtherClass'.
-	modelV1 add: otherClass.
+	otherClass := modelV1 newClassNamed: 'OtherClass'.
 
 	"Method"
-	testMethod := FamixJavaMethod named: 'testMethod'.
-	modelV1 add: testMethod.
+	testMethod := modelV1 newMethodNamed: 'testMethod'.
 
 	"Attribute"
-	attr := FamixJavaAttribute named: 'testAttribute'.
-	modelV1 add: attr.
+	attr := modelV1 newAttributeNamed: 'testAttribute'.
 
 	"Parameter"
-	param := FamixJavaParameter named: 'testParam'.
-	modelV1 add: param.
+	param := modelV1 newParameterNamed: 'testParam'.
 
 	"Local variable"
 	localVar := FamixJavaLocalVariable named: 'testLocalVar'.
@@ -69,6 +57,13 @@ ORTestJavaModel >> createBasicEntities [
 
 { #category : 'entity creation' }
 ORTestJavaModel >> createComplexEntities [
+	"Creates more complex entities such as Enums, Annotations, Exceptions..."
+
+	self subclassResponsibility 
+]
+
+{ #category : 'deprecated' }
+ORTestJavaModel >> createComplexEntitiesBCKP [
 	"Creates more complex entities such as Enums, Annotations, Exceptions..."
 
 	| pkg testClass testMethod comment myEnum myEnumValue annType annAttr annInstance annInstanceAttr genericClass concreteClass concretization paramConcretization genericMethod genericParam param exception |
@@ -121,7 +116,7 @@ ORTestJavaModel >> createComplexEntities [
 	concretization := FamixJavaConcretization new.
 	modelV1 add: concretization.
 
-	genericMethod := FamixJavaMethod named: 'genericMethod'.
+	"genericMethod := FamixJavaMethod named: 'genericMethod'.
 	genericClass addType: genericMethod.
 	modelV1 add: genericMethod.
 	genericParam := FamixJavaParameter named: 'genericParam'.
@@ -129,11 +124,17 @@ ORTestJavaModel >> createComplexEntities [
 	modelV1 add: genericParam.
 	param := modelV1 entityNamed: 'testParam'.
 	paramConcretization := FamixJavaParameterConcretization new.
-	modelV1 add: paramConcretization
+	modelV1 add: paramConcretization"
 ]
 
 { #category : 'entity creation' }
 ORTestJavaModel >> linkBasicEntities [
+
+	self subclassResponsibility 
+]
+
+{ #category : 'deprecated' }
+ORTestJavaModel >> linkBasicEntitiesBCKP [
 
 	| pkg testClass testMethod otherClass attr param localVar implicitVar |
 	pkg := modelV1 entityNamed: 'testPackage'.
@@ -159,11 +160,17 @@ ORTestJavaModel >> linkBasicEntities [
 ORTestJavaModel >> setUp [
 	super setUp.
 
-	modelV1 := (ORTestJavaModel new) buildFullTestModel.
-	modelV1 name: 'theModel'.
+
+	modelV1 := FamixJavaModel new.
+	self createBasicEntities.
+	self linkBasicEntities.
+	self createComplexEntities.
+
+	modelV1 name: 'model-v1'.
 	
 	modelV1 beForOrion.
-	modelV2 := modelV1 makeNewVersion name: #orionModel.
+	modelV2 := modelV1 makeNewVersion
+		name: 'model-v2'.
 
 	self setUpAction
 ]
