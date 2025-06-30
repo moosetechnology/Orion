@@ -11,7 +11,7 @@ Class {
 	#tag : 'Bug'
 }
 
-{ #category : 'tests' }
+{ #category : 'running' }
 SlotNotFoundTest >> setUp [
 
 	super setUp.
@@ -25,7 +25,13 @@ SlotNotFoundTest >> setUp [
 ]
 
 { #category : 'tests' }
-SlotNotFoundTest >> testRunFailsWhenSettingAnnotationInstances [
+SlotNotFoundTest >> testAddAnnotationTypeAttribute [
+
+	action run.
+]
+
+{ #category : 'tests' }
+SlotNotFoundTest >> testFailsToAddAnnotationTypeAttribute [
 	self
 		should: [ action run ]
 		raise: SlotNotFound
