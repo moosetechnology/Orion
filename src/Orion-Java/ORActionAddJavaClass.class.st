@@ -145,14 +145,25 @@ ORActionAddJavaClass >> parentPackage: aValue [ parentPackage := aValue
 { #category : 'method execution' }
 ORActionAddJavaClass >> run [
 
-	| newEntity |
-	newEntity := self orionModel newClass.
+	super run.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #types on: newEntity to: self types. self setFamixProperty: #definedAnnotationTypes on: newEntity to: self definedAnnotationTypes. self setFamixProperty: #lowerBoundedWildcards on: newEntity to: self lowerBoundedWildcards. self setFamixProperty: #upperBoundedWildcards on: newEntity to: self upperBoundedWildcards. self setFamixProperty: #concreteEntities on: newEntity to: self concreteEntities. self setFamixProperty: #generics on: newEntity to: self generics. self setFamixProperty: #isAbstract on: newEntity to: self isAbstract. self setFamixProperty: #isClassSide on: newEntity to: self isClassSide. self setFamixProperty: #isFinal on: newEntity to: self isFinal. self setFamixProperty: #interfaceImplementations on: newEntity to: self interfaceImplementations. self setFamixProperty: #visibility on: newEntity to: self visibility. self setFamixProperty: #incomingImports on: newEntity to: self incomingImports. self setFamixProperty: #parentPackage on: newEntity to: self parentPackage. self setFamixProperty: #imports on: newEntity to: self imports.
+	entity isAbstract: self isAbstract. 
+	entity isClassSide: self isClassSide. 
+	entity isFinal: self isFinal.
 
-	newEntity resetMooseName.
+	"entity annotationInstances: self annotationInstances. 
+	entity concreteEntities: self concreteEntities. 
+	entity definedAnnotationTypes: self definedAnnotationTypes. 
+	entity generics: self generics. 
+	entity imports: self imports.
+	entity incomingImports: self incomingImports. 
+	entity interfaceImplementations: self interfaceImplementations. 
+	entity lowerBoundedWildcards: self lowerBoundedWildcards. 
+	entity parentPackage: self parentPackage. 
+	entity types: self types. 
+	entity upperBoundedWildcards: self upperBoundedWildcards. 
+	entity visibility: self visibility. "
 
-	entity := newEntity.
 	^ entity
 ]
 
