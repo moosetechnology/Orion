@@ -38,12 +38,37 @@ ORActionAddJavaClassTest >> setUpAction [
 { #category : 'tests' }
 ORActionAddJavaClassTest >> testAddsCorrectEntity [
 
-	| initialCount |
-	initialCount := modelV1 allClasses size.
+	self assert: modelV2 allClasses size equals: 1.
+
 	action run.
-	self assert: modelV2 allClasses size equals: initialCount + 1
+
+	self assert: modelV2 allClasses size equals: 2
 ]
 
 { #category : 'tests' }
-ORActionAddJavaClassTest >> testEntityIsVersioned [ | entity | action run. entity := modelV2 entityNamed: 'A_Test_Name'. self assert: entity notNil. self assert: (modelV2 includes: entity). self deny: (modelV1 includes: entity).
+ORActionAddJavaClassTest >> testEntityIsVersioned [
+	| entity |
+
+	action run.
+
+	entity := modelV2 entityNamed: 'NewClass'.
+
+	self assert: entity notNil.
+	self assert: (modelV2 includes: entity).
+
+	self deny: (modelV1 includes: entity).
+]
+
+{ #category : 'tests' }
+ORActionAddJavaClassTest >> testEntityProperyIsAbstract [
+	| entity |
+
+	action isAbstract: true.
+
+	action run.
+
+	entity := modelV2 entityNamed: 'NewClass'.
+
+	self assert: entity notNil.
+	self assert: entity isAbstract
 ]
