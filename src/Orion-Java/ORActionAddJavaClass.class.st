@@ -59,12 +59,6 @@ ORActionAddJavaClass >> concreteEntities [ ^concreteEntities
 ORActionAddJavaClass >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionAddJavaClass >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
-]
-
 { #category : 'accessing' }
 ORActionAddJavaClass >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]
