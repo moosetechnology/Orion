@@ -45,6 +45,12 @@ ORActionMoveJavaAttribute >> comments [ ^comments
 ORActionMoveJavaAttribute >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionMoveJavaAttribute >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionMoveJavaAttribute >> isClassSide [ ^isClassSide
 ]

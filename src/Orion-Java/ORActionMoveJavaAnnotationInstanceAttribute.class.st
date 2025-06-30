@@ -15,6 +15,12 @@ Class {
 	#tag : 'Move'
 }
 
+{ #category : 'method execution' }
+ORActionMoveJavaAnnotationInstanceAttribute >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionMoveJavaAnnotationInstanceAttribute >> sourceAnchor [ ^sourceAnchor
 ]

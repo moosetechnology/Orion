@@ -15,6 +15,12 @@ Class {
 	#tag : 'Remove'
 }
 
+{ #category : 'method execution' }
+ORActionRemoveJavaAnnotationInstance >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationInstance >> sourceAnchor [ ^sourceAnchor
 ]

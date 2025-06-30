@@ -45,6 +45,12 @@ ORActionRemoveJavaAttribute >> comments [ ^comments
 ORActionRemoveJavaAttribute >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRemoveJavaAttribute >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRemoveJavaAttribute >> isClassSide [ ^isClassSide
 ]

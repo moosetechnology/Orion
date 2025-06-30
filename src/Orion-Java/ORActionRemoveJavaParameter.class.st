@@ -37,6 +37,12 @@ ORActionRemoveJavaParameter >> comments [ ^comments
 ORActionRemoveJavaParameter >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRemoveJavaParameter >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRemoveJavaParameter >> isFinal [ ^isFinal
 ]

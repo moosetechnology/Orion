@@ -35,6 +35,12 @@ ORActionAddJavaEnumValue >> comments [ ^comments
 ORActionAddJavaEnumValue >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddJavaEnumValue >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionAddJavaEnumValue >> receivingInvocations [ ^receivingInvocations
 ]

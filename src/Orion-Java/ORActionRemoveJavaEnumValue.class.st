@@ -35,6 +35,12 @@ ORActionRemoveJavaEnumValue >> comments [ ^comments
 ORActionRemoveJavaEnumValue >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionRemoveJavaEnumValue >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionRemoveJavaEnumValue >> receivingInvocations [ ^receivingInvocations
 ]

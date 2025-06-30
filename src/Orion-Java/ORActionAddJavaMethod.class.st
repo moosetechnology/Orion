@@ -65,6 +65,12 @@ ORActionAddJavaMethod >> comments [ ^comments
 ORActionAddJavaMethod >> comments: aValue [ comments := aValue
 ]
 
+{ #category : 'method execution' }
+ORActionAddJavaMethod >> createVersionnedEntitySelector [
+
+	super createVersionnedEntitySelector.
+]
+
 { #category : 'accessing' }
 ORActionAddJavaMethod >> declaredExceptions [ ^declaredExceptions
 ]
