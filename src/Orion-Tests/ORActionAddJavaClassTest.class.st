@@ -1,10 +1,30 @@
 Class {
 	#name : 'ORActionAddJavaClassTest',
 	#superclass : 'ORActionAddJavaTest',
+	#instVars : [
+		'testClass'
+	],
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
+
+{ #category : 'running' }
+ORActionAddJavaClassTest >> createBasicEntities [
+
+	modelV1 newClassNamed: 'TestClass'
+
+]
+
+{ #category : 'entity creation' }
+ORActionAddJavaClassTest >> createComplexEntities [
+
+]
+
+{ #category : 'entity creation' }
+ORActionAddJavaClassTest >> linkBasicEntities [
+
+]
 
 { #category : 'running' }
 ORActionAddJavaClassTest >> setUpAction [ action := ORActionAddJavaClass new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; lowerBoundedWildcards: nil; upperBoundedWildcards: nil; concreteEntities: nil; generics: nil; isAbstract: nil; isClassSide: nil; isFinal: nil; interfaceImplementations: nil; visibility: nil; incomingImports: nil; parentPackage: nil; imports: nil; yourself.
