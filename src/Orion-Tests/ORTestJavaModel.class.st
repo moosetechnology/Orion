@@ -27,7 +27,8 @@ ORTestJavaModel >> createBasicEntities [
 
 	| pkg testClass testMethod otherClass attr param localVar implicitVar unknownVar |
 	"Package"
-	pkg := FamixJavaPackage named: 'testPackage'.
+	pkg := FamixJavaPackage named:'testPackage'.
+	pkg parentPackage: nil .
 	modelV1 add: pkg.
 
 	"Types"
