@@ -1,17 +1,9 @@
-"
-I add a new FamixTParameter in a MooseModel
-I need the following properties of the new parameter
-
--`parentBehaviouralEntity`
--`isStub`
--`sourceAnchor`
--`declaredType`
-"
 Class {
 	#name : 'ORActionAddTParameter',
 	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
 		'parentBehaviouralEntity',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +14,22 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTParameter >> createVersionnedEntitySelector [
+ORActionAddTParameter class >> createVersionnedEntitySelector [ ^ #newParameter
+]
 
-	^ #newParameter
+{ #category : 'method execution' }
+ORActionAddTParameter class >> run [
+	super run.
+	entity parentBehaviouralEntity: self parentBehaviouralEntity.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionAddTParameter >> createVersionnedEntitySelector [ ^ #newParameter
 ]
 
 { #category : 'accessing' }
@@ -33,6 +38,14 @@ ORActionAddTParameter >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddTParameter >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTParameter >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddTParameter >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,15 +66,13 @@ ORActionAddTParameter >> parentBehaviouralEntity: aValue [ parentBehaviouralEnti
 
 { #category : 'method execution' }
 ORActionAddTParameter >> run [
-
 	super run.
-
-	self setFamixProperty: #parentBehaviouralEntity on: newEntity to: self parentBehaviouralEntity. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity parentBehaviouralEntity: self parentBehaviouralEntity.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
 ]
 
 { #category : 'accessing' }

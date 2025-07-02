@@ -1,17 +1,10 @@
-"
-I add a new FamixTAnnotationTypeAttribute in a MooseModel
-I need the following properties of the new annotationtypeattribute
-
--`parentType`
--`isStub`
--`sourceAnchor`
--`declaredType`
-"
 Class {
 	#name : 'ORActionAddTAnnotationTypeAttribute',
 	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'annotationAttributeInstances',
 		'parentType',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +15,31 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTAnnotationTypeAttribute >> createVersionnedEntitySelector [
+ORActionAddTAnnotationTypeAttribute class >> createVersionnedEntitySelector [ ^ #newAnnotationTypeAttribute
+]
 
-	^ #newAnnotationTypeAttribute
+{ #category : 'method execution' }
+ORActionAddTAnnotationTypeAttribute class >> run [
+	super run.
+	entity annotationAttributeInstances: self annotationAttributeInstances.
+	entity parentType: self parentType.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionAddTAnnotationTypeAttribute >> annotationAttributeInstances [ ^annotationAttributeInstances
+]
+
+{ #category : 'accessing' }
+ORActionAddTAnnotationTypeAttribute >> annotationAttributeInstances: aValue [ annotationAttributeInstances := aValue
+]
+
+{ #category : 'method execution' }
+ORActionAddTAnnotationTypeAttribute >> createVersionnedEntitySelector [ ^ #newAnnotationTypeAttribute
 ]
 
 { #category : 'accessing' }
@@ -33,6 +48,14 @@ ORActionAddTAnnotationTypeAttribute >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddTAnnotationTypeAttribute >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTAnnotationTypeAttribute >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddTAnnotationTypeAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,15 +76,14 @@ ORActionAddTAnnotationTypeAttribute >> parentType: aValue [ parentType := aValue
 
 { #category : 'method execution' }
 ORActionAddTAnnotationTypeAttribute >> run [
-
 	super run.
-
-	self setFamixProperty: #parentType on: newEntity to: self parentType. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity annotationAttributeInstances: self annotationAttributeInstances.
+	entity parentType: self parentType.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
 ]
 
 { #category : 'accessing' }

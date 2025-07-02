@@ -11,8 +11,10 @@ Class {
 	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
 		'typeContainer',
+		'typedEntities',
 		'isStub',
-		'sourceAnchor'
+		'sourceAnchor',
+		'incomingReferences'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -20,9 +22,31 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTType >> createVersionnedEntitySelector [
+ORActionRemoveTType class >> createVersionnedEntitySelector [ ^ #newType
+]
 
-	^ #newType
+{ #category : 'method execution' }
+ORActionRemoveTType class >> run [
+	super run.
+	entity typeContainer: nil.
+	entity typedEntities: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity incomingReferences: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTType >> createVersionnedEntitySelector [ ^ #newType
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTType >> incomingReferences [ ^incomingReferences
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTType >> incomingReferences: aValue [ incomingReferences := aValue
 ]
 
 { #category : 'accessing' }
@@ -35,12 +59,14 @@ ORActionRemoveTType >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTType >> run [
-
-	self setFamixProperty: #typeContainer on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
-
+	super run.
+	entity typeContainer: nil.
+	entity typedEntities: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity incomingReferences: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }
@@ -57,4 +83,12 @@ ORActionRemoveTType >> typeContainer [ ^typeContainer
 
 { #category : 'accessing' }
 ORActionRemoveTType >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTType >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTType >> typedEntities: aValue [ typedEntities := aValue
 ]

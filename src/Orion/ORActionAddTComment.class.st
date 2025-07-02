@@ -1,10 +1,3 @@
-"
-I add a new FamixTComment in a MooseModel
-I need the following properties of the new comment
-
--`commentedEntity`
--`sourceAnchor`
-"
 Class {
 	#name : 'ORActionAddTComment',
 	#superclass : 'ORActionAdd',
@@ -17,6 +10,14 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTComment class >> run [
+	super run.
+	entity commentedEntity: self commentedEntity.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
+]
+
 { #category : 'accessing' }
 ORActionAddTComment >> commentedEntity [ ^commentedEntity
 ]
@@ -26,22 +27,11 @@ ORActionAddTComment >> commentedEntity: aValue [ commentedEntity := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddTComment >> createVersionnedEntitySelector [
-
-	^ #newComment
-]
-
-{ #category : 'method execution' }
 ORActionAddTComment >> run [
-
 	super run.
-
-	self setFamixProperty: #commentedEntity on: newEntity to: self commentedEntity. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity commentedEntity: self commentedEntity.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }

@@ -1,18 +1,12 @@
-"
-I add a new FamixTPrimitiveType in a MooseModel
-I need the following properties of the new primitivetype
-
--`typeContainer`
--`isStub`
--`sourceAnchor`
-"
 Class {
 	#name : 'ORActionAddTPrimitiveType',
 	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
 		'typeContainer',
+		'typedEntities',
 		'isStub',
-		'sourceAnchor'
+		'sourceAnchor',
+		'incomingReferences'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -20,9 +14,30 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTPrimitiveType >> createVersionnedEntitySelector [
+ORActionAddTPrimitiveType class >> createVersionnedEntitySelector [ ^ #newPrimitiveType
+]
 
-	^ #newPrimitiveType
+{ #category : 'method execution' }
+ORActionAddTPrimitiveType class >> run [
+	super run.
+	entity typeContainer: self typeContainer.
+	entity typedEntities: self typedEntities.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity incomingReferences: self incomingReferences.
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionAddTPrimitiveType >> createVersionnedEntitySelector [ ^ #newPrimitiveType
+]
+
+{ #category : 'accessing' }
+ORActionAddTPrimitiveType >> incomingReferences [ ^incomingReferences
+]
+
+{ #category : 'accessing' }
+ORActionAddTPrimitiveType >> incomingReferences: aValue [ incomingReferences := aValue
 ]
 
 { #category : 'accessing' }
@@ -35,15 +50,13 @@ ORActionAddTPrimitiveType >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionAddTPrimitiveType >> run [
-
 	super run.
-
-	self setFamixProperty: #typeContainer on: newEntity to: self typeContainer. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity typeContainer: self typeContainer.
+	entity typedEntities: self typedEntities.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity incomingReferences: self incomingReferences.
+	^entity.
 ]
 
 { #category : 'accessing' }
@@ -60,4 +73,12 @@ ORActionAddTPrimitiveType >> typeContainer [ ^typeContainer
 
 { #category : 'accessing' }
 ORActionAddTPrimitiveType >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTPrimitiveType >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddTPrimitiveType >> typedEntities: aValue [ typedEntities := aValue
 ]

@@ -9,6 +9,7 @@ Class {
 	#name : 'ORActionRemoveTPackage',
 	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'childEntities',
 		'isStub',
 		'sourceAnchor'
 	],
@@ -18,9 +19,29 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTPackage >> createVersionnedEntitySelector [
+ORActionRemoveTPackage class >> createVersionnedEntitySelector [ ^ #newPackage
+]
 
-	^ #newPackage
+{ #category : 'method execution' }
+ORActionRemoveTPackage class >> run [
+	super run.
+	entity childEntities: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTPackage >> childEntities [ ^childEntities
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTPackage >> childEntities: aValue [ childEntities := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTPackage >> createVersionnedEntitySelector [ ^ #newPackage
 ]
 
 { #category : 'accessing' }
@@ -33,12 +54,12 @@ ORActionRemoveTPackage >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTPackage >> run [
-
-	self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
-
+	super run.
+	entity childEntities: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

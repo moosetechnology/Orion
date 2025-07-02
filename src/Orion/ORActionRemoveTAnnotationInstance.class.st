@@ -10,12 +10,27 @@ Class {
 	#superclass : 'ORActionRemove',
 	#instVars : [
 		'annotatedEntity',
-		'annotationType'
+		'annotationType',
+		'attributes'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationInstance class >> createVersionnedEntitySelector [ ^ #newAnnotationInstance
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationInstance class >> run [
+	super run.
+	entity annotatedEntity: nil.
+	entity annotationType: nil.
+	entity attributes: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
 
 { #category : 'accessing' }
 ORActionRemoveTAnnotationInstance >> annotatedEntity [ ^annotatedEntity
@@ -33,18 +48,24 @@ ORActionRemoveTAnnotationInstance >> annotationType [ ^annotationType
 ORActionRemoveTAnnotationInstance >> annotationType: aValue [ annotationType := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveTAnnotationInstance >> createVersionnedEntitySelector [
+{ #category : 'accessing' }
+ORActionRemoveTAnnotationInstance >> attributes [ ^attributes
+]
 
-	^ #newAnnotationInstance
+{ #category : 'accessing' }
+ORActionRemoveTAnnotationInstance >> attributes: aValue [ attributes := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationInstance >> createVersionnedEntitySelector [ ^ #newAnnotationInstance
 ]
 
 { #category : 'method execution' }
 ORActionRemoveTAnnotationInstance >> run [
-
-	self setFamixProperty: #annotatedEntity on: entity to: nil. self setFamixProperty: #annotationType on: entity to: nil.
-
+	super run.
+	entity annotatedEntity: nil.
+	entity annotationType: nil.
+	entity attributes: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]

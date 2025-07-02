@@ -1,17 +1,8 @@
-"
-I add a new FamixTParameterConcretization in a MooseModel
-I need the following properties of the new parameterconcretization
-
--`genericParameter`
--`concreteParameter`
--`next`
--`previous`
--`sourceAnchor`
-"
 Class {
 	#name : 'ORActionAddTParameterConcretization',
 	#superclass : 'ORActionAdd',
 	#instVars : [
+		'concretizations',
 		'genericParameter',
 		'concreteParameter',
 		'next',
@@ -23,6 +14,18 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTParameterConcretization class >> run [
+	super run.
+	entity concretizations: self concretizations.
+	entity genericParameter: self genericParameter.
+	entity concreteParameter: self concreteParameter.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
+]
+
 { #category : 'accessing' }
 ORActionAddTParameterConcretization >> concreteParameter [ ^concreteParameter
 ]
@@ -31,10 +34,12 @@ ORActionAddTParameterConcretization >> concreteParameter [ ^concreteParameter
 ORActionAddTParameterConcretization >> concreteParameter: aValue [ concreteParameter := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionAddTParameterConcretization >> createVersionnedEntitySelector [
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> concretizations [ ^concretizations
+]
 
-	^ #newParameterConcretization
+{ #category : 'accessing' }
+ORActionAddTParameterConcretization >> concretizations: aValue [ concretizations := aValue
 ]
 
 { #category : 'accessing' }
@@ -63,15 +68,14 @@ ORActionAddTParameterConcretization >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTParameterConcretization >> run [
-
 	super run.
-
-	self setFamixProperty: #genericParameter on: newEntity to: self genericParameter. self setFamixProperty: #concreteParameter on: newEntity to: self concreteParameter. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity concretizations: self concretizations.
+	entity genericParameter: self genericParameter.
+	entity concreteParameter: self concreteParameter.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }

@@ -12,6 +12,7 @@ Class {
 	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
 		'parentEnum',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +23,23 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTEnumValue >> createVersionnedEntitySelector [
+ORActionRemoveTEnumValue class >> createVersionnedEntitySelector [ ^ #newEnumValue
+]
 
-	^ #newEnumValue
+{ #category : 'method execution' }
+ORActionRemoveTEnumValue class >> run [
+	super run.
+	entity parentEnum: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTEnumValue >> createVersionnedEntitySelector [ ^ #newEnumValue
 ]
 
 { #category : 'accessing' }
@@ -33,6 +48,14 @@ ORActionRemoveTEnumValue >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionRemoveTEnumValue >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTEnumValue >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTEnumValue >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,12 +76,14 @@ ORActionRemoveTEnumValue >> parentEnum: aValue [ parentEnum := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTEnumValue >> run [
-
-	self setFamixProperty: #parentEnum on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil. self setFamixProperty: #declaredType on: entity to: nil.
-
+	super run.
+	entity parentEnum: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

@@ -1,13 +1,3 @@
-"
-I add a new FamixTImport in a MooseModel
-I need the following properties of the new import
-
--`importedEntity`
--`importingEntity`
--`next`
--`previous`
--`sourceAnchor`
-"
 Class {
 	#name : 'ORActionAddTImport',
 	#superclass : 'ORActionAdd',
@@ -24,9 +14,14 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTImport >> createVersionnedEntitySelector [
-
-	^ #newImport
+ORActionAddTImport class >> run [
+	super run.
+	entity importedEntity: self importedEntity.
+	entity importingEntity: self importingEntity.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }
@@ -63,15 +58,13 @@ ORActionAddTImport >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTImport >> run [
-
 	super run.
-
-	self setFamixProperty: #importedEntity on: newEntity to: self importedEntity. self setFamixProperty: #importingEntity on: newEntity to: self importingEntity. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity importedEntity: self importedEntity.
+	entity importingEntity: self importingEntity.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }

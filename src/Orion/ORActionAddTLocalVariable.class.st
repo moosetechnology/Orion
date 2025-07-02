@@ -1,17 +1,9 @@
-"
-I add a new FamixTLocalVariable in a MooseModel
-I need the following properties of the new localvariable
-
--`parentBehaviouralEntity`
--`isStub`
--`sourceAnchor`
--`declaredType`
-"
 Class {
 	#name : 'ORActionAddTLocalVariable',
 	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
 		'parentBehaviouralEntity',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +14,22 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTLocalVariable >> createVersionnedEntitySelector [
+ORActionAddTLocalVariable class >> createVersionnedEntitySelector [ ^ #newLocalVariable
+]
 
-	^ #newLocalVariable
+{ #category : 'method execution' }
+ORActionAddTLocalVariable class >> run [
+	super run.
+	entity parentBehaviouralEntity: self parentBehaviouralEntity.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionAddTLocalVariable >> createVersionnedEntitySelector [ ^ #newLocalVariable
 ]
 
 { #category : 'accessing' }
@@ -33,6 +38,14 @@ ORActionAddTLocalVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddTLocalVariable >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTLocalVariable >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddTLocalVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,15 +66,13 @@ ORActionAddTLocalVariable >> parentBehaviouralEntity: aValue [ parentBehavioural
 
 { #category : 'method execution' }
 ORActionAddTLocalVariable >> run [
-
 	super run.
-
-	self setFamixProperty: #parentBehaviouralEntity on: newEntity to: self parentBehaviouralEntity. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity parentBehaviouralEntity: self parentBehaviouralEntity.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
 ]
 
 { #category : 'accessing' }

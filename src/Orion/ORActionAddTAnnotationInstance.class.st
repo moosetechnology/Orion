@@ -1,21 +1,24 @@
-"
-I add a new FamixTAnnotationInstance in a MooseModel
-I need the following properties of the new annotationinstance
-
--`annotatedEntity`
--`annotationType`
-"
 Class {
 	#name : 'ORActionAddTAnnotationInstance',
 	#superclass : 'ORActionAdd',
 	#instVars : [
 		'annotatedEntity',
-		'annotationType'
+		'annotationType',
+		'attributes'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'method execution' }
+ORActionAddTAnnotationInstance class >> run [
+	super run.
+	entity annotatedEntity: self annotatedEntity.
+	entity annotationType: self annotationType.
+	entity attributes: self attributes.
+	^entity.
+]
 
 { #category : 'accessing' }
 ORActionAddTAnnotationInstance >> annotatedEntity [ ^annotatedEntity
@@ -33,21 +36,19 @@ ORActionAddTAnnotationInstance >> annotationType [ ^annotationType
 ORActionAddTAnnotationInstance >> annotationType: aValue [ annotationType := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionAddTAnnotationInstance >> createVersionnedEntitySelector [
+{ #category : 'accessing' }
+ORActionAddTAnnotationInstance >> attributes [ ^attributes
+]
 
-	^ #newAnnotationInstance
+{ #category : 'accessing' }
+ORActionAddTAnnotationInstance >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTAnnotationInstance >> run [
-
 	super run.
-
-	self setFamixProperty: #annotatedEntity on: newEntity to: self annotatedEntity. self setFamixProperty: #annotationType on: newEntity to: self annotationType.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity annotatedEntity: self annotatedEntity.
+	entity annotationType: self annotationType.
+	entity attributes: self attributes.
+	^entity.
 ]

@@ -1,17 +1,9 @@
-"
-I add a new FamixTAttribute in a MooseModel
-I need the following properties of the new attribute
-
--`parentType`
--`isStub`
--`sourceAnchor`
--`declaredType`
-"
 Class {
 	#name : 'ORActionAddTAttribute',
 	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
 		'parentType',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +14,22 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTAttribute >> createVersionnedEntitySelector [
+ORActionAddTAttribute class >> createVersionnedEntitySelector [ ^ #newAttribute
+]
 
-	^ #newAttribute
+{ #category : 'method execution' }
+ORActionAddTAttribute class >> run [
+	super run.
+	entity parentType: self parentType.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionAddTAttribute >> createVersionnedEntitySelector [ ^ #newAttribute
 ]
 
 { #category : 'accessing' }
@@ -33,6 +38,14 @@ ORActionAddTAttribute >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddTAttribute >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTAttribute >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddTAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,15 +66,13 @@ ORActionAddTAttribute >> parentType: aValue [ parentType := aValue
 
 { #category : 'method execution' }
 ORActionAddTAttribute >> run [
-
 	super run.
-
-	self setFamixProperty: #parentType on: newEntity to: self parentType. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity parentType: self parentType.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
 ]
 
 { #category : 'accessing' }

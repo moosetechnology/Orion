@@ -24,9 +24,23 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTImport >> createVersionnedEntitySelector [
+ORActionRemoveTImport class >> createVersionnedEntitySelector [ ^ #newImport
+]
 
-	^ #newImport
+{ #category : 'method execution' }
+ORActionRemoveTImport class >> run [
+	super run.
+	entity importedEntity: nil.
+	entity importingEntity: nil.
+	entity next: nil.
+	entity previous: nil.
+	entity sourceAnchor: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTImport >> createVersionnedEntitySelector [ ^ #newImport
 ]
 
 { #category : 'accessing' }
@@ -63,12 +77,14 @@ ORActionRemoveTImport >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTImport >> run [
-
-	self setFamixProperty: #importedEntity on: entity to: nil. self setFamixProperty: #importingEntity on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
-
+	super run.
+	entity importedEntity: nil.
+	entity importingEntity: nil.
+	entity next: nil.
+	entity previous: nil.
+	entity sourceAnchor: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

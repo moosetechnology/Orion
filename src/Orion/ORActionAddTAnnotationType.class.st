@@ -1,19 +1,22 @@
-"
-I add a new FamixTAnnotationType in a MooseModel
-I need the following properties of the new annotationtype
-
--`annotationTypesContainer`
-"
 Class {
 	#name : 'ORActionAddTAnnotationType',
 	#superclass : 'ORActionAdd',
 	#instVars : [
-		'annotationTypesContainer'
+		'annotationTypesContainer',
+		'instances'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
 	#tag : 'Actions'
 }
+
+{ #category : 'method execution' }
+ORActionAddTAnnotationType class >> run [
+	super run.
+	entity annotationTypesContainer: self annotationTypesContainer.
+	entity instances: self instances.
+	^entity.
+]
 
 { #category : 'accessing' }
 ORActionAddTAnnotationType >> annotationTypesContainer [ ^annotationTypesContainer
@@ -23,21 +26,18 @@ ORActionAddTAnnotationType >> annotationTypesContainer [ ^annotationTypesContain
 ORActionAddTAnnotationType >> annotationTypesContainer: aValue [ annotationTypesContainer := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionAddTAnnotationType >> createVersionnedEntitySelector [
+{ #category : 'accessing' }
+ORActionAddTAnnotationType >> instances [ ^instances
+]
 
-	^ #newAnnotationType
+{ #category : 'accessing' }
+ORActionAddTAnnotationType >> instances: aValue [ instances := aValue
 ]
 
 { #category : 'method execution' }
 ORActionAddTAnnotationType >> run [
-
 	super run.
-
-	self setFamixProperty: #annotationTypesContainer on: newEntity to: self annotationTypesContainer.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity annotationTypesContainer: self annotationTypesContainer.
+	entity instances: self instances.
+	^entity.
 ]

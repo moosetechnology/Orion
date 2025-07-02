@@ -11,7 +11,9 @@ Class {
 	#name : 'ORActionRemoveTAnnotationTypeAttribute',
 	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'annotationAttributeInstances',
 		'parentType',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +24,32 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTAnnotationTypeAttribute >> createVersionnedEntitySelector [
+ORActionRemoveTAnnotationTypeAttribute class >> createVersionnedEntitySelector [ ^ #newAnnotationTypeAttribute
+]
 
-	^ #newAnnotationTypeAttribute
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationTypeAttribute class >> run [
+	super run.
+	entity annotationAttributeInstances: nil.
+	entity parentType: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTAnnotationTypeAttribute >> annotationAttributeInstances [ ^annotationAttributeInstances
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTAnnotationTypeAttribute >> annotationAttributeInstances: aValue [ annotationAttributeInstances := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTAnnotationTypeAttribute >> createVersionnedEntitySelector [ ^ #newAnnotationTypeAttribute
 ]
 
 { #category : 'accessing' }
@@ -33,6 +58,14 @@ ORActionRemoveTAnnotationTypeAttribute >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionRemoveTAnnotationTypeAttribute >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTAnnotationTypeAttribute >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTAnnotationTypeAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,12 +86,15 @@ ORActionRemoveTAnnotationTypeAttribute >> parentType: aValue [ parentType := aVa
 
 { #category : 'method execution' }
 ORActionRemoveTAnnotationTypeAttribute >> run [
-
-	self setFamixProperty: #parentType on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil. self setFamixProperty: #declaredType on: entity to: nil.
-
+	super run.
+	entity annotationAttributeInstances: nil.
+	entity parentType: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

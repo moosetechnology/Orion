@@ -1,15 +1,8 @@
-"
-I add a new FamixTUnknownVariable in a MooseModel
-I need the following properties of the new unknownvariable
-
--`isStub`
--`sourceAnchor`
--`declaredType`
-"
 Class {
 	#name : 'ORActionAddTUnknownVariable',
 	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -20,9 +13,21 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTUnknownVariable >> createVersionnedEntitySelector [
+ORActionAddTUnknownVariable class >> createVersionnedEntitySelector [ ^ #newUnknownVariable
+]
 
-	^ #newUnknownVariable
+{ #category : 'method execution' }
+ORActionAddTUnknownVariable class >> run [
+	super run.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionAddTUnknownVariable >> createVersionnedEntitySelector [ ^ #newUnknownVariable
 ]
 
 { #category : 'accessing' }
@@ -31,6 +36,14 @@ ORActionAddTUnknownVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddTUnknownVariable >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTUnknownVariable >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddTUnknownVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -43,15 +56,12 @@ ORActionAddTUnknownVariable >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionAddTUnknownVariable >> run [
-
 	super run.
-
-	self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
 ]
 
 { #category : 'accessing' }

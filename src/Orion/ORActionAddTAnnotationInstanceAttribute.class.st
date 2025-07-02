@@ -1,11 +1,3 @@
-"
-I add a new FamixTAnnotationInstanceAttribute in a MooseModel
-I need the following properties of the new annotationinstanceattribute
-
--`annotationTypeAttribute`
--`parentAnnotationInstance`
--`value`
-"
 Class {
 	#name : 'ORActionAddTAnnotationInstanceAttribute',
 	#superclass : 'ORActionAdd',
@@ -19,18 +11,21 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTAnnotationInstanceAttribute class >> run [
+	super run.
+	entity annotationTypeAttribute: self annotationTypeAttribute.
+	entity parentAnnotationInstance: self parentAnnotationInstance.
+	entity value: self value.
+	^entity.
+]
+
 { #category : 'accessing' }
 ORActionAddTAnnotationInstanceAttribute >> annotationTypeAttribute [ ^annotationTypeAttribute
 ]
 
 { #category : 'accessing' }
 ORActionAddTAnnotationInstanceAttribute >> annotationTypeAttribute: aValue [ annotationTypeAttribute := aValue
-]
-
-{ #category : 'method execution' }
-ORActionAddTAnnotationInstanceAttribute >> createVersionnedEntitySelector [
-
-	^ #newAnnotationInstanceAttribute
 ]
 
 { #category : 'accessing' }
@@ -43,15 +38,11 @@ ORActionAddTAnnotationInstanceAttribute >> parentAnnotationInstance: aValue [ pa
 
 { #category : 'method execution' }
 ORActionAddTAnnotationInstanceAttribute >> run [
-
 	super run.
-
-	self setFamixProperty: #annotationTypeAttribute on: newEntity to: self annotationTypeAttribute. self setFamixProperty: #parentAnnotationInstance on: newEntity to: self parentAnnotationInstance. self setFamixProperty: #value on: newEntity to: self value.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity annotationTypeAttribute: self annotationTypeAttribute.
+	entity parentAnnotationInstance: self parentAnnotationInstance.
+	entity value: self value.
+	^entity.
 ]
 
 { #category : 'accessing' }

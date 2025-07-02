@@ -17,6 +17,19 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRemoveTComment class >> createVersionnedEntitySelector [ ^ #newComment
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTComment class >> run [
+	super run.
+	entity commentedEntity: nil.
+	entity sourceAnchor: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
 { #category : 'accessing' }
 ORActionRemoveTComment >> commentedEntity [ ^commentedEntity
 ]
@@ -26,19 +39,16 @@ ORActionRemoveTComment >> commentedEntity: aValue [ commentedEntity := aValue
 ]
 
 { #category : 'method execution' }
-ORActionRemoveTComment >> createVersionnedEntitySelector [
-
-	^ #newComment
+ORActionRemoveTComment >> createVersionnedEntitySelector [ ^ #newComment
 ]
 
 { #category : 'method execution' }
 ORActionRemoveTComment >> run [
-
-	self setFamixProperty: #commentedEntity on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
-
+	super run.
+	entity commentedEntity: nil.
+	entity sourceAnchor: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

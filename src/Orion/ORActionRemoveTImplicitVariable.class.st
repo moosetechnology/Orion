@@ -12,6 +12,7 @@ Class {
 	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
 		'parentBehaviouralEntity',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +23,23 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTImplicitVariable >> createVersionnedEntitySelector [
+ORActionRemoveTImplicitVariable class >> createVersionnedEntitySelector [ ^ #newImplicitVariable
+]
 
-	^ #newImplicitVariable
+{ #category : 'method execution' }
+ORActionRemoveTImplicitVariable class >> run [
+	super run.
+	entity parentBehaviouralEntity: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTImplicitVariable >> createVersionnedEntitySelector [ ^ #newImplicitVariable
 ]
 
 { #category : 'accessing' }
@@ -33,6 +48,14 @@ ORActionRemoveTImplicitVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionRemoveTImplicitVariable >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTImplicitVariable >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTImplicitVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,12 +76,14 @@ ORActionRemoveTImplicitVariable >> parentBehaviouralEntity: aValue [ parentBehav
 
 { #category : 'method execution' }
 ORActionRemoveTImplicitVariable >> run [
-
-	self setFamixProperty: #parentBehaviouralEntity on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil. self setFamixProperty: #declaredType on: entity to: nil.
-
+	super run.
+	entity parentBehaviouralEntity: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

@@ -12,6 +12,7 @@ Class {
 	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
 		'parentBehaviouralEntity',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +23,23 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTParameter >> createVersionnedEntitySelector [
+ORActionRemoveTParameter class >> createVersionnedEntitySelector [ ^ #newParameter
+]
 
-	^ #newParameter
+{ #category : 'method execution' }
+ORActionRemoveTParameter class >> run [
+	super run.
+	entity parentBehaviouralEntity: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTParameter >> createVersionnedEntitySelector [ ^ #newParameter
 ]
 
 { #category : 'accessing' }
@@ -33,6 +48,14 @@ ORActionRemoveTParameter >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionRemoveTParameter >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTParameter >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTParameter >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,12 +76,14 @@ ORActionRemoveTParameter >> parentBehaviouralEntity: aValue [ parentBehaviouralE
 
 { #category : 'method execution' }
 ORActionRemoveTParameter >> run [
-
-	self setFamixProperty: #parentBehaviouralEntity on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil. self setFamixProperty: #declaredType on: entity to: nil.
-
+	super run.
+	entity parentBehaviouralEntity: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

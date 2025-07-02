@@ -1,17 +1,9 @@
-"
-I add a new FamixTImplicitVariable in a MooseModel
-I need the following properties of the new implicitvariable
-
--`parentBehaviouralEntity`
--`isStub`
--`sourceAnchor`
--`declaredType`
-"
 Class {
 	#name : 'ORActionAddTImplicitVariable',
 	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
 		'parentBehaviouralEntity',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +14,22 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTImplicitVariable >> createVersionnedEntitySelector [
+ORActionAddTImplicitVariable class >> createVersionnedEntitySelector [ ^ #newImplicitVariable
+]
 
-	^ #newImplicitVariable
+{ #category : 'method execution' }
+ORActionAddTImplicitVariable class >> run [
+	super run.
+	entity parentBehaviouralEntity: self parentBehaviouralEntity.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionAddTImplicitVariable >> createVersionnedEntitySelector [ ^ #newImplicitVariable
 ]
 
 { #category : 'accessing' }
@@ -33,6 +38,14 @@ ORActionAddTImplicitVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddTImplicitVariable >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddTImplicitVariable >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddTImplicitVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,15 +66,13 @@ ORActionAddTImplicitVariable >> parentBehaviouralEntity: aValue [ parentBehaviou
 
 { #category : 'method execution' }
 ORActionAddTImplicitVariable >> run [
-
 	super run.
-
-	self setFamixProperty: #parentBehaviouralEntity on: newEntity to: self parentBehaviouralEntity. self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #declaredType on: newEntity to: self declaredType.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity parentBehaviouralEntity: self parentBehaviouralEntity.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	entity declaredType: self declaredType.
+	^entity.
 ]
 
 { #category : 'accessing' }

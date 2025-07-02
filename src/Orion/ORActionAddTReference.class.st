@@ -1,13 +1,3 @@
-"
-I add a new FamixTReference in a MooseModel
-I need the following properties of the new reference
-
--`referencer`
--`referredEntity`
--`next`
--`previous`
--`sourceAnchor`
-"
 Class {
 	#name : 'ORActionAddTReference',
 	#superclass : 'ORActionAdd',
@@ -24,9 +14,14 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTReference >> createVersionnedEntitySelector [
-
-	^ #newReference
+ORActionAddTReference class >> run [
+	super run.
+	entity referencer: self referencer.
+	entity referredEntity: self referredEntity.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }
@@ -63,15 +58,13 @@ ORActionAddTReference >> referredEntity: aValue [ referredEntity := aValue
 
 { #category : 'method execution' }
 ORActionAddTReference >> run [
-
 	super run.
-
-	self setFamixProperty: #referencer on: newEntity to: self referencer. self setFamixProperty: #referredEntity on: newEntity to: self referredEntity. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity referencer: self referencer.
+	entity referredEntity: self referredEntity.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }

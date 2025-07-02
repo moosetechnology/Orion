@@ -1,13 +1,3 @@
-"
-I add a new FamixTInheritance in a MooseModel
-I need the following properties of the new inheritance
-
--`subclass`
--`superclass`
--`next`
--`previous`
--`sourceAnchor`
-"
 Class {
 	#name : 'ORActionAddTInheritance',
 	#superclass : 'ORActionAdd',
@@ -24,9 +14,14 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTInheritance >> createVersionnedEntitySelector [
-
-	^ #newInheritance
+ORActionAddTInheritance class >> run [
+	super run.
+	entity subclass: self subclass.
+	entity superclass: self superclass.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }
@@ -47,15 +42,13 @@ ORActionAddTInheritance >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTInheritance >> run [
-
 	super run.
-
-	self setFamixProperty: #subclass on: newEntity to: self subclass. self setFamixProperty: #superclass on: newEntity to: self superclass. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity subclass: self subclass.
+	entity superclass: self superclass.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }

@@ -12,6 +12,7 @@ Class {
 	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
 		'parentBehaviouralEntity',
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -22,9 +23,23 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTLocalVariable >> createVersionnedEntitySelector [
+ORActionRemoveTLocalVariable class >> createVersionnedEntitySelector [ ^ #newLocalVariable
+]
 
-	^ #newLocalVariable
+{ #category : 'method execution' }
+ORActionRemoveTLocalVariable class >> run [
+	super run.
+	entity parentBehaviouralEntity: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTLocalVariable >> createVersionnedEntitySelector [ ^ #newLocalVariable
 ]
 
 { #category : 'accessing' }
@@ -33,6 +48,14 @@ ORActionRemoveTLocalVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionRemoveTLocalVariable >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTLocalVariable >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTLocalVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -53,12 +76,14 @@ ORActionRemoveTLocalVariable >> parentBehaviouralEntity: aValue [ parentBehaviou
 
 { #category : 'method execution' }
 ORActionRemoveTLocalVariable >> run [
-
-	self setFamixProperty: #parentBehaviouralEntity on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil. self setFamixProperty: #declaredType on: entity to: nil.
-
+	super run.
+	entity parentBehaviouralEntity: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

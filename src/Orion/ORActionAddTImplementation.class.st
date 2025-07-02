@@ -1,13 +1,3 @@
-"
-I add a new FamixTImplementation in a MooseModel
-I need the following properties of the new implementation
-
--`implementingClass`
--`interface`
--`next`
--`previous`
--`sourceAnchor`
-"
 Class {
 	#name : 'ORActionAddTImplementation',
 	#superclass : 'ORActionAdd',
@@ -24,9 +14,14 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTImplementation >> createVersionnedEntitySelector [
-
-	^ #newImplementation
+ORActionAddTImplementation class >> run [
+	super run.
+	entity implementingClass: self implementingClass.
+	entity interface: self interface.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }
@@ -63,15 +58,13 @@ ORActionAddTImplementation >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTImplementation >> run [
-
 	super run.
-
-	self setFamixProperty: #implementingClass on: newEntity to: self implementingClass. self setFamixProperty: #interface on: newEntity to: self interface. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity implementingClass: self implementingClass.
+	entity interface: self interface.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }

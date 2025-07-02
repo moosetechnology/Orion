@@ -10,6 +10,7 @@ Class {
 	#name : 'ORActionRemoveTUnknownVariable',
 	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'incomingAccesses',
 		'isStub',
 		'sourceAnchor',
 		'declaredType'
@@ -20,9 +21,22 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTUnknownVariable >> createVersionnedEntitySelector [
+ORActionRemoveTUnknownVariable class >> createVersionnedEntitySelector [ ^ #newUnknownVariable
+]
 
-	^ #newUnknownVariable
+{ #category : 'method execution' }
+ORActionRemoveTUnknownVariable class >> run [
+	super run.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTUnknownVariable >> createVersionnedEntitySelector [ ^ #newUnknownVariable
 ]
 
 { #category : 'accessing' }
@@ -31,6 +45,14 @@ ORActionRemoveTUnknownVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionRemoveTUnknownVariable >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTUnknownVariable >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTUnknownVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -43,12 +65,13 @@ ORActionRemoveTUnknownVariable >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTUnknownVariable >> run [
-
-	self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil. self setFamixProperty: #declaredType on: entity to: nil.
-
+	super run.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity declaredType: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

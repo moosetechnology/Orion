@@ -11,8 +11,11 @@ Class {
 	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
 		'typeContainer',
+		'typedEntities',
 		'isStub',
-		'sourceAnchor'
+		'sourceAnchor',
+		'incomingReferences',
+		'enumValues'
 	],
 	#category : 'Orion-Actions',
 	#package : 'Orion',
@@ -20,9 +23,40 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTEnum >> createVersionnedEntitySelector [
+ORActionRemoveTEnum class >> createVersionnedEntitySelector [ ^ #newEnum
+]
 
-	^ #newEnum
+{ #category : 'method execution' }
+ORActionRemoveTEnum class >> run [
+	super run.
+	entity typeContainer: nil.
+	entity typedEntities: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity incomingReferences: nil.
+	entity enumValues: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTEnum >> createVersionnedEntitySelector [ ^ #newEnum
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTEnum >> enumValues [ ^enumValues
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTEnum >> enumValues: aValue [ enumValues := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTEnum >> incomingReferences [ ^incomingReferences
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTEnum >> incomingReferences: aValue [ incomingReferences := aValue
 ]
 
 { #category : 'accessing' }
@@ -35,12 +69,15 @@ ORActionRemoveTEnum >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTEnum >> run [
-
-	self setFamixProperty: #typeContainer on: entity to: nil. self setFamixProperty: #isStub on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
-
+	super run.
+	entity typeContainer: nil.
+	entity typedEntities: nil.
+	entity isStub: nil.
+	entity sourceAnchor: nil.
+	entity incomingReferences: nil.
+	entity enumValues: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }
@@ -57,4 +94,12 @@ ORActionRemoveTEnum >> typeContainer [ ^typeContainer
 
 { #category : 'accessing' }
 ORActionRemoveTEnum >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTEnum >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionRemoveTEnum >> typedEntities: aValue [ typedEntities := aValue
 ]

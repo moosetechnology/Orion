@@ -1,14 +1,8 @@
-"
-I add a new FamixTPackage in a MooseModel
-I need the following properties of the new package
-
--`isStub`
--`sourceAnchor`
-"
 Class {
 	#name : 'ORActionAddTPackage',
 	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'childEntities',
 		'isStub',
 		'sourceAnchor'
 	],
@@ -18,9 +12,28 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTPackage >> createVersionnedEntitySelector [
+ORActionAddTPackage class >> createVersionnedEntitySelector [ ^ #newPackage
+]
 
-	^ #newPackage
+{ #category : 'method execution' }
+ORActionAddTPackage class >> run [
+	super run.
+	entity childEntities: self childEntities.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionAddTPackage >> childEntities [ ^childEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddTPackage >> childEntities: aValue [ childEntities := aValue
+]
+
+{ #category : 'method execution' }
+ORActionAddTPackage >> createVersionnedEntitySelector [ ^ #newPackage
 ]
 
 { #category : 'accessing' }
@@ -33,15 +46,11 @@ ORActionAddTPackage >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionAddTPackage >> run [
-
 	super run.
-
-	self setFamixProperty: #isStub on: newEntity to: self isStub. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity childEntities: self childEntities.
+	entity isStub: self isStub.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }

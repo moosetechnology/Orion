@@ -24,9 +24,23 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTInheritance >> createVersionnedEntitySelector [
+ORActionRemoveTInheritance class >> createVersionnedEntitySelector [ ^ #newInheritance
+]
 
-	^ #newInheritance
+{ #category : 'method execution' }
+ORActionRemoveTInheritance class >> run [
+	super run.
+	entity subclass: nil.
+	entity superclass: nil.
+	entity next: nil.
+	entity previous: nil.
+	entity sourceAnchor: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTInheritance >> createVersionnedEntitySelector [ ^ #newInheritance
 ]
 
 { #category : 'accessing' }
@@ -47,12 +61,14 @@ ORActionRemoveTInheritance >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTInheritance >> run [
-
-	self setFamixProperty: #subclass on: entity to: nil. self setFamixProperty: #superclass on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
-
+	super run.
+	entity subclass: nil.
+	entity superclass: nil.
+	entity next: nil.
+	entity previous: nil.
+	entity sourceAnchor: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

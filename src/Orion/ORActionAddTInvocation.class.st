@@ -1,18 +1,8 @@
-"
-I add a new FamixTInvocation in a MooseModel
-I need the following properties of the new invocation
-
--`receiver`
--`sender`
--`next`
--`previous`
--`sourceAnchor`
--`signature`
-"
 Class {
 	#name : 'ORActionAddTInvocation',
 	#superclass : 'ORActionAdd',
 	#instVars : [
+		'candidates',
 		'receiver',
 		'sender',
 		'next',
@@ -26,9 +16,24 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionAddTInvocation >> createVersionnedEntitySelector [
+ORActionAddTInvocation class >> run [
+	super run.
+	entity candidates: self candidates.
+	entity receiver: self receiver.
+	entity sender: self sender.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	entity signature: self signature.
+	^entity.
+]
 
-	^ #newInvocation
+{ #category : 'accessing' }
+ORActionAddTInvocation >> candidates [ ^candidates
+]
+
+{ #category : 'accessing' }
+ORActionAddTInvocation >> candidates: aValue [ candidates := aValue
 ]
 
 { #category : 'accessing' }
@@ -57,15 +62,15 @@ ORActionAddTInvocation >> receiver: aValue [ receiver := aValue
 
 { #category : 'method execution' }
 ORActionAddTInvocation >> run [
-
 	super run.
-
-	self setFamixProperty: #receiver on: newEntity to: self receiver. self setFamixProperty: #sender on: newEntity to: self sender. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor. self setFamixProperty: #signature on: newEntity to: self signature.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity candidates: self candidates.
+	entity receiver: self receiver.
+	entity sender: self sender.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	entity signature: self signature.
+	^entity.
 ]
 
 { #category : 'accessing' }

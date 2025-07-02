@@ -1,14 +1,3 @@
-"
-I add a new FamixTAccess in a MooseModel
-I need the following properties of the new access
-
--`accessor`
--`isWrite`
--`variable`
--`next`
--`previous`
--`sourceAnchor`
-"
 Class {
 	#name : 'ORActionAddTAccess',
 	#superclass : 'ORActionAdd',
@@ -25,18 +14,24 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionAddTAccess class >> run [
+	super run.
+	entity accessor: self accessor.
+	entity isWrite: self isWrite.
+	entity variable: self variable.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
+]
+
 { #category : 'accessing' }
 ORActionAddTAccess >> accessor [ ^accessor
 ]
 
 { #category : 'accessing' }
 ORActionAddTAccess >> accessor: aValue [ accessor := aValue
-]
-
-{ #category : 'method execution' }
-ORActionAddTAccess >> createVersionnedEntitySelector [
-
-	^ #newAccess
 ]
 
 { #category : 'accessing' }
@@ -65,15 +60,14 @@ ORActionAddTAccess >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTAccess >> run [
-
 	super run.
-
-	self setFamixProperty: #accessor on: newEntity to: self accessor. self setFamixProperty: #isWrite on: newEntity to: self isWrite. self setFamixProperty: #variable on: newEntity to: self variable. self setFamixProperty: #next on: newEntity to: self next. self setFamixProperty: #previous on: newEntity to: self previous. self setFamixProperty: #sourceAnchor on: newEntity to: self sourceAnchor.
-
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	entity accessor: self accessor.
+	entity isWrite: self isWrite.
+	entity variable: self variable.
+	entity next: self next.
+	entity previous: self previous.
+	entity sourceAnchor: self sourceAnchor.
+	^entity.
 ]
 
 { #category : 'accessing' }

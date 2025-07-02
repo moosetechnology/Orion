@@ -12,6 +12,7 @@ Class {
 	#name : 'ORActionRemoveTParameterConcretization',
 	#superclass : 'ORActionRemove',
 	#instVars : [
+		'concretizations',
 		'genericParameter',
 		'concreteParameter',
 		'next',
@@ -23,6 +24,23 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'method execution' }
+ORActionRemoveTParameterConcretization class >> createVersionnedEntitySelector [ ^ #newParameterConcretization
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTParameterConcretization class >> run [
+	super run.
+	entity concretizations: nil.
+	entity genericParameter: nil.
+	entity concreteParameter: nil.
+	entity next: nil.
+	entity previous: nil.
+	entity sourceAnchor: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
 { #category : 'accessing' }
 ORActionRemoveTParameterConcretization >> concreteParameter [ ^concreteParameter
 ]
@@ -31,10 +49,16 @@ ORActionRemoveTParameterConcretization >> concreteParameter [ ^concreteParameter
 ORActionRemoveTParameterConcretization >> concreteParameter: aValue [ concreteParameter := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveTParameterConcretization >> createVersionnedEntitySelector [
+{ #category : 'accessing' }
+ORActionRemoveTParameterConcretization >> concretizations [ ^concretizations
+]
 
-	^ #newParameterConcretization
+{ #category : 'accessing' }
+ORActionRemoveTParameterConcretization >> concretizations: aValue [ concretizations := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTParameterConcretization >> createVersionnedEntitySelector [ ^ #newParameterConcretization
 ]
 
 { #category : 'accessing' }
@@ -63,12 +87,15 @@ ORActionRemoveTParameterConcretization >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTParameterConcretization >> run [
-
-	self setFamixProperty: #genericParameter on: entity to: nil. self setFamixProperty: #concreteParameter on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
-
+	super run.
+	entity concretizations: nil.
+	entity genericParameter: nil.
+	entity concreteParameter: nil.
+	entity next: nil.
+	entity previous: nil.
+	entity sourceAnchor: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

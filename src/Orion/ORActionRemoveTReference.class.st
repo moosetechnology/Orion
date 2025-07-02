@@ -24,9 +24,23 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveTReference >> createVersionnedEntitySelector [
+ORActionRemoveTReference class >> createVersionnedEntitySelector [ ^ #newReference
+]
 
-	^ #newReference
+{ #category : 'method execution' }
+ORActionRemoveTReference class >> run [
+	super run.
+	entity referencer: nil.
+	entity referredEntity: nil.
+	entity next: nil.
+	entity previous: nil.
+	entity sourceAnchor: nil.
+	self orionModel remove: (self orion versionLookup: self entity).
+	^entity.
+]
+
+{ #category : 'method execution' }
+ORActionRemoveTReference >> createVersionnedEntitySelector [ ^ #newReference
 ]
 
 { #category : 'accessing' }
@@ -63,12 +77,14 @@ ORActionRemoveTReference >> referredEntity: aValue [ referredEntity := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTReference >> run [
-
-	self setFamixProperty: #referencer on: entity to: nil. self setFamixProperty: #referredEntity on: entity to: nil. self setFamixProperty: #next on: entity to: nil. self setFamixProperty: #previous on: entity to: nil. self setFamixProperty: #sourceAnchor on: entity to: nil.
-
+	super run.
+	entity referencer: nil.
+	entity referredEntity: nil.
+	entity next: nil.
+	entity previous: nil.
+	entity sourceAnchor: nil.
 	self orionModel remove: (self orionModel versionLookup: self entity).
-
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }
