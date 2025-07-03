@@ -81,6 +81,7 @@ ORActionFactoryRefactored >> generateActionsFor: aClass [
 	runMethodGenerators do: [ :generator |
 		| newClass |
 		newClass := self createActionClassFor: aClass with: generator.
+		self writeComment: newClass .
 		self buildMethodsIn: newClass with: generator ]
 ]
 
@@ -111,4 +112,27 @@ ORActionFactoryRefactored >> package [
 { #category : 'accessing' }
 ORActionFactoryRefactored >> type [
 ^type 
+]
+
+{ #category : 'class comment' }
+ORActionFactoryRefactored >> writeComment: aClass [
+
+	| comment entity actionType|
+	(aClass name includesSubstring: 'Add') ifTrue: [ actionType := 'Add' ].
+	(aClass name includesSubstring: 'Remove') ifTrue: [ actionType := 'Remove' ].
+	(aClass name includesSubstring: 'Rename') ifTrue: [ actionType := 'Rename' ].
+	(aClass name includesSubstring: 'Move') ifTrue: [ actionType := 'Move' ].
+	entity := aClass name
+		          copyFrom: ('ORAction' , actionType , self type) size + 1
+		          to: aClass name size.
+		
+	comment := 'I ' , actionType asLowercase , ' a Famix', self type, entity
+	           , ' in a MooseModel'.
+	comment := comment , Character cr asString
+	           , 'I need the following properties of the  '
+	           , entity asLowercase , Character cr asString.
+	aClass slotNames do: [ :e |
+		comment := comment , Character cr asString , '-`' , e , '`' ].
+	
+	aClass comment: comment
 ]
