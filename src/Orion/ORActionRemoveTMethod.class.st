@@ -1,12 +1,19 @@
 "
-I remove a new FamixTMethod in a MooseModel
-I need the following properties of the new method
+I remove a FamixTMethod in a MooseModel
+I need the following properties of the  method
 
 -`parentType`
 -`signature`
+-`incomingInvocations`
 -`declaredType`
+-`implicitVariables`
+-`localVariables`
+-`parameters`
 -`isStub`
 -`sourceAnchor`
+-`accesses`
+-`outgoingInvocations`
+-`outgoingReferences`
 "
 Class {
 	#name : 'ORActionRemoveTMethod',
@@ -139,6 +146,7 @@ ORActionRemoveTMethod >> parentType: aValue [ parentType := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTMethod >> run [
+
 	super run.
 	entity parentType: nil.
 	entity signature: nil.
@@ -152,7 +160,9 @@ ORActionRemoveTMethod >> run [
 	entity accesses: nil.
 	entity outgoingInvocations: nil.
 	entity outgoingReferences: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

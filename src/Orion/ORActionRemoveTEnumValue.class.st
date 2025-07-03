@@ -1,8 +1,9 @@
 "
-I remove a new FamixTEnumValue in a MooseModel
-I need the following properties of the new enumvalue
+I remove a FamixTEnumValue in a MooseModel
+I need the following properties of the  enumvalue
 
 -`parentEnum`
+-`incomingAccesses`
 -`isStub`
 -`sourceAnchor`
 -`declaredType`
@@ -76,13 +77,16 @@ ORActionRemoveTEnumValue >> parentEnum: aValue [ parentEnum := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTEnumValue >> run [
+
 	super run.
 	entity parentEnum: nil.
 	entity incomingAccesses: nil.
 	entity isStub: nil.
 	entity sourceAnchor: nil.
 	entity declaredType: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

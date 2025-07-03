@@ -1,3 +1,13 @@
+"
+I add a FamixTReference in a MooseModel
+I need the following properties of the  reference
+
+-`referencer`
+-`referredEntity`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTReference',
 	#superclass : 'ORActionAdd',
@@ -58,12 +68,14 @@ ORActionAddTReference >> referredEntity: aValue [ referredEntity := aValue
 
 { #category : 'method execution' }
 ORActionAddTReference >> run [
+
 	super run.
 	entity referencer: self referencer.
 	entity referredEntity: self referredEntity.
 	entity next: self next.
 	entity previous: self previous.
 	entity sourceAnchor: self sourceAnchor.
+
 	^entity.
 ]
 

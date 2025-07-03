@@ -1,10 +1,13 @@
 "
-I remove a new FamixTEnum in a MooseModel
-I need the following properties of the new enum
+I remove a FamixTEnum in a MooseModel
+I need the following properties of the  enum
 
 -`typeContainer`
+-`typedEntities`
 -`isStub`
 -`sourceAnchor`
+-`incomingReferences`
+-`enumValues`
 "
 Class {
 	#name : 'ORActionRemoveTEnum',
@@ -69,6 +72,7 @@ ORActionRemoveTEnum >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTEnum >> run [
+
 	super run.
 	entity typeContainer: nil.
 	entity typedEntities: nil.
@@ -76,7 +80,9 @@ ORActionRemoveTEnum >> run [
 	entity sourceAnchor: nil.
 	entity incomingReferences: nil.
 	entity enumValues: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

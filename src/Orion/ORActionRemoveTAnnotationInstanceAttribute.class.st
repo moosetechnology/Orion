@@ -1,6 +1,6 @@
 "
-I remove a new FamixTAnnotationInstanceAttribute in a MooseModel
-I need the following properties of the new annotationinstanceattribute
+I remove a FamixTAnnotationInstanceAttribute in a MooseModel
+I need the following properties of the  annotationinstanceattribute
 
 -`annotationTypeAttribute`
 -`parentAnnotationInstance`
@@ -55,11 +55,14 @@ ORActionRemoveTAnnotationInstanceAttribute >> parentAnnotationInstance: aValue [
 
 { #category : 'method execution' }
 ORActionRemoveTAnnotationInstanceAttribute >> run [
+
 	super run.
 	entity annotationTypeAttribute: nil.
 	entity parentAnnotationInstance: nil.
 	entity value: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

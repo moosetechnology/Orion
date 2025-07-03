@@ -1,6 +1,6 @@
 "
-I remove a new FamixTInheritance in a MooseModel
-I need the following properties of the new inheritance
+I remove a FamixTInheritance in a MooseModel
+I need the following properties of the  inheritance
 
 -`subclass`
 -`superclass`
@@ -61,13 +61,16 @@ ORActionRemoveTInheritance >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTInheritance >> run [
+
 	super run.
 	entity subclass: nil.
 	entity superclass: nil.
 	entity next: nil.
 	entity previous: nil.
 	entity sourceAnchor: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

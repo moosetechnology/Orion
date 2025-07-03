@@ -1,3 +1,20 @@
+"
+I add a FamixTMethod in a MooseModel
+I need the following properties of the  method
+
+-`parentType`
+-`signature`
+-`incomingInvocations`
+-`declaredType`
+-`implicitVariables`
+-`localVariables`
+-`parameters`
+-`isStub`
+-`sourceAnchor`
+-`accesses`
+-`outgoingInvocations`
+-`outgoingReferences`
+"
 Class {
 	#name : 'ORActionAddTMethod',
 	#superclass : 'ORActionAddNamedEntity',
@@ -128,6 +145,7 @@ ORActionAddTMethod >> parentType: aValue [ parentType := aValue
 
 { #category : 'method execution' }
 ORActionAddTMethod >> run [
+
 	super run.
 	entity parentType: self parentType.
 	entity signature: self signature.
@@ -141,6 +159,7 @@ ORActionAddTMethod >> run [
 	entity accesses: self accesses.
 	entity outgoingInvocations: self outgoingInvocations.
 	entity outgoingReferences: self outgoingReferences.
+
 	^entity.
 ]
 

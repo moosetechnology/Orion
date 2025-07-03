@@ -1,7 +1,8 @@
 "
-I remove a new FamixTSourceLanguage in a MooseModel
-I need the following properties of the new sourcelanguage
+I remove a FamixTSourceLanguage in a MooseModel
+I need the following properties of the  sourcelanguage
 
+-`sourcedEntities`
 "
 Class {
 	#name : 'ORActionRemoveTSourceLanguage',
@@ -32,9 +33,12 @@ ORActionRemoveTSourceLanguage >> createVersionnedEntitySelector [ ^ #newSourceLa
 
 { #category : 'method execution' }
 ORActionRemoveTSourceLanguage >> run [
+
 	super run.
 	entity sourcedEntities: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

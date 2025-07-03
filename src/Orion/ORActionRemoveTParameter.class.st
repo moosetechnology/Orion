@@ -1,8 +1,9 @@
 "
-I remove a new FamixTParameter in a MooseModel
-I need the following properties of the new parameter
+I remove a FamixTParameter in a MooseModel
+I need the following properties of the  parameter
 
 -`parentBehaviouralEntity`
+-`incomingAccesses`
 -`isStub`
 -`sourceAnchor`
 -`declaredType`
@@ -76,13 +77,16 @@ ORActionRemoveTParameter >> parentBehaviouralEntity: aValue [ parentBehaviouralE
 
 { #category : 'method execution' }
 ORActionRemoveTParameter >> run [
+
 	super run.
 	entity parentBehaviouralEntity: nil.
 	entity incomingAccesses: nil.
 	entity isStub: nil.
 	entity sourceAnchor: nil.
 	entity declaredType: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

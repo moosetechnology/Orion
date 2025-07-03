@@ -1,3 +1,13 @@
+"
+I add a FamixTInheritance in a MooseModel
+I need the following properties of the  inheritance
+
+-`subclass`
+-`superclass`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTInheritance',
 	#superclass : 'ORActionAdd',
@@ -42,12 +52,14 @@ ORActionAddTInheritance >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTInheritance >> run [
+
 	super run.
 	entity subclass: self subclass.
 	entity superclass: self superclass.
 	entity next: self next.
 	entity previous: self previous.
 	entity sourceAnchor: self sourceAnchor.
+
 	^entity.
 ]
 

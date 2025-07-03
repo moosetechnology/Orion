@@ -1,3 +1,14 @@
+"
+I add a FamixTAccess in a MooseModel
+I need the following properties of the  access
+
+-`accessor`
+-`isWrite`
+-`variable`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTAccess',
 	#superclass : 'ORActionAdd',
@@ -60,6 +71,7 @@ ORActionAddTAccess >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTAccess >> run [
+
 	super run.
 	entity accessor: self accessor.
 	entity isWrite: self isWrite.
@@ -67,6 +79,7 @@ ORActionAddTAccess >> run [
 	entity next: self next.
 	entity previous: self previous.
 	entity sourceAnchor: self sourceAnchor.
+
 	^entity.
 ]
 

@@ -1,3 +1,14 @@
+"
+I add a FamixTEnum in a MooseModel
+I need the following properties of the  enum
+
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`sourceAnchor`
+-`incomingReferences`
+-`enumValues`
+"
 Class {
 	#name : 'ORActionAddTEnum',
 	#superclass : 'ORActionAddNamedEntity',
@@ -60,6 +71,7 @@ ORActionAddTEnum >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionAddTEnum >> run [
+
 	super run.
 	entity typeContainer: self typeContainer.
 	entity typedEntities: self typedEntities.
@@ -67,6 +79,7 @@ ORActionAddTEnum >> run [
 	entity sourceAnchor: self sourceAnchor.
 	entity incomingReferences: self incomingReferences.
 	entity enumValues: self enumValues.
+
 	^entity.
 ]
 

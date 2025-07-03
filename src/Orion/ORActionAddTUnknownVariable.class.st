@@ -1,3 +1,12 @@
+"
+I add a FamixTUnknownVariable in a MooseModel
+I need the following properties of the  unknownvariable
+
+-`incomingAccesses`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTUnknownVariable',
 	#superclass : 'ORActionAddNamedEntity',
@@ -56,11 +65,13 @@ ORActionAddTUnknownVariable >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionAddTUnknownVariable >> run [
+
 	super run.
 	entity incomingAccesses: self incomingAccesses.
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
 	entity declaredType: self declaredType.
+
 	^entity.
 ]
 

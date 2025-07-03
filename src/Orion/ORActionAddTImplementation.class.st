@@ -1,3 +1,13 @@
+"
+I add a FamixTImplementation in a MooseModel
+I need the following properties of the  implementation
+
+-`implementingClass`
+-`interface`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTImplementation',
 	#superclass : 'ORActionAdd',
@@ -58,12 +68,14 @@ ORActionAddTImplementation >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTImplementation >> run [
+
 	super run.
 	entity implementingClass: self implementingClass.
 	entity interface: self interface.
 	entity next: self next.
 	entity previous: self previous.
 	entity sourceAnchor: self sourceAnchor.
+
 	^entity.
 ]
 

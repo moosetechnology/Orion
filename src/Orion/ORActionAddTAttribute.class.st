@@ -1,3 +1,13 @@
+"
+I add a FamixTAttribute in a MooseModel
+I need the following properties of the  attribute
+
+-`parentType`
+-`incomingAccesses`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTAttribute',
 	#superclass : 'ORActionAddNamedEntity',
@@ -66,12 +76,14 @@ ORActionAddTAttribute >> parentType: aValue [ parentType := aValue
 
 { #category : 'method execution' }
 ORActionAddTAttribute >> run [
+
 	super run.
 	entity parentType: self parentType.
 	entity incomingAccesses: self incomingAccesses.
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
 	entity declaredType: self declaredType.
+
 	^entity.
 ]
 

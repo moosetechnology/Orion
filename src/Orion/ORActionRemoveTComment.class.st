@@ -1,6 +1,6 @@
 "
-I remove a new FamixTComment in a MooseModel
-I need the following properties of the new comment
+I remove a FamixTComment in a MooseModel
+I need the following properties of the  comment
 
 -`commentedEntity`
 -`sourceAnchor`
@@ -44,10 +44,13 @@ ORActionRemoveTComment >> createVersionnedEntitySelector [ ^ #newComment
 
 { #category : 'method execution' }
 ORActionRemoveTComment >> run [
+
 	super run.
 	entity commentedEntity: nil.
 	entity sourceAnchor: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

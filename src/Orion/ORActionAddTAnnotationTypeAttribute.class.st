@@ -1,3 +1,14 @@
+"
+I add a FamixTAnnotationTypeAttribute in a MooseModel
+I need the following properties of the  annotationtypeattribute
+
+-`annotationAttributeInstances`
+-`parentType`
+-`incomingAccesses`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTAnnotationTypeAttribute',
 	#superclass : 'ORActionAddNamedEntity',
@@ -76,6 +87,7 @@ ORActionAddTAnnotationTypeAttribute >> parentType: aValue [ parentType := aValue
 
 { #category : 'method execution' }
 ORActionAddTAnnotationTypeAttribute >> run [
+
 	super run.
 	entity annotationAttributeInstances: self annotationAttributeInstances.
 	entity parentType: self parentType.
@@ -83,6 +95,7 @@ ORActionAddTAnnotationTypeAttribute >> run [
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
 	entity declaredType: self declaredType.
+
 	^entity.
 ]
 

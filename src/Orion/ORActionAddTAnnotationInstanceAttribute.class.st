@@ -1,3 +1,11 @@
+"
+I add a FamixTAnnotationInstanceAttribute in a MooseModel
+I need the following properties of the  annotationinstanceattribute
+
+-`annotationTypeAttribute`
+-`parentAnnotationInstance`
+-`value`
+"
 Class {
 	#name : 'ORActionAddTAnnotationInstanceAttribute',
 	#superclass : 'ORActionAdd',
@@ -38,10 +46,12 @@ ORActionAddTAnnotationInstanceAttribute >> parentAnnotationInstance: aValue [ pa
 
 { #category : 'method execution' }
 ORActionAddTAnnotationInstanceAttribute >> run [
+
 	super run.
 	entity annotationTypeAttribute: self annotationTypeAttribute.
 	entity parentAnnotationInstance: self parentAnnotationInstance.
 	entity value: self value.
+
 	^entity.
 ]
 

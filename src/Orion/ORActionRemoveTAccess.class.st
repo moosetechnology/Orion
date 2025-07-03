@@ -1,6 +1,6 @@
 "
-I remove a new FamixTAccess in a MooseModel
-I need the following properties of the new access
+I remove a FamixTAccess in a MooseModel
+I need the following properties of the  access
 
 -`accessor`
 -`isWrite`
@@ -80,6 +80,7 @@ ORActionRemoveTAccess >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTAccess >> run [
+
 	super run.
 	entity accessor: nil.
 	entity isWrite: nil.
@@ -87,7 +88,9 @@ ORActionRemoveTAccess >> run [
 	entity next: nil.
 	entity previous: nil.
 	entity sourceAnchor: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

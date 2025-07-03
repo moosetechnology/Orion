@@ -1,3 +1,13 @@
+"
+I add a FamixTLocalVariable in a MooseModel
+I need the following properties of the  localvariable
+
+-`parentBehaviouralEntity`
+-`incomingAccesses`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTLocalVariable',
 	#superclass : 'ORActionAddNamedEntity',
@@ -66,12 +76,14 @@ ORActionAddTLocalVariable >> parentBehaviouralEntity: aValue [ parentBehavioural
 
 { #category : 'method execution' }
 ORActionAddTLocalVariable >> run [
+
 	super run.
 	entity parentBehaviouralEntity: self parentBehaviouralEntity.
 	entity incomingAccesses: self incomingAccesses.
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
 	entity declaredType: self declaredType.
+
 	^entity.
 ]
 

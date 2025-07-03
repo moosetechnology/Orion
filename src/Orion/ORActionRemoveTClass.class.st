@@ -1,10 +1,18 @@
 "
-I remove a new FamixTClass in a MooseModel
-I need the following properties of the new class
+I remove a FamixTClass in a MooseModel
+I need the following properties of the  class
 
+-`receivingInvocations`
 -`typeContainer`
+-`typedEntities`
 -`isStub`
 -`sourceAnchor`
+-`incomingReferences`
+-`attributes`
+-`comments`
+-`superInheritances`
+-`subInheritances`
+-`methods`
 "
 Class {
 	#name : 'ORActionRemoveTClass',
@@ -103,6 +111,7 @@ ORActionRemoveTClass >> receivingInvocations: aValue [ receivingInvocations := a
 
 { #category : 'method execution' }
 ORActionRemoveTClass >> run [
+
 	super run.
 	entity receivingInvocations: nil.
 	entity typeContainer: nil.
@@ -115,7 +124,9 @@ ORActionRemoveTClass >> run [
 	entity superInheritances: nil.
 	entity subInheritances: nil.
 	entity methods: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

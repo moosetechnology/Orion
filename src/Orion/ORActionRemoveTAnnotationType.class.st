@@ -1,8 +1,9 @@
 "
-I remove a new FamixTAnnotationType in a MooseModel
-I need the following properties of the new annotationtype
+I remove a FamixTAnnotationType in a MooseModel
+I need the following properties of the  annotationtype
 
 -`annotationTypesContainer`
+-`instances`
 "
 Class {
 	#name : 'ORActionRemoveTAnnotationType',
@@ -51,9 +52,12 @@ ORActionRemoveTAnnotationType >> instances: aValue [ instances := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTAnnotationType >> run [
+
 	super run.
 	entity annotationTypesContainer: nil.
 	entity instances: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]

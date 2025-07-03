@@ -1,3 +1,13 @@
+"
+I add a FamixTEnumValue in a MooseModel
+I need the following properties of the  enumvalue
+
+-`parentEnum`
+-`incomingAccesses`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTEnumValue',
 	#superclass : 'ORActionAddNamedEntity',
@@ -66,12 +76,14 @@ ORActionAddTEnumValue >> parentEnum: aValue [ parentEnum := aValue
 
 { #category : 'method execution' }
 ORActionAddTEnumValue >> run [
+
 	super run.
 	entity parentEnum: self parentEnum.
 	entity incomingAccesses: self incomingAccesses.
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
 	entity declaredType: self declaredType.
+
 	^entity.
 ]
 

@@ -1,3 +1,13 @@
+"
+I add a FamixTType in a MooseModel
+I need the following properties of the  type
+
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`sourceAnchor`
+-`incomingReferences`
+"
 Class {
 	#name : 'ORActionAddTType',
 	#superclass : 'ORActionAddNamedEntity',
@@ -50,12 +60,14 @@ ORActionAddTType >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionAddTType >> run [
+
 	super run.
 	entity typeContainer: self typeContainer.
 	entity typedEntities: self typedEntities.
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
 	entity incomingReferences: self incomingReferences.
+
 	^entity.
 ]
 

@@ -1,10 +1,12 @@
 "
-I remove a new FamixTPrimitiveType in a MooseModel
-I need the following properties of the new primitivetype
+I remove a FamixTPrimitiveType in a MooseModel
+I need the following properties of the  primitivetype
 
 -`typeContainer`
+-`typedEntities`
 -`isStub`
 -`sourceAnchor`
+-`incomingReferences`
 "
 Class {
 	#name : 'ORActionRemoveTPrimitiveType',
@@ -59,13 +61,16 @@ ORActionRemoveTPrimitiveType >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTPrimitiveType >> run [
+
 	super run.
 	entity typeContainer: nil.
 	entity typedEntities: nil.
 	entity isStub: nil.
 	entity sourceAnchor: nil.
 	entity incomingReferences: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

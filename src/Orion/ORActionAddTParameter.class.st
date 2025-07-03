@@ -1,3 +1,13 @@
+"
+I add a FamixTParameter in a MooseModel
+I need the following properties of the  parameter
+
+-`parentBehaviouralEntity`
+-`incomingAccesses`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTParameter',
 	#superclass : 'ORActionAddNamedEntity',
@@ -66,12 +76,14 @@ ORActionAddTParameter >> parentBehaviouralEntity: aValue [ parentBehaviouralEnti
 
 { #category : 'method execution' }
 ORActionAddTParameter >> run [
+
 	super run.
 	entity parentBehaviouralEntity: self parentBehaviouralEntity.
 	entity incomingAccesses: self incomingAccesses.
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
 	entity declaredType: self declaredType.
+
 	^entity.
 ]
 

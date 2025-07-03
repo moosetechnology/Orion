@@ -1,6 +1,6 @@
 "
-I remove a new FamixTImport in a MooseModel
-I need the following properties of the new import
+I remove a FamixTImport in a MooseModel
+I need the following properties of the  import
 
 -`importedEntity`
 -`importingEntity`
@@ -77,13 +77,16 @@ ORActionRemoveTImport >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTImport >> run [
+
 	super run.
 	entity importedEntity: nil.
 	entity importingEntity: nil.
 	entity next: nil.
 	entity previous: nil.
 	entity sourceAnchor: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

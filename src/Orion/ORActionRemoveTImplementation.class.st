@@ -1,6 +1,6 @@
 "
-I remove a new FamixTImplementation in a MooseModel
-I need the following properties of the new implementation
+I remove a FamixTImplementation in a MooseModel
+I need the following properties of the  implementation
 
 -`implementingClass`
 -`interface`
@@ -77,13 +77,16 @@ ORActionRemoveTImplementation >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTImplementation >> run [
+
 	super run.
 	entity implementingClass: nil.
 	entity interface: nil.
 	entity next: nil.
 	entity previous: nil.
 	entity sourceAnchor: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

@@ -1,8 +1,9 @@
 "
-I remove a new FamixTLocalVariable in a MooseModel
-I need the following properties of the new localvariable
+I remove a FamixTLocalVariable in a MooseModel
+I need the following properties of the  localvariable
 
 -`parentBehaviouralEntity`
+-`incomingAccesses`
 -`isStub`
 -`sourceAnchor`
 -`declaredType`
@@ -76,13 +77,16 @@ ORActionRemoveTLocalVariable >> parentBehaviouralEntity: aValue [ parentBehaviou
 
 { #category : 'method execution' }
 ORActionRemoveTLocalVariable >> run [
+
 	super run.
 	entity parentBehaviouralEntity: nil.
 	entity incomingAccesses: nil.
 	entity isStub: nil.
 	entity sourceAnchor: nil.
 	entity declaredType: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

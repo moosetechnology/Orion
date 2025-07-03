@@ -1,10 +1,21 @@
 "
-I remove a new FamixTException in a MooseModel
-I need the following properties of the new exception
+I remove a FamixTException in a MooseModel
+I need the following properties of the  exception
 
+-`receivingInvocations`
 -`typeContainer`
+-`typedEntities`
 -`isStub`
 -`sourceAnchor`
+-`incomingReferences`
+-`attributes`
+-`comments`
+-`superInheritances`
+-`subInheritances`
+-`methods`
+-`catchingEntities`
+-`declaringEntities`
+-`throwingEntities`
 "
 Class {
 	#name : 'ORActionRemoveTException',
@@ -125,6 +136,7 @@ ORActionRemoveTException >> receivingInvocations: aValue [ receivingInvocations 
 
 { #category : 'method execution' }
 ORActionRemoveTException >> run [
+
 	super run.
 	entity receivingInvocations: nil.
 	entity typeContainer: nil.
@@ -140,7 +152,9 @@ ORActionRemoveTException >> run [
 	entity catchingEntities: nil.
 	entity declaringEntities: nil.
 	entity throwingEntities: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

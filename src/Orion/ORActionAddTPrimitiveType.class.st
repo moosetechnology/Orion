@@ -1,3 +1,13 @@
+"
+I add a FamixTPrimitiveType in a MooseModel
+I need the following properties of the  primitivetype
+
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`sourceAnchor`
+-`incomingReferences`
+"
 Class {
 	#name : 'ORActionAddTPrimitiveType',
 	#superclass : 'ORActionAddNamedEntity',
@@ -50,12 +60,14 @@ ORActionAddTPrimitiveType >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionAddTPrimitiveType >> run [
+
 	super run.
 	entity typeContainer: self typeContainer.
 	entity typedEntities: self typedEntities.
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
 	entity incomingReferences: self incomingReferences.
+
 	^entity.
 ]
 

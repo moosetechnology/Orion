@@ -1,7 +1,8 @@
 "
-I remove a new FamixTInvocation in a MooseModel
-I need the following properties of the new invocation
+I remove a FamixTInvocation in a MooseModel
+I need the following properties of the  invocation
 
+-`candidates`
 -`receiver`
 -`sender`
 -`next`
@@ -82,6 +83,7 @@ ORActionRemoveTInvocation >> receiver: aValue [ receiver := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTInvocation >> run [
+
 	super run.
 	entity candidates: nil.
 	entity receiver: nil.
@@ -90,7 +92,9 @@ ORActionRemoveTInvocation >> run [
 	entity previous: nil.
 	entity sourceAnchor: nil.
 	entity signature: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

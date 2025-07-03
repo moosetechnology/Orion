@@ -1,3 +1,13 @@
+"
+I add a FamixTImport in a MooseModel
+I need the following properties of the  import
+
+-`importedEntity`
+-`importingEntity`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTImport',
 	#superclass : 'ORActionAdd',
@@ -58,12 +68,14 @@ ORActionAddTImport >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTImport >> run [
+
 	super run.
 	entity importedEntity: self importedEntity.
 	entity importingEntity: self importingEntity.
 	entity next: self next.
 	entity previous: self previous.
 	entity sourceAnchor: self sourceAnchor.
+
 	^entity.
 ]
 

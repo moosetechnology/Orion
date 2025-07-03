@@ -1,7 +1,8 @@
 "
-I remove a new FamixTUnknownVariable in a MooseModel
-I need the following properties of the new unknownvariable
+I remove a FamixTUnknownVariable in a MooseModel
+I need the following properties of the  unknownvariable
 
+-`incomingAccesses`
 -`isStub`
 -`sourceAnchor`
 -`declaredType`
@@ -65,12 +66,15 @@ ORActionRemoveTUnknownVariable >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTUnknownVariable >> run [
+
 	super run.
 	entity incomingAccesses: nil.
 	entity isStub: nil.
 	entity sourceAnchor: nil.
 	entity declaredType: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

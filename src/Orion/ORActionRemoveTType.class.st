@@ -1,10 +1,12 @@
 "
-I remove a new FamixTType in a MooseModel
-I need the following properties of the new type
+I remove a FamixTType in a MooseModel
+I need the following properties of the  type
 
 -`typeContainer`
+-`typedEntities`
 -`isStub`
 -`sourceAnchor`
+-`incomingReferences`
 "
 Class {
 	#name : 'ORActionRemoveTType',
@@ -59,13 +61,16 @@ ORActionRemoveTType >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTType >> run [
+
 	super run.
 	entity typeContainer: nil.
 	entity typedEntities: nil.
 	entity isStub: nil.
 	entity sourceAnchor: nil.
 	entity incomingReferences: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

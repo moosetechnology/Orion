@@ -1,6 +1,6 @@
 "
-I remove a new FamixTReference in a MooseModel
-I need the following properties of the new reference
+I remove a FamixTReference in a MooseModel
+I need the following properties of the  reference
 
 -`referencer`
 -`referredEntity`
@@ -77,13 +77,16 @@ ORActionRemoveTReference >> referredEntity: aValue [ referredEntity := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTReference >> run [
+
 	super run.
 	entity referencer: nil.
 	entity referredEntity: nil.
 	entity next: nil.
 	entity previous: nil.
 	entity sourceAnchor: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

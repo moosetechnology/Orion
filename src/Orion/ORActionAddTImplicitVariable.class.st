@@ -1,3 +1,13 @@
+"
+I add a FamixTImplicitVariable in a MooseModel
+I need the following properties of the  implicitvariable
+
+-`parentBehaviouralEntity`
+-`incomingAccesses`
+-`isStub`
+-`sourceAnchor`
+-`declaredType`
+"
 Class {
 	#name : 'ORActionAddTImplicitVariable',
 	#superclass : 'ORActionAddNamedEntity',
@@ -66,12 +76,14 @@ ORActionAddTImplicitVariable >> parentBehaviouralEntity: aValue [ parentBehaviou
 
 { #category : 'method execution' }
 ORActionAddTImplicitVariable >> run [
+
 	super run.
 	entity parentBehaviouralEntity: self parentBehaviouralEntity.
 	entity incomingAccesses: self incomingAccesses.
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
 	entity declaredType: self declaredType.
+
 	^entity.
 ]
 

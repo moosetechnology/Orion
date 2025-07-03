@@ -1,8 +1,9 @@
 "
-I remove a new FamixTImplicitVariable in a MooseModel
-I need the following properties of the new implicitvariable
+I remove a FamixTImplicitVariable in a MooseModel
+I need the following properties of the  implicitvariable
 
 -`parentBehaviouralEntity`
+-`incomingAccesses`
 -`isStub`
 -`sourceAnchor`
 -`declaredType`
@@ -76,13 +77,16 @@ ORActionRemoveTImplicitVariable >> parentBehaviouralEntity: aValue [ parentBehav
 
 { #category : 'method execution' }
 ORActionRemoveTImplicitVariable >> run [
+
 	super run.
 	entity parentBehaviouralEntity: nil.
 	entity incomingAccesses: nil.
 	entity isStub: nil.
 	entity sourceAnchor: nil.
 	entity declaredType: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

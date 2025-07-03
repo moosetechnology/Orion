@@ -1,9 +1,10 @@
 "
-I remove a new FamixTAnnotationInstance in a MooseModel
-I need the following properties of the new annotationinstance
+I remove a FamixTAnnotationInstance in a MooseModel
+I need the following properties of the  annotationinstance
 
 -`annotatedEntity`
 -`annotationType`
+-`attributes`
 "
 Class {
 	#name : 'ORActionRemoveTAnnotationInstance',
@@ -62,10 +63,13 @@ ORActionRemoveTAnnotationInstance >> createVersionnedEntitySelector [ ^ #newAnno
 
 { #category : 'method execution' }
 ORActionRemoveTAnnotationInstance >> run [
+
 	super run.
 	entity annotatedEntity: nil.
 	entity annotationType: nil.
 	entity attributes: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]

@@ -1,3 +1,22 @@
+"
+I add a FamixTException in a MooseModel
+I need the following properties of the  exception
+
+-`receivingInvocations`
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`sourceAnchor`
+-`incomingReferences`
+-`attributes`
+-`comments`
+-`superInheritances`
+-`subInheritances`
+-`methods`
+-`catchingEntities`
+-`declaringEntities`
+-`throwingEntities`
+"
 Class {
 	#name : 'ORActionAddTException',
 	#superclass : 'ORActionAddNamedEntity',
@@ -116,6 +135,7 @@ ORActionAddTException >> receivingInvocations: aValue [ receivingInvocations := 
 
 { #category : 'method execution' }
 ORActionAddTException >> run [
+
 	super run.
 	entity receivingInvocations: self receivingInvocations.
 	entity typeContainer: self typeContainer.
@@ -131,6 +151,7 @@ ORActionAddTException >> run [
 	entity catchingEntities: self catchingEntities.
 	entity declaringEntities: self declaringEntities.
 	entity throwingEntities: self throwingEntities.
+
 	^entity.
 ]
 

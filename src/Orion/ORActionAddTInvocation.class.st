@@ -1,3 +1,15 @@
+"
+I add a FamixTInvocation in a MooseModel
+I need the following properties of the  invocation
+
+-`candidates`
+-`receiver`
+-`sender`
+-`next`
+-`previous`
+-`sourceAnchor`
+-`signature`
+"
 Class {
 	#name : 'ORActionAddTInvocation',
 	#superclass : 'ORActionAdd',
@@ -62,6 +74,7 @@ ORActionAddTInvocation >> receiver: aValue [ receiver := aValue
 
 { #category : 'method execution' }
 ORActionAddTInvocation >> run [
+
 	super run.
 	entity candidates: self candidates.
 	entity receiver: self receiver.
@@ -70,6 +83,7 @@ ORActionAddTInvocation >> run [
 	entity previous: self previous.
 	entity sourceAnchor: self sourceAnchor.
 	entity signature: self signature.
+
 	^entity.
 ]
 

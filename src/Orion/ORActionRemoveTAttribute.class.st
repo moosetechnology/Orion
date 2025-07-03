@@ -1,8 +1,9 @@
 "
-I remove a new FamixTAttribute in a MooseModel
-I need the following properties of the new attribute
+I remove a FamixTAttribute in a MooseModel
+I need the following properties of the  attribute
 
 -`parentType`
+-`incomingAccesses`
 -`isStub`
 -`sourceAnchor`
 -`declaredType`
@@ -76,13 +77,16 @@ ORActionRemoveTAttribute >> parentType: aValue [ parentType := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTAttribute >> run [
+
 	super run.
 	entity parentType: nil.
 	entity incomingAccesses: nil.
 	entity isStub: nil.
 	entity sourceAnchor: nil.
 	entity declaredType: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

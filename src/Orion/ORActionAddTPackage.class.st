@@ -1,3 +1,11 @@
+"
+I add a FamixTPackage in a MooseModel
+I need the following properties of the  package
+
+-`childEntities`
+-`isStub`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTPackage',
 	#superclass : 'ORActionAddNamedEntity',
@@ -46,10 +54,12 @@ ORActionAddTPackage >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionAddTPackage >> run [
+
 	super run.
 	entity childEntities: self childEntities.
 	entity isStub: self isStub.
 	entity sourceAnchor: self sourceAnchor.
+
 	^entity.
 ]
 

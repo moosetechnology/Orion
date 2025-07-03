@@ -1,3 +1,10 @@
+"
+I add a FamixTAnnotationType in a MooseModel
+I need the following properties of the  annotationtype
+
+-`annotationTypesContainer`
+-`instances`
+"
 Class {
 	#name : 'ORActionAddTAnnotationType',
 	#superclass : 'ORActionAdd',
@@ -36,8 +43,10 @@ ORActionAddTAnnotationType >> instances: aValue [ instances := aValue
 
 { #category : 'method execution' }
 ORActionAddTAnnotationType >> run [
+
 	super run.
 	entity annotationTypesContainer: self annotationTypesContainer.
 	entity instances: self instances.
+
 	^entity.
 ]

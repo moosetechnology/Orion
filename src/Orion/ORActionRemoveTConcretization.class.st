@@ -1,7 +1,8 @@
 "
-I remove a new FamixTConcretization in a MooseModel
-I need the following properties of the new concretization
+I remove a FamixTConcretization in a MooseModel
+I need the following properties of the  concretization
 
+-`parameterConcretizations`
 -`genericEntity`
 -`concreteEntity`
 -`next`
@@ -87,6 +88,7 @@ ORActionRemoveTConcretization >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTConcretization >> run [
+
 	super run.
 	entity parameterConcretizations: nil.
 	entity genericEntity: nil.
@@ -94,7 +96,9 @@ ORActionRemoveTConcretization >> run [
 	entity next: nil.
 	entity previous: nil.
 	entity sourceAnchor: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

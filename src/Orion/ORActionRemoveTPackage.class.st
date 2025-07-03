@@ -1,7 +1,8 @@
 "
-I remove a new FamixTPackage in a MooseModel
-I need the following properties of the new package
+I remove a FamixTPackage in a MooseModel
+I need the following properties of the  package
 
+-`childEntities`
 -`isStub`
 -`sourceAnchor`
 "
@@ -54,11 +55,14 @@ ORActionRemoveTPackage >> isStub: aValue [ isStub := aValue
 
 { #category : 'method execution' }
 ORActionRemoveTPackage >> run [
+
 	super run.
 	entity childEntities: nil.
 	entity isStub: nil.
 	entity sourceAnchor: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

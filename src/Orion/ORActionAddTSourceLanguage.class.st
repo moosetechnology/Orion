@@ -1,3 +1,9 @@
+"
+I add a FamixTSourceLanguage in a MooseModel
+I need the following properties of the  sourcelanguage
+
+-`sourcedEntities`
+"
 Class {
 	#name : 'ORActionAddTSourceLanguage',
 	#superclass : 'ORActionAdd',
@@ -18,8 +24,10 @@ ORActionAddTSourceLanguage class >> run [
 
 { #category : 'method execution' }
 ORActionAddTSourceLanguage >> run [
+
 	super run.
 	entity sourcedEntities: self sourcedEntities.
+
 	^entity.
 ]
 

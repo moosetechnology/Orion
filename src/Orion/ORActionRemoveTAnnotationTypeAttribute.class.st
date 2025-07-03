@@ -1,8 +1,10 @@
 "
-I remove a new FamixTAnnotationTypeAttribute in a MooseModel
-I need the following properties of the new annotationtypeattribute
+I remove a FamixTAnnotationTypeAttribute in a MooseModel
+I need the following properties of the  annotationtypeattribute
 
+-`annotationAttributeInstances`
 -`parentType`
+-`incomingAccesses`
 -`isStub`
 -`sourceAnchor`
 -`declaredType`
@@ -86,6 +88,7 @@ ORActionRemoveTAnnotationTypeAttribute >> parentType: aValue [ parentType := aVa
 
 { #category : 'method execution' }
 ORActionRemoveTAnnotationTypeAttribute >> run [
+
 	super run.
 	entity annotationAttributeInstances: nil.
 	entity parentType: nil.
@@ -93,7 +96,9 @@ ORActionRemoveTAnnotationTypeAttribute >> run [
 	entity isStub: nil.
 	entity sourceAnchor: nil.
 	entity declaredType: nil.
+
 	self orionModel remove: (self orionModel versionLookup: self entity).
+
 	^entity.
 ]
 

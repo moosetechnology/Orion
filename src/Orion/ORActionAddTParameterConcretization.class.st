@@ -1,3 +1,14 @@
+"
+I add a FamixTParameterConcretization in a MooseModel
+I need the following properties of the  parameterconcretization
+
+-`concretizations`
+-`genericParameter`
+-`concreteParameter`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
 Class {
 	#name : 'ORActionAddTParameterConcretization',
 	#superclass : 'ORActionAdd',
@@ -68,6 +79,7 @@ ORActionAddTParameterConcretization >> previous: aValue [ previous := aValue
 
 { #category : 'method execution' }
 ORActionAddTParameterConcretization >> run [
+
 	super run.
 	entity concretizations: self concretizations.
 	entity genericParameter: self genericParameter.
@@ -75,6 +87,7 @@ ORActionAddTParameterConcretization >> run [
 	entity next: self next.
 	entity previous: self previous.
 	entity sourceAnchor: self sourceAnchor.
+
 	^entity.
 ]
 
