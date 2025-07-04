@@ -1,6 +1,10 @@
 Class {
 	#name : 'ORActionTestFactoryRefactored',
 	#superclass : 'Object',
+	#instVars : [
+		'testMethodGenerators',
+		'classBuilder'
+	],
 	#category : 'Orion-Code-Generation',
 	#package : 'Orion',
 	#tag : 'Code-Generation'
@@ -17,6 +21,20 @@ ORActionTestFactoryRefactored >> defaultValueForSlot: aSlot in: aClass [
 	^ 'nil'
 ]
 
+{ #category : 'generating' }
+ORActionTestFactoryRefactored >> generate [
+
+	self initialize.
+	self generateFrom: (PackageOrganizer default packageNamed: 'Orion-Java') classes.
+]
+
+{ #category : 'generating' }
+ORActionTestFactoryRefactored >> generateFrom: aBase [
+
+	aBase do: [ :e |
+		self generateTestClassFor: e ]
+]
+
 { #category : 'class building' }
 ORActionTestFactoryRefactored >> generateSetUpSourceFor: aClass [
 
@@ -31,4 +49,16 @@ ORActionTestFactoryRefactored >> generateSetUpSourceFor: aClass [
 
 	source := String tab, source , 'yourself.'.
 	^ source
+]
+
+{ #category : 'initialization' }
+ORActionTestFactoryRefactored >> initialize [
+
+	super initialize.
+	testMethodGenerators := {
+		                       ORAddTestSourceGenerator new.
+		                       "ORRemoveTestSourceGenerator new"
+		                       "ORRenameTestSourceGenerator new."
+		                       "ORMoveTestSourceGenerator new." }.
+	classBuilder := ORClassBuilder new
 ]
