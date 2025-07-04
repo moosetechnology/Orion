@@ -304,37 +304,53 @@ ORActionAddJavaMethod >> parentType: aValue [ parentType := aValue
 ORActionAddJavaMethod >> run [
 
 	super run.
-	entity mooseID: self mooseID.
+	"entity mooseID: self mooseID.
 	entity mooseName: self mooseName.
 	entity cache: self cache.
 	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
+	entity mooseModel: self mooseModel."
+
 	entity sourceAnchor: self sourceAnchor.
-	entity annotationInstances: self annotationInstances.
-	entity types: self types.
-	entity definedAnnotationTypes: self definedAnnotationTypes.
+	self annotationInstances
+		ifNotEmpty: [entity annotationInstances: self annotationInstances].
+	self types
+		ifNotEmpty: [entity types: self types].
+	self definedAnnotationTypes 
+		ifNotEmpty: [entity definedAnnotationTypes: self definedAnnotationTypes].
 	entity isSynchronized: self isSynchronized.
 	entity isAbstract: self isAbstract.
 	entity isClassSide: self isClassSide.
 	entity isFinal: self isFinal.
 	entity kind: self kind.
 	entity visibility: self visibility.
-	entity incomingImports: self incomingImports.
-	entity parentType: self parentType.
+	self incomingImports
+		ifNotEmpty: [entity incomingImports: self incomingImports].
+	self setFamixProperty: #parentType on: entity to: self parentType.
 	entity signature: self signature.
-	entity incomingInvocations: self incomingInvocations.
-	entity declaredType: self declaredType.
-	entity implicitVariables: self implicitVariables.
-	entity localVariables: self localVariables.
-	entity parameters: self parameters.
+	self incomingInvocations
+		ifNotEmpty: [entity incomingInvocations: self incomingInvocations].
+	"self setFamixProperty: #typing on: entity to: self declaredType."
+	self implicitVariables
+		ifNotEmpty: [entity implicitVariables: self implicitVariables].
+	self localVariables
+		ifNotEmpty: [entity localVariables: self localVariables].
+	self parameters
+		ifNotEmpty: [entity parameters: self parameters].
 	entity isStub: self isStub.
-	entity accesses: self accesses.
-	entity outgoingInvocations: self outgoingInvocations.
-	entity outgoingReferences: self outgoingReferences.
-	entity comments: self comments.
-	entity caughtExceptions: self caughtExceptions.
-	entity declaredExceptions: self declaredExceptions.
-	entity thrownExceptions: self thrownExceptions.
+	self accesses
+		ifNotEmpty: [entity accesses: self accesses].
+	self outgoingInvocations
+		ifNotEmpty: [entity outgoingInvocations: self outgoingInvocations].
+	self outgoingReferences
+		ifNotEmpty: [entity outgoingReferences: self outgoingReferences].
+	self comments
+		ifNotEmpty: [entity comments: self comments].
+	self caughtExceptions 
+		ifNotEmpty: [entity caughtExceptions: self caughtExceptions].
+	self declaredExceptions 
+		ifNotEmpty: [entity declaredExceptions: self declaredExceptions].
+	self thrownExceptions 
+		ifNotEmpty: [entity thrownExceptions: self thrownExceptions].
 
 	^entity.
 ]
