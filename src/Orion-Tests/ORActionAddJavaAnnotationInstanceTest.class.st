@@ -1,26 +1,36 @@
 Class {
 	#name : 'ORActionAddJavaAnnotationInstanceTest',
-	#superclass : 'ORActionAddJavaTest',
+	#superclass : 'ORActionTestJavaModel',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
+{ #category : 'as yet unclassified' }
+ORActionAddJavaAnnotationInstanceTest >> createBasicEntities [
+	modelV1 newAnnotationInstanceNamed: 'TestAnnotationInstance'
+]
+
 { #category : 'running' }
-ORActionAddJavaAnnotationInstanceTest >> setUpAction [ action := ORActionAddJavaAnnotationInstance new orionModel: modelV2; sourceAnchor: nil; yourself.
+ORActionAddJavaAnnotationInstanceTest >> setUpAction [ 
+
+action := ORActionAddJavaAnnotationInstance new 
+yourself.
 ]
 
 { #category : 'tests' }
 ORActionAddJavaAnnotationInstanceTest >> testAddsCorrectEntity [
-
-	| initialCount |
-	initialCount := modelV1 allAnnotationInstances size.
-	action run.
-	self
-		assert: modelV2 allAnnotationInstances size
-		equals: initialCount + 1
+			self assert: modelV2 allAnnotationInstances size equals: 1.
+			action run.
+			self assert: modelV2 allAnnotationInstances size equals: 2.
 ]
 
 { #category : 'tests' }
-ORActionAddJavaAnnotationInstanceTest >> testEntityIsVersioned [ | entity | action run. entity := modelV2 entityNamed: 'A_Test_Name'. self assert: entity notNil. self assert: (modelV2 includes: entity). self deny: (modelV1 includes: entity).
+ORActionAddJavaAnnotationInstanceTest >> testEntityIsVersioned [
+			| entity |
+			action run.
+			entity := modelV2 entityNamed: 'involvedEntity'.
+			self assert: entity notNil.
+			self assert: (modelV2 includes: entity).
+			self deny: (modelV1 includes: entity).
 ]

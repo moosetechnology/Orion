@@ -11,7 +11,7 @@ ORActionAddTAnnotationTypeAttributeTest >> setUpAction [
 
 	action := ORActionAddTAnnotationTypeAttribute new
 		          orionModel: modelV2;
-		name: 'annotationTypeAttribute';
+		          name: 'annotationTypeAttribute';
 		          parentType: nil;
 		          isStub: nil;
 		          sourceAnchor: nil;
@@ -20,7 +20,14 @@ ORActionAddTAnnotationTypeAttributeTest >> setUpAction [
 ]
 
 { #category : 'tests' }
-ORActionAddTAnnotationTypeAttributeTest >> testAddsCorrectEntity [ | initialCount | initialCount := modelV1 allAnnotationTypeAttributes size. action run. self assert: (modelV2 allAnnotationTypeAttributes size) equals: (initialCount + 1).
+ORActionAddTAnnotationTypeAttributeTest >> testAddsCorrectEntity [
+
+	| initialCount |
+	initialCount := modelV1 allAnnotationTypeAttributes size.
+	action run.
+	self
+		assert: modelV2 allAnnotationTypeAttributes size
+		equals: initialCount + 1
 ]
 
 { #category : 'tests' }

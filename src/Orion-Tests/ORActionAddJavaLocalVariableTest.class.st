@@ -1,26 +1,36 @@
 Class {
 	#name : 'ORActionAddJavaLocalVariableTest',
-	#superclass : 'ORActionAddJavaTest',
+	#superclass : 'ORActionTestJavaModel',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
+{ #category : 'as yet unclassified' }
+ORActionAddJavaLocalVariableTest >> createBasicEntities [
+	modelV1 newLocalVariableNamed: 'TestLocalVariable'
+]
+
 { #category : 'running' }
-ORActionAddJavaLocalVariableTest >> setUpAction [ action := ORActionAddJavaLocalVariable new orionModel: modelV2; annotationInstances: nil; receivingInvocations: nil; isFinal: nil; comments: nil; yourself.
+ORActionAddJavaLocalVariableTest >> setUpAction [ 
+
+action := ORActionAddJavaLocalVariable new 
+yourself.
 ]
 
 { #category : 'tests' }
 ORActionAddJavaLocalVariableTest >> testAddsCorrectEntity [
-
-	| initialCount |
-	initialCount := modelV1 allLocalVariables size.
-	action run.
-	self
-		assert: modelV2 allLocalVariables size
-		equals: initialCount + 1
+			self assert: modelV2 allLocalVariables size equals: 1.
+			action run.
+			self assert: modelV2 allLocalVariables size equals: 2.
 ]
 
 { #category : 'tests' }
-ORActionAddJavaLocalVariableTest >> testEntityIsVersioned [ | entity | action run. entity := modelV2 entityNamed: 'A_Test_Name'. self assert: entity notNil. self assert: (modelV2 includes: entity). self deny: (modelV1 includes: entity).
+ORActionAddJavaLocalVariableTest >> testEntityIsVersioned [
+			| entity |
+			action run.
+			entity := modelV2 entityNamed: 'involvedEntity'.
+			self assert: entity notNil.
+			self assert: (modelV2 includes: entity).
+			self deny: (modelV1 includes: entity).
 ]

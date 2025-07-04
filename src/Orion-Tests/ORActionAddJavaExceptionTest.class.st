@@ -1,24 +1,36 @@
 Class {
 	#name : 'ORActionAddJavaExceptionTest',
-	#superclass : 'ORActionAddJavaTest',
+	#superclass : 'ORActionTestJavaModel',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
+{ #category : 'as yet unclassified' }
+ORActionAddJavaExceptionTest >> createBasicEntities [
+	modelV1 newExceptionNamed: 'TestException'
+]
+
 { #category : 'running' }
-ORActionAddJavaExceptionTest >> setUpAction [ action := ORActionAddJavaException new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; lowerBoundedWildcards: nil; upperBoundedWildcards: nil; concreteEntities: nil; generics: nil; isAbstract: nil; isClassSide: nil; isFinal: nil; interfaceImplementations: nil; visibility: nil; incomingImports: nil; parentPackage: nil; imports: nil; yourself.
+ORActionAddJavaExceptionTest >> setUpAction [ 
+
+action := ORActionAddJavaException new 
+yourself.
 ]
 
 { #category : 'tests' }
 ORActionAddJavaExceptionTest >> testAddsCorrectEntity [
-
-	| initialCount |
-	initialCount := modelV1 allExceptions size.
-	action run.
-	self assert: modelV2 allExceptions size equals: initialCount + 1
+			self assert: modelV2 allExceptioes size equals: 1.
+			action run.
+			self assert: modelV2 allExceptioes size equals: 2.
 ]
 
 { #category : 'tests' }
-ORActionAddJavaExceptionTest >> testEntityIsVersioned [ | entity | action run. entity := modelV2 entityNamed: 'A_Test_Name'. self assert: entity notNil. self assert: (modelV2 includes: entity). self deny: (modelV1 includes: entity).
+ORActionAddJavaExceptionTest >> testEntityIsVersioned [
+			| entity |
+			action run.
+			entity := modelV2 entityNamed: 'involvedEntity'.
+			self assert: entity notNil.
+			self assert: (modelV2 includes: entity).
+			self deny: (modelV1 includes: entity).
 ]

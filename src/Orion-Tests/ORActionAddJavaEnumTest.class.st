@@ -1,24 +1,36 @@
 Class {
 	#name : 'ORActionAddJavaEnumTest',
-	#superclass : 'ORActionAddJavaTest',
+	#superclass : 'ORActionTestJavaModel',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
+{ #category : 'as yet unclassified' }
+ORActionAddJavaEnumTest >> createBasicEntities [
+	modelV1 newEnumNamed: 'TestEnum'
+]
+
 { #category : 'running' }
-ORActionAddJavaEnumTest >> setUpAction [ action := ORActionAddJavaEnum new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; lowerBoundedWildcards: nil; upperBoundedWildcards: nil; concreteEntities: nil; generics: nil; methods: nil; visibility: nil; incomingImports: nil; receivingInvocations: nil; attributes: nil; comments: nil; imports: nil; superInheritances: nil; subInheritances: nil; yourself.
+ORActionAddJavaEnumTest >> setUpAction [ 
+
+action := ORActionAddJavaEnum new 
+yourself.
 ]
 
 { #category : 'tests' }
 ORActionAddJavaEnumTest >> testAddsCorrectEntity [
-
-	| initialCount |
-	initialCount := modelV1 allEnums size.
-	action run.
-	self assert: modelV2 allEnums size equals: initialCount + 1
+			self assert: modelV2 allEnues size equals: 1.
+			action run.
+			self assert: modelV2 allEnues size equals: 2.
 ]
 
 { #category : 'tests' }
-ORActionAddJavaEnumTest >> testEntityIsVersioned [ | entity | action run. entity := modelV2 entityNamed: 'A_Test_Name'. self assert: entity notNil. self assert: (modelV2 includes: entity). self deny: (modelV1 includes: entity).
+ORActionAddJavaEnumTest >> testEntityIsVersioned [
+			| entity |
+			action run.
+			entity := modelV2 entityNamed: 'involvedEntity'.
+			self assert: entity notNil.
+			self assert: (modelV2 includes: entity).
+			self deny: (modelV1 includes: entity).
 ]

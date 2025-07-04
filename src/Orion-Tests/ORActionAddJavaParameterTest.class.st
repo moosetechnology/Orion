@@ -1,24 +1,36 @@
 Class {
 	#name : 'ORActionAddJavaParameterTest',
-	#superclass : 'ORActionAddJavaTest',
+	#superclass : 'ORActionTestJavaModel',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
+{ #category : 'as yet unclassified' }
+ORActionAddJavaParameterTest >> createBasicEntities [
+	modelV1 newParameterNamed: 'TestParameter'
+]
+
 { #category : 'running' }
-ORActionAddJavaParameterTest >> setUpAction [ action := ORActionAddJavaParameter new orionModel: modelV2; annotationInstances: nil; receivingInvocations: nil; isFinal: nil; comments: nil; yourself.
+ORActionAddJavaParameterTest >> setUpAction [ 
+
+action := ORActionAddJavaParameter new 
+yourself.
 ]
 
 { #category : 'tests' }
 ORActionAddJavaParameterTest >> testAddsCorrectEntity [
-
-	| initialCount |
-	initialCount := modelV1 allParameters size.
-	action run.
-	self assert: modelV2 allParameters size equals: initialCount + 1
+			self assert: modelV2 allParametees size equals: 1.
+			action run.
+			self assert: modelV2 allParametees size equals: 2.
 ]
 
 { #category : 'tests' }
-ORActionAddJavaParameterTest >> testEntityIsVersioned [ | entity | action run. entity := modelV2 entityNamed: 'A_Test_Name'. self assert: entity notNil. self assert: (modelV2 includes: entity). self deny: (modelV1 includes: entity).
+ORActionAddJavaParameterTest >> testEntityIsVersioned [
+			| entity |
+			action run.
+			entity := modelV2 entityNamed: 'involvedEntity'.
+			self assert: entity notNil.
+			self assert: (modelV2 includes: entity).
+			self deny: (modelV1 includes: entity).
 ]
