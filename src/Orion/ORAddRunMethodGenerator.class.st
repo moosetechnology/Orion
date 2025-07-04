@@ -17,9 +17,9 @@ ORAddRunMethodGenerator >> generateRunMethodFor: aClass [
 		              , ': self ' , slot name , '.' , Character cr asString ].
 	slotsLines := '' join: slotsLines.
 
-	code := 'run' , String cr.
+	code := 'run' , String cr, String cr.
 	code := code , String tab , 'super run.' , String cr.
-	code := code , slotsLines asString.
+	code := code , slotsLines asString, String cr.
 	code := code , String tab , '^entity.'.
 	^ code
 ]
