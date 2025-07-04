@@ -1,11 +1,21 @@
 "
-I remove a new FamixJavaAttribute in a MooseModel
-I need the following properties of the new attribute
+I remove a FamixJavaAttribute in a MooseModel
+I need the following properties of the  attribute
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`
 -`isTransient`
 -`isVolatile`
+-`parentType`
+-`incomingAccesses`
+-`isStub`
+-`declaredType`
 -`isClassSide`
 -`isFinal`
 -`visibility`
@@ -13,12 +23,22 @@ I need the following properties of the new attribute
 "
 Class {
 	#name : 'ORActionRemoveJavaAttribute',
-	#superclass : 'ORActionRemoveTAttribute',
+	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
 		'isTransient',
 		'isVolatile',
+		'parentType',
+		'incomingAccesses',
+		'isStub',
+		'declaredType',
 		'isClassSide',
 		'isFinal',
 		'visibility',
@@ -38,6 +58,14 @@ ORActionRemoveJavaAttribute >> annotationInstances: aValue [ annotationInstances
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaAttribute >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaAttribute >> comments [ ^comments
 ]
 
@@ -46,9 +74,31 @@ ORActionRemoveJavaAttribute >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionRemoveJavaAttribute >> createVersionnedEntitySelector [
+ORActionRemoveJavaAttribute >> createVersionnedEntitySelector [ ^ #newAttribute
+]
 
-	super createVersionnedEntitySelector.
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -68,6 +118,14 @@ ORActionRemoveJavaAttribute >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaAttribute >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaAttribute >> isTransient [ ^isTransient
 ]
 
@@ -84,11 +142,79 @@ ORActionRemoveJavaAttribute >> isVolatile: aValue [ isVolatile := aValue
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaAttribute >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> parentType [ ^parentType
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> parentType: aValue [ parentType := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaAttribute >> receivingInvocations [ ^receivingInvocations
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaAttribute >> receivingInvocations: aValue [ receivingInvocations := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaAttribute >> run [
+
+	super run.
+	entity mooseID: nil.
+	entity mooseName: nil.
+	entity cache: nil.
+	entity entityAttributes: nil.
+	entity mooseModel: nil.
+	entity sourceAnchor: nil.
+	entity annotationInstances: nil.
+	entity receivingInvocations: nil.
+	entity isTransient: nil.
+	entity isVolatile: nil.
+	entity parentType: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity declaredType: nil.
+	entity isClassSide: nil.
+	entity isFinal: nil.
+	entity visibility: nil.
+	entity comments: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAttribute >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }

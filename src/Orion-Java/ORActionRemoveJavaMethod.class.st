@@ -1,7 +1,13 @@
 "
-I remove a new FamixJavaMethod in a MooseModel
-I need the following properties of the new method
+I remove a FamixJavaMethod in a MooseModel
+I need the following properties of the  method
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
@@ -12,6 +18,17 @@ I need the following properties of the new method
 -`kind`
 -`visibility`
 -`incomingImports`
+-`parentType`
+-`signature`
+-`incomingInvocations`
+-`declaredType`
+-`implicitVariables`
+-`localVariables`
+-`parameters`
+-`isStub`
+-`accesses`
+-`outgoingInvocations`
+-`outgoingReferences`
 -`comments`
 -`caughtExceptions`
 -`declaredExceptions`
@@ -19,8 +36,14 @@ I need the following properties of the new method
 "
 Class {
 	#name : 'ORActionRemoveJavaMethod',
-	#superclass : 'ORActionRemoveTMethod',
+	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
@@ -31,6 +54,17 @@ Class {
 		'kind',
 		'visibility',
 		'incomingImports',
+		'parentType',
+		'signature',
+		'incomingInvocations',
+		'declaredType',
+		'implicitVariables',
+		'localVariables',
+		'parameters',
+		'isStub',
+		'accesses',
+		'outgoingInvocations',
+		'outgoingReferences',
 		'comments',
 		'caughtExceptions',
 		'declaredExceptions',
@@ -42,11 +76,27 @@ Class {
 }
 
 { #category : 'accessing' }
+ORActionRemoveJavaMethod >> accesses [ ^accesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> accesses: aValue [ accesses := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaMethod >> annotationInstances [ ^annotationInstances
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaMethod >> annotationInstances: aValue [ annotationInstances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -66,9 +116,7 @@ ORActionRemoveJavaMethod >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionRemoveJavaMethod >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionRemoveJavaMethod >> createVersionnedEntitySelector [ ^ #newMethod
 ]
 
 { #category : 'accessing' }
@@ -80,6 +128,14 @@ ORActionRemoveJavaMethod >> declaredExceptions: aValue [ declaredExceptions := a
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaMethod >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaMethod >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]
 
@@ -88,11 +144,35 @@ ORActionRemoveJavaMethod >> definedAnnotationTypes: aValue [ definedAnnotationTy
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaMethod >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> implicitVariables [ ^implicitVariables
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> implicitVariables: aValue [ implicitVariables := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaMethod >> incomingImports [ ^incomingImports
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaMethod >> incomingImports: aValue [ incomingImports := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> incomingInvocations [ ^incomingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> incomingInvocations: aValue [ incomingInvocations := aValue
 ]
 
 { #category : 'accessing' }
@@ -120,6 +200,14 @@ ORActionRemoveJavaMethod >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaMethod >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaMethod >> isSynchronized [ ^isSynchronized
 ]
 
@@ -133,6 +221,127 @@ ORActionRemoveJavaMethod >> kind [ ^kind
 
 { #category : 'accessing' }
 ORActionRemoveJavaMethod >> kind: aValue [ kind := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> localVariables [ ^localVariables
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> localVariables: aValue [ localVariables := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> outgoingInvocations [ ^outgoingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> outgoingInvocations: aValue [ outgoingInvocations := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> outgoingReferences [ ^outgoingReferences
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> outgoingReferences: aValue [ outgoingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> parameters [ ^parameters
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> parameters: aValue [ parameters := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> parentType [ ^parentType
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> parentType: aValue [ parentType := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaMethod >> run [
+
+	super run.
+	entity mooseID: nil.
+	entity mooseName: nil.
+	entity cache: nil.
+	entity entityAttributes: nil.
+	entity mooseModel: nil.
+	entity sourceAnchor: nil.
+	entity annotationInstances: nil.
+	entity types: nil.
+	entity definedAnnotationTypes: nil.
+	entity isSynchronized: nil.
+	entity isAbstract: nil.
+	entity isClassSide: nil.
+	entity isFinal: nil.
+	entity kind: nil.
+	entity visibility: nil.
+	entity incomingImports: nil.
+	entity parentType: nil.
+	entity signature: nil.
+	entity incomingInvocations: nil.
+	entity declaredType: nil.
+	entity implicitVariables: nil.
+	entity localVariables: nil.
+	entity parameters: nil.
+	entity isStub: nil.
+	entity accesses: nil.
+	entity outgoingInvocations: nil.
+	entity outgoingReferences: nil.
+	entity comments: nil.
+	entity caughtExceptions: nil.
+	entity declaredExceptions: nil.
+	entity thrownExceptions: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> signature [ ^signature
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> signature: aValue [ signature := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaMethod >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }

@@ -1,0 +1,149 @@
+"
+I remove a FamixJavaParameterConcretization in a MooseModel
+I need the following properties of the  parameterconcretization
+
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`concretizations`
+-`genericParameter`
+-`concreteParameter`
+-`next`
+-`previous`
+-`sourceAnchor`
+"
+Class {
+	#name : 'ORActionRemoveJavaParameterConcretization',
+	#superclass : 'ORActionRemove',
+	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'concretizations',
+		'genericParameter',
+		'concreteParameter',
+		'next',
+		'previous',
+		'sourceAnchor'
+	],
+	#category : 'Orion-Java-Remove',
+	#package : 'Orion-Java',
+	#tag : 'Remove'
+}
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> concreteParameter [ ^concreteParameter
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> concreteParameter: aValue [ concreteParameter := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> concretizations [ ^concretizations
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> concretizations: aValue [ concretizations := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaParameterConcretization >> createVersionnedEntitySelector [ ^ #newParameterConcretization
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> genericParameter [ ^genericParameter
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> genericParameter: aValue [ genericParameter := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> next [ ^next
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> next: aValue [ next := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> previous [ ^previous
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> previous: aValue [ previous := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaParameterConcretization >> run [
+
+	super run.
+	entity mooseID: nil.
+	entity mooseName: nil.
+	entity cache: nil.
+	entity entityAttributes: nil.
+	entity mooseModel: nil.
+	entity concretizations: nil.
+	entity genericParameter: nil.
+	entity concreteParameter: nil.
+	entity next: nil.
+	entity previous: nil.
+	entity sourceAnchor: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaParameterConcretization >> sourceAnchor: aValue [ sourceAnchor := aValue
+]

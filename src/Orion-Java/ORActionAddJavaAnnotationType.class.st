@@ -1,9 +1,13 @@
 "
-I add a new FamixJavaAnnotationType in a MooseModel
-I need the following properties of the new annotationtype
+I add a FamixJavaAnnotationType in a MooseModel
+I need the following properties of the  annotationtype
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
 -`sourceAnchor`
--`name`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
@@ -16,6 +20,8 @@ I need the following properties of the new annotationtype
 -`isStub`
 -`incomingReferences`
 -`methods`
+-`annotationTypesContainer`
+-`instances`
 -`visibility`
 -`implementations`
 -`parentPackage`
@@ -26,10 +32,14 @@ I need the following properties of the new annotationtype
 "
 Class {
 	#name : 'ORActionAddJavaAnnotationType',
-	#superclass : 'ORActionAddTAnnotationType',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
 		'sourceAnchor',
-		'name',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
@@ -42,6 +52,8 @@ Class {
 		'isStub',
 		'incomingReferences',
 		'methods',
+		'annotationTypesContainer',
+		'instances',
 		'visibility',
 		'implementations',
 		'parentPackage',
@@ -64,11 +76,27 @@ ORActionAddJavaAnnotationType >> annotationInstances: aValue [ annotationInstanc
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaAnnotationType >> annotationTypesContainer [ ^annotationTypesContainer
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> annotationTypesContainer: aValue [ annotationTypesContainer := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaAnnotationType >> attributes [ ^attributes
 ]
 
 { #category : 'accessing' }
 ORActionAddJavaAnnotationType >> attributes: aValue [ attributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -88,9 +116,7 @@ ORActionAddJavaAnnotationType >> concreteEntities: aValue [ concreteEntities := 
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaAnnotationType >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionAddJavaAnnotationType >> createVersionnedEntitySelector [ ^ #newAnnotationType
 ]
 
 { #category : 'accessing' }
@@ -99,6 +125,14 @@ ORActionAddJavaAnnotationType >> definedAnnotationTypes [ ^definedAnnotationType
 
 { #category : 'accessing' }
 ORActionAddJavaAnnotationType >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -126,6 +160,14 @@ ORActionAddJavaAnnotationType >> incomingReferences: aValue [ incomingReferences
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaAnnotationType >> instances [ ^instances
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> instances: aValue [ instances := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaAnnotationType >> isStub [ ^isStub
 ]
 
@@ -150,11 +192,27 @@ ORActionAddJavaAnnotationType >> methods: aValue [ methods := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaAnnotationType >> name [ ^name
+ORActionAddJavaAnnotationType >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaAnnotationType >> name: aValue [ name := aValue
+ORActionAddJavaAnnotationType >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaAnnotationType >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -168,78 +226,36 @@ ORActionAddJavaAnnotationType >> parentPackage: aValue [ parentPackage := aValue
 { #category : 'method execution' }
 ORActionAddJavaAnnotationType >> run [
 
-	"| newEntity |
-	newEntity := self orionModel newAnnotationType."
 	super run.
-	self
-		setFamixProperty: #sourceAnchor
-		on: newEntity
-		to: self sourceAnchor.
-	self
-		setFamixProperty: #sourceAnchor
-		on: newEntity
-		to: self sourceAnchor.
-	self setFamixProperty: #name on: newEntity to: self name.
-	self
-		setFamixProperty: #annotationInstances
-		on: newEntity
-		to: self annotationInstances.
-	self setFamixProperty: #types on: newEntity to: self types.
-	self
-		setFamixProperty: #definedAnnotationTypes
-		on: newEntity
-		to: self definedAnnotationTypes.
-	self
-		setFamixProperty: #lowerBoundedWildcards
-		on: newEntity
-		to: self lowerBoundedWildcards.
-	self
-		setFamixProperty: #upperBoundedWildcards
-		on: newEntity
-		to: self upperBoundedWildcards.
-	self
-		setFamixProperty: #concreteEntities
-		on: newEntity
-		to: self concreteEntities.
-	self setFamixProperty: #generics on: newEntity to: self generics.
-	self
-		setFamixProperty: #typeContainer
-		on: newEntity
-		to: self typeContainer.
-	self
-		setFamixProperty: #typedEntities
-		on: newEntity
-		to: self typedEntities.
-	self setFamixProperty: #isStub on: newEntity to: self isStub.
-	self
-		setFamixProperty: #incomingReferences
-		on: newEntity
-		to: self incomingReferences.
-	self setFamixProperty: #methods on: newEntity to: self methods.
-	self setFamixProperty: #visibility on: newEntity to: self visibility.
-	self
-		setFamixProperty: #implementations
-		on: newEntity
-		to: self implementations.
-	self
-		setFamixProperty: #parentPackage
-		on: newEntity
-		to: self parentPackage.
-	self setFamixProperty: #attributes on: newEntity to: self attributes.
-	self setFamixProperty: #comments on: newEntity to: self comments.
-	self
-		setFamixProperty: #superInheritances
-		on: newEntity
-		to: self superInheritances.
-	self
-		setFamixProperty: #subInheritances
-		on: newEntity
-		to: self subInheritances.
+	entity mooseID: self mooseID.
+	entity mooseName: self mooseName.
+	entity cache: self cache.
+	entity entityAttributes: self entityAttributes.
+	entity mooseModel: self mooseModel.
+	entity sourceAnchor: self sourceAnchor.
+	entity annotationInstances: self annotationInstances.
+	entity types: self types.
+	entity definedAnnotationTypes: self definedAnnotationTypes.
+	entity lowerBoundedWildcards: self lowerBoundedWildcards.
+	entity upperBoundedWildcards: self upperBoundedWildcards.
+	entity concreteEntities: self concreteEntities.
+	entity generics: self generics.
+	entity typeContainer: self typeContainer.
+	entity typedEntities: self typedEntities.
+	entity isStub: self isStub.
+	entity incomingReferences: self incomingReferences.
+	entity methods: self methods.
+	entity annotationTypesContainer: self annotationTypesContainer.
+	entity instances: self instances.
+	entity visibility: self visibility.
+	entity implementations: self implementations.
+	entity parentPackage: self parentPackage.
+	entity attributes: self attributes.
+	entity comments: self comments.
+	entity superInheritances: self superInheritances.
+	entity subInheritances: self subInheritances.
 
-	newEntity resetMooseName.
-
-	entity := newEntity.
-	^ entity
+	^entity.
 ]
 
 { #category : 'accessing' }

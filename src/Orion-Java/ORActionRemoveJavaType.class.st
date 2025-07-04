@@ -1,7 +1,13 @@
 "
-I remove a new FamixJavaType in a MooseModel
-I need the following properties of the new type
+I remove a FamixJavaType in a MooseModel
+I need the following properties of the  type
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
@@ -9,12 +15,22 @@ I need the following properties of the new type
 -`upperBoundedWildcards`
 -`concreteEntities`
 -`generics`
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`incomingReferences`
 -`methods`
 "
 Class {
 	#name : 'ORActionRemoveJavaType',
-	#superclass : 'ORActionRemoveTType',
+	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
@@ -22,6 +38,10 @@ Class {
 		'upperBoundedWildcards',
 		'concreteEntities',
 		'generics',
+		'typeContainer',
+		'typedEntities',
+		'isStub',
+		'incomingReferences',
 		'methods'
 	],
 	#category : 'Orion-Java-Remove',
@@ -38,6 +58,14 @@ ORActionRemoveJavaType >> annotationInstances: aValue [ annotationInstances := a
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaType >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaType >> concreteEntities [ ^concreteEntities
 ]
 
@@ -46,9 +74,7 @@ ORActionRemoveJavaType >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
 { #category : 'method execution' }
-ORActionRemoveJavaType >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionRemoveJavaType >> createVersionnedEntitySelector [ ^ #newType
 ]
 
 { #category : 'accessing' }
@@ -60,11 +86,35 @@ ORActionRemoveJavaType >> definedAnnotationTypes: aValue [ definedAnnotationType
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaType >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaType >> generics [ ^generics
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaType >> generics: aValue [ generics := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> incomingReferences [ ^incomingReferences
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> incomingReferences: aValue [ incomingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> isStub: aValue [ isStub := aValue
 ]
 
 { #category : 'accessing' }
@@ -81,6 +131,82 @@ ORActionRemoveJavaType >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionRemoveJavaType >> methods: aValue [ methods := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaType >> run [
+
+	super run.
+	entity mooseID: nil.
+	entity mooseName: nil.
+	entity cache: nil.
+	entity entityAttributes: nil.
+	entity mooseModel: nil.
+	entity sourceAnchor: nil.
+	entity annotationInstances: nil.
+	entity types: nil.
+	entity definedAnnotationTypes: nil.
+	entity lowerBoundedWildcards: nil.
+	entity upperBoundedWildcards: nil.
+	entity concreteEntities: nil.
+	entity generics: nil.
+	entity typeContainer: nil.
+	entity typedEntities: nil.
+	entity isStub: nil.
+	entity incomingReferences: nil.
+	entity methods: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> sourceAnchor: aValue [ sourceAnchor := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> typeContainer [ ^typeContainer
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaType >> typedEntities: aValue [ typedEntities := aValue
 ]
 
 { #category : 'accessing' }

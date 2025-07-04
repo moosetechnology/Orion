@@ -1,16 +1,34 @@
 "
-I add a new FamixJavaUnknownVariable in a MooseModel
-I need the following properties of the new unknownvariable
+I add a FamixJavaUnknownVariable in a MooseModel
+I need the following properties of the  unknownvariable
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`
+-`incomingAccesses`
+-`isStub`
+-`declaredType`
 "
 Class {
 	#name : 'ORActionAddJavaUnknownVariable',
-	#superclass : 'ORActionAddTUnknownVariable',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
-		'receivingInvocations'
+		'receivingInvocations',
+		'incomingAccesses',
+		'isStub',
+		'declaredType'
 	],
 	#category : 'Orion-Java-Add',
 	#package : 'Orion-Java',
@@ -25,10 +43,72 @@ ORActionAddJavaUnknownVariable >> annotationInstances [ ^annotationInstances
 ORActionAddJavaUnknownVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionAddJavaUnknownVariable >> createVersionnedEntitySelector [
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> cache [ ^cache
+]
 
-	super createVersionnedEntitySelector.
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'method execution' }
+ORActionAddJavaUnknownVariable >> createVersionnedEntitySelector [ ^ #newUnknownVariable
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -42,13 +122,26 @@ ORActionAddJavaUnknownVariable >> receivingInvocations: aValue [ receivingInvoca
 { #category : 'method execution' }
 ORActionAddJavaUnknownVariable >> run [
 
-	| newEntity |
-	newEntity := self orionModel newUnknownVariable.
+	super run.
+	entity mooseID: self mooseID.
+	entity mooseName: self mooseName.
+	entity cache: self cache.
+	entity entityAttributes: self entityAttributes.
+	entity mooseModel: self mooseModel.
+	entity sourceAnchor: self sourceAnchor.
+	entity annotationInstances: self annotationInstances.
+	entity receivingInvocations: self receivingInvocations.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity declaredType: self declaredType.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #receivingInvocations on: newEntity to: self receivingInvocations.
+	^entity.
+]
 
-	newEntity resetMooseName.
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> sourceAnchor [ ^sourceAnchor
+]
 
-	entity := newEntity.
-	^ entity
+{ #category : 'accessing' }
+ORActionAddJavaUnknownVariable >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]

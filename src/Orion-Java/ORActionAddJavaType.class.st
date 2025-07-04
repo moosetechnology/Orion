@@ -1,7 +1,13 @@
 "
-I add a new FamixJavaType in a MooseModel
-I need the following properties of the new type
+I add a FamixJavaType in a MooseModel
+I need the following properties of the  type
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
@@ -9,12 +15,22 @@ I need the following properties of the new type
 -`upperBoundedWildcards`
 -`concreteEntities`
 -`generics`
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`incomingReferences`
 -`methods`
 "
 Class {
 	#name : 'ORActionAddJavaType',
-	#superclass : 'ORActionAddTType',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
@@ -22,6 +38,10 @@ Class {
 		'upperBoundedWildcards',
 		'concreteEntities',
 		'generics',
+		'typeContainer',
+		'typedEntities',
+		'isStub',
+		'incomingReferences',
 		'methods'
 	],
 	#category : 'Orion-Java-Add',
@@ -38,6 +58,14 @@ ORActionAddJavaType >> annotationInstances: aValue [ annotationInstances := aVal
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaType >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaType >> concreteEntities [ ^concreteEntities
 ]
 
@@ -46,9 +74,7 @@ ORActionAddJavaType >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaType >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionAddJavaType >> createVersionnedEntitySelector [ ^ #newType
 ]
 
 { #category : 'accessing' }
@@ -60,11 +86,35 @@ ORActionAddJavaType >> definedAnnotationTypes: aValue [ definedAnnotationTypes :
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaType >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaType >> generics [ ^generics
 ]
 
 { #category : 'accessing' }
 ORActionAddJavaType >> generics: aValue [ generics := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> incomingReferences [ ^incomingReferences
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> incomingReferences: aValue [ incomingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> isStub: aValue [ isStub := aValue
 ]
 
 { #category : 'accessing' }
@@ -83,18 +133,78 @@ ORActionAddJavaType >> methods [ ^methods
 ORActionAddJavaType >> methods: aValue [ methods := aValue
 ]
 
+{ #category : 'accessing' }
+ORActionAddJavaType >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> mooseName: aValue [ mooseName := aValue
+]
+
 { #category : 'method execution' }
 ORActionAddJavaType >> run [
 
-	| newEntity |
-	newEntity := self orionModel newType.
+	super run.
+	entity mooseID: self mooseID.
+	entity mooseName: self mooseName.
+	entity cache: self cache.
+	entity entityAttributes: self entityAttributes.
+	entity mooseModel: self mooseModel.
+	entity sourceAnchor: self sourceAnchor.
+	entity annotationInstances: self annotationInstances.
+	entity types: self types.
+	entity definedAnnotationTypes: self definedAnnotationTypes.
+	entity lowerBoundedWildcards: self lowerBoundedWildcards.
+	entity upperBoundedWildcards: self upperBoundedWildcards.
+	entity concreteEntities: self concreteEntities.
+	entity generics: self generics.
+	entity typeContainer: self typeContainer.
+	entity typedEntities: self typedEntities.
+	entity isStub: self isStub.
+	entity incomingReferences: self incomingReferences.
+	entity methods: self methods.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #types on: newEntity to: self types. self setFamixProperty: #definedAnnotationTypes on: newEntity to: self definedAnnotationTypes. self setFamixProperty: #lowerBoundedWildcards on: newEntity to: self lowerBoundedWildcards. self setFamixProperty: #upperBoundedWildcards on: newEntity to: self upperBoundedWildcards. self setFamixProperty: #concreteEntities on: newEntity to: self concreteEntities. self setFamixProperty: #generics on: newEntity to: self generics. self setFamixProperty: #methods on: newEntity to: self methods.
+	^entity.
+]
 
-	newEntity resetMooseName.
+{ #category : 'accessing' }
+ORActionAddJavaType >> sourceAnchor [ ^sourceAnchor
+]
 
-	entity := newEntity.
-	^ entity
+{ #category : 'accessing' }
+ORActionAddJavaType >> sourceAnchor: aValue [ sourceAnchor := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> typeContainer [ ^typeContainer
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaType >> typedEntities: aValue [ typedEntities := aValue
 ]
 
 { #category : 'accessing' }

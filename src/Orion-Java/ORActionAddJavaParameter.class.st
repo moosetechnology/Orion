@@ -1,19 +1,39 @@
 "
-I add a new FamixJavaParameter in a MooseModel
-I need the following properties of the new parameter
+I add a FamixJavaParameter in a MooseModel
+I need the following properties of the  parameter
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`
 -`isFinal`
+-`parentBehaviouralEntity`
+-`incomingAccesses`
+-`isStub`
+-`declaredType`
 -`comments`
 "
 Class {
 	#name : 'ORActionAddJavaParameter',
-	#superclass : 'ORActionAddTParameter',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
 		'isFinal',
+		'parentBehaviouralEntity',
+		'incomingAccesses',
+		'isStub',
+		'declaredType',
 		'comments'
 	],
 	#category : 'Orion-Java-Add',
@@ -30,6 +50,14 @@ ORActionAddJavaParameter >> annotationInstances: aValue [ annotationInstances :=
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaParameter >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaParameter >> comments [ ^comments
 ]
 
@@ -38,9 +66,31 @@ ORActionAddJavaParameter >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaParameter >> createVersionnedEntitySelector [
+ORActionAddJavaParameter >> createVersionnedEntitySelector [ ^ #newParameter
+]
 
-	super createVersionnedEntitySelector.
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> incomingAccesses: aValue [ incomingAccesses := aValue
 ]
 
 { #category : 'accessing' }
@@ -49,6 +99,46 @@ ORActionAddJavaParameter >> isFinal [ ^isFinal
 
 { #category : 'accessing' }
 ORActionAddJavaParameter >> isFinal: aValue [ isFinal := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> parentBehaviouralEntity [ ^parentBehaviouralEntity
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> parentBehaviouralEntity: aValue [ parentBehaviouralEntity := aValue
 ]
 
 { #category : 'accessing' }
@@ -62,13 +152,29 @@ ORActionAddJavaParameter >> receivingInvocations: aValue [ receivingInvocations 
 { #category : 'method execution' }
 ORActionAddJavaParameter >> run [
 
-	| newEntity |
-	newEntity := self orionModel newParameter.
+	super run.
+	entity mooseID: self mooseID.
+	entity mooseName: self mooseName.
+	entity cache: self cache.
+	entity entityAttributes: self entityAttributes.
+	entity mooseModel: self mooseModel.
+	entity sourceAnchor: self sourceAnchor.
+	entity annotationInstances: self annotationInstances.
+	entity receivingInvocations: self receivingInvocations.
+	entity isFinal: self isFinal.
+	entity parentBehaviouralEntity: self parentBehaviouralEntity.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity declaredType: self declaredType.
+	entity comments: self comments.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #receivingInvocations on: newEntity to: self receivingInvocations. self setFamixProperty: #isFinal on: newEntity to: self isFinal. self setFamixProperty: #comments on: newEntity to: self comments.
+	^entity.
+]
 
-	newEntity resetMooseName.
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> sourceAnchor [ ^sourceAnchor
+]
 
-	entity := newEntity.
-	^ entity
+{ #category : 'accessing' }
+ORActionAddJavaParameter >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]

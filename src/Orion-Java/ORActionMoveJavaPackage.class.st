@@ -13,12 +13,11 @@ Class {
 	#name : 'ORActionMoveJavaPackage',
 	#superclass : 'ORActionMoveTPackage',
 	#instVars : [
-		'annotationInstances',
-		'types',
-		'definedAnnotationTypes',
-		'incomingImports',
-		'parentPackage',
-		'comments'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Move',
 	#package : 'Orion-Java',
@@ -26,19 +25,11 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionMoveJavaPackage >> annotationInstances [ ^annotationInstances
+ORActionMoveJavaPackage >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaPackage >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> comments [ ^comments
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> comments: aValue [ comments := aValue
+ORActionMoveJavaPackage >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
@@ -48,19 +39,35 @@ ORActionMoveJavaPackage >> createVersionnedEntitySelector [
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaPackage >> definedAnnotationTypes [ ^definedAnnotationTypes
+ORActionMoveJavaPackage >> entityAttributes [ ^entityAttributes
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaPackage >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
+ORActionMoveJavaPackage >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaPackage >> incomingImports [ ^incomingImports
+ORActionMoveJavaPackage >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaPackage >> incomingImports: aValue [ incomingImports := aValue
+ORActionMoveJavaPackage >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPackage >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPackage >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPackage >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPackage >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -69,12 +76,4 @@ ORActionMoveJavaPackage >> parentPackage [ ^parentPackage
 
 { #category : 'accessing' }
 ORActionMoveJavaPackage >> parentPackage: aValue [ parentPackage := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> types [ ^types
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> types: aValue [ types := aValue
 ]

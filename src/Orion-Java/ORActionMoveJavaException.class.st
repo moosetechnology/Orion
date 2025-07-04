@@ -22,21 +22,11 @@ Class {
 	#name : 'ORActionMoveJavaException',
 	#superclass : 'ORActionMoveTException',
 	#instVars : [
-		'annotationInstances',
-		'types',
-		'definedAnnotationTypes',
-		'lowerBoundedWildcards',
-		'upperBoundedWildcards',
-		'concreteEntities',
-		'generics',
-		'isAbstract',
-		'isClassSide',
-		'isFinal',
-		'interfaceImplementations',
-		'visibility',
-		'incomingImports',
-		'parentPackage',
-		'imports'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Move',
 	#package : 'Orion-Java',
@@ -44,19 +34,11 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionMoveJavaException >> annotationInstances [ ^annotationInstances
+ORActionMoveJavaException >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaException >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> concreteEntities [ ^concreteEntities
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> concreteEntities: aValue [ concreteEntities := aValue
+ORActionMoveJavaException >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
@@ -66,43 +48,11 @@ ORActionMoveJavaException >> createVersionnedEntitySelector [
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaException >> definedAnnotationTypes [ ^definedAnnotationTypes
+ORActionMoveJavaException >> entityAttributes [ ^entityAttributes
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaException >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> generics [ ^generics
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> generics: aValue [ generics := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> imports [ ^imports
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> imports: aValue [ imports := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> incomingImports [ ^incomingImports
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> incomingImports: aValue [ incomingImports := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> interfaceImplementations [ ^interfaceImplementations
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> interfaceImplementations: aValue [ interfaceImplementations := aValue
+ORActionMoveJavaException >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -130,11 +80,27 @@ ORActionMoveJavaException >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaException >> lowerBoundedWildcards [ ^lowerBoundedWildcards
+ORActionMoveJavaException >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaException >> lowerBoundedWildcards: aValue [ lowerBoundedWildcards := aValue
+ORActionMoveJavaException >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaException >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaException >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaException >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaException >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -143,22 +109,6 @@ ORActionMoveJavaException >> parentPackage [ ^parentPackage
 
 { #category : 'accessing' }
 ORActionMoveJavaException >> parentPackage: aValue [ parentPackage := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> types [ ^types
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> types: aValue [ types := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> upperBoundedWildcards [ ^upperBoundedWildcards
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaException >> upperBoundedWildcards: aValue [ upperBoundedWildcards := aValue
 ]
 
 { #category : 'accessing' }

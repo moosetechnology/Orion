@@ -21,20 +21,11 @@ Class {
 	#name : 'ORActionMoveJavaMethod',
 	#superclass : 'ORActionMoveTMethod',
 	#instVars : [
-		'annotationInstances',
-		'types',
-		'definedAnnotationTypes',
-		'isSynchronized',
-		'isAbstract',
-		'isClassSide',
-		'isFinal',
-		'kind',
-		'visibility',
-		'incomingImports',
-		'comments',
-		'caughtExceptions',
-		'declaredExceptions',
-		'thrownExceptions'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Move',
 	#package : 'Orion-Java',
@@ -42,27 +33,11 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionMoveJavaMethod >> annotationInstances [ ^annotationInstances
+ORActionMoveJavaMethod >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaMethod >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaMethod >> caughtExceptions [ ^caughtExceptions
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaMethod >> caughtExceptions: aValue [ caughtExceptions := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaMethod >> comments [ ^comments
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaMethod >> comments: aValue [ comments := aValue
+ORActionMoveJavaMethod >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
@@ -72,27 +47,11 @@ ORActionMoveJavaMethod >> createVersionnedEntitySelector [
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaMethod >> declaredExceptions [ ^declaredExceptions
+ORActionMoveJavaMethod >> entityAttributes [ ^entityAttributes
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaMethod >> declaredExceptions: aValue [ declaredExceptions := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaMethod >> definedAnnotationTypes [ ^definedAnnotationTypes
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaMethod >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaMethod >> incomingImports [ ^incomingImports
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaMethod >> incomingImports: aValue [ incomingImports := aValue
+ORActionMoveJavaMethod >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -136,19 +95,27 @@ ORActionMoveJavaMethod >> kind: aValue [ kind := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaMethod >> thrownExceptions [ ^thrownExceptions
+ORActionMoveJavaMethod >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaMethod >> thrownExceptions: aValue [ thrownExceptions := aValue
+ORActionMoveJavaMethod >> mooseID: aValue [ mooseID := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaMethod >> types [ ^types
+ORActionMoveJavaMethod >> mooseModel [ ^mooseModel
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaMethod >> types: aValue [ types := aValue
+ORActionMoveJavaMethod >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

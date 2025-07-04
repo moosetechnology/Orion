@@ -1,22 +1,38 @@
 "
-I add a new FamixJavaPackage in a MooseModel
-I need the following properties of the new package
+I add a FamixJavaPackage in a MooseModel
+I need the following properties of the  package
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
 -`incomingImports`
+-`childEntities`
+-`isStub`
 -`parentPackage`
 -`comments`
 "
 Class {
 	#name : 'ORActionAddJavaPackage',
-	#superclass : 'ORActionAddTPackage',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
 		'incomingImports',
+		'childEntities',
+		'isStub',
 		'parentPackage',
 		'comments'
 	],
@@ -34,6 +50,22 @@ ORActionAddJavaPackage >> annotationInstances: aValue [ annotationInstances := a
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaPackage >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> childEntities [ ^childEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> childEntities: aValue [ childEntities := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaPackage >> comments [ ^comments
 ]
 
@@ -42,9 +74,7 @@ ORActionAddJavaPackage >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaPackage >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionAddJavaPackage >> createVersionnedEntitySelector [ ^ #newPackage
 ]
 
 { #category : 'accessing' }
@@ -56,11 +86,51 @@ ORActionAddJavaPackage >> definedAnnotationTypes: aValue [ definedAnnotationType
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaPackage >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaPackage >> incomingImports [ ^incomingImports
 ]
 
 { #category : 'accessing' }
 ORActionAddJavaPackage >> incomingImports: aValue [ incomingImports := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -74,15 +144,31 @@ ORActionAddJavaPackage >> parentPackage: aValue [ parentPackage := aValue
 { #category : 'method execution' }
 ORActionAddJavaPackage >> run [
 
-	| newEntity |
-	newEntity := self orionModel newPackage.
+	super run.
+	entity mooseID: self mooseID.
+	entity mooseName: self mooseName.
+	entity cache: self cache.
+	entity entityAttributes: self entityAttributes.
+	entity mooseModel: self mooseModel.
+	entity sourceAnchor: self sourceAnchor.
+	entity annotationInstances: self annotationInstances.
+	entity types: self types.
+	entity definedAnnotationTypes: self definedAnnotationTypes.
+	entity incomingImports: self incomingImports.
+	entity childEntities: self childEntities.
+	entity isStub: self isStub.
+	entity parentPackage: self parentPackage.
+	entity comments: self comments.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #types on: newEntity to: self types. self setFamixProperty: #definedAnnotationTypes on: newEntity to: self definedAnnotationTypes. self setFamixProperty: #incomingImports on: newEntity to: self incomingImports. self setFamixProperty: #parentPackage on: newEntity to: self parentPackage. self setFamixProperty: #comments on: newEntity to: self comments.
+	^entity.
+]
 
-	newEntity resetMooseName.
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> sourceAnchor [ ^sourceAnchor
+]
 
-	entity := newEntity.
-	^ entity
+{ #category : 'accessing' }
+ORActionAddJavaPackage >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }

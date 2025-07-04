@@ -1,7 +1,13 @@
 "
-I add a new FamixJavaEnum in a MooseModel
-I need the following properties of the new enum
+I add a FamixJavaEnum in a MooseModel
+I need the following properties of the  enum
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
@@ -9,7 +15,12 @@ I need the following properties of the new enum
 -`upperBoundedWildcards`
 -`concreteEntities`
 -`generics`
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`incomingReferences`
 -`methods`
+-`enumValues`
 -`visibility`
 -`incomingImports`
 -`receivingInvocations`
@@ -21,8 +32,14 @@ I need the following properties of the new enum
 "
 Class {
 	#name : 'ORActionAddJavaEnum',
-	#superclass : 'ORActionAddTEnum',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
@@ -30,7 +47,12 @@ Class {
 		'upperBoundedWildcards',
 		'concreteEntities',
 		'generics',
+		'typeContainer',
+		'typedEntities',
+		'isStub',
+		'incomingReferences',
 		'methods',
+		'enumValues',
 		'visibility',
 		'incomingImports',
 		'receivingInvocations',
@@ -62,6 +84,14 @@ ORActionAddJavaEnum >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaEnum >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaEnum >> comments [ ^comments
 ]
 
@@ -78,9 +108,7 @@ ORActionAddJavaEnum >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaEnum >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionAddJavaEnum >> createVersionnedEntitySelector [ ^ #newEnum
 ]
 
 { #category : 'accessing' }
@@ -89,6 +117,22 @@ ORActionAddJavaEnum >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionAddJavaEnum >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> enumValues [ ^enumValues
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> enumValues: aValue [ enumValues := aValue
 ]
 
 { #category : 'accessing' }
@@ -116,6 +160,22 @@ ORActionAddJavaEnum >> incomingImports: aValue [ incomingImports := aValue
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaEnum >> incomingReferences [ ^incomingReferences
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> incomingReferences: aValue [ incomingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaEnum >> lowerBoundedWildcards [ ^lowerBoundedWildcards
 ]
 
@@ -132,6 +192,30 @@ ORActionAddJavaEnum >> methods: aValue [ methods := aValue
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaEnum >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaEnum >> receivingInvocations [ ^receivingInvocations
 ]
 
@@ -142,15 +226,44 @@ ORActionAddJavaEnum >> receivingInvocations: aValue [ receivingInvocations := aV
 { #category : 'method execution' }
 ORActionAddJavaEnum >> run [
 
-	| newEntity |
-	newEntity := self orionModel newEnum.
+	super run.
+	entity mooseID: self mooseID.
+	entity mooseName: self mooseName.
+	entity cache: self cache.
+	entity entityAttributes: self entityAttributes.
+	entity mooseModel: self mooseModel.
+	entity sourceAnchor: self sourceAnchor.
+	entity annotationInstances: self annotationInstances.
+	entity types: self types.
+	entity definedAnnotationTypes: self definedAnnotationTypes.
+	entity lowerBoundedWildcards: self lowerBoundedWildcards.
+	entity upperBoundedWildcards: self upperBoundedWildcards.
+	entity concreteEntities: self concreteEntities.
+	entity generics: self generics.
+	entity typeContainer: self typeContainer.
+	entity typedEntities: self typedEntities.
+	entity isStub: self isStub.
+	entity incomingReferences: self incomingReferences.
+	entity methods: self methods.
+	entity enumValues: self enumValues.
+	entity visibility: self visibility.
+	entity incomingImports: self incomingImports.
+	entity receivingInvocations: self receivingInvocations.
+	entity attributes: self attributes.
+	entity comments: self comments.
+	entity imports: self imports.
+	entity superInheritances: self superInheritances.
+	entity subInheritances: self subInheritances.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #types on: newEntity to: self types. self setFamixProperty: #definedAnnotationTypes on: newEntity to: self definedAnnotationTypes. self setFamixProperty: #lowerBoundedWildcards on: newEntity to: self lowerBoundedWildcards. self setFamixProperty: #upperBoundedWildcards on: newEntity to: self upperBoundedWildcards. self setFamixProperty: #concreteEntities on: newEntity to: self concreteEntities. self setFamixProperty: #generics on: newEntity to: self generics. self setFamixProperty: #methods on: newEntity to: self methods. self setFamixProperty: #visibility on: newEntity to: self visibility. self setFamixProperty: #incomingImports on: newEntity to: self incomingImports. self setFamixProperty: #receivingInvocations on: newEntity to: self receivingInvocations. self setFamixProperty: #attributes on: newEntity to: self attributes. self setFamixProperty: #comments on: newEntity to: self comments. self setFamixProperty: #imports on: newEntity to: self imports. self setFamixProperty: #superInheritances on: newEntity to: self superInheritances. self setFamixProperty: #subInheritances on: newEntity to: self subInheritances.
+	^entity.
+]
 
-	newEntity resetMooseName.
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> sourceAnchor [ ^sourceAnchor
+]
 
-	entity := newEntity.
-	^ entity
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }
@@ -167,6 +280,22 @@ ORActionAddJavaEnum >> superInheritances [ ^superInheritances
 
 { #category : 'accessing' }
 ORActionAddJavaEnum >> superInheritances: aValue [ superInheritances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> typeContainer [ ^typeContainer
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnum >> typedEntities: aValue [ typedEntities := aValue
 ]
 
 { #category : 'accessing' }

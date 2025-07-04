@@ -11,10 +11,11 @@ Class {
 	#name : 'ORActionRenameJavaLocalVariable',
 	#superclass : 'ORActionRenameTLocalVariable',
 	#instVars : [
-		'annotationInstances',
-		'receivingInvocations',
-		'isFinal',
-		'comments'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Rename',
 	#package : 'Orion-Java',
@@ -22,25 +23,25 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionRenameJavaLocalVariable >> annotationInstances [ ^annotationInstances
+ORActionRenameJavaLocalVariable >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaLocalVariable >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaLocalVariable >> comments [ ^comments
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaLocalVariable >> comments: aValue [ comments := aValue
+ORActionRenameJavaLocalVariable >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
 ORActionRenameJavaLocalVariable >> createVersionnedEntitySelector [
 
 	super createVersionnedEntitySelector.
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaLocalVariable >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaLocalVariable >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -52,9 +53,25 @@ ORActionRenameJavaLocalVariable >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaLocalVariable >> receivingInvocations [ ^receivingInvocations
+ORActionRenameJavaLocalVariable >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaLocalVariable >> receivingInvocations: aValue [ receivingInvocations := aValue
+ORActionRenameJavaLocalVariable >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaLocalVariable >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaLocalVariable >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaLocalVariable >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaLocalVariable >> mooseName: aValue [ mooseName := aValue
 ]

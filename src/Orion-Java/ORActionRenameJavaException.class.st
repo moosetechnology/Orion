@@ -22,21 +22,11 @@ Class {
 	#name : 'ORActionRenameJavaException',
 	#superclass : 'ORActionRenameTException',
 	#instVars : [
-		'annotationInstances',
-		'types',
-		'definedAnnotationTypes',
-		'lowerBoundedWildcards',
-		'upperBoundedWildcards',
-		'concreteEntities',
-		'generics',
-		'isAbstract',
-		'isClassSide',
-		'isFinal',
-		'interfaceImplementations',
-		'visibility',
-		'incomingImports',
-		'parentPackage',
-		'imports'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Rename',
 	#package : 'Orion-Java',
@@ -44,19 +34,11 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionRenameJavaException >> annotationInstances [ ^annotationInstances
+ORActionRenameJavaException >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaException >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> concreteEntities [ ^concreteEntities
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> concreteEntities: aValue [ concreteEntities := aValue
+ORActionRenameJavaException >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
@@ -66,43 +48,11 @@ ORActionRenameJavaException >> createVersionnedEntitySelector [
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaException >> definedAnnotationTypes [ ^definedAnnotationTypes
+ORActionRenameJavaException >> entityAttributes [ ^entityAttributes
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaException >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> generics [ ^generics
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> generics: aValue [ generics := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> imports [ ^imports
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> imports: aValue [ imports := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> incomingImports [ ^incomingImports
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> incomingImports: aValue [ incomingImports := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> interfaceImplementations [ ^interfaceImplementations
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> interfaceImplementations: aValue [ interfaceImplementations := aValue
+ORActionRenameJavaException >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -130,11 +80,27 @@ ORActionRenameJavaException >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaException >> lowerBoundedWildcards [ ^lowerBoundedWildcards
+ORActionRenameJavaException >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaException >> lowerBoundedWildcards: aValue [ lowerBoundedWildcards := aValue
+ORActionRenameJavaException >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaException >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaException >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaException >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaException >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -143,22 +109,6 @@ ORActionRenameJavaException >> parentPackage [ ^parentPackage
 
 { #category : 'accessing' }
 ORActionRenameJavaException >> parentPackage: aValue [ parentPackage := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> types [ ^types
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> types: aValue [ types := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> upperBoundedWildcards [ ^upperBoundedWildcards
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaException >> upperBoundedWildcards: aValue [ upperBoundedWildcards := aValue
 ]
 
 { #category : 'accessing' }

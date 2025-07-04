@@ -15,14 +15,11 @@ Class {
 	#name : 'ORActionMoveJavaPrimitiveType',
 	#superclass : 'ORActionMoveTPrimitiveType',
 	#instVars : [
-		'annotationInstances',
-		'types',
-		'definedAnnotationTypes',
-		'lowerBoundedWildcards',
-		'upperBoundedWildcards',
-		'concreteEntities',
-		'generics',
-		'methods'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Move',
 	#package : 'Orion-Java',
@@ -35,6 +32,14 @@ ORActionMoveJavaPrimitiveType >> annotationInstances [ ^annotationInstances
 
 { #category : 'accessing' }
 ORActionMoveJavaPrimitiveType >> annotationInstances: aValue [ annotationInstances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -60,6 +65,14 @@ ORActionMoveJavaPrimitiveType >> definedAnnotationTypes: aValue [ definedAnnotat
 ]
 
 { #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
 ORActionMoveJavaPrimitiveType >> generics [ ^generics
 ]
 
@@ -81,6 +94,30 @@ ORActionMoveJavaPrimitiveType >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionMoveJavaPrimitiveType >> methods: aValue [ methods := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPrimitiveType >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

@@ -1,7 +1,13 @@
 "
-I add a new FamixJavaMethod in a MooseModel
-I need the following properties of the new method
+I add a FamixJavaMethod in a MooseModel
+I need the following properties of the  method
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
@@ -12,6 +18,17 @@ I need the following properties of the new method
 -`kind`
 -`visibility`
 -`incomingImports`
+-`parentType`
+-`signature`
+-`incomingInvocations`
+-`declaredType`
+-`implicitVariables`
+-`localVariables`
+-`parameters`
+-`isStub`
+-`accesses`
+-`outgoingInvocations`
+-`outgoingReferences`
 -`comments`
 -`caughtExceptions`
 -`declaredExceptions`
@@ -19,8 +36,14 @@ I need the following properties of the new method
 "
 Class {
 	#name : 'ORActionAddJavaMethod',
-	#superclass : 'ORActionAddTMethod',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
@@ -31,6 +54,17 @@ Class {
 		'kind',
 		'visibility',
 		'incomingImports',
+		'parentType',
+		'signature',
+		'incomingInvocations',
+		'declaredType',
+		'implicitVariables',
+		'localVariables',
+		'parameters',
+		'isStub',
+		'accesses',
+		'outgoingInvocations',
+		'outgoingReferences',
 		'comments',
 		'caughtExceptions',
 		'declaredExceptions',
@@ -42,11 +76,27 @@ Class {
 }
 
 { #category : 'accessing' }
+ORActionAddJavaMethod >> accesses [ ^accesses
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> accesses: aValue [ accesses := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaMethod >> annotationInstances [ ^annotationInstances
 ]
 
 { #category : 'accessing' }
 ORActionAddJavaMethod >> annotationInstances: aValue [ annotationInstances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -66,9 +116,7 @@ ORActionAddJavaMethod >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaMethod >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionAddJavaMethod >> createVersionnedEntitySelector [ ^ #newMethod
 ]
 
 { #category : 'accessing' }
@@ -80,6 +128,14 @@ ORActionAddJavaMethod >> declaredExceptions: aValue [ declaredExceptions := aVal
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaMethod >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaMethod >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]
 
@@ -88,11 +144,35 @@ ORActionAddJavaMethod >> definedAnnotationTypes: aValue [ definedAnnotationTypes
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaMethod >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> implicitVariables [ ^implicitVariables
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> implicitVariables: aValue [ implicitVariables := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaMethod >> incomingImports [ ^incomingImports
 ]
 
 { #category : 'accessing' }
 ORActionAddJavaMethod >> incomingImports: aValue [ incomingImports := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> incomingInvocations [ ^incomingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> incomingInvocations: aValue [ incomingInvocations := aValue
 ]
 
 { #category : 'accessing' }
@@ -120,6 +200,14 @@ ORActionAddJavaMethod >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaMethod >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaMethod >> isSynchronized [ ^isSynchronized
 ]
 
@@ -135,18 +223,123 @@ ORActionAddJavaMethod >> kind [ ^kind
 ORActionAddJavaMethod >> kind: aValue [ kind := aValue
 ]
 
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> localVariables [ ^localVariables
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> localVariables: aValue [ localVariables := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> outgoingInvocations [ ^outgoingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> outgoingInvocations: aValue [ outgoingInvocations := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> outgoingReferences [ ^outgoingReferences
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> outgoingReferences: aValue [ outgoingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> parameters [ ^parameters
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> parameters: aValue [ parameters := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> parentType [ ^parentType
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> parentType: aValue [ parentType := aValue
+]
+
 { #category : 'method execution' }
 ORActionAddJavaMethod >> run [
 
-	| newEntity |
-	newEntity := self orionModel newMethod.
+	super run.
+	entity mooseID: self mooseID.
+	entity mooseName: self mooseName.
+	entity cache: self cache.
+	entity entityAttributes: self entityAttributes.
+	entity mooseModel: self mooseModel.
+	entity sourceAnchor: self sourceAnchor.
+	entity annotationInstances: self annotationInstances.
+	entity types: self types.
+	entity definedAnnotationTypes: self definedAnnotationTypes.
+	entity isSynchronized: self isSynchronized.
+	entity isAbstract: self isAbstract.
+	entity isClassSide: self isClassSide.
+	entity isFinal: self isFinal.
+	entity kind: self kind.
+	entity visibility: self visibility.
+	entity incomingImports: self incomingImports.
+	entity parentType: self parentType.
+	entity signature: self signature.
+	entity incomingInvocations: self incomingInvocations.
+	entity declaredType: self declaredType.
+	entity implicitVariables: self implicitVariables.
+	entity localVariables: self localVariables.
+	entity parameters: self parameters.
+	entity isStub: self isStub.
+	entity accesses: self accesses.
+	entity outgoingInvocations: self outgoingInvocations.
+	entity outgoingReferences: self outgoingReferences.
+	entity comments: self comments.
+	entity caughtExceptions: self caughtExceptions.
+	entity declaredExceptions: self declaredExceptions.
+	entity thrownExceptions: self thrownExceptions.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #types on: newEntity to: self types. self setFamixProperty: #definedAnnotationTypes on: newEntity to: self definedAnnotationTypes. self setFamixProperty: #isSynchronized on: newEntity to: self isSynchronized. self setFamixProperty: #isAbstract on: newEntity to: self isAbstract. self setFamixProperty: #isClassSide on: newEntity to: self isClassSide. self setFamixProperty: #isFinal on: newEntity to: self isFinal. self setFamixProperty: #kind on: newEntity to: self kind. self setFamixProperty: #visibility on: newEntity to: self visibility. self setFamixProperty: #incomingImports on: newEntity to: self incomingImports. self setFamixProperty: #comments on: newEntity to: self comments. self setFamixProperty: #caughtExceptions on: newEntity to: self caughtExceptions. self setFamixProperty: #declaredExceptions on: newEntity to: self declaredExceptions. self setFamixProperty: #thrownExceptions on: newEntity to: self thrownExceptions.
+	^entity.
+]
 
-	newEntity resetMooseName.
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> signature [ ^signature
+]
 
-	entity := newEntity.
-	^ entity
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> signature: aValue [ signature := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaMethod >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }

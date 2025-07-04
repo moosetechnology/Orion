@@ -1,22 +1,38 @@
 "
-I remove a new FamixJavaPackage in a MooseModel
-I need the following properties of the new package
+I remove a FamixJavaPackage in a MooseModel
+I need the following properties of the  package
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
 -`incomingImports`
+-`childEntities`
+-`isStub`
 -`parentPackage`
 -`comments`
 "
 Class {
 	#name : 'ORActionRemoveJavaPackage',
-	#superclass : 'ORActionRemoveTPackage',
+	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
 		'incomingImports',
+		'childEntities',
+		'isStub',
 		'parentPackage',
 		'comments'
 	],
@@ -34,6 +50,22 @@ ORActionRemoveJavaPackage >> annotationInstances: aValue [ annotationInstances :
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaPackage >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> childEntities [ ^childEntities
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> childEntities: aValue [ childEntities := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaPackage >> comments [ ^comments
 ]
 
@@ -42,9 +74,7 @@ ORActionRemoveJavaPackage >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionRemoveJavaPackage >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionRemoveJavaPackage >> createVersionnedEntitySelector [ ^ #newPackage
 ]
 
 { #category : 'accessing' }
@@ -56,6 +86,14 @@ ORActionRemoveJavaPackage >> definedAnnotationTypes: aValue [ definedAnnotationT
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaPackage >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaPackage >> incomingImports [ ^incomingImports
 ]
 
@@ -64,11 +102,75 @@ ORActionRemoveJavaPackage >> incomingImports: aValue [ incomingImports := aValue
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaPackage >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaPackage >> parentPackage [ ^parentPackage
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaPackage >> parentPackage: aValue [ parentPackage := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaPackage >> run [
+
+	super run.
+	entity mooseID: nil.
+	entity mooseName: nil.
+	entity cache: nil.
+	entity entityAttributes: nil.
+	entity mooseModel: nil.
+	entity sourceAnchor: nil.
+	entity annotationInstances: nil.
+	entity types: nil.
+	entity definedAnnotationTypes: nil.
+	entity incomingImports: nil.
+	entity childEntities: nil.
+	entity isStub: nil.
+	entity parentPackage: nil.
+	entity comments: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaPackage >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }

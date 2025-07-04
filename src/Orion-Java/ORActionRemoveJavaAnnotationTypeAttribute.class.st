@@ -1,17 +1,39 @@
 "
-I remove a new FamixJavaAnnotationTypeAttribute in a MooseModel
-I need the following properties of the new annotationtypeattribute
+I remove a FamixJavaAnnotationTypeAttribute in a MooseModel
+I need the following properties of the  annotationtypeattribute
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`
+-`annotationAttributeInstances`
+-`parentType`
+-`incomingAccesses`
+-`isStub`
+-`declaredType`
 -`comments`
 "
 Class {
 	#name : 'ORActionRemoveJavaAnnotationTypeAttribute',
-	#superclass : 'ORActionRemoveTAnnotationTypeAttribute',
+	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
+		'annotationAttributeInstances',
+		'parentType',
+		'incomingAccesses',
+		'isStub',
+		'declaredType',
 		'comments'
 	],
 	#category : 'Orion-Java-Remove',
@@ -20,11 +42,27 @@ Class {
 }
 
 { #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> annotationAttributeInstances [ ^annotationAttributeInstances
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> annotationAttributeInstances: aValue [ annotationAttributeInstances := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaAnnotationTypeAttribute >> annotationInstances [ ^annotationInstances
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationTypeAttribute >> annotationInstances: aValue [ annotationInstances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -36,9 +74,71 @@ ORActionRemoveJavaAnnotationTypeAttribute >> comments: aValue [ comments := aVal
 ]
 
 { #category : 'method execution' }
-ORActionRemoveJavaAnnotationTypeAttribute >> createVersionnedEntitySelector [
+ORActionRemoveJavaAnnotationTypeAttribute >> createVersionnedEntitySelector [ ^ #newAnnotationTypeAttribute
+]
 
-	super createVersionnedEntitySelector.
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> incomingAccesses: aValue [ incomingAccesses := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> parentType [ ^parentType
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> parentType: aValue [ parentType := aValue
 ]
 
 { #category : 'accessing' }
@@ -47,4 +147,36 @@ ORActionRemoveJavaAnnotationTypeAttribute >> receivingInvocations [ ^receivingIn
 
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationTypeAttribute >> receivingInvocations: aValue [ receivingInvocations := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaAnnotationTypeAttribute >> run [
+
+	super run.
+	entity mooseID: nil.
+	entity mooseName: nil.
+	entity cache: nil.
+	entity entityAttributes: nil.
+	entity mooseModel: nil.
+	entity sourceAnchor: nil.
+	entity annotationInstances: nil.
+	entity receivingInvocations: nil.
+	entity annotationAttributeInstances: nil.
+	entity parentType: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity declaredType: nil.
+	entity comments: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationTypeAttribute >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]

@@ -1,9 +1,13 @@
 "
-I remove a new FamixJavaAnnotationType in a MooseModel
-I need the following properties of the new annotationtype
+I remove a FamixJavaAnnotationType in a MooseModel
+I need the following properties of the  annotationtype
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
 -`sourceAnchor`
--`name`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
@@ -16,6 +20,8 @@ I need the following properties of the new annotationtype
 -`isStub`
 -`incomingReferences`
 -`methods`
+-`annotationTypesContainer`
+-`instances`
 -`visibility`
 -`implementations`
 -`parentPackage`
@@ -26,10 +32,14 @@ I need the following properties of the new annotationtype
 "
 Class {
 	#name : 'ORActionRemoveJavaAnnotationType',
-	#superclass : 'ORActionRemoveTAnnotationType',
+	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
 		'sourceAnchor',
-		'name',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
@@ -42,6 +52,8 @@ Class {
 		'isStub',
 		'incomingReferences',
 		'methods',
+		'annotationTypesContainer',
+		'instances',
 		'visibility',
 		'implementations',
 		'parentPackage',
@@ -64,11 +76,27 @@ ORActionRemoveJavaAnnotationType >> annotationInstances: aValue [ annotationInst
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> annotationTypesContainer [ ^annotationTypesContainer
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> annotationTypesContainer: aValue [ annotationTypesContainer := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaAnnotationType >> attributes [ ^attributes
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationType >> attributes: aValue [ attributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -88,9 +116,7 @@ ORActionRemoveJavaAnnotationType >> concreteEntities: aValue [ concreteEntities 
 ]
 
 { #category : 'method execution' }
-ORActionRemoveJavaAnnotationType >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionRemoveJavaAnnotationType >> createVersionnedEntitySelector [ ^ #newAnnotationType
 ]
 
 { #category : 'accessing' }
@@ -99,6 +125,14 @@ ORActionRemoveJavaAnnotationType >> definedAnnotationTypes [ ^definedAnnotationT
 
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationType >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -126,6 +160,14 @@ ORActionRemoveJavaAnnotationType >> incomingReferences: aValue [ incomingReferen
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> instances [ ^instances
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> instances: aValue [ instances := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaAnnotationType >> isStub [ ^isStub
 ]
 
@@ -150,11 +192,27 @@ ORActionRemoveJavaAnnotationType >> methods: aValue [ methods := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaAnnotationType >> name [ ^name
+ORActionRemoveJavaAnnotationType >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaAnnotationType >> name: aValue [ name := aValue
+ORActionRemoveJavaAnnotationType >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaAnnotationType >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -163,6 +221,43 @@ ORActionRemoveJavaAnnotationType >> parentPackage [ ^parentPackage
 
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationType >> parentPackage: aValue [ parentPackage := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaAnnotationType >> run [
+
+	super run.
+	entity mooseID: nil.
+	entity mooseName: nil.
+	entity cache: nil.
+	entity entityAttributes: nil.
+	entity mooseModel: nil.
+	entity sourceAnchor: nil.
+	entity annotationInstances: nil.
+	entity types: nil.
+	entity definedAnnotationTypes: nil.
+	entity lowerBoundedWildcards: nil.
+	entity upperBoundedWildcards: nil.
+	entity concreteEntities: nil.
+	entity generics: nil.
+	entity typeContainer: nil.
+	entity typedEntities: nil.
+	entity isStub: nil.
+	entity incomingReferences: nil.
+	entity methods: nil.
+	entity annotationTypesContainer: nil.
+	entity instances: nil.
+	entity visibility: nil.
+	entity implementations: nil.
+	entity parentPackage: nil.
+	entity attributes: nil.
+	entity comments: nil.
+	entity superInheritances: nil.
+	entity subInheritances: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^entity.
 ]
 
 { #category : 'accessing' }

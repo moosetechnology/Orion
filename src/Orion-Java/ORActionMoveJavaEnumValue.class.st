@@ -10,9 +10,11 @@ Class {
 	#name : 'ORActionMoveJavaEnumValue',
 	#superclass : 'ORActionMoveTEnumValue',
 	#instVars : [
-		'annotationInstances',
-		'receivingInvocations',
-		'comments'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Move',
 	#package : 'Orion-Java',
@@ -28,6 +30,14 @@ ORActionMoveJavaEnumValue >> annotationInstances: aValue [ annotationInstances :
 ]
 
 { #category : 'accessing' }
+ORActionMoveJavaEnumValue >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
 ORActionMoveJavaEnumValue >> comments [ ^comments
 ]
 
@@ -39,6 +49,38 @@ ORActionMoveJavaEnumValue >> comments: aValue [ comments := aValue
 ORActionMoveJavaEnumValue >> createVersionnedEntitySelector [
 
 	super createVersionnedEntitySelector.
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

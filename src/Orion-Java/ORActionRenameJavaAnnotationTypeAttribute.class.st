@@ -10,9 +10,11 @@ Class {
 	#name : 'ORActionRenameJavaAnnotationTypeAttribute',
 	#superclass : 'ORActionRenameTAnnotationTypeAttribute',
 	#instVars : [
-		'annotationInstances',
-		'receivingInvocations',
-		'comments'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Rename',
 	#package : 'Orion-Java',
@@ -28,6 +30,14 @@ ORActionRenameJavaAnnotationTypeAttribute >> annotationInstances: aValue [ annot
 ]
 
 { #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRenameJavaAnnotationTypeAttribute >> comments [ ^comments
 ]
 
@@ -39,6 +49,38 @@ ORActionRenameJavaAnnotationTypeAttribute >> comments: aValue [ comments := aVal
 ORActionRenameJavaAnnotationTypeAttribute >> createVersionnedEntitySelector [
 
 	super createVersionnedEntitySelector.
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaAnnotationTypeAttribute >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

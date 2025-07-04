@@ -1,7 +1,13 @@
 "
-I add a new FamixJavaException in a MooseModel
-I need the following properties of the new exception
+I add a FamixJavaException in a MooseModel
+I need the following properties of the  exception
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
@@ -9,19 +15,38 @@ I need the following properties of the new exception
 -`upperBoundedWildcards`
 -`concreteEntities`
 -`generics`
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`incomingReferences`
+-`methods`
 -`isAbstract`
 -`isClassSide`
 -`isFinal`
 -`interfaceImplementations`
+-`receivingInvocations`
+-`attributes`
+-`comments`
+-`superInheritances`
+-`subInheritances`
 -`visibility`
 -`incomingImports`
 -`parentPackage`
 -`imports`
+-`catchingEntities`
+-`declaringEntities`
+-`throwingEntities`
 "
 Class {
 	#name : 'ORActionAddJavaException',
-	#superclass : 'ORActionAddTException',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
@@ -29,14 +54,27 @@ Class {
 		'upperBoundedWildcards',
 		'concreteEntities',
 		'generics',
+		'typeContainer',
+		'typedEntities',
+		'isStub',
+		'incomingReferences',
+		'methods',
 		'isAbstract',
 		'isClassSide',
 		'isFinal',
 		'interfaceImplementations',
+		'receivingInvocations',
+		'attributes',
+		'comments',
+		'superInheritances',
+		'subInheritances',
 		'visibility',
 		'incomingImports',
 		'parentPackage',
-		'imports'
+		'imports',
+		'catchingEntities',
+		'declaringEntities',
+		'throwingEntities'
 	],
 	#category : 'Orion-Java-Add',
 	#package : 'Orion-Java',
@@ -52,6 +90,38 @@ ORActionAddJavaException >> annotationInstances: aValue [ annotationInstances :=
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaException >> attributes [ ^attributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> attributes: aValue [ attributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> catchingEntities [ ^catchingEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> catchingEntities: aValue [ catchingEntities := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> comments [ ^comments
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> comments: aValue [ comments := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaException >> concreteEntities [ ^concreteEntities
 ]
 
@@ -60,9 +130,15 @@ ORActionAddJavaException >> concreteEntities: aValue [ concreteEntities := aValu
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaException >> createVersionnedEntitySelector [
+ORActionAddJavaException >> createVersionnedEntitySelector [ ^ #newException
+]
 
-	super createVersionnedEntitySelector.
+{ #category : 'accessing' }
+ORActionAddJavaException >> declaringEntities [ ^declaringEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> declaringEntities: aValue [ declaringEntities := aValue
 ]
 
 { #category : 'accessing' }
@@ -71,6 +147,14 @@ ORActionAddJavaException >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionAddJavaException >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -95,6 +179,14 @@ ORActionAddJavaException >> incomingImports [ ^incomingImports
 
 { #category : 'accessing' }
 ORActionAddJavaException >> incomingImports: aValue [ incomingImports := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> incomingReferences [ ^incomingReferences
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> incomingReferences: aValue [ incomingReferences := aValue
 ]
 
 { #category : 'accessing' }
@@ -130,11 +222,51 @@ ORActionAddJavaException >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaException >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaException >> lowerBoundedWildcards [ ^lowerBoundedWildcards
 ]
 
 { #category : 'accessing' }
 ORActionAddJavaException >> lowerBoundedWildcards: aValue [ lowerBoundedWildcards := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> methods [ ^methods
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> methods: aValue [ methods := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -145,18 +277,102 @@ ORActionAddJavaException >> parentPackage [ ^parentPackage
 ORActionAddJavaException >> parentPackage: aValue [ parentPackage := aValue
 ]
 
+{ #category : 'accessing' }
+ORActionAddJavaException >> receivingInvocations [ ^receivingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> receivingInvocations: aValue [ receivingInvocations := aValue
+]
+
 { #category : 'method execution' }
 ORActionAddJavaException >> run [
 
-	| newEntity |
-	newEntity := self orionModel newException.
+	super run.
+	entity mooseID: self mooseID.
+	entity mooseName: self mooseName.
+	entity cache: self cache.
+	entity entityAttributes: self entityAttributes.
+	entity mooseModel: self mooseModel.
+	entity sourceAnchor: self sourceAnchor.
+	entity annotationInstances: self annotationInstances.
+	entity types: self types.
+	entity definedAnnotationTypes: self definedAnnotationTypes.
+	entity lowerBoundedWildcards: self lowerBoundedWildcards.
+	entity upperBoundedWildcards: self upperBoundedWildcards.
+	entity concreteEntities: self concreteEntities.
+	entity generics: self generics.
+	entity typeContainer: self typeContainer.
+	entity typedEntities: self typedEntities.
+	entity isStub: self isStub.
+	entity incomingReferences: self incomingReferences.
+	entity methods: self methods.
+	entity isAbstract: self isAbstract.
+	entity isClassSide: self isClassSide.
+	entity isFinal: self isFinal.
+	entity interfaceImplementations: self interfaceImplementations.
+	entity receivingInvocations: self receivingInvocations.
+	entity attributes: self attributes.
+	entity comments: self comments.
+	entity superInheritances: self superInheritances.
+	entity subInheritances: self subInheritances.
+	entity visibility: self visibility.
+	entity incomingImports: self incomingImports.
+	entity parentPackage: self parentPackage.
+	entity imports: self imports.
+	entity catchingEntities: self catchingEntities.
+	entity declaringEntities: self declaringEntities.
+	entity throwingEntities: self throwingEntities.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #types on: newEntity to: self types. self setFamixProperty: #definedAnnotationTypes on: newEntity to: self definedAnnotationTypes. self setFamixProperty: #lowerBoundedWildcards on: newEntity to: self lowerBoundedWildcards. self setFamixProperty: #upperBoundedWildcards on: newEntity to: self upperBoundedWildcards. self setFamixProperty: #concreteEntities on: newEntity to: self concreteEntities. self setFamixProperty: #generics on: newEntity to: self generics. self setFamixProperty: #isAbstract on: newEntity to: self isAbstract. self setFamixProperty: #isClassSide on: newEntity to: self isClassSide. self setFamixProperty: #isFinal on: newEntity to: self isFinal. self setFamixProperty: #interfaceImplementations on: newEntity to: self interfaceImplementations. self setFamixProperty: #visibility on: newEntity to: self visibility. self setFamixProperty: #incomingImports on: newEntity to: self incomingImports. self setFamixProperty: #parentPackage on: newEntity to: self parentPackage. self setFamixProperty: #imports on: newEntity to: self imports.
+	^entity.
+]
 
-	newEntity resetMooseName.
+{ #category : 'accessing' }
+ORActionAddJavaException >> sourceAnchor [ ^sourceAnchor
+]
 
-	entity := newEntity.
-	^ entity
+{ #category : 'accessing' }
+ORActionAddJavaException >> sourceAnchor: aValue [ sourceAnchor := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> subInheritances [ ^subInheritances
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> subInheritances: aValue [ subInheritances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> superInheritances [ ^superInheritances
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> superInheritances: aValue [ superInheritances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> throwingEntities [ ^throwingEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> throwingEntities: aValue [ throwingEntities := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> typeContainer [ ^typeContainer
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaException >> typedEntities: aValue [ typedEntities := aValue
 ]
 
 { #category : 'accessing' }

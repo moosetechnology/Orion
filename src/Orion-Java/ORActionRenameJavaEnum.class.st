@@ -23,22 +23,11 @@ Class {
 	#name : 'ORActionRenameJavaEnum',
 	#superclass : 'ORActionRenameTEnum',
 	#instVars : [
-		'annotationInstances',
-		'types',
-		'definedAnnotationTypes',
-		'lowerBoundedWildcards',
-		'upperBoundedWildcards',
-		'concreteEntities',
-		'generics',
-		'methods',
-		'visibility',
-		'incomingImports',
-		'receivingInvocations',
-		'attributes',
-		'comments',
-		'imports',
-		'superInheritances',
-		'subInheritances'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Rename',
 	#package : 'Orion-Java',
@@ -46,35 +35,11 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> annotationInstances [ ^annotationInstances
+ORActionRenameJavaEnum >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> attributes [ ^attributes
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> attributes: aValue [ attributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> comments [ ^comments
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> comments: aValue [ comments := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> concreteEntities [ ^concreteEntities
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> concreteEntities: aValue [ concreteEntities := aValue
+ORActionRenameJavaEnum >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
@@ -84,91 +49,35 @@ ORActionRenameJavaEnum >> createVersionnedEntitySelector [
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> definedAnnotationTypes [ ^definedAnnotationTypes
+ORActionRenameJavaEnum >> entityAttributes [ ^entityAttributes
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
+ORActionRenameJavaEnum >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> generics [ ^generics
+ORActionRenameJavaEnum >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> generics: aValue [ generics := aValue
+ORActionRenameJavaEnum >> mooseID: aValue [ mooseID := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> imports [ ^imports
+ORActionRenameJavaEnum >> mooseModel [ ^mooseModel
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> imports: aValue [ imports := aValue
+ORActionRenameJavaEnum >> mooseModel: aValue [ mooseModel := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> incomingImports [ ^incomingImports
+ORActionRenameJavaEnum >> mooseName [ ^mooseName
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaEnum >> incomingImports: aValue [ incomingImports := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> lowerBoundedWildcards [ ^lowerBoundedWildcards
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> lowerBoundedWildcards: aValue [ lowerBoundedWildcards := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> methods [ ^methods
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> methods: aValue [ methods := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> receivingInvocations [ ^receivingInvocations
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> receivingInvocations: aValue [ receivingInvocations := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> subInheritances [ ^subInheritances
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> subInheritances: aValue [ subInheritances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> superInheritances [ ^superInheritances
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> superInheritances: aValue [ superInheritances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> types [ ^types
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> types: aValue [ types := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> upperBoundedWildcards [ ^upperBoundedWildcards
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaEnum >> upperBoundedWildcards: aValue [ upperBoundedWildcards := aValue
+ORActionRenameJavaEnum >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

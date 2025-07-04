@@ -11,10 +11,11 @@ Class {
 	#name : 'ORActionRenameJavaParameter',
 	#superclass : 'ORActionRenameTParameter',
 	#instVars : [
-		'annotationInstances',
-		'receivingInvocations',
-		'isFinal',
-		'comments'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Rename',
 	#package : 'Orion-Java',
@@ -22,25 +23,25 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionRenameJavaParameter >> annotationInstances [ ^annotationInstances
+ORActionRenameJavaParameter >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaParameter >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaParameter >> comments [ ^comments
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaParameter >> comments: aValue [ comments := aValue
+ORActionRenameJavaParameter >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
 ORActionRenameJavaParameter >> createVersionnedEntitySelector [
 
 	super createVersionnedEntitySelector.
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaParameter >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaParameter >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -52,9 +53,25 @@ ORActionRenameJavaParameter >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaParameter >> receivingInvocations [ ^receivingInvocations
+ORActionRenameJavaParameter >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaParameter >> receivingInvocations: aValue [ receivingInvocations := aValue
+ORActionRenameJavaParameter >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaParameter >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaParameter >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaParameter >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaParameter >> mooseName: aValue [ mooseName := aValue
 ]

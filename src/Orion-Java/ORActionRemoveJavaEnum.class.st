@@ -1,7 +1,13 @@
 "
-I remove a new FamixJavaEnum in a MooseModel
-I need the following properties of the new enum
+I remove a FamixJavaEnum in a MooseModel
+I need the following properties of the  enum
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`types`
 -`definedAnnotationTypes`
@@ -9,7 +15,12 @@ I need the following properties of the new enum
 -`upperBoundedWildcards`
 -`concreteEntities`
 -`generics`
+-`typeContainer`
+-`typedEntities`
+-`isStub`
+-`incomingReferences`
 -`methods`
+-`enumValues`
 -`visibility`
 -`incomingImports`
 -`receivingInvocations`
@@ -21,8 +32,14 @@ I need the following properties of the new enum
 "
 Class {
 	#name : 'ORActionRemoveJavaEnum',
-	#superclass : 'ORActionRemoveTEnum',
+	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'types',
 		'definedAnnotationTypes',
@@ -30,7 +47,12 @@ Class {
 		'upperBoundedWildcards',
 		'concreteEntities',
 		'generics',
+		'typeContainer',
+		'typedEntities',
+		'isStub',
+		'incomingReferences',
 		'methods',
+		'enumValues',
 		'visibility',
 		'incomingImports',
 		'receivingInvocations',
@@ -62,6 +84,14 @@ ORActionRemoveJavaEnum >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaEnum >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaEnum >> comments [ ^comments
 ]
 
@@ -78,9 +108,7 @@ ORActionRemoveJavaEnum >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
 { #category : 'method execution' }
-ORActionRemoveJavaEnum >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
+ORActionRemoveJavaEnum >> createVersionnedEntitySelector [ ^ #newEnum
 ]
 
 { #category : 'accessing' }
@@ -89,6 +117,22 @@ ORActionRemoveJavaEnum >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionRemoveJavaEnum >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> enumValues [ ^enumValues
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> enumValues: aValue [ enumValues := aValue
 ]
 
 { #category : 'accessing' }
@@ -116,6 +160,22 @@ ORActionRemoveJavaEnum >> incomingImports: aValue [ incomingImports := aValue
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaEnum >> incomingReferences [ ^incomingReferences
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> incomingReferences: aValue [ incomingReferences := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaEnum >> lowerBoundedWildcards [ ^lowerBoundedWildcards
 ]
 
@@ -132,11 +192,80 @@ ORActionRemoveJavaEnum >> methods: aValue [ methods := aValue
 ]
 
 { #category : 'accessing' }
+ORActionRemoveJavaEnum >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRemoveJavaEnum >> receivingInvocations [ ^receivingInvocations
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaEnum >> receivingInvocations: aValue [ receivingInvocations := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaEnum >> run [
+
+	super run.
+	entity mooseID: nil.
+	entity mooseName: nil.
+	entity cache: nil.
+	entity entityAttributes: nil.
+	entity mooseModel: nil.
+	entity sourceAnchor: nil.
+	entity annotationInstances: nil.
+	entity types: nil.
+	entity definedAnnotationTypes: nil.
+	entity lowerBoundedWildcards: nil.
+	entity upperBoundedWildcards: nil.
+	entity concreteEntities: nil.
+	entity generics: nil.
+	entity typeContainer: nil.
+	entity typedEntities: nil.
+	entity isStub: nil.
+	entity incomingReferences: nil.
+	entity methods: nil.
+	entity enumValues: nil.
+	entity visibility: nil.
+	entity incomingImports: nil.
+	entity receivingInvocations: nil.
+	entity attributes: nil.
+	entity comments: nil.
+	entity imports: nil.
+	entity superInheritances: nil.
+	entity subInheritances: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }
@@ -153,6 +282,22 @@ ORActionRemoveJavaEnum >> superInheritances [ ^superInheritances
 
 { #category : 'accessing' }
 ORActionRemoveJavaEnum >> superInheritances: aValue [ superInheritances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> typeContainer [ ^typeContainer
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> typeContainer: aValue [ typeContainer := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> typedEntities [ ^typedEntities
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaEnum >> typedEntities: aValue [ typedEntities := aValue
 ]
 
 { #category : 'accessing' }

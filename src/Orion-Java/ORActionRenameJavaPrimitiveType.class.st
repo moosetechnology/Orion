@@ -15,14 +15,11 @@ Class {
 	#name : 'ORActionRenameJavaPrimitiveType',
 	#superclass : 'ORActionRenameTPrimitiveType',
 	#instVars : [
-		'annotationInstances',
-		'types',
-		'definedAnnotationTypes',
-		'lowerBoundedWildcards',
-		'upperBoundedWildcards',
-		'concreteEntities',
-		'generics',
-		'methods'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Rename',
 	#package : 'Orion-Java',
@@ -35,6 +32,14 @@ ORActionRenameJavaPrimitiveType >> annotationInstances [ ^annotationInstances
 
 { #category : 'accessing' }
 ORActionRenameJavaPrimitiveType >> annotationInstances: aValue [ annotationInstances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -60,6 +65,14 @@ ORActionRenameJavaPrimitiveType >> definedAnnotationTypes: aValue [ definedAnnot
 ]
 
 { #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRenameJavaPrimitiveType >> generics [ ^generics
 ]
 
@@ -81,6 +94,30 @@ ORActionRenameJavaPrimitiveType >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionRenameJavaPrimitiveType >> methods: aValue [ methods := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPrimitiveType >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

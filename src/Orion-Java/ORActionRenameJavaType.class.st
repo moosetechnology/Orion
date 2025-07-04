@@ -15,14 +15,11 @@ Class {
 	#name : 'ORActionRenameJavaType',
 	#superclass : 'ORActionRenameTType',
 	#instVars : [
-		'annotationInstances',
-		'types',
-		'definedAnnotationTypes',
-		'lowerBoundedWildcards',
-		'upperBoundedWildcards',
-		'concreteEntities',
-		'generics',
-		'methods'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Rename',
 	#package : 'Orion-Java',
@@ -35,6 +32,14 @@ ORActionRenameJavaType >> annotationInstances [ ^annotationInstances
 
 { #category : 'accessing' }
 ORActionRenameJavaType >> annotationInstances: aValue [ annotationInstances := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaType >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaType >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -60,6 +65,14 @@ ORActionRenameJavaType >> definedAnnotationTypes: aValue [ definedAnnotationType
 ]
 
 { #category : 'accessing' }
+ORActionRenameJavaType >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaType >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
 ORActionRenameJavaType >> generics [ ^generics
 ]
 
@@ -81,6 +94,30 @@ ORActionRenameJavaType >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionRenameJavaType >> methods: aValue [ methods := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaType >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaType >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaType >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaType >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaType >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaType >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

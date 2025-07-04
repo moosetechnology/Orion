@@ -13,12 +13,11 @@ Class {
 	#name : 'ORActionRenameJavaPackage',
 	#superclass : 'ORActionRenameTPackage',
 	#instVars : [
-		'annotationInstances',
-		'types',
-		'definedAnnotationTypes',
-		'incomingImports',
-		'parentPackage',
-		'comments'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Rename',
 	#package : 'Orion-Java',
@@ -26,19 +25,11 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionRenameJavaPackage >> annotationInstances [ ^annotationInstances
+ORActionRenameJavaPackage >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaPackage >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaPackage >> comments [ ^comments
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaPackage >> comments: aValue [ comments := aValue
+ORActionRenameJavaPackage >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
@@ -48,19 +39,35 @@ ORActionRenameJavaPackage >> createVersionnedEntitySelector [
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaPackage >> definedAnnotationTypes [ ^definedAnnotationTypes
+ORActionRenameJavaPackage >> entityAttributes [ ^entityAttributes
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaPackage >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
+ORActionRenameJavaPackage >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaPackage >> incomingImports [ ^incomingImports
+ORActionRenameJavaPackage >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionRenameJavaPackage >> incomingImports: aValue [ incomingImports := aValue
+ORActionRenameJavaPackage >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPackage >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPackage >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPackage >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRenameJavaPackage >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -69,12 +76,4 @@ ORActionRenameJavaPackage >> parentPackage [ ^parentPackage
 
 { #category : 'accessing' }
 ORActionRenameJavaPackage >> parentPackage: aValue [ parentPackage := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaPackage >> types [ ^types
-]
-
-{ #category : 'accessing' }
-ORActionRenameJavaPackage >> types: aValue [ types := aValue
 ]

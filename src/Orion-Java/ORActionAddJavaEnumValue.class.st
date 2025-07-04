@@ -1,17 +1,37 @@
 "
-I add a new FamixJavaEnumValue in a MooseModel
-I need the following properties of the new enumvalue
+I add a FamixJavaEnumValue in a MooseModel
+I need the following properties of the  enumvalue
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`
+-`parentEnum`
+-`incomingAccesses`
+-`isStub`
+-`declaredType`
 -`comments`
 "
 Class {
 	#name : 'ORActionAddJavaEnumValue',
-	#superclass : 'ORActionAddTEnumValue',
+	#superclass : 'ORActionAddNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
+		'parentEnum',
+		'incomingAccesses',
+		'isStub',
+		'declaredType',
 		'comments'
 	],
 	#category : 'Orion-Java-Add',
@@ -28,6 +48,14 @@ ORActionAddJavaEnumValue >> annotationInstances: aValue [ annotationInstances :=
 ]
 
 { #category : 'accessing' }
+ORActionAddJavaEnumValue >> cache [ ^cache
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'accessing' }
 ORActionAddJavaEnumValue >> comments [ ^comments
 ]
 
@@ -36,9 +64,71 @@ ORActionAddJavaEnumValue >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaEnumValue >> createVersionnedEntitySelector [
+ORActionAddJavaEnumValue >> createVersionnedEntitySelector [ ^ #newEnumValue
+]
 
-	super createVersionnedEntitySelector.
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> incomingAccesses: aValue [ incomingAccesses := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> parentEnum [ ^parentEnum
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> parentEnum: aValue [ parentEnum := aValue
 ]
 
 { #category : 'accessing' }
@@ -52,13 +142,28 @@ ORActionAddJavaEnumValue >> receivingInvocations: aValue [ receivingInvocations 
 { #category : 'method execution' }
 ORActionAddJavaEnumValue >> run [
 
-	| newEntity |
-	newEntity := self orionModel newEnumValue.
+	super run.
+	entity mooseID: self mooseID.
+	entity mooseName: self mooseName.
+	entity cache: self cache.
+	entity entityAttributes: self entityAttributes.
+	entity mooseModel: self mooseModel.
+	entity sourceAnchor: self sourceAnchor.
+	entity annotationInstances: self annotationInstances.
+	entity receivingInvocations: self receivingInvocations.
+	entity parentEnum: self parentEnum.
+	entity incomingAccesses: self incomingAccesses.
+	entity isStub: self isStub.
+	entity declaredType: self declaredType.
+	entity comments: self comments.
 
-	self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #annotationInstances on: newEntity to: self annotationInstances. self setFamixProperty: #receivingInvocations on: newEntity to: self receivingInvocations. self setFamixProperty: #comments on: newEntity to: self comments.
+	^entity.
+]
 
-	newEntity resetMooseName.
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> sourceAnchor [ ^sourceAnchor
+]
 
-	entity := newEntity.
-	^ entity
+{ #category : 'accessing' }
+ORActionAddJavaEnumValue >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]

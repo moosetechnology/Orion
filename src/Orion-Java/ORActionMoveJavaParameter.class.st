@@ -11,10 +11,11 @@ Class {
 	#name : 'ORActionMoveJavaParameter',
 	#superclass : 'ORActionMoveTParameter',
 	#instVars : [
-		'annotationInstances',
-		'receivingInvocations',
-		'isFinal',
-		'comments'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Move',
 	#package : 'Orion-Java',
@@ -22,25 +23,25 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionMoveJavaParameter >> annotationInstances [ ^annotationInstances
+ORActionMoveJavaParameter >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaParameter >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaParameter >> comments [ ^comments
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaParameter >> comments: aValue [ comments := aValue
+ORActionMoveJavaParameter >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
 ORActionMoveJavaParameter >> createVersionnedEntitySelector [
 
 	super createVersionnedEntitySelector.
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaParameter >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaParameter >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -52,9 +53,25 @@ ORActionMoveJavaParameter >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaParameter >> receivingInvocations [ ^receivingInvocations
+ORActionMoveJavaParameter >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaParameter >> receivingInvocations: aValue [ receivingInvocations := aValue
+ORActionMoveJavaParameter >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaParameter >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaParameter >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaParameter >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaParameter >> mooseName: aValue [ mooseName := aValue
 ]

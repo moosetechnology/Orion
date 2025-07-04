@@ -11,10 +11,11 @@ Class {
 	#name : 'ORActionMoveJavaLocalVariable',
 	#superclass : 'ORActionMoveTLocalVariable',
 	#instVars : [
-		'annotationInstances',
-		'receivingInvocations',
-		'isFinal',
-		'comments'
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel'
 	],
 	#category : 'Orion-Java-Move',
 	#package : 'Orion-Java',
@@ -22,25 +23,25 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionMoveJavaLocalVariable >> annotationInstances [ ^annotationInstances
+ORActionMoveJavaLocalVariable >> cache [ ^cache
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaLocalVariable >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaLocalVariable >> comments [ ^comments
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaLocalVariable >> comments: aValue [ comments := aValue
+ORActionMoveJavaLocalVariable >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'method execution' }
 ORActionMoveJavaLocalVariable >> createVersionnedEntitySelector [
 
 	super createVersionnedEntitySelector.
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaLocalVariable >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaLocalVariable >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -52,9 +53,25 @@ ORActionMoveJavaLocalVariable >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaLocalVariable >> receivingInvocations [ ^receivingInvocations
+ORActionMoveJavaLocalVariable >> mooseID [ ^mooseID
 ]
 
 { #category : 'accessing' }
-ORActionMoveJavaLocalVariable >> receivingInvocations: aValue [ receivingInvocations := aValue
+ORActionMoveJavaLocalVariable >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaLocalVariable >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaLocalVariable >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaLocalVariable >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaLocalVariable >> mooseName: aValue [ mooseName := aValue
 ]

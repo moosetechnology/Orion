@@ -1,16 +1,34 @@
 "
-I remove a new FamixJavaUnknownVariable in a MooseModel
-I need the following properties of the new unknownvariable
+I remove a FamixJavaUnknownVariable in a MooseModel
+I need the following properties of the  unknownvariable
 
+-`mooseID`
+-`mooseName`
+-`cache`
+-`entityAttributes`
+-`mooseModel`
+-`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`
+-`incomingAccesses`
+-`isStub`
+-`declaredType`
 "
 Class {
 	#name : 'ORActionRemoveJavaUnknownVariable',
-	#superclass : 'ORActionRemoveTUnknownVariable',
+	#superclass : 'ORActionRemoveNamedEntity',
 	#instVars : [
+		'mooseID',
+		'mooseName',
+		'cache',
+		'entityAttributes',
+		'mooseModel',
+		'sourceAnchor',
 		'annotationInstances',
-		'receivingInvocations'
+		'receivingInvocations',
+		'incomingAccesses',
+		'isStub',
+		'declaredType'
 	],
 	#category : 'Orion-Java-Remove',
 	#package : 'Orion-Java',
@@ -25,10 +43,72 @@ ORActionRemoveJavaUnknownVariable >> annotationInstances [ ^annotationInstances
 ORActionRemoveJavaUnknownVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaUnknownVariable >> createVersionnedEntitySelector [
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> cache [ ^cache
+]
 
-	super createVersionnedEntitySelector.
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> cache: aValue [ cache := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaUnknownVariable >> createVersionnedEntitySelector [ ^ #newUnknownVariable
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> declaredType [ ^declaredType
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> declaredType: aValue [ declaredType := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> entityAttributes [ ^entityAttributes
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> incomingAccesses [ ^incomingAccesses
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> incomingAccesses: aValue [ incomingAccesses := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> isStub [ ^isStub
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> isStub: aValue [ isStub := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> mooseID [ ^mooseID
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> mooseID: aValue [ mooseID := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> mooseModel [ ^mooseModel
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> mooseModel: aValue [ mooseModel := aValue
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> mooseName [ ^mooseName
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -37,4 +117,33 @@ ORActionRemoveJavaUnknownVariable >> receivingInvocations [ ^receivingInvocation
 
 { #category : 'accessing' }
 ORActionRemoveJavaUnknownVariable >> receivingInvocations: aValue [ receivingInvocations := aValue
+]
+
+{ #category : 'method execution' }
+ORActionRemoveJavaUnknownVariable >> run [
+
+	super run.
+	entity mooseID: nil.
+	entity mooseName: nil.
+	entity cache: nil.
+	entity entityAttributes: nil.
+	entity mooseModel: nil.
+	entity sourceAnchor: nil.
+	entity annotationInstances: nil.
+	entity receivingInvocations: nil.
+	entity incomingAccesses: nil.
+	entity isStub: nil.
+	entity declaredType: nil.
+
+	self orionModel remove: (self orionModel versionLookup: self entity).
+
+	^entity.
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> sourceAnchor [ ^sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionRemoveJavaUnknownVariable >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
