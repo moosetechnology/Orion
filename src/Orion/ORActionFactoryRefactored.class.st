@@ -76,20 +76,20 @@ self subclassResponsibility
 ]
 
 { #category : 'generating' }
-ORActionFactoryRefactored >> generateActionsFor: aClass [
+ORActionFactoryRefactored >> generateFrom: aBase [
+
+	aBase do: [ :e |
+		self generateTestClassFor: e ]
+]
+
+{ #category : 'generating' }
+ORActionFactoryRefactored >> generateTestClassFor: aClass [
 
 	runMethodGenerators do: [ :generator |
 		| newClass |
 		newClass := self createActionClassFor: aClass with: generator.
 		self writeComment: newClass .
 		self buildMethodsIn: newClass with: generator ]
-]
-
-{ #category : 'generating' }
-ORActionFactoryRefactored >> generateFrom: aBase [
-
-	aBase do: [ :e |
-		self generateActionsFor: e ]
 ]
 
 { #category : 'initialize' }
