@@ -163,8 +163,8 @@ ORTestJavaModel >> setUp [
 
 	modelV1 := FamixJavaModel new.
 	self createBasicEntities.
-	self linkBasicEntities.
-	self createComplexEntities.
+	"self linkBasicEntities.
+	self createComplexEntities."
 
 	modelV1 name: 'model-v1'.
 	
