@@ -76,7 +76,8 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> accesses [ ^accesses
+ORActionAddJavaMethod >> accesses [ 
+	^accesses ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -84,7 +85,8 @@ ORActionAddJavaMethod >> accesses: aValue [ accesses := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> annotationInstances [ ^annotationInstances
+ORActionAddJavaMethod >> annotationInstances [
+	^annotationInstances ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -100,7 +102,8 @@ ORActionAddJavaMethod >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> caughtExceptions [ ^caughtExceptions
+ORActionAddJavaMethod >> caughtExceptions [ 
+	^caughtExceptions ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -108,7 +111,8 @@ ORActionAddJavaMethod >> caughtExceptions: aValue [ caughtExceptions := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> comments [ ^comments
+ORActionAddJavaMethod >> comments [ 
+	^comments ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -120,7 +124,8 @@ ORActionAddJavaMethod >> createVersionnedEntitySelector [ ^ #newMethod
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> declaredExceptions [ ^declaredExceptions
+ORActionAddJavaMethod >> declaredExceptions [ 
+	^declaredExceptions ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -136,7 +141,8 @@ ORActionAddJavaMethod >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> definedAnnotationTypes [ ^definedAnnotationTypes
+ORActionAddJavaMethod >> definedAnnotationTypes [ 
+	^definedAnnotationTypes ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -152,7 +158,8 @@ ORActionAddJavaMethod >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> implicitVariables [ ^implicitVariables
+ORActionAddJavaMethod >> implicitVariables [ 
+	^implicitVariables ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -160,7 +167,8 @@ ORActionAddJavaMethod >> implicitVariables: aValue [ implicitVariables := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> incomingImports [ ^incomingImports
+ORActionAddJavaMethod >> incomingImports [ 
+	^incomingImports ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -168,7 +176,8 @@ ORActionAddJavaMethod >> incomingImports: aValue [ incomingImports := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> incomingInvocations [ ^incomingInvocations
+ORActionAddJavaMethod >> incomingInvocations [ 
+	^incomingInvocations ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -224,7 +233,8 @@ ORActionAddJavaMethod >> kind: aValue [ kind := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> localVariables [ ^localVariables
+ORActionAddJavaMethod >> localVariables [ 
+	^localVariables ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -256,7 +266,8 @@ ORActionAddJavaMethod >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> outgoingInvocations [ ^outgoingInvocations
+ORActionAddJavaMethod >> outgoingInvocations [ 
+	^outgoingInvocations ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -264,7 +275,8 @@ ORActionAddJavaMethod >> outgoingInvocations: aValue [ outgoingInvocations := aV
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> outgoingReferences [ ^outgoingReferences
+ORActionAddJavaMethod >> outgoingReferences [
+	^outgoingReferences ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -272,7 +284,8 @@ ORActionAddJavaMethod >> outgoingReferences: aValue [ outgoingReferences := aVal
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> parameters [ ^parameters
+ORActionAddJavaMethod >> parameters [ 
+	^parameters ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -343,7 +356,8 @@ ORActionAddJavaMethod >> sourceAnchor: aValue [ sourceAnchor := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> thrownExceptions [ ^thrownExceptions
+ORActionAddJavaMethod >> thrownExceptions [ 
+	^thrownExceptions ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
@@ -351,7 +365,8 @@ ORActionAddJavaMethod >> thrownExceptions: aValue [ thrownExceptions := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaMethod >> types [ ^types
+ORActionAddJavaMethod >> types [ 
+	^types ifNil: [ #() ]
 ]
 
 { #category : 'accessing' }
