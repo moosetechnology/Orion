@@ -10,7 +10,10 @@ Class {
 ORActionJavaFactoryRefactored >> generate [
 
 	self initialize.
-	self generateFrom:(FamixJavaEntity allSubclasses reject: [ :e | e = MooseQueryMockSpecializedInvocation or: [e name includesSubstring: 'Entity']])
+	self generateFrom:(FamixJavaEntity allSubclasses
+		reject: [ :e |
+			e = MooseQueryMockSpecializedInvocation
+			or: [e name includesSubstring: 'Entity']])
 ]
 
 { #category : 'initialization' }
