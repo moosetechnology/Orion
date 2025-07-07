@@ -330,6 +330,17 @@ ORActionMoveJavaMethod >> parentType: anObject [
 	parentType := anObject
 ]
 
+{ #category : 'method execution' }
+ORActionMoveJavaMethod >> run [
+
+	| newEntity |
+	newEntity := self setFamixProperty: #parentType on: self entity to: self to.
+
+	newEntity resetMooseName.
+
+	^ newEntity
+]
+
 { #category : 'accessing' }
 ORActionMoveJavaMethod >> signature [
 
