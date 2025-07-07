@@ -64,3 +64,16 @@ ORActionMoveJavaMethodTest >> testEntityWrongType [
 		should: [ action entity: FamixJavaLocalVariable new ]
 		raise: IllegalType 
 ]
+
+{ #category : 'tests' }
+ORActionMoveJavaMethodTest >> testOldEntityIsNotMoved [
+
+	action run.
+
+	self assert: (modelV1 entityNamed: 'TestClass2.testMethod') isNil.
+	self assert: (modelV1 entityNamed: 'TestClass1.testMethod') isNotNil.
+
+	self
+		assert: (modelV1 entityNamed: 'TestClass1.testMethod') parentType
+		identicalTo: (modelV1 entityNamed: 'TestClass1')
+]
