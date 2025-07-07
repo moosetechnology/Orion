@@ -329,7 +329,7 @@ ORActionAddJavaMethod >> run [
 	entity signature: self signature.
 	self incomingInvocations
 		ifNotEmpty: [entity incomingInvocations: self incomingInvocations].
-	"self setFamixProperty: #typing on: entity to: self declaredType."
+	self setFamixProperty: #typing on: entity to: self declaredType.
 	self implicitVariables
 		ifNotEmpty: [entity implicitVariables: self implicitVariables].
 	self localVariables
