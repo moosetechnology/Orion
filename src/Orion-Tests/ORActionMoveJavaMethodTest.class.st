@@ -23,3 +23,14 @@ ORActionMoveJavaMethodTest >> setUpAction [
 		to: (modelV2 entityNamed: #'TestClass2')
 		yourself.
 ]
+
+{ #category : 'tests' }
+ORActionMoveJavaMethodTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allClasses size
+		equals: modelV1 allClasses size
+]
