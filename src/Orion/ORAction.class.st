@@ -57,6 +57,16 @@ ORAction >> isRename [
 ]
 
 { #category : 'writing low-level' }
+ORAction >> oneWaySetSlot: aSlot on: anEntity to: aValue [
+	"add the link between anEntity and aValue
+	 if aSlot contains a collection, aValue is added to it
+	 if it contains aValue, aSlot is set to aValue"
+	aSlot isToOne
+		ifTrue: [ aSlot orionPrimitiveWrite: aValue to: anEntity ]
+		ifFalse: [ (aSlot orionPrimitiveRead: anEntity) unsafeAdd: aValue ]
+]
+
+{ #category : 'writing low-level' }
 ORAction >> oneWayUnsetSlot: aSlot on: anEntity to: aValue [
 	"removes the link between anEntity and aValue
 	 if aSlot contains a collection, aValue is removed from it
