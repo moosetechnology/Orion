@@ -10,7 +10,8 @@ Class {
 ORActionMoveJavaMethodTest >> createBasicEntities [
 
 	modelV1 newClassNamed: 'TestClass1'.
-	modelV1 newMethodNamed: 'TestClass1.testMethod'.
+	modelV1 newMethodNamed: 'testMethod'.
+	(modelV1 entityNamed: 'TestClass1') addMethod: (modelV1 entityNamed: 'testMethod').
 	modelV1 newClassNamed: 'TestClass2'.
 ]
 
@@ -19,7 +20,7 @@ ORActionMoveJavaMethodTest >> setUpAction [
 
 	action := ORActionMoveJavaMethod new
 		orionModel: modelV2 ; 
-		entity: (modelV2 entityNamed: 'TestClass1.testMethod'); 
+		entity: (modelV2 entityNamed: 'testMethod'); 
 		to: (modelV2 entityNamed: #'TestClass2')
 		yourself.
 ]
