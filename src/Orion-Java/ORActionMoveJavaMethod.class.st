@@ -19,18 +19,68 @@ I need the following properties of the new method
 "
 Class {
 	#name : 'ORActionMoveJavaMethod',
-	#superclass : 'ORActionMoveTMethod',
+	#superclass : 'ORActionMoveNamedEntity',
 	#instVars : [
 		'mooseID',
 		'mooseName',
 		'cache',
 		'entityAttributes',
-		'mooseModel'
+		'mooseModel',
+		'sourceAnchor',
+		'annotationInstances',
+		'types',
+		'definedAnnotationTypes',
+		'isSynchronized',
+		'isAbstract',
+		'isClassSide',
+		'isFinal',
+		'kind',
+		'visibility',
+		'incomingImports',
+		'parentType',
+		'signature',
+		'incomingInvocations',
+		'declaredType',
+		'implicitVariables',
+		'localVariables',
+		'parameters',
+		'isStub',
+		'accesses',
+		'outgoingInvocations',
+		'outgoingReferences',
+		'comments',
+		'caughtExceptions',
+		'declaredExceptions',
+		'thrownExceptions'
 	],
 	#category : 'Orion-Java-Move',
 	#package : 'Orion-Java',
 	#tag : 'Move'
 }
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> accesses [
+
+	^ accesses
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> accesses: anObject [
+
+	accesses := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> annotationInstances [
+
+	^ annotationInstances
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> annotationInstances: anObject [
+
+	annotationInstances := anObject
+]
 
 { #category : 'accessing' }
 ORActionMoveJavaMethod >> cache [ ^cache
@@ -40,10 +90,64 @@ ORActionMoveJavaMethod >> cache [ ^cache
 ORActionMoveJavaMethod >> cache: aValue [ cache := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionMoveJavaMethod >> createVersionnedEntitySelector [
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> caughtExceptions [
 
-	super createVersionnedEntitySelector.
+	^ caughtExceptions
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> caughtExceptions: anObject [
+
+	caughtExceptions := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> comments [
+
+	^ comments
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> comments: anObject [
+
+	comments := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> declaredExceptions [
+
+	^ declaredExceptions
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> declaredExceptions: anObject [
+
+	declaredExceptions := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> declaredType [
+
+	^ declaredType
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> declaredType: anObject [
+
+	declaredType := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> definedAnnotationTypes [
+
+	^ definedAnnotationTypes
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> definedAnnotationTypes: anObject [
+
+	definedAnnotationTypes := anObject
 ]
 
 { #category : 'accessing' }
@@ -52,6 +156,42 @@ ORActionMoveJavaMethod >> entityAttributes [ ^entityAttributes
 
 { #category : 'accessing' }
 ORActionMoveJavaMethod >> entityAttributes: aValue [ entityAttributes := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> implicitVariables [
+
+	^ implicitVariables
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> implicitVariables: anObject [
+
+	implicitVariables := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> incomingImports [
+
+	^ incomingImports
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> incomingImports: anObject [
+
+	incomingImports := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> incomingInvocations [
+
+	^ incomingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> incomingInvocations: anObject [
+
+	incomingInvocations := anObject
 ]
 
 { #category : 'accessing' }
@@ -79,6 +219,18 @@ ORActionMoveJavaMethod >> isFinal: aValue [ isFinal := aValue
 ]
 
 { #category : 'accessing' }
+ORActionMoveJavaMethod >> isStub [
+
+	^ isStub
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> isStub: anObject [
+
+	isStub := anObject
+]
+
+{ #category : 'accessing' }
 ORActionMoveJavaMethod >> isSynchronized [ ^isSynchronized
 ]
 
@@ -92,6 +244,18 @@ ORActionMoveJavaMethod >> kind [ ^kind
 
 { #category : 'accessing' }
 ORActionMoveJavaMethod >> kind: aValue [ kind := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> localVariables [
+
+	^ localVariables
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> localVariables: anObject [
+
+	localVariables := anObject
 ]
 
 { #category : 'accessing' }
@@ -116,6 +280,102 @@ ORActionMoveJavaMethod >> mooseName [ ^mooseName
 
 { #category : 'accessing' }
 ORActionMoveJavaMethod >> mooseName: aValue [ mooseName := aValue
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> outgoingInvocations [
+
+	^ outgoingInvocations
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> outgoingInvocations: anObject [
+
+	outgoingInvocations := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> outgoingReferences [
+
+	^ outgoingReferences
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> outgoingReferences: anObject [
+
+	outgoingReferences := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> parameters [
+
+	^ parameters
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> parameters: anObject [
+
+	parameters := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> parentType [
+
+	^ parentType
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> parentType: anObject [
+
+	parentType := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> signature [
+
+	^ signature
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> signature: anObject [
+
+	signature := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> sourceAnchor [
+
+	^ sourceAnchor
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> sourceAnchor: anObject [
+
+	sourceAnchor := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> thrownExceptions [
+
+	^ thrownExceptions
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> thrownExceptions: anObject [
+
+	thrownExceptions := anObject
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> types [
+
+	^ types
+]
+
+{ #category : 'accessing' }
+ORActionMoveJavaMethod >> types: anObject [
+
+	types := anObject
 ]
 
 { #category : 'accessing' }
