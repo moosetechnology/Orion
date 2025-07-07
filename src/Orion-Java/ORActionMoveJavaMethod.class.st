@@ -150,6 +150,14 @@ ORActionMoveJavaMethod >> definedAnnotationTypes: anObject [
 	definedAnnotationTypes := anObject
 ]
 
+{ #category : 'method execution' }
+ORActionMoveJavaMethod >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTMethod.
+
+	super entity: anEntity
+]
+
 { #category : 'accessing' }
 ORActionMoveJavaMethod >> entityAttributes [ ^entityAttributes
 ]
@@ -375,6 +383,14 @@ ORActionMoveJavaMethod >> thrownExceptions [
 ORActionMoveJavaMethod >> thrownExceptions: anObject [
 
 	thrownExceptions := anObject
+]
+
+{ #category : 'method execution' }
+ORActionMoveJavaMethod >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithMethods.
+
+	super to: container
 ]
 
 { #category : 'accessing' }
