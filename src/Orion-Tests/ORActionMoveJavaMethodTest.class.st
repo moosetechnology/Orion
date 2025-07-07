@@ -11,6 +11,7 @@ ORActionMoveJavaMethodTest >> createBasicEntities [
 
 	modelV1 newClassNamed: 'TestClass1'.
 	modelV1 newMethodNamed: 'testMethod'.
+	1flag: 'PROBLEM: testMethod is not added to TestClass1'.
 	(modelV1 entityNamed: 'TestClass1') addMethod: (modelV1 entityNamed: 'testMethod').
 	modelV1 newClassNamed: 'TestClass2'.
 ]
