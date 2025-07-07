@@ -56,3 +56,11 @@ ORActionMoveJavaMethodTest >> testEntityIsMoved [
 		assert: (modelV2 entityNamed: 'TestClass2.testMethod') parentType
 		identicalTo: (modelV2 entityNamed: 'TestClass2').
 ]
+
+{ #category : 'tests' }
+ORActionMoveJavaMethodTest >> testEntityWrongType [
+
+	self
+		should: [ action entity: FamixJavaLocalVariable new ]
+		raise: IllegalType 
+]
