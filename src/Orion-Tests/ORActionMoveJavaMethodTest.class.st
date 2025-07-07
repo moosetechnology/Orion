@@ -6,6 +6,14 @@ Class {
 	#tag : 'Java-Model'
 }
 
+{ #category : 'entity creation' }
+ORActionMoveJavaMethodTest >> createBasicEntities [
+
+	modelV1 newClassNamed: 'TestClass1'.
+	modelV1 newMethodNamed: 'TestClass1.testMethod'.
+	modelV1 newClassNamed: 'TestClass2'.
+]
+
 { #category : 'running' }
 ORActionMoveJavaMethodTest >> setUpAction [
 
