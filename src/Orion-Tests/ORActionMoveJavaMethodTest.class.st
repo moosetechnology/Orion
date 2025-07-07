@@ -34,3 +34,11 @@ ORActionMoveJavaMethodTest >> testAddsNoEntity [
 		assert: modelV2 allClasses size
 		equals: modelV1 allClasses size
 ]
+
+{ #category : 'tests' }
+ORActionMoveJavaMethodTest >> testDestinationWrongType [
+
+	self
+		should: [ action to: FamixJavaMethod new ]
+		raise: IllegalType 
+]
