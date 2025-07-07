@@ -7,5 +7,11 @@ Class {
 }
 
 { #category : 'running' }
-ORActionMoveJavaMethodTest >> setUpAction [ action := ORActionMoveJavaMethod new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; isSynchronized: nil; isAbstract: nil; isClassSide: nil; isFinal: nil; kind: nil; visibility: nil; incomingImports: nil; comments: nil; caughtExceptions: nil; declaredExceptions: nil; thrownExceptions: nil; yourself.
+ORActionMoveJavaMethodTest >> setUpAction [
+
+	action := ORActionMoveJavaMethod new
+		orionModel: modelV2 ; 
+		entity: (modelV2 entityNamed: 'TestClass1.testMethod'); 
+		to: (modelV2 entityNamed: #'TestClass2')
+		yourself.
 ]
