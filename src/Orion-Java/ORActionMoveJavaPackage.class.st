@@ -11,69 +11,8 @@ I need the following properties of the new package
 "
 Class {
 	#name : 'ORActionMoveJavaPackage',
-	#superclass : 'ORActionMoveTPackage',
-	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel'
-	],
-	#category : 'Orion-Java-Move',
+	#superclass : 'ORActionMoveJava',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Move'
+	#tag : 'Actions'
 }
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'method execution' }
-ORActionMoveJavaPackage >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> parentPackage [ ^parentPackage
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaPackage >> parentPackage: aValue [ parentPackage := aValue
-]

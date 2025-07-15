@@ -6,69 +6,8 @@ I need the following properties of the new annotationinstance
 "
 Class {
 	#name : 'ORActionMoveJavaAnnotationInstance',
-	#superclass : 'ORActionMoveTAnnotationInstance',
-	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel'
-	],
-	#category : 'Orion-Java-Move',
+	#superclass : 'ORActionMoveJava',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Move'
+	#tag : 'Actions'
 }
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'method execution' }
-ORActionMoveJavaAnnotationInstance >> createVersionnedEntitySelector [
-
-	super createVersionnedEntitySelector.
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> sourceAnchor [ ^sourceAnchor
-]
-
-{ #category : 'accessing' }
-ORActionMoveJavaAnnotationInstance >> sourceAnchor: aValue [ sourceAnchor := aValue
-]

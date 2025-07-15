@@ -1,6 +1,6 @@
 Class {
-	#name : 'ORActionMoveJavaInvocation',
-	#superclass : 'ORActionMoveJava',
+	#name : 'ORActionRenameJava',
+	#superclass : 'ORActionRename',
 	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
 	#tag : 'Actions'
