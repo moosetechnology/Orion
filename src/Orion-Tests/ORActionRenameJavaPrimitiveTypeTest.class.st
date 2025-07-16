@@ -31,3 +31,12 @@ ORActionRenameJavaPrimitiveTypeTest >> testAddsNoEntity [
 		assert: modelV2 allPrimitiveTypes size
 		equals: modelV1 allPrimitiveTypes size
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaPrimitiveTypeTest >> testEntityIsRenamed [
+
+	action run.
+
+	self assert: (modelV2 entityNamed: 'oldPrimitiveType') isNil.
+	self assert: (modelV2 entityNamed: 'newPrimitiveType') isNotNil.
+]

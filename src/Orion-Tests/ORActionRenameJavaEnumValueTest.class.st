@@ -31,3 +31,12 @@ ORActionRenameJavaEnumValueTest >> testAddsNoEntity [
 		assert: modelV2 allEnumValues size
 		equals: modelV1 allEnumValues size
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaEnumValueTest >> testEntityIsRenamed [
+
+	action run.
+
+	self assert: (modelV2 entityNamed: 'oldEnumValue') isNil.
+	self assert: (modelV2 entityNamed: 'newEnumValue') isNotNil.
+]

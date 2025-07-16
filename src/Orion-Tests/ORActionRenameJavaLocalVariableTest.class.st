@@ -31,3 +31,12 @@ ORActionRenameJavaLocalVariableTest >> testAddsNoEntity [
 		assert: modelV2 allLocalVariables size
 		equals: modelV1 allLocalVariables size
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaLocalVariableTest >> testEntityIsRenamed [
+
+	action run.
+
+	self assert: (modelV2 entityNamed: 'oldLocalVariable') isNil.
+	self assert: (modelV2 entityNamed: 'newLocalVariable') isNotNil.
+]

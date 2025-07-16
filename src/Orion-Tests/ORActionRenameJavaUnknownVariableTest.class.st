@@ -31,3 +31,12 @@ ORActionRenameJavaUnknownVariableTest >> testAddsNoEntity [
 		assert: modelV2 allUnknownVariables size
 		equals: modelV1 allUnknownVariables size
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaUnknownVariableTest >> testEntityIsRenamed [
+
+	action run.
+
+	self assert: (modelV2 entityNamed: 'oldUnknownVariable') isNil.
+	self assert: (modelV2 entityNamed: 'newUnknownVariable') isNotNil.
+]

@@ -31,3 +31,12 @@ ORActionRenameJavaPackageTest >> testAddsNoEntity [
 		assert: modelV2 allPackages size
 		equals: modelV1 allPackages size
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaPackageTest >> testEntityIsRenamed [
+
+	action run.
+
+	self assert: (modelV2 entityNamed: 'oldPackage') isNil.
+	self assert: (modelV2 entityNamed: 'newPackage') isNotNil.
+]

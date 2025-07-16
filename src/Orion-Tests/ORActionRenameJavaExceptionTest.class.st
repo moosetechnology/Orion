@@ -31,3 +31,12 @@ ORActionRenameJavaExceptionTest >> testAddsNoEntity [
 		assert: modelV2 allExceptions size
 		equals: modelV1 allExceptions size
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaExceptionTest >> testEntityIsRenamed [
+
+	action run.
+
+	self assert: (modelV2 entityNamed: 'oldException') isNil.
+	self assert: (modelV2 entityNamed: 'newException') isNotNil.
+]

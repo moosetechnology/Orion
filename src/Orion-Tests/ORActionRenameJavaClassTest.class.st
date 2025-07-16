@@ -31,3 +31,12 @@ ORActionRenameJavaClassTest >> testAddsNoEntity [
 		assert: modelV2 allClasses size
 		equals: modelV1 allClasses size
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaClassTest >> testEntityIsRenamed [
+
+	action run.
+
+	self assert: (modelV2 entityNamed: 'oldClass') isNil.
+	self assert: (modelV2 entityNamed: 'newClass') isNotNil.
+]

@@ -31,3 +31,12 @@ ORActionRenameJavaAnnotationTypeAttributeTest >> testAddsNoEntity [
 		assert: modelV2 allAnnotationTypeAttributes size
 		equals: modelV1 allAnnotationTypeAttributes size
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaAnnotationTypeAttributeTest >> testEntityIsRenamed [
+
+	action run.
+
+	self assert: (modelV2 entityNamed: 'oldAnnotationTypeAttribute') isNil.
+	self assert: (modelV2 entityNamed: 'newAnnotationTypeAttribute') isNotNil.
+]
