@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : 'entity creation' }
-ORActionMoveJavaMethodTest >> createBasicEntities [
+ORActionMoveJavaMethodTest >> createEntities [
 
 	modelV1 newClassNamed: 'TestClass1'.
 	modelV1 newMethodNamed: 'testMethod'.
