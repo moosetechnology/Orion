@@ -6,6 +6,12 @@ Class {
 	#tag : 'Java-Model'
 }
 
+{ #category : 'entity creation' }
+ORActionRenameJavaPrimitiveTypeTest >> createEntities [
+
+	modelV1 newPrimitiveTypeNamed: 'oldPrimitiveType' 
+]
+
 { #category : 'running' }
 ORActionRenameJavaPrimitiveTypeTest >> setUpAction [ action := ORActionRenameJavaPrimitiveType new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; lowerBoundedWildcards: nil; upperBoundedWildcards: nil; concreteEntities: nil; generics: nil; methods: nil; yourself.
 ]

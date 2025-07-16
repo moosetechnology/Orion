@@ -6,6 +6,12 @@ Class {
 	#tag : 'Java-Model'
 }
 
+{ #category : 'entity creation' }
+ORActionRenameJavaAnnotationTypeAttributeTest >> createEntities [
+
+	modelV1 newAnnotationTypeAttributeNamed: 'oldAnnotationTypeAttribute'
+]
+
 { #category : 'running' }
 ORActionRenameJavaAnnotationTypeAttributeTest >> setUpAction [ action := ORActionRenameJavaAnnotationTypeAttribute new orionModel: modelV2; annotationInstances: nil; receivingInvocations: nil; comments: nil; yourself.
 ]

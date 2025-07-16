@@ -6,6 +6,12 @@ Class {
 	#tag : 'Java-Model'
 }
 
+{ #category : 'entity creation' }
+ORActionRenameJavaEnumValueTest >> createEntities [
+
+	modelV1 newEnumValueNamed: 'oldEnumValue'. 
+]
+
 { #category : 'running' }
 ORActionRenameJavaEnumValueTest >> setUpAction [ action := ORActionRenameJavaEnumValue new orionModel: modelV2; annotationInstances: nil; receivingInvocations: nil; comments: nil; yourself.
 ]
