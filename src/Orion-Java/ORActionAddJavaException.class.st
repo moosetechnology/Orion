@@ -39,13 +39,8 @@ I need the following properties of the  exception
 "
 Class {
 	#name : 'ORActionAddJavaException',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -98,14 +93,6 @@ ORActionAddJavaException >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaException >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaException >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaException >> catchingEntities [ ^catchingEntities
 ]
 
@@ -130,7 +117,9 @@ ORActionAddJavaException >> concreteEntities: aValue [ concreteEntities := aValu
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaException >> createVersionnedEntitySelector [ ^ #newException
+ORActionAddJavaException >> createVersionnedEntitySelector [ 
+
+	^#newException
 ]
 
 { #category : 'accessing' }
@@ -147,14 +136,6 @@ ORActionAddJavaException >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionAddJavaException >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaException >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaException >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -246,30 +227,6 @@ ORActionAddJavaException >> methods: aValue [ methods := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaException >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaException >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaException >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaException >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaException >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaException >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaException >> parentPackage [ ^parentPackage
 ]
 
@@ -289,11 +246,6 @@ ORActionAddJavaException >> receivingInvocations: aValue [ receivingInvocations 
 ORActionAddJavaException >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity types: self types.

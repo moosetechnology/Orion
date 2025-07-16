@@ -14,13 +14,8 @@ I need the following properties of the  annotationinstance
 "
 Class {
 	#name : 'ORActionAddJavaAnnotationInstance',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotatedEntity',
 		'annotationType',
@@ -55,55 +50,16 @@ ORActionAddJavaAnnotationInstance >> attributes [ ^attributes
 ORActionAddJavaAnnotationInstance >> attributes: aValue [ attributes := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> cache [ ^cache
-]
+{ #category : 'method execution' }
+ORActionAddJavaAnnotationInstance >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstance >> mooseName: aValue [ mooseName := aValue
+	^#newAnnotationInstance 
 ]
 
 { #category : 'method execution' }
 ORActionAddJavaAnnotationInstance >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotatedEntity: self annotatedEntity.
 	entity annotationType: self annotationType.

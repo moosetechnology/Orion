@@ -14,13 +14,8 @@ I need the following properties of the  annotationinstanceattribute
 "
 Class {
 	#name : 'ORActionAddJavaAnnotationInstanceAttribute',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationTypeAttribute',
 		'parentAnnotationInstance',
@@ -39,44 +34,10 @@ ORActionAddJavaAnnotationInstanceAttribute >> annotationTypeAttribute [ ^annotat
 ORActionAddJavaAnnotationInstanceAttribute >> annotationTypeAttribute: aValue [ annotationTypeAttribute := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> cache [ ^cache
-]
+{ #category : 'method execution' }
+ORActionAddJavaAnnotationInstanceAttribute >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationInstanceAttribute >> mooseName: aValue [ mooseName := aValue
+	^#newAnnotationInstanceAttribute 
 ]
 
 { #category : 'accessing' }
@@ -91,11 +52,6 @@ ORActionAddJavaAnnotationInstanceAttribute >> parentAnnotationInstance: aValue [
 ORActionAddJavaAnnotationInstanceAttribute >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationTypeAttribute: self annotationTypeAttribute.
 	entity parentAnnotationInstance: self parentAnnotationInstance.

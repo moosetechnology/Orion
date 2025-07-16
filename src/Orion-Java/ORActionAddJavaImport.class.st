@@ -17,11 +17,6 @@ Class {
 	#name : 'ORActionAddJavaImport',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'importedEntity',
 		'importingEntity',
 		'next',
@@ -33,20 +28,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddJavaImport >> cache [ ^cache
-]
+{ #category : 'method execution' }
+ORActionAddJavaImport >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaImport >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImport >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImport >> entityAttributes: aValue [ entityAttributes := aValue
+	^#newImport 
 ]
 
 { #category : 'accessing' }
@@ -63,30 +48,6 @@ ORActionAddJavaImport >> importingEntity [ ^importingEntity
 
 { #category : 'accessing' }
 ORActionAddJavaImport >> importingEntity: aValue [ importingEntity := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImport >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImport >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImport >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImport >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImport >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImport >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -109,11 +70,6 @@ ORActionAddJavaImport >> previous: aValue [ previous := aValue
 ORActionAddJavaImport >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity importedEntity: self importedEntity.
 	entity importingEntity: self importingEntity.
 	entity next: self next.

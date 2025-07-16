@@ -35,13 +35,8 @@ I need the following properties of the  interface
 "
 Class {
 	#name : 'ORActionAddJavaInterface',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -90,14 +85,6 @@ ORActionAddJavaInterface >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaInterface >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInterface >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaInterface >> comments [ ^comments
 ]
 
@@ -114,7 +101,9 @@ ORActionAddJavaInterface >> concreteEntities: aValue [ concreteEntities := aValu
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaInterface >> createVersionnedEntitySelector [ ^ #newInterface
+ORActionAddJavaInterface >> createVersionnedEntitySelector [ 
+
+	^#newInterface
 ]
 
 { #category : 'accessing' }
@@ -123,14 +112,6 @@ ORActionAddJavaInterface >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionAddJavaInterface >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInterface >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInterface >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -214,30 +195,6 @@ ORActionAddJavaInterface >> methods: aValue [ methods := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaInterface >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInterface >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInterface >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInterface >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInterface >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInterface >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaInterface >> parentPackage [ ^parentPackage
 ]
 
@@ -257,11 +214,6 @@ ORActionAddJavaInterface >> receivingInvocations: aValue [ receivingInvocations 
 ORActionAddJavaInterface >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity types: self types.

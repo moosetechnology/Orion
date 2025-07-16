@@ -19,13 +19,8 @@ I need the following properties of the  package
 "
 Class {
 	#name : 'ORActionAddJavaPackage',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -50,14 +45,6 @@ ORActionAddJavaPackage >> annotationInstances: aValue [ annotationInstances := a
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaPackage >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPackage >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaPackage >> childEntities [ ^childEntities
 ]
 
@@ -74,7 +61,9 @@ ORActionAddJavaPackage >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaPackage >> createVersionnedEntitySelector [ ^ #newPackage
+ORActionAddJavaPackage >> createVersionnedEntitySelector [ 
+
+	^#newPackage
 ]
 
 { #category : 'accessing' }
@@ -83,14 +72,6 @@ ORActionAddJavaPackage >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionAddJavaPackage >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPackage >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPackage >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -110,30 +91,6 @@ ORActionAddJavaPackage >> isStub: aValue [ isStub := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaPackage >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPackage >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPackage >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPackage >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPackage >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPackage >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaPackage >> parentPackage [ ^parentPackage
 ]
 
@@ -145,11 +102,6 @@ ORActionAddJavaPackage >> parentPackage: aValue [ parentPackage := aValue
 ORActionAddJavaPackage >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity types: self types.

@@ -17,13 +17,8 @@ I need the following properties of the  implicitvariable
 "
 Class {
 	#name : 'ORActionAddJavaImplicitVariable',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -45,16 +40,10 @@ ORActionAddJavaImplicitVariable >> annotationInstances [ ^annotationInstances
 ORActionAddJavaImplicitVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> cache: aValue [ cache := aValue
-]
-
 { #category : 'method execution' }
-ORActionAddJavaImplicitVariable >> createVersionnedEntitySelector [ ^ #newImplicitVariable
+ORActionAddJavaImplicitVariable >> createVersionnedEntitySelector [ 
+
+	^#newImplicitVariable
 ]
 
 { #category : 'accessing' }
@@ -63,14 +52,6 @@ ORActionAddJavaImplicitVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddJavaImplicitVariable >> declaredType: aValue [ declaredType := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -87,30 +68,6 @@ ORActionAddJavaImplicitVariable >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionAddJavaImplicitVariable >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplicitVariable >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -133,11 +90,6 @@ ORActionAddJavaImplicitVariable >> receivingInvocations: aValue [ receivingInvoc
 ORActionAddJavaImplicitVariable >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity receivingInvocations: self receivingInvocations.

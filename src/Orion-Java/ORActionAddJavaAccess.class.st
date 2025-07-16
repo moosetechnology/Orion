@@ -18,11 +18,6 @@ Class {
 	#name : 'ORActionAddJavaAccess',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'accessor',
 		'isWrite',
 		'variable',
@@ -43,20 +38,10 @@ ORActionAddJavaAccess >> accessor [ ^accessor
 ORActionAddJavaAccess >> accessor: aValue [ accessor := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> cache [ ^cache
-]
+{ #category : 'method execution' }
+ORActionAddJavaAccess >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> entityAttributes: aValue [ entityAttributes := aValue
+	^#newAccess 
 ]
 
 { #category : 'accessing' }
@@ -65,30 +50,6 @@ ORActionAddJavaAccess >> isWrite [ ^isWrite
 
 { #category : 'accessing' }
 ORActionAddJavaAccess >> isWrite: aValue [ isWrite := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAccess >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -111,11 +72,6 @@ ORActionAddJavaAccess >> previous: aValue [ previous := aValue
 ORActionAddJavaAccess >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity accessor: self accessor.
 	entity isWrite: self isWrite.
 	entity variable: self variable.

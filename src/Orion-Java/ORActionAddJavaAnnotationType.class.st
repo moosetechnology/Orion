@@ -32,13 +32,8 @@ I need the following properties of the  annotationtype
 "
 Class {
 	#name : 'ORActionAddJavaAnnotationType',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -92,14 +87,6 @@ ORActionAddJavaAnnotationType >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaAnnotationType >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationType >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaAnnotationType >> comments [ ^comments
 ]
 
@@ -116,7 +103,9 @@ ORActionAddJavaAnnotationType >> concreteEntities: aValue [ concreteEntities := 
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaAnnotationType >> createVersionnedEntitySelector [ ^ #newAnnotationType
+ORActionAddJavaAnnotationType >> createVersionnedEntitySelector [ 
+
+	^#newAnnotationType
 ]
 
 { #category : 'accessing' }
@@ -125,14 +114,6 @@ ORActionAddJavaAnnotationType >> definedAnnotationTypes [ ^definedAnnotationType
 
 { #category : 'accessing' }
 ORActionAddJavaAnnotationType >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationType >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationType >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -192,30 +173,6 @@ ORActionAddJavaAnnotationType >> methods: aValue [ methods := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaAnnotationType >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationType >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationType >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationType >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationType >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAnnotationType >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaAnnotationType >> parentPackage [ ^parentPackage
 ]
 
@@ -227,11 +184,6 @@ ORActionAddJavaAnnotationType >> parentPackage: aValue [ parentPackage := aValue
 ORActionAddJavaAnnotationType >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity types: self types.

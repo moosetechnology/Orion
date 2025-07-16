@@ -17,11 +17,6 @@ Class {
 	#name : 'ORActionAddJavaImplementation',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'implementingClass',
 		'interface',
 		'next',
@@ -33,20 +28,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> cache [ ^cache
-]
+{ #category : 'method execution' }
+ORActionAddJavaImplementation >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> entityAttributes: aValue [ entityAttributes := aValue
+	^#newImplementation 
 ]
 
 { #category : 'accessing' }
@@ -63,30 +48,6 @@ ORActionAddJavaImplementation >> interface [ ^interface
 
 { #category : 'accessing' }
 ORActionAddJavaImplementation >> interface: aValue [ interface := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaImplementation >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -109,11 +70,6 @@ ORActionAddJavaImplementation >> previous: aValue [ previous := aValue
 ORActionAddJavaImplementation >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity implementingClass: self implementingClass.
 	entity interface: self interface.
 	entity next: self next.

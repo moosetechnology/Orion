@@ -36,7 +36,7 @@ I need the following properties of the  method
 "
 Class {
 	#name : 'ORActionAddJavaMethod',
-	#superclass : 'ORActionAddNamedEntity',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -120,7 +120,9 @@ ORActionAddJavaMethod >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaMethod >> createVersionnedEntitySelector [ ^ #newMethod
+ORActionAddJavaMethod >> createVersionnedEntitySelector [ 
+
+	^#newMethod
 ]
 
 { #category : 'accessing' }

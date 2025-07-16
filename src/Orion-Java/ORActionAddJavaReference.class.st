@@ -17,11 +17,6 @@ Class {
 	#name : 'ORActionAddJavaReference',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'referencer',
 		'referredEntity',
 		'next',
@@ -33,44 +28,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddJavaReference >> cache [ ^cache
-]
+{ #category : 'method execution' }
+ORActionAddJavaReference >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaReference >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaReference >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaReference >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaReference >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaReference >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaReference >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaReference >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaReference >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaReference >> mooseName: aValue [ mooseName := aValue
+	^#newReference 
 ]
 
 { #category : 'accessing' }
@@ -109,11 +70,6 @@ ORActionAddJavaReference >> referredEntity: aValue [ referredEntity := aValue
 ORActionAddJavaReference >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity referencer: self referencer.
 	entity referredEntity: self referredEntity.
 	entity next: self next.

@@ -17,11 +17,6 @@ Class {
 	#name : 'ORActionAddJavaInheritance',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'subclass',
 		'superclass',
 		'next',
@@ -33,44 +28,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> cache [ ^cache
-]
+{ #category : 'method execution' }
+ORActionAddJavaInheritance >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInheritance >> mooseName: aValue [ mooseName := aValue
+	^#newInheritance 
 ]
 
 { #category : 'accessing' }
@@ -93,11 +54,6 @@ ORActionAddJavaInheritance >> previous: aValue [ previous := aValue
 ORActionAddJavaInheritance >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity subclass: self subclass.
 	entity superclass: self superclass.
 	entity next: self next.

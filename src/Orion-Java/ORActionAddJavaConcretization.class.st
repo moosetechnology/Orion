@@ -18,14 +18,9 @@ Class {
 	#name : 'ORActionAddJavaConcretization',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
-		'parameterConcretizations',
-		'genericEntity',
-		'concreteEntity',
+		'triggeringAssociation',
+		'typeArgument',
+		'typeParameter',
 		'next',
 		'previous',
 		'sourceAnchor'
@@ -36,14 +31,6 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddJavaConcretization >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaConcretization >> concreteEntity [ ^concreteEntity
 ]
 
@@ -51,12 +38,10 @@ ORActionAddJavaConcretization >> concreteEntity [ ^concreteEntity
 ORActionAddJavaConcretization >> concreteEntity: aValue [ concreteEntity := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> entityAttributes [ ^entityAttributes
-]
+{ #category : 'method execution' }
+ORActionAddJavaConcretization >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> entityAttributes: aValue [ entityAttributes := aValue
+	^#newConcretization 
 ]
 
 { #category : 'accessing' }
@@ -65,30 +50,6 @@ ORActionAddJavaConcretization >> genericEntity [ ^genericEntity
 
 { #category : 'accessing' }
 ORActionAddJavaConcretization >> genericEntity: aValue [ genericEntity := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -119,11 +80,6 @@ ORActionAddJavaConcretization >> previous: aValue [ previous := aValue
 ORActionAddJavaConcretization >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity parameterConcretizations: self parameterConcretizations.
 	entity genericEntity: self genericEntity.
 	entity concreteEntity: self concreteEntity.

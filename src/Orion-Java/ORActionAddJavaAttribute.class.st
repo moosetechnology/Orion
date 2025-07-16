@@ -23,13 +23,8 @@ I need the following properties of the  attribute
 "
 Class {
 	#name : 'ORActionAddJavaAttribute',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -58,14 +53,6 @@ ORActionAddJavaAttribute >> annotationInstances: aValue [ annotationInstances :=
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaAttribute >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAttribute >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaAttribute >> comments [ ^comments
 ]
 
@@ -74,7 +61,9 @@ ORActionAddJavaAttribute >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaAttribute >> createVersionnedEntitySelector [ ^ #newAttribute
+ORActionAddJavaAttribute >> createVersionnedEntitySelector [ 
+
+	^#newAttribute
 ]
 
 { #category : 'accessing' }
@@ -83,14 +72,6 @@ ORActionAddJavaAttribute >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddJavaAttribute >> declaredType: aValue [ declaredType := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAttribute >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAttribute >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -142,30 +123,6 @@ ORActionAddJavaAttribute >> isVolatile: aValue [ isVolatile := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaAttribute >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAttribute >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAttribute >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAttribute >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAttribute >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaAttribute >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaAttribute >> parentType [ ^parentType
 ]
 
@@ -185,11 +142,6 @@ ORActionAddJavaAttribute >> receivingInvocations: aValue [ receivingInvocations 
 ORActionAddJavaAttribute >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity receivingInvocations: self receivingInvocations.

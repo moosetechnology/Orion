@@ -39,13 +39,8 @@ I need the following properties of the  parametricinterface
 "
 Class {
 	#name : 'ORActionAddJavaParametricInterface',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -98,14 +93,6 @@ ORActionAddJavaParametricInterface >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaParametricInterface >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricInterface >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaParametricInterface >> comments [ ^comments
 ]
 
@@ -138,7 +125,9 @@ ORActionAddJavaParametricInterface >> concretizations: aValue [ concretizations 
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaParametricInterface >> createVersionnedEntitySelector [ ^ #newParametricInterface
+ORActionAddJavaParametricInterface >> createVersionnedEntitySelector [ 
+
+	^#newParametricInterface
 ]
 
 { #category : 'accessing' }
@@ -147,14 +136,6 @@ ORActionAddJavaParametricInterface >> definedAnnotationTypes [ ^definedAnnotatio
 
 { #category : 'accessing' }
 ORActionAddJavaParametricInterface >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricInterface >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricInterface >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -254,30 +235,6 @@ ORActionAddJavaParametricInterface >> methods: aValue [ methods := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaParametricInterface >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricInterface >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricInterface >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricInterface >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricInterface >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricInterface >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaParametricInterface >> parentPackage [ ^parentPackage
 ]
 
@@ -297,11 +254,6 @@ ORActionAddJavaParametricInterface >> receivingInvocations: aValue [ receivingIn
 ORActionAddJavaParametricInterface >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity types: self types.

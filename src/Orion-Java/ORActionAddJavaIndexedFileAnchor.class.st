@@ -18,11 +18,6 @@ Class {
 	#name : 'ORActionAddJavaIndexedFileAnchor',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'element',
 		'endPos',
 		'startPos',
@@ -36,19 +31,17 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaIndexedFileAnchor >> correspondingFile [ ^correspondingFile
 ]
 
 { #category : 'accessing' }
 ORActionAddJavaIndexedFileAnchor >> correspondingFile: aValue [ correspondingFile := aValue
+]
+
+{ #category : 'method execution' }
+ORActionAddJavaIndexedFileAnchor >> createVersionnedEntitySelector [
+
+	^#newIndexedFileAnchor 
 ]
 
 { #category : 'accessing' }
@@ -76,14 +69,6 @@ ORActionAddJavaIndexedFileAnchor >> endPos: aValue [ endPos := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaIndexedFileAnchor >> fileName [ ^fileName
 ]
 
@@ -91,38 +76,10 @@ ORActionAddJavaIndexedFileAnchor >> fileName [ ^fileName
 ORActionAddJavaIndexedFileAnchor >> fileName: aValue [ fileName := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaIndexedFileAnchor >> mooseName: aValue [ mooseName := aValue
-]
-
 { #category : 'method execution' }
 ORActionAddJavaIndexedFileAnchor >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
 	entity mooseModel: self mooseModel.
 	entity element: self element.
 	entity endPos: self endPos.

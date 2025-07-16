@@ -19,11 +19,6 @@ Class {
 	#name : 'ORActionAddJavaInvocation',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'candidates',
 		'receiver',
 		'sender',
@@ -38,14 +33,6 @@ Class {
 }
 
 { #category : 'accessing' }
-ORActionAddJavaInvocation >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInvocation >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaInvocation >> candidates [ ^candidates
 ]
 
@@ -53,36 +40,10 @@ ORActionAddJavaInvocation >> candidates [ ^candidates
 ORActionAddJavaInvocation >> candidates: aValue [ candidates := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaInvocation >> entityAttributes [ ^entityAttributes
-]
+{ #category : 'method execution' }
+ORActionAddJavaInvocation >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaInvocation >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInvocation >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInvocation >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInvocation >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInvocation >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInvocation >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaInvocation >> mooseName: aValue [ mooseName := aValue
+	^#newInvocation 
 ]
 
 { #category : 'accessing' }
@@ -113,10 +74,6 @@ ORActionAddJavaInvocation >> receiver: aValue [ receiver := aValue
 ORActionAddJavaInvocation >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
 	entity mooseModel: self mooseModel.
 	entity candidates: self candidates.
 	entity receiver: self receiver.

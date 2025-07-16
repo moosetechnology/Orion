@@ -27,11 +27,6 @@ Class {
 	#name : 'ORActionAddJavaWildcard',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -62,14 +57,6 @@ ORActionAddJavaWildcard >> annotationInstances: aValue [ annotationInstances := 
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaWildcard >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaWildcard >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaWildcard >> concreteEntities [ ^concreteEntities
 ]
 
@@ -78,7 +65,9 @@ ORActionAddJavaWildcard >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaWildcard >> createVersionnedEntitySelector [ ^ #newWildcard
+ORActionAddJavaWildcard >> createVersionnedEntitySelector [ 
+
+	^#newWildcard
 ]
 
 { #category : 'accessing' }
@@ -87,14 +76,6 @@ ORActionAddJavaWildcard >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionAddJavaWildcard >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaWildcard >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaWildcard >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -145,39 +126,10 @@ ORActionAddJavaWildcard >> methods [ ^methods
 ORActionAddJavaWildcard >> methods: aValue [ methods := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaWildcard >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaWildcard >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaWildcard >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaWildcard >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaWildcard >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaWildcard >> mooseName: aValue [ mooseName := aValue
-]
-
 { #category : 'method execution' }
 ORActionAddJavaWildcard >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity types: self types.

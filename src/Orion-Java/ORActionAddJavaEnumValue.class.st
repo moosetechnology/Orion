@@ -18,13 +18,8 @@ I need the following properties of the  enumvalue
 "
 Class {
 	#name : 'ORActionAddJavaEnumValue',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -48,14 +43,6 @@ ORActionAddJavaEnumValue >> annotationInstances: aValue [ annotationInstances :=
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaEnumValue >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaEnumValue >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaEnumValue >> comments [ ^comments
 ]
 
@@ -64,7 +51,9 @@ ORActionAddJavaEnumValue >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaEnumValue >> createVersionnedEntitySelector [ ^ #newEnumValue
+ORActionAddJavaEnumValue >> createVersionnedEntitySelector [ 
+
+	^#newEnumValue
 ]
 
 { #category : 'accessing' }
@@ -73,14 +62,6 @@ ORActionAddJavaEnumValue >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddJavaEnumValue >> declaredType: aValue [ declaredType := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaEnumValue >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaEnumValue >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -97,30 +78,6 @@ ORActionAddJavaEnumValue >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionAddJavaEnumValue >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaEnumValue >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaEnumValue >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaEnumValue >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaEnumValue >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaEnumValue >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaEnumValue >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }
@@ -143,11 +100,6 @@ ORActionAddJavaEnumValue >> receivingInvocations: aValue [ receivingInvocations 
 ORActionAddJavaEnumValue >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity receivingInvocations: self receivingInvocations.

@@ -16,13 +16,8 @@ I need the following properties of the  unknownvariable
 "
 Class {
 	#name : 'ORActionAddJavaUnknownVariable',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -43,16 +38,10 @@ ORActionAddJavaUnknownVariable >> annotationInstances [ ^annotationInstances
 ORActionAddJavaUnknownVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> cache: aValue [ cache := aValue
-]
-
 { #category : 'method execution' }
-ORActionAddJavaUnknownVariable >> createVersionnedEntitySelector [ ^ #newUnknownVariable
+ORActionAddJavaUnknownVariable >> createVersionnedEntitySelector [ 
+
+	^#newUnknownVariable
 ]
 
 { #category : 'accessing' }
@@ -61,14 +50,6 @@ ORActionAddJavaUnknownVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddJavaUnknownVariable >> declaredType: aValue [ declaredType := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -88,30 +69,6 @@ ORActionAddJavaUnknownVariable >> isStub: aValue [ isStub := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaUnknownVariable >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaUnknownVariable >> receivingInvocations [ ^receivingInvocations
 ]
 
@@ -123,11 +80,6 @@ ORActionAddJavaUnknownVariable >> receivingInvocations: aValue [ receivingInvoca
 ORActionAddJavaUnknownVariable >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity receivingInvocations: self receivingInvocations.

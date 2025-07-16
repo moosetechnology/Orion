@@ -14,11 +14,6 @@ Class {
 	#name : 'ORActionAddJavaSourceTextAnchor',
 	#superclass : 'ORActionAddJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'element',
 		'source'
 	],
@@ -27,12 +22,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> cache [ ^cache
-]
+{ #category : 'method execution' }
+ORActionAddJavaSourceTextAnchor >> createVersionnedEntitySelector [
 
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> cache: aValue [ cache := aValue
+	^#newSourceTextAnchor 
 ]
 
 { #category : 'accessing' }
@@ -43,47 +36,10 @@ ORActionAddJavaSourceTextAnchor >> element [ ^element
 ORActionAddJavaSourceTextAnchor >> element: aValue [ element := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaSourceTextAnchor >> mooseName: aValue [ mooseName := aValue
-]
-
 { #category : 'method execution' }
 ORActionAddJavaSourceTextAnchor >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity element: self element.
 	entity source: self source.
 

@@ -23,13 +23,8 @@ I need the following properties of the  type
 "
 Class {
 	#name : 'ORActionAddJavaType',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -58,14 +53,6 @@ ORActionAddJavaType >> annotationInstances: aValue [ annotationInstances := aVal
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaType >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaType >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaType >> concreteEntities [ ^concreteEntities
 ]
 
@@ -74,7 +61,9 @@ ORActionAddJavaType >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaType >> createVersionnedEntitySelector [ ^ #newType
+ORActionAddJavaType >> createVersionnedEntitySelector [ 
+
+	^#newType
 ]
 
 { #category : 'accessing' }
@@ -83,14 +72,6 @@ ORActionAddJavaType >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionAddJavaType >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaType >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaType >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -133,39 +114,10 @@ ORActionAddJavaType >> methods [ ^methods
 ORActionAddJavaType >> methods: aValue [ methods := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaType >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaType >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaType >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaType >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaType >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaType >> mooseName: aValue [ mooseName := aValue
-]
-
 { #category : 'method execution' }
 ORActionAddJavaType >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity types: self types.

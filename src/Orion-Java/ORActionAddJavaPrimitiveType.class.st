@@ -23,13 +23,8 @@ I need the following properties of the  primitivetype
 "
 Class {
 	#name : 'ORActionAddJavaPrimitiveType',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -58,14 +53,6 @@ ORActionAddJavaPrimitiveType >> annotationInstances: aValue [ annotationInstance
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaPrimitiveType >> concreteEntities [ ^concreteEntities
 ]
 
@@ -74,7 +61,9 @@ ORActionAddJavaPrimitiveType >> concreteEntities: aValue [ concreteEntities := a
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaPrimitiveType >> createVersionnedEntitySelector [ ^ #newPrimitiveType
+ORActionAddJavaPrimitiveType >> createVersionnedEntitySelector [ 
+
+	^#newPrimitiveType
 ]
 
 { #category : 'accessing' }
@@ -83,14 +72,6 @@ ORActionAddJavaPrimitiveType >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionAddJavaPrimitiveType >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -133,39 +114,10 @@ ORActionAddJavaPrimitiveType >> methods [ ^methods
 ORActionAddJavaPrimitiveType >> methods: aValue [ methods := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaPrimitiveType >> mooseName: aValue [ mooseName := aValue
-]
-
 { #category : 'method execution' }
 ORActionAddJavaPrimitiveType >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity types: self types.

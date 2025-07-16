@@ -40,13 +40,8 @@ I need the following properties of the  parametricclass
 "
 Class {
 	#name : 'ORActionAddJavaParametricClass',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -100,14 +95,6 @@ ORActionAddJavaParametricClass >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaParametricClass >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricClass >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaParametricClass >> comments [ ^comments
 ]
 
@@ -140,7 +127,9 @@ ORActionAddJavaParametricClass >> concretizations: aValue [ concretizations := a
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaParametricClass >> createVersionnedEntitySelector [ ^ #newParametricClass
+ORActionAddJavaParametricClass >> createVersionnedEntitySelector [ 
+
+	^#newParametricClass
 ]
 
 { #category : 'accessing' }
@@ -149,14 +138,6 @@ ORActionAddJavaParametricClass >> definedAnnotationTypes [ ^definedAnnotationTyp
 
 { #category : 'accessing' }
 ORActionAddJavaParametricClass >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricClass >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricClass >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -264,30 +245,6 @@ ORActionAddJavaParametricClass >> methods: aValue [ methods := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaParametricClass >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricClass >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricClass >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricClass >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricClass >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParametricClass >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaParametricClass >> parentPackage [ ^parentPackage
 ]
 
@@ -307,11 +264,6 @@ ORActionAddJavaParametricClass >> receivingInvocations: aValue [ receivingInvoca
 ORActionAddJavaParametricClass >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity types: self types.

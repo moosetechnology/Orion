@@ -20,7 +20,7 @@ I need the following properties of the new class
 "
 Class {
 	#name : 'ORActionAddJavaClass',
-	#superclass : 'ORActionAddTClass',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
 		'annotationInstances',
 		'types',
@@ -57,6 +57,12 @@ ORActionAddJavaClass >> concreteEntities [ ^concreteEntities
 
 { #category : 'accessing' }
 ORActionAddJavaClass >> concreteEntities: aValue [ concreteEntities := aValue
+]
+
+{ #category : 'method execution' }
+ORActionAddJavaClass >> createVersionnedEntitySelector [ 
+
+	^#newClass
 ]
 
 { #category : 'accessing' }

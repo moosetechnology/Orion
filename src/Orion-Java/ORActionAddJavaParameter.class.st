@@ -19,13 +19,8 @@ I need the following properties of the  parameter
 "
 Class {
 	#name : 'ORActionAddJavaParameter',
-	#superclass : 'ORActionAddJava',
+	#superclass : 'ORActionAddNamedEntityJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -50,14 +45,6 @@ ORActionAddJavaParameter >> annotationInstances: aValue [ annotationInstances :=
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaParameter >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParameter >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaParameter >> comments [ ^comments
 ]
 
@@ -66,7 +53,9 @@ ORActionAddJavaParameter >> comments: aValue [ comments := aValue
 ]
 
 { #category : 'method execution' }
-ORActionAddJavaParameter >> createVersionnedEntitySelector [ ^ #newParameter
+ORActionAddJavaParameter >> createVersionnedEntitySelector [ 
+
+	^#newParameter
 ]
 
 { #category : 'accessing' }
@@ -75,14 +64,6 @@ ORActionAddJavaParameter >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionAddJavaParameter >> declaredType: aValue [ declaredType := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParameter >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParameter >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -110,30 +91,6 @@ ORActionAddJavaParameter >> isStub: aValue [ isStub := aValue
 ]
 
 { #category : 'accessing' }
-ORActionAddJavaParameter >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParameter >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParameter >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParameter >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParameter >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaParameter >> mooseName: aValue [ mooseName := aValue
-]
-
-{ #category : 'accessing' }
 ORActionAddJavaParameter >> parentBehaviouralEntity [ ^parentBehaviouralEntity
 ]
 
@@ -153,11 +110,6 @@ ORActionAddJavaParameter >> receivingInvocations: aValue [ receivingInvocations 
 ORActionAddJavaParameter >> run [
 
 	super run.
-	entity mooseID: self mooseID.
-	entity mooseName: self mooseName.
-	entity cache: self cache.
-	entity entityAttributes: self entityAttributes.
-	entity mooseModel: self mooseModel.
 	entity sourceAnchor: self sourceAnchor.
 	entity annotationInstances: self annotationInstances.
 	entity receivingInvocations: self receivingInvocations.
