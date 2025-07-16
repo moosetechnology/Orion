@@ -9,6 +9,26 @@ Class {
 	#tag : 'Actions'
 }
 
+{ #category : 'accessing' }
+ORActionRename >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTNamedEntity.
+
+	super entity: anEntity
+]
+
+{ #category : 'accessing' }
+ORActionRename >> name [
+	
+	^ name
+]
+
+{ #category : 'accessing' }
+ORActionRename >> name: anObject [
+	
+	name := anObject asString
+]
+
 { #category : 'method execution' }
 ORActionRename >> run [
 
