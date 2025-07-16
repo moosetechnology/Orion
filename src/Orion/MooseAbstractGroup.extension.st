@@ -35,9 +35,3 @@ MooseAbstractGroup >> allInheritances [
 	
 	^self allUsing: FamixTInheritance .
 ]
-
-{ #category : '*Orion' }
-MooseAbstractGroup >> allParameterConcretizations [
-
-	^self allUsing: FamixTParameterConcretization .
-]
