@@ -13,5 +13,10 @@ ORActionRenameJavaParameterTest >> createEntities [
 ]
 
 { #category : 'running' }
-ORActionRenameJavaParameterTest >> setUpAction [ action := ORActionRenameJavaParameter new orionModel: modelV2; annotationInstances: nil; receivingInvocations: nil; isFinal: nil; comments: nil; yourself.
+ORActionRenameJavaParameterTest >> setUpAction [ 
+
+	action := ORActionRenameJavaParameter new 
+		orionModel: modelV2;
+		name: 'newParameter'.
+	action entity: (modelV1 entityNamed: 'oldParameter')
 ]

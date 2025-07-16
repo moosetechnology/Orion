@@ -13,5 +13,10 @@ ORActionRenameJavaAnnotationTypeAttributeTest >> createEntities [
 ]
 
 { #category : 'running' }
-ORActionRenameJavaAnnotationTypeAttributeTest >> setUpAction [ action := ORActionRenameJavaAnnotationTypeAttribute new orionModel: modelV2; annotationInstances: nil; receivingInvocations: nil; comments: nil; yourself.
+ORActionRenameJavaAnnotationTypeAttributeTest >> setUpAction [ 
+
+	action := ORActionRenameJavaAnnotationTypeAttribute new 
+		orionModel: modelV2;
+		name: 'newAnnotationTypeAttribute'.
+	action entity: (modelV1 entityNamed: 'oldAnnotationTypeAttribute')
 ]

@@ -13,5 +13,10 @@ ORActionRenameJavaUnknownVariableTest >> createEntities [
 ]
 
 { #category : 'running' }
-ORActionRenameJavaUnknownVariableTest >> setUpAction [ action := ORActionRenameJavaUnknownVariable new orionModel: modelV2; annotationInstances: nil; receivingInvocations: nil; yourself.
+ORActionRenameJavaUnknownVariableTest >> setUpAction [ 
+
+	action := ORActionRenameJavaUnknownVariable new 
+		orionModel: modelV2;
+		name: 'newUnknownVariable'.
+	action entity: (modelV1 entityNamed: 'oldUnknownVariable')
 ]

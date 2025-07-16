@@ -13,5 +13,10 @@ ORActionRenameJavaTypeTest >> createEntities [
 ]
 
 { #category : 'running' }
-ORActionRenameJavaTypeTest >> setUpAction [ action := ORActionRenameJavaType new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; lowerBoundedWildcards: nil; upperBoundedWildcards: nil; concreteEntities: nil; generics: nil; methods: nil; yourself.
+ORActionRenameJavaTypeTest >> setUpAction [ 
+
+	action := ORActionRenameJavaType new 
+		orionModel: modelV2;
+		name: 'newType'.
+	action entity: (modelV1 entityNamed: 'oldType')
 ]

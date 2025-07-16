@@ -13,5 +13,10 @@ ORActionRenameJavaEnumTest >> createEntities [
 ]
 
 { #category : 'running' }
-ORActionRenameJavaEnumTest >> setUpAction [ action := ORActionRenameJavaEnum new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; lowerBoundedWildcards: nil; upperBoundedWildcards: nil; concreteEntities: nil; generics: nil; methods: nil; visibility: nil; incomingImports: nil; receivingInvocations: nil; attributes: nil; comments: nil; imports: nil; superInheritances: nil; subInheritances: nil; yourself.
+ORActionRenameJavaEnumTest >> setUpAction [ 
+
+	action := ORActionRenameJavaEnum new 
+		orionModel: modelV2;
+		name: 'newEnum'.
+	action entity: (modelV1 entityNamed: 'oldEnum')
 ]

@@ -13,5 +13,10 @@ ORActionRenameJavaPackageTest >> createEntities [
 ]
 
 { #category : 'running' }
-ORActionRenameJavaPackageTest >> setUpAction [ action := ORActionRenameJavaPackage new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; incomingImports: nil; parentPackage: nil; comments: nil; yourself.
+ORActionRenameJavaPackageTest >> setUpAction [ 
+
+	action := ORActionRenameJavaPackage new 
+		orionModel: modelV2;
+		name: 'newPackage'.
+	action entity: (modelV1 entityNamed: 'oldPackage')
 ]

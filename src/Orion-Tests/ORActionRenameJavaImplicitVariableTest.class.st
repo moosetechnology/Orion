@@ -13,5 +13,10 @@ ORActionRenameJavaImplicitVariableTest >> createEntities [
 ]
 
 { #category : 'running' }
-ORActionRenameJavaImplicitVariableTest >> setUpAction [ action := ORActionRenameJavaImplicitVariable new orionModel: modelV2; annotationInstances: nil; receivingInvocations: nil; yourself.
+ORActionRenameJavaImplicitVariableTest >> setUpAction [ 
+
+	action := ORActionRenameJavaImplicitVariable new 
+		orionModel: modelV2;
+		name: 'newImplicitVariable'.
+	action entity: (modelV1 entityNamed: 'oldImplicitVariable')
 ]

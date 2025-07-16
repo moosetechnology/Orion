@@ -13,5 +13,10 @@ ORActionRenameJavaPrimitiveTypeTest >> createEntities [
 ]
 
 { #category : 'running' }
-ORActionRenameJavaPrimitiveTypeTest >> setUpAction [ action := ORActionRenameJavaPrimitiveType new orionModel: modelV2; annotationInstances: nil; types: nil; definedAnnotationTypes: nil; lowerBoundedWildcards: nil; upperBoundedWildcards: nil; concreteEntities: nil; generics: nil; methods: nil; yourself.
+ORActionRenameJavaPrimitiveTypeTest >> setUpAction [ 
+
+	action := ORActionRenameJavaPrimitiveType new 
+		orionModel: modelV2;
+		name: 'newPrimitiveType'.
+	action entity: (modelV1 entityNamed: 'oldPrimitiveType')
 ]
