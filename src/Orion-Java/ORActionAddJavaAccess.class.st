@@ -16,7 +16,7 @@ I need the following properties of the  access
 "
 Class {
 	#name : 'ORActionAddJavaAccess',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -30,9 +30,9 @@ Class {
 		'previous',
 		'sourceAnchor'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

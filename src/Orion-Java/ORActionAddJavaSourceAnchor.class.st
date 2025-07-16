@@ -11,7 +11,7 @@ I need the following properties of the  sourceanchor
 "
 Class {
 	#name : 'ORActionAddJavaSourceAnchor',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -20,9 +20,9 @@ Class {
 		'mooseModel',
 		'element'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

@@ -25,7 +25,7 @@ I need the following properties of the  wildcard
 "
 Class {
 	#name : 'ORActionAddJavaWildcard',
-	#superclass : 'ORActionAddNamedEntity',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -48,9 +48,9 @@ Class {
 		'lowerBound',
 		'upperBound'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

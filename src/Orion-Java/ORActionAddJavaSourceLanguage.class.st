@@ -11,7 +11,7 @@ I need the following properties of the  sourcelanguage
 "
 Class {
 	#name : 'ORActionAddJavaSourceLanguage',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -20,9 +20,9 @@ Class {
 		'mooseModel',
 		'sourcedEntities'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

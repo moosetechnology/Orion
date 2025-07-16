@@ -19,7 +19,7 @@ I need the following properties of the  package
 "
 Class {
 	#name : 'ORActionAddJavaPackage',
-	#superclass : 'ORActionAddNamedEntity',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -36,9 +36,9 @@ Class {
 		'parentPackage',
 		'comments'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

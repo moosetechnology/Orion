@@ -23,7 +23,7 @@ I need the following properties of the  type
 "
 Class {
 	#name : 'ORActionAddJavaType',
-	#superclass : 'ORActionAddNamedEntity',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -44,9 +44,9 @@ Class {
 		'incomingReferences',
 		'methods'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

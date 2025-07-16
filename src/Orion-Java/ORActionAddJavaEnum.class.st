@@ -32,7 +32,7 @@ I need the following properties of the  enum
 "
 Class {
 	#name : 'ORActionAddJavaEnum',
-	#superclass : 'ORActionAddNamedEntity',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -62,9 +62,9 @@ Class {
 		'superInheritances',
 		'subInheritances'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

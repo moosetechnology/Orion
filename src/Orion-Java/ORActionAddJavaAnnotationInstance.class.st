@@ -14,7 +14,7 @@ I need the following properties of the  annotationinstance
 "
 Class {
 	#name : 'ORActionAddJavaAnnotationInstance',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -26,9 +26,9 @@ Class {
 		'annotationType',
 		'attributes'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

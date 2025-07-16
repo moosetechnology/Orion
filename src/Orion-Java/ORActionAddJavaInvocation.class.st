@@ -17,7 +17,7 @@ I need the following properties of the  invocation
 "
 Class {
 	#name : 'ORActionAddJavaInvocation',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -32,9 +32,9 @@ Class {
 		'sourceAnchor',
 		'signature'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

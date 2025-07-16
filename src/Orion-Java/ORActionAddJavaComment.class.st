@@ -12,7 +12,7 @@ I need the following properties of the  comment
 "
 Class {
 	#name : 'ORActionAddJavaComment',
-	#superclass : 'ORActionAdd',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -22,9 +22,9 @@ Class {
 		'sourceAnchor',
 		'commentedEntity'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

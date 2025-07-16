@@ -18,7 +18,7 @@ I need the following properties of the  enumvalue
 "
 Class {
 	#name : 'ORActionAddJavaEnumValue',
-	#superclass : 'ORActionAddNamedEntity',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -34,9 +34,9 @@ Class {
 		'declaredType',
 		'comments'
 	],
-	#category : 'Orion-Java-Add',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Add'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }
