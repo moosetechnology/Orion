@@ -13,3 +13,11 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTEnumValue .
+
+	super entity: anEntity
+]

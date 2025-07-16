@@ -26,3 +26,11 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnum >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTEnum .
+
+	super entity: anEntity
+]

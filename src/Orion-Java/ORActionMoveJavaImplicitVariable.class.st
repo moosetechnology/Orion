@@ -12,3 +12,11 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveJavaImplicitVariable >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTImplicitVariable .
+
+	super entity: anEntity
+]

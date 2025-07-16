@@ -5,3 +5,11 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveJavaInvocation >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTInvocation .
+
+	super entity: anEntity
+]

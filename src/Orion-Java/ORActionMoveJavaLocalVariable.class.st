@@ -14,3 +14,11 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveJavaLocalVariable >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTLocalVariable .
+
+	super entity: anEntity
+]

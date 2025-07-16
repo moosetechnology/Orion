@@ -12,3 +12,11 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveJavaUnknownVariable >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTUnknownVariable .
+
+	super entity: anEntity
+]

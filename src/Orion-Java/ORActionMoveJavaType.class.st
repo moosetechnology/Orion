@@ -18,3 +18,11 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
+
+{ #category : 'accessing' }
+ORActionMoveJavaType >> entity: anEntity [
+
+	IllegalType check: anEntity useTrait: FamixTType .
+
+	super entity: anEntity
+]
