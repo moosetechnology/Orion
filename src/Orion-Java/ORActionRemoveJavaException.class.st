@@ -39,7 +39,7 @@ I need the following properties of the  exception
 "
 Class {
 	#name : 'ORActionRemoveJavaException',
-	#superclass : 'ORActionRemoveNamedEntity',
+	#superclass : 'ORActionRemoveJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -76,9 +76,9 @@ Class {
 		'declaringEntities',
 		'throwingEntities'
 	],
-	#category : 'Orion-Java-Remove',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Remove'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

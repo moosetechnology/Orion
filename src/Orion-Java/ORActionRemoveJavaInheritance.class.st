@@ -15,7 +15,7 @@ I need the following properties of the  inheritance
 "
 Class {
 	#name : 'ORActionRemoveJavaInheritance',
-	#superclass : 'ORActionRemove',
+	#superclass : 'ORActionRemoveJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -28,9 +28,9 @@ Class {
 		'previous',
 		'sourceAnchor'
 	],
-	#category : 'Orion-Java-Remove',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Remove'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

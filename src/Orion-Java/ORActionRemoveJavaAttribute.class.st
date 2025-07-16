@@ -23,7 +23,7 @@ I need the following properties of the  attribute
 "
 Class {
 	#name : 'ORActionRemoveJavaAttribute',
-	#superclass : 'ORActionRemoveNamedEntity',
+	#superclass : 'ORActionRemoveJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -44,9 +44,9 @@ Class {
 		'visibility',
 		'comments'
 	],
-	#category : 'Orion-Java-Remove',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Remove'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

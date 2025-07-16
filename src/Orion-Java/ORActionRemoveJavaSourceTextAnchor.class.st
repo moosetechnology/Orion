@@ -12,7 +12,7 @@ I need the following properties of the  sourcetextanchor
 "
 Class {
 	#name : 'ORActionRemoveJavaSourceTextAnchor',
-	#superclass : 'ORActionRemove',
+	#superclass : 'ORActionRemoveJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -22,9 +22,9 @@ Class {
 		'element',
 		'source'
 	],
-	#category : 'Orion-Java-Remove',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Remove'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

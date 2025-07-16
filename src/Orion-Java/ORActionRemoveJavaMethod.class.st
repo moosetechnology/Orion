@@ -36,7 +36,7 @@ I need the following properties of the  method
 "
 Class {
 	#name : 'ORActionRemoveJavaMethod',
-	#superclass : 'ORActionRemoveNamedEntity',
+	#superclass : 'ORActionRemoveJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -70,9 +70,9 @@ Class {
 		'declaredExceptions',
 		'thrownExceptions'
 	],
-	#category : 'Orion-Java-Remove',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Remove'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

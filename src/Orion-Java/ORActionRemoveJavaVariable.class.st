@@ -13,7 +13,7 @@ I need the following properties of the  variable
 "
 Class {
 	#name : 'ORActionRemoveJavaVariable',
-	#superclass : 'ORActionRemoveNamedEntity',
+	#superclass : 'ORActionRemoveJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -24,9 +24,9 @@ Class {
 		'annotationInstances',
 		'receivingInvocations'
 	],
-	#category : 'Orion-Java-Remove',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Remove'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

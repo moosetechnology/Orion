@@ -40,7 +40,7 @@ I need the following properties of the  parametricmethod
 "
 Class {
 	#name : 'ORActionRemoveJavaParametricMethod',
-	#superclass : 'ORActionRemoveNamedEntity',
+	#superclass : 'ORActionRemoveJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -78,9 +78,9 @@ Class {
 		'genericParameters',
 		'genericization'
 	],
-	#category : 'Orion-Java-Remove',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Remove'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

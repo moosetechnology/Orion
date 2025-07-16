@@ -17,7 +17,7 @@ I need the following properties of the  implicitvariable
 "
 Class {
 	#name : 'ORActionRemoveJavaImplicitVariable',
-	#superclass : 'ORActionRemoveNamedEntity',
+	#superclass : 'ORActionRemoveJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -32,9 +32,9 @@ Class {
 		'isStub',
 		'declaredType'
 	],
-	#category : 'Orion-Java-Remove',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Remove'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }

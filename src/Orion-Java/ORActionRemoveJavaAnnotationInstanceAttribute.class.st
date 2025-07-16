@@ -14,7 +14,7 @@ I need the following properties of the  annotationinstanceattribute
 "
 Class {
 	#name : 'ORActionRemoveJavaAnnotationInstanceAttribute',
-	#superclass : 'ORActionRemove',
+	#superclass : 'ORActionRemoveJava',
 	#instVars : [
 		'mooseID',
 		'mooseName',
@@ -26,9 +26,9 @@ Class {
 		'parentAnnotationInstance',
 		'value'
 	],
-	#category : 'Orion-Java-Remove',
+	#category : 'Orion-Java-Actions',
 	#package : 'Orion-Java',
-	#tag : 'Remove'
+	#tag : 'Actions'
 }
 
 { #category : 'accessing' }
