@@ -10,12 +10,6 @@ Class {
 	#tag : 'Java-Model'
 }
 
-{ #category : 'entity creation' }
-ORTestJavaModel >> createBasicEntities [
-
-	self subclassResponsibility 
-]
-
 { #category : 'deprecated' }
 ORTestJavaModel >> createBasicEntitiesBCKUP [
 
@@ -53,13 +47,6 @@ ORTestJavaModel >> createBasicEntitiesBCKUP [
 	"Unknown Variable"
 	unknownVar := FamixJavaUnknownVariable named: 'someUnknownVar'.
 	modelV1 add: unknownVar
-]
-
-{ #category : 'entity creation' }
-ORTestJavaModel >> createComplexEntities [
-	"Creates more complex entities such as Enums, Annotations, Exceptions..."
-
-	self subclassResponsibility 
 ]
 
 { #category : 'deprecated' }
@@ -128,7 +115,7 @@ ORTestJavaModel >> createComplexEntitiesBCKP [
 ]
 
 { #category : 'entity creation' }
-ORTestJavaModel >> linkBasicEntities [
+ORTestJavaModel >> createEntities [
 
 	self subclassResponsibility 
 ]
@@ -162,9 +149,7 @@ ORTestJavaModel >> setUp [
 
 
 	modelV1 := FamixJavaModel new.
-	self createBasicEntities.
-	"self linkBasicEntities.
-	self createComplexEntities."
+	self createEntities.
 
 	modelV1 name: 'model-v1'.
 	
