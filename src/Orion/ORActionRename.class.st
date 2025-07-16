@@ -32,7 +32,8 @@ ORActionRename >> name: anObject [
 { #category : 'method execution' }
 ORActionRename >> run [
 
-	self setFamixProperty: #name on: self entity to: self name.
+	self entity name: self name.
+	entity resetMooseName.
 
 	^ entity
 ]
