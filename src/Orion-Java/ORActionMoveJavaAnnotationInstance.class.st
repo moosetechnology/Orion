@@ -19,3 +19,11 @@ ORActionMoveJavaAnnotationInstance >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaAnnotationInstance >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithAnnotationInstances .
+
+	super to: container
+]

@@ -13,3 +13,11 @@ ORActionMoveJavaComment >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaComment >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithComments .
+
+	super to: container
+]

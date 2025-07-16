@@ -26,3 +26,11 @@ ORActionMoveJavaAttribute >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaAttribute >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithAttributes .
+
+	super to: container
+]

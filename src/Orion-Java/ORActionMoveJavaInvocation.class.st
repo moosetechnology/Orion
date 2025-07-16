@@ -13,3 +13,11 @@ ORActionMoveJavaInvocation >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaInvocation >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithInvocations .
+
+	super to: container
+]

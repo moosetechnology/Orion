@@ -22,3 +22,11 @@ ORActionMoveJavaLocalVariable >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaLocalVariable >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithLocalVariables .
+
+	super to: container
+]

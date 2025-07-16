@@ -13,3 +13,11 @@ ORActionMoveJavaSourceLanguage >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaSourceLanguage >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithSourceLanguages .
+
+	super to: container
+]

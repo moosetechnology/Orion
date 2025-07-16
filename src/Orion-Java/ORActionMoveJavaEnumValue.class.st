@@ -21,3 +21,11 @@ ORActionMoveJavaEnumValue >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaEnumValue >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithEnumValues .
+
+	super to: container
+]

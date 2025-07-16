@@ -13,3 +13,11 @@ ORActionMoveJavaReference >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaReference >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithReferences .
+
+	super to: container
+]

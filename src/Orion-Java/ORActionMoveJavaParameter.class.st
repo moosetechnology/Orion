@@ -22,3 +22,11 @@ ORActionMoveJavaParameter >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaParameter >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithParameters .
+
+	super to: container
+]

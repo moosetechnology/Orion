@@ -33,3 +33,11 @@ ORActionMoveJavaException >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaException >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithExceptions .
+
+	super to: container
+]

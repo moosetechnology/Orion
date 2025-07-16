@@ -20,3 +20,11 @@ ORActionMoveJavaImplicitVariable >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaImplicitVariable >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithImplicitVariables .
+
+	super to: container
+]
