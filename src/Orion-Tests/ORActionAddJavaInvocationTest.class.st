@@ -14,8 +14,10 @@ ORActionAddJavaInvocationTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaInvocationTest >> setUpAction [ 
 
-action := ORActionAddJavaInvocation new 
-yourself.
+	action := ORActionAddJavaInvocation new 
+		orionModel: modelV2;
+		name: 'NewInvocation' ;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

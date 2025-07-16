@@ -14,8 +14,9 @@ ORActionAddJavaInheritanceTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaInheritanceTest >> setUpAction [ 
 
-action := ORActionAddJavaInheritance new 
-yourself.
+	action := ORActionAddJavaInheritance new 
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

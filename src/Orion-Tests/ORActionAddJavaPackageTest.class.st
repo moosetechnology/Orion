@@ -14,8 +14,10 @@ ORActionAddJavaPackageTest >> createEntities [
 { #category : 'running' }
 ORActionAddJavaPackageTest >> setUpAction [ 
 
-action := ORActionAddJavaPackage new 
-yourself.
+	action := ORActionAddJavaPackage new 
+		orionModel: modelV2;
+		name: 'NewPackage' ;
+		yourself.
 ]
 
 { #category : 'tests' }

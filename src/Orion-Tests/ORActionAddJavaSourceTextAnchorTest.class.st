@@ -14,8 +14,9 @@ ORActionAddJavaSourceTextAnchorTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaSourceTextAnchorTest >> setUpAction [ 
 
-action := ORActionAddJavaSourceTextAnchor new 
-yourself.
+	action := ORActionAddJavaSourceTextAnchor new 
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

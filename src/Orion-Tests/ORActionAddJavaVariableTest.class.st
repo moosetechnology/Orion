@@ -14,8 +14,10 @@ ORActionAddJavaVariableTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaVariableTest >> setUpAction [ 
 
-action := ORActionAddJavaVariable new 
-yourself.
+	action := ORActionAddJavaVariable new 
+		orionModel: modelV2;
+		name: 'NewVariable' ;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

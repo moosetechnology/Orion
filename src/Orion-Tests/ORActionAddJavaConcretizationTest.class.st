@@ -14,8 +14,10 @@ ORActionAddJavaConcretizationTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaConcretizationTest >> setUpAction [ 
 
-action := ORActionAddJavaConcretization new 
-yourself.
+	action := ORActionAddJavaConcretization new 
+		orionModel: modelV2;
+		name: 'NewConcretization' ;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

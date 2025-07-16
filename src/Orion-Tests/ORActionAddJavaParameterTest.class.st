@@ -14,8 +14,10 @@ ORActionAddJavaParameterTest >> createEntities [
 { #category : 'running' }
 ORActionAddJavaParameterTest >> setUpAction [ 
 
-action := ORActionAddJavaParameter new 
-yourself.
+	action := ORActionAddJavaParameter new 
+		orionModel: modelV2;
+		name: 'NewParameter' ;
+		yourself.
 ]
 
 { #category : 'tests' }

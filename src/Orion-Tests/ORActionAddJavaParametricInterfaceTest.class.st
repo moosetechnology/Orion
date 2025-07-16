@@ -14,8 +14,10 @@ ORActionAddJavaParametricInterfaceTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaParametricInterfaceTest >> setUpAction [ 
 
-action := ORActionAddJavaParametricInterface new 
-yourself.
+	action := ORActionAddJavaParametricInterface new 
+		orionModel: modelV2;
+		name: 'NewParametricInterface' ;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

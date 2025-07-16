@@ -14,8 +14,10 @@ ORActionAddJavaUnknownVariableTest >> createEntities [
 { #category : 'running' }
 ORActionAddJavaUnknownVariableTest >> setUpAction [ 
 
-action := ORActionAddJavaUnknownVariable new 
-yourself.
+	action := ORActionAddJavaUnknownVariable new 
+		orionModel: modelV2;
+		name: 'NewUnknownVariable';
+		yourself.
 ]
 
 { #category : 'tests' }

@@ -15,7 +15,9 @@ ORActionAddJavaAnnotationTypeAttributeTest >> createEntities [
 ORActionAddJavaAnnotationTypeAttributeTest >> setUpAction [ 
 
 action := ORActionAddJavaAnnotationTypeAttribute new 
-yourself.
+		orionModel: modelV2;
+		name: 'AnnotationTypeAttribute' ;
+		yourself.
 ]
 
 { #category : 'tests' }

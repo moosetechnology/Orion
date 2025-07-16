@@ -14,8 +14,10 @@ ORActionAddJavaSourceLanguageTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaSourceLanguageTest >> setUpAction [ 
 
-action := ORActionAddJavaSourceLanguage new 
-yourself.
+	action := ORActionAddJavaSourceLanguage new 
+		orionModel: modelV2;
+		name: 'NewSourceLanguage' ;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

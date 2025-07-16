@@ -14,8 +14,9 @@ ORActionAddJavaSourceAnchorTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaSourceAnchorTest >> setUpAction [ 
 
-action := ORActionAddJavaSourceAnchor new 
-yourself.
+	action := ORActionAddJavaSourceAnchor new 
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

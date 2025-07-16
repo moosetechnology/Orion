@@ -14,8 +14,10 @@ ORActionAddJavaEnumValueTest >> createEntities [
 { #category : 'running' }
 ORActionAddJavaEnumValueTest >> setUpAction [ 
 
-action := ORActionAddJavaEnumValue new 
-yourself.
+	action := ORActionAddJavaEnumValue new 
+		orionModel: modelV2;
+		name: 'NewEnumValue' ;
+		yourself.
 ]
 
 { #category : 'tests' }

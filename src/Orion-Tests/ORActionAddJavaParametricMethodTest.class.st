@@ -14,8 +14,10 @@ ORActionAddJavaParametricMethodTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaParametricMethodTest >> setUpAction [ 
 
-action := ORActionAddJavaParametricMethod new 
-yourself.
+	action := ORActionAddJavaParametricMethod new 
+		orionModel: modelV2;
+		name: 'NewParametricMethod' ;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

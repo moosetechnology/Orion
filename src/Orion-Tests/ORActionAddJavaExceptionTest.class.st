@@ -14,8 +14,10 @@ ORActionAddJavaExceptionTest >> createEntities [
 { #category : 'running' }
 ORActionAddJavaExceptionTest >> setUpAction [ 
 
-action := ORActionAddJavaException new 
-yourself.
+	action := ORActionAddJavaException new 
+		orionModel: modelV2;
+		name: 'NewException' ;
+		yourself.
 ]
 
 { #category : 'tests' }

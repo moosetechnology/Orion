@@ -14,8 +14,9 @@ ORActionAddJavaWildcardTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaWildcardTest >> setUpAction [ 
 
-action := ORActionAddJavaWildcard new 
-yourself.
+	action := ORActionAddJavaWildcard new 
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

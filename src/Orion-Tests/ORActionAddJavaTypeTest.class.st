@@ -14,8 +14,10 @@ ORActionAddJavaTypeTest >> createEntities [
 { #category : 'running' }
 ORActionAddJavaTypeTest >> setUpAction [ 
 
-action := ORActionAddJavaType new 
-yourself.
+	action := ORActionAddJavaType new 
+		orionModel: modelV2;
+		name: 'NewType' ;
+		yourself.
 ]
 
 { #category : 'tests' }

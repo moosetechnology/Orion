@@ -14,8 +14,9 @@ ORActionAddJavaReferenceTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaReferenceTest >> setUpAction [ 
 
-action := ORActionAddJavaReference new 
-yourself.
+	action := ORActionAddJavaReference new 
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

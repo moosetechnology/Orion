@@ -14,8 +14,10 @@ ORActionAddJavaPrimitiveTypeTest >> createEntities [
 { #category : 'running' }
 ORActionAddJavaPrimitiveTypeTest >> setUpAction [ 
 
-action := ORActionAddJavaPrimitiveType new 
-yourself.
+	action := ORActionAddJavaPrimitiveType new 
+		orionModel: modelV2;
+		name: 'NewPrimitiveType' ;
+		yourself.
 ]
 
 { #category : 'tests' }

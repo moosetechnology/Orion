@@ -14,8 +14,10 @@ ORActionAddJavaInterfaceTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaInterfaceTest >> setUpAction [ 
 
-action := ORActionAddJavaInterface new 
-yourself.
+	action := ORActionAddJavaInterface new 
+		orionModel: modelV2;
+		name: 'NewInterface' ;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

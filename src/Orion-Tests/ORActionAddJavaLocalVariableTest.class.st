@@ -14,8 +14,10 @@ ORActionAddJavaLocalVariableTest >> createEntities [
 { #category : 'running' }
 ORActionAddJavaLocalVariableTest >> setUpAction [ 
 
-action := ORActionAddJavaLocalVariable new 
-yourself.
+	action := ORActionAddJavaLocalVariable new 
+		orionModel: modelV2;
+		name: 'NewLocalVariable' ;
+		yourself.
 ]
 
 { #category : 'tests' }

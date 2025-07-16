@@ -14,15 +14,16 @@ ORActionAddJavaAccessTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaAccessTest >> setUpAction [ 
 
-action := ORActionAddJavaAccess new 
-yourself.
+	action := ORActionAddJavaAccess new 
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaAccessTest >> testAddsCorrectEntity [
-			self assert: modelV2 allAcceses size equals: 1.
+			self assert: modelV2 allAccesses size equals: 1.
 			action run.
-			self assert: modelV2 allAcceses size equals: 2.
+			self assert: modelV2 allAccesses size equals: 2.
 ]
 
 { #category : 'as yet unclassified' }

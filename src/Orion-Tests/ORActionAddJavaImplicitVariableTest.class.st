@@ -14,8 +14,10 @@ ORActionAddJavaImplicitVariableTest >> createEntities [
 { #category : 'running' }
 ORActionAddJavaImplicitVariableTest >> setUpAction [ 
 
-action := ORActionAddJavaImplicitVariable new 
-yourself.
+	action := ORActionAddJavaImplicitVariable new 
+		orionModel: modelV2;
+		name: 'NewImplicitVariable' ;
+		yourself.
 ]
 
 { #category : 'tests' }

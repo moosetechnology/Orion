@@ -14,8 +14,10 @@ ORActionAddJavaParameterTypeTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaParameterTypeTest >> setUpAction [ 
 
-action := ORActionAddJavaParameterType new 
-yourself.
+	action := ORActionAddJavaParameterType new 
+		orionModel: modelV2;
+		name: 'NewParameterType';
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

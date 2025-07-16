@@ -14,8 +14,9 @@ ORActionAddJavaCommentTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaCommentTest >> setUpAction [ 
 
-action := ORActionAddJavaComment new 
-yourself.
+	action := ORActionAddJavaComment new 
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

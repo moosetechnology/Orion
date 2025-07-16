@@ -14,8 +14,9 @@ ORActionAddJavaImplementationTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaImplementationTest >> setUpAction [ 
 
-action := ORActionAddJavaImplementation new 
-yourself.
+	action := ORActionAddJavaImplementation new 
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }

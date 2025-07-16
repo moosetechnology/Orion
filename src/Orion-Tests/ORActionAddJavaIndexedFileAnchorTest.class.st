@@ -14,8 +14,9 @@ ORActionAddJavaIndexedFileAnchorTest >> createEntities [
 { #category : 'as yet unclassified' }
 ORActionAddJavaIndexedFileAnchorTest >> setUpAction [ 
 
-action := ORActionAddJavaIndexedFileAnchor new 
-yourself.
+	action := ORActionAddJavaIndexedFileAnchor new 
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'as yet unclassified' }
