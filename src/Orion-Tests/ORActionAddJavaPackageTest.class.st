@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaPackageTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaPackageTest >> createBasicEntities [
+ORActionAddJavaPackageTest >> createEntities [
 	modelV1 newPackageNamed: 'TestPackage'
 ]
 

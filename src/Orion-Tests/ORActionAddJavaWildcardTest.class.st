@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaWildcardTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaWildcardTest >> createBasicEntities [
+ORActionAddJavaWildcardTest >> createEntities [
 	modelV1 newWildcardNamed: 'TestWildcard'
 ]
 

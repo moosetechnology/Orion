@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaParameterConcretizationTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaParameterConcretizationTest >> createBasicEntities [
+ORActionAddJavaParameterConcretizationTest >> createEntities [
 	modelV1 newParameterConcretizationNamed: 'TestParameterConcretization'
 ]
 

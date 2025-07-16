@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaLocalVariableTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaLocalVariableTest >> createBasicEntities [
+ORActionAddJavaLocalVariableTest >> createEntities [
 	modelV1 newLocalVariableNamed: 'TestLocalVariable'
 ]
 

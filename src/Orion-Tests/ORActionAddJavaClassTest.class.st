@@ -10,19 +10,9 @@ Class {
 }
 
 { #category : 'running' }
-ORActionAddJavaClassTest >> createBasicEntities [
+ORActionAddJavaClassTest >> createEntities [
 
 	modelV1 newClassNamed: 'TestClass'
-
-]
-
-{ #category : 'entity creation' }
-ORActionAddJavaClassTest >> createComplexEntities [
-
-]
-
-{ #category : 'entity creation' }
-ORActionAddJavaClassTest >> linkBasicEntities [
 
 ]
 

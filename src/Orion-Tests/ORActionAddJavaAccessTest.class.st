@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaAccessTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaAccessTest >> createBasicEntities [
+ORActionAddJavaAccessTest >> createEntities [
 	modelV1 newAccessNamed: 'TestAccess'
 ]
 

@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaInheritanceTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaInheritanceTest >> createBasicEntities [
+ORActionAddJavaInheritanceTest >> createEntities [
 	modelV1 newInheritanceNamed: 'TestInheritance'
 ]
 

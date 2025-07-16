@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaAnnotationTypeAttributeTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaAnnotationTypeAttributeTest >> createBasicEntities [
+ORActionAddJavaAnnotationTypeAttributeTest >> createEntities [
 	modelV1 newAnnotationTypeAttributeNamed: 'TestAnnotationTypeAttribute'
 ]
 

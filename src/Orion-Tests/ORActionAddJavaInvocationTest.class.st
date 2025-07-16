@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaInvocationTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaInvocationTest >> createBasicEntities [
+ORActionAddJavaInvocationTest >> createEntities [
 	modelV1 newInvocationNamed: 'TestInvocation'
 ]
 

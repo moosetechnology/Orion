@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaInterfaceTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaInterfaceTest >> createBasicEntities [
+ORActionAddJavaInterfaceTest >> createEntities [
 	modelV1 newInterfaceNamed: 'TestInterface'
 ]
 

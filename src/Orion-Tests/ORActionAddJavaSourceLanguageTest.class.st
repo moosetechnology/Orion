@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaSourceLanguageTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaSourceLanguageTest >> createBasicEntities [
+ORActionAddJavaSourceLanguageTest >> createEntities [
 	modelV1 newSourceLanguageNamed: 'TestSourceLanguage'
 ]
 

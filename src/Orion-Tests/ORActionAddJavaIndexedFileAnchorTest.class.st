@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaIndexedFileAnchorTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaIndexedFileAnchorTest >> createBasicEntities [
+ORActionAddJavaIndexedFileAnchorTest >> createEntities [
 	modelV1 newIndexedFileAnchorNamed: 'TestIndexedFileAnchor'
 ]
 

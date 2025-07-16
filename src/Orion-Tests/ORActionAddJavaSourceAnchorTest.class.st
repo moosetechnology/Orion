@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaSourceAnchorTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaSourceAnchorTest >> createBasicEntities [
+ORActionAddJavaSourceAnchorTest >> createEntities [
 	modelV1 newSourceAnchorNamed: 'TestSourceAnchor'
 ]
 

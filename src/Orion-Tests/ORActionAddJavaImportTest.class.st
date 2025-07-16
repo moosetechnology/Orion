@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaImportTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaImportTest >> createBasicEntities [
+ORActionAddJavaImportTest >> createEntities [
 	modelV1 newImportNamed: 'TestImport'
 ]
 

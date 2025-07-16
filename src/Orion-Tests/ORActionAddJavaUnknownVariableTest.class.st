@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaUnknownVariableTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaUnknownVariableTest >> createBasicEntities [
+ORActionAddJavaUnknownVariableTest >> createEntities [
 	modelV1 newUnknownVariableNamed: 'TestUnknownVariable'
 ]
 

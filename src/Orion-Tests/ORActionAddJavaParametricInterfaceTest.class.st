@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaParametricInterfaceTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaParametricInterfaceTest >> createBasicEntities [
+ORActionAddJavaParametricInterfaceTest >> createEntities [
 	modelV1 newParametricInterfaceNamed: 'TestParametricInterface'
 ]
 

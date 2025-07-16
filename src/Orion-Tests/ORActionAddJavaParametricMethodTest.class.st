@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaParametricMethodTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaParametricMethodTest >> createBasicEntities [
+ORActionAddJavaParametricMethodTest >> createEntities [
 	modelV1 newParametricMethodNamed: 'TestParametricMethod'
 ]
 

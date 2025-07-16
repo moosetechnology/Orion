@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaReferenceTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaReferenceTest >> createBasicEntities [
+ORActionAddJavaReferenceTest >> createEntities [
 	modelV1 newReferenceNamed: 'TestReference'
 ]
 

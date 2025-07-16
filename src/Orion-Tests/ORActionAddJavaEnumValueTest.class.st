@@ -1,13 +1,13 @@
 Class {
 	#name : 'ORActionAddJavaEnumValueTest',
-	#superclass : 'ORActionTestJavaModel',
+	#superclass : 'ORActionAddJavaTest',
 	#category : 'Orion-Tests-Java-Model',
 	#package : 'Orion-Tests',
 	#tag : 'Java-Model'
 }
 
 { #category : 'as yet unclassified' }
-ORActionAddJavaEnumValueTest >> createBasicEntities [
+ORActionAddJavaEnumValueTest >> createEntities [
 	modelV1 newEnumValueNamed: 'TestEnumValue'
 ]
 
