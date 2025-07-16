@@ -20,3 +20,14 @@ ORActionRenameJavaMethodTest >> setUpAction [
 		name: 'newMethod'.
 	action entity: (modelV1 entityNamed: 'oldMethod')
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaMethodTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allMethods size
+		equals: modelV1 allMethods size
+]

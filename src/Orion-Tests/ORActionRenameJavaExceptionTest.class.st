@@ -20,3 +20,14 @@ ORActionRenameJavaExceptionTest >> setUpAction [
 		name: 'newException'.
 	action entity: (modelV1 entityNamed: 'oldException')
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaExceptionTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allExceptions size
+		equals: modelV1 allExceptions size
+]

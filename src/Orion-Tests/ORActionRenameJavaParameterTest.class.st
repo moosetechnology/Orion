@@ -20,3 +20,14 @@ ORActionRenameJavaParameterTest >> setUpAction [
 		name: 'newParameter'.
 	action entity: (modelV1 entityNamed: 'oldParameter')
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaParameterTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allParameters size
+		equals: modelV1 allParameters size
+]

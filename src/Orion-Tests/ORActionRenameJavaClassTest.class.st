@@ -20,3 +20,14 @@ ORActionRenameJavaClassTest >> setUpAction [
 		name: 'newClass'.
 	action entity: (modelV1 entityNamed: 'oldClass').
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaClassTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allClasses size
+		equals: modelV1 allClasses size
+]

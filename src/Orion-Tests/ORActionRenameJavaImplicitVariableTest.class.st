@@ -20,3 +20,14 @@ ORActionRenameJavaImplicitVariableTest >> setUpAction [
 		name: 'newImplicitVariable'.
 	action entity: (modelV1 entityNamed: 'oldImplicitVariable')
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaImplicitVariableTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allImplicitVariables size
+		equals: modelV1 allImplicitVariables size
+]

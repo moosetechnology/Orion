@@ -23,3 +23,14 @@ ORActionRenameJavaAttributeTest >> setUpAction [
 		name: 'newAttribute'.
 	action entity: (modelV1 entityNamed: 'oldAttribute').
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaAttributeTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allAttributes size
+		equals: modelV1 allAttributes size
+]

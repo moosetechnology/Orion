@@ -20,3 +20,14 @@ ORActionRenameJavaEnumValueTest >> setUpAction [
 		name: 'newEnumValue'.
 	action entity: (modelV1 entityNamed: 'oldEnumValue')
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaEnumValueTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allEnumValues size
+		equals: modelV1 allEnumValues size
+]

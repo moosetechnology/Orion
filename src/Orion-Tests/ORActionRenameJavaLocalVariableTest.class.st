@@ -20,3 +20,14 @@ ORActionRenameJavaLocalVariableTest >> setUpAction [
 		name: 'newLocalVariable'.
 	action entity: (modelV1 entityNamed: 'oldLocalVariable')
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaLocalVariableTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allLocalVariables size
+		equals: modelV1 allLocalVariables size
+]

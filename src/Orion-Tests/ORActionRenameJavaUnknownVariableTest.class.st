@@ -20,3 +20,14 @@ ORActionRenameJavaUnknownVariableTest >> setUpAction [
 		name: 'newUnknownVariable'.
 	action entity: (modelV1 entityNamed: 'oldUnknownVariable')
 ]
+
+{ #category : 'tests' }
+ORActionRenameJavaUnknownVariableTest >> testAddsNoEntity [ 
+
+	action run.
+
+	self assert: modelV2 size equals: modelV1 size.
+	self
+		assert: modelV2 allUnknownVariables size
+		equals: modelV1 allUnknownVariables size
+]
