@@ -27,11 +27,6 @@ Class {
 	#name : 'ORActionRemoveJavaWildcard',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -62,14 +57,6 @@ ORActionRemoveJavaWildcard >> annotationInstances: aValue [ annotationInstances 
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaWildcard >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaWildcard >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaWildcard >> concreteEntities [ ^concreteEntities
 ]
 
@@ -87,14 +74,6 @@ ORActionRemoveJavaWildcard >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionRemoveJavaWildcard >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaWildcard >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaWildcard >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -143,30 +122,6 @@ ORActionRemoveJavaWildcard >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionRemoveJavaWildcard >> methods: aValue [ methods := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaWildcard >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaWildcard >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaWildcard >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaWildcard >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaWildcard >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaWildcard >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'method execution' }

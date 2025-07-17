@@ -41,11 +41,6 @@ Class {
 	#name : 'ORActionRemoveJavaException',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -98,14 +93,6 @@ ORActionRemoveJavaException >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaException >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaException >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaException >> catchingEntities [ ^catchingEntities
 ]
 
@@ -147,14 +134,6 @@ ORActionRemoveJavaException >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionRemoveJavaException >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaException >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaException >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -243,30 +222,6 @@ ORActionRemoveJavaException >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionRemoveJavaException >> methods: aValue [ methods := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaException >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaException >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaException >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaException >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaException >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaException >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

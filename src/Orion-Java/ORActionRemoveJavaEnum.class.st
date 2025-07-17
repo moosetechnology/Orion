@@ -34,11 +34,6 @@ Class {
 	#name : 'ORActionRemoveJavaEnum',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -84,14 +79,6 @@ ORActionRemoveJavaEnum >> attributes: aValue [ attributes := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaEnum >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnum >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaEnum >> comments [ ^comments
 ]
 
@@ -117,14 +104,6 @@ ORActionRemoveJavaEnum >> definedAnnotationTypes [ ^definedAnnotationTypes
 
 { #category : 'accessing' }
 ORActionRemoveJavaEnum >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnum >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnum >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -189,30 +168,6 @@ ORActionRemoveJavaEnum >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionRemoveJavaEnum >> methods: aValue [ methods := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnum >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnum >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnum >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnum >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnum >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnum >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

@@ -18,11 +18,6 @@ Class {
 	#name : 'ORActionRemoveJavaIndexedFileAnchor',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'element',
 		'endPos',
 		'startPos',
@@ -34,14 +29,6 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
-
-{ #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> cache: aValue [ cache := aValue
-]
 
 { #category : 'accessing' }
 ORActionRemoveJavaIndexedFileAnchor >> correspondingFile [ ^correspondingFile
@@ -80,43 +67,11 @@ ORActionRemoveJavaIndexedFileAnchor >> endPos: aValue [ endPos := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaIndexedFileAnchor >> fileName [ ^fileName
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaIndexedFileAnchor >> fileName: aValue [ fileName := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaIndexedFileAnchor >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'method execution' }

@@ -21,11 +21,6 @@ Class {
 	#name : 'ORActionRemoveJavaAnnotationTypeAttribute',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -58,14 +53,6 @@ ORActionRemoveJavaAnnotationTypeAttribute >> annotationInstances: aValue [ annot
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaAnnotationTypeAttribute >> comments [ ^comments
 ]
 
@@ -86,14 +73,6 @@ ORActionRemoveJavaAnnotationTypeAttribute >> declaredType: aValue [ declaredType
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaAnnotationTypeAttribute >> incomingAccesses [ ^incomingAccesses
 ]
 
@@ -107,30 +86,6 @@ ORActionRemoveJavaAnnotationTypeAttribute >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationTypeAttribute >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationTypeAttribute >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

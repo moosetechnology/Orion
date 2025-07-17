@@ -16,11 +16,6 @@ Class {
 	#name : 'ORActionRemoveJavaAnnotationInstanceAttribute',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationTypeAttribute',
 		'parentAnnotationInstance',
@@ -39,48 +34,8 @@ ORActionRemoveJavaAnnotationInstanceAttribute >> annotationTypeAttribute [ ^anno
 ORActionRemoveJavaAnnotationInstanceAttribute >> annotationTypeAttribute: aValue [ annotationTypeAttribute := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> cache: aValue [ cache := aValue
-]
-
 { #category : 'method execution' }
 ORActionRemoveJavaAnnotationInstanceAttribute >> createVersionnedEntitySelector [ ^ #newAnnotationInstanceAttribute
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

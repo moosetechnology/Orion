@@ -41,11 +41,6 @@ Class {
 	#name : 'ORActionRemoveJavaParametricInterface',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -98,14 +93,6 @@ ORActionRemoveJavaParametricInterface >> attributes: aValue [ attributes := aVal
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaParametricInterface >> comments [ ^comments
 ]
 
@@ -147,14 +134,6 @@ ORActionRemoveJavaParametricInterface >> definedAnnotationTypes [ ^definedAnnota
 
 { #category : 'accessing' }
 ORActionRemoveJavaParametricInterface >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -251,30 +230,6 @@ ORActionRemoveJavaParametricInterface >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionRemoveJavaParametricInterface >> methods: aValue [ methods := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricInterface >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

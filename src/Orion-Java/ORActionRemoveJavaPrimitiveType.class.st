@@ -25,11 +25,6 @@ Class {
 	#name : 'ORActionRemoveJavaPrimitiveType',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -58,14 +53,6 @@ ORActionRemoveJavaPrimitiveType >> annotationInstances: aValue [ annotationInsta
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaPrimitiveType >> concreteEntities [ ^concreteEntities
 ]
 
@@ -83,14 +70,6 @@ ORActionRemoveJavaPrimitiveType >> definedAnnotationTypes [ ^definedAnnotationTy
 
 { #category : 'accessing' }
 ORActionRemoveJavaPrimitiveType >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -131,30 +110,6 @@ ORActionRemoveJavaPrimitiveType >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionRemoveJavaPrimitiveType >> methods: aValue [ methods := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPrimitiveType >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'method execution' }

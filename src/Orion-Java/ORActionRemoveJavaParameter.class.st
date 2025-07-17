@@ -21,11 +21,6 @@ Class {
 	#name : 'ORActionRemoveJavaParameter',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -50,14 +45,6 @@ ORActionRemoveJavaParameter >> annotationInstances: aValue [ annotationInstances
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaParameter >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameter >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaParameter >> comments [ ^comments
 ]
 
@@ -75,14 +62,6 @@ ORActionRemoveJavaParameter >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionRemoveJavaParameter >> declaredType: aValue [ declaredType := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameter >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameter >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -107,30 +86,6 @@ ORActionRemoveJavaParameter >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionRemoveJavaParameter >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameter >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameter >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameter >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameter >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameter >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameter >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

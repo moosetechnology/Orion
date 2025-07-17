@@ -21,11 +21,6 @@ Class {
 	#name : 'ORActionRemoveJavaLocalVariable',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -50,14 +45,6 @@ ORActionRemoveJavaLocalVariable >> annotationInstances: aValue [ annotationInsta
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaLocalVariable >> comments [ ^comments
 ]
 
@@ -75,14 +62,6 @@ ORActionRemoveJavaLocalVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionRemoveJavaLocalVariable >> declaredType: aValue [ declaredType := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -107,30 +86,6 @@ ORActionRemoveJavaLocalVariable >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionRemoveJavaLocalVariable >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaLocalVariable >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

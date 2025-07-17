@@ -19,11 +19,6 @@ Class {
 	#name : 'ORActionRemoveJavaImplicitVariable',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -45,14 +40,6 @@ ORActionRemoveJavaImplicitVariable >> annotationInstances [ ^annotationInstances
 ORActionRemoveJavaImplicitVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> cache: aValue [ cache := aValue
-]
-
 { #category : 'method execution' }
 ORActionRemoveJavaImplicitVariable >> createVersionnedEntitySelector [ ^ #newImplicitVariable
 ]
@@ -63,14 +50,6 @@ ORActionRemoveJavaImplicitVariable >> declaredType [ ^declaredType
 
 { #category : 'accessing' }
 ORActionRemoveJavaImplicitVariable >> declaredType: aValue [ declaredType := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -87,30 +66,6 @@ ORActionRemoveJavaImplicitVariable >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionRemoveJavaImplicitVariable >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplicitVariable >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

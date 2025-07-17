@@ -13,11 +13,6 @@ Class {
 	#name : 'ORActionRemoveJavaSourceLanguage',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourcedEntities'
 	],
 	#category : 'Orion-Java-Actions',
@@ -25,48 +20,8 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> cache: aValue [ cache := aValue
-]
-
 { #category : 'method execution' }
 ORActionRemoveJavaSourceLanguage >> createVersionnedEntitySelector [ ^ #newSourceLanguage
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceLanguage >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'method execution' }

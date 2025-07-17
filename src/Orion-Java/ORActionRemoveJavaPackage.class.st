@@ -21,11 +21,6 @@ Class {
 	#name : 'ORActionRemoveJavaPackage',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -47,14 +42,6 @@ ORActionRemoveJavaPackage >> annotationInstances [ ^annotationInstances
 
 { #category : 'accessing' }
 ORActionRemoveJavaPackage >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPackage >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPackage >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -86,14 +73,6 @@ ORActionRemoveJavaPackage >> definedAnnotationTypes: aValue [ definedAnnotationT
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaPackage >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPackage >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaPackage >> incomingImports [ ^incomingImports
 ]
 
@@ -107,30 +86,6 @@ ORActionRemoveJavaPackage >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionRemoveJavaPackage >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPackage >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPackage >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPackage >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPackage >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPackage >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaPackage >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

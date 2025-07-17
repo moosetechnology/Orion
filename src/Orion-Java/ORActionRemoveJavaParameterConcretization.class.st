@@ -18,11 +18,6 @@ Class {
 	#name : 'ORActionRemoveJavaParameterConcretization',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'concretizations',
 		'genericParameter',
 		'concreteParameter',
@@ -34,14 +29,6 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> cache: aValue [ cache := aValue
-]
 
 { #category : 'accessing' }
 ORActionRemoveJavaParameterConcretization >> concreteParameter [ ^concreteParameter
@@ -64,43 +51,11 @@ ORActionRemoveJavaParameterConcretization >> createVersionnedEntitySelector [ ^ 
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaParameterConcretization >> genericParameter [ ^genericParameter
 ]
 
 { #category : 'accessing' }
 ORActionRemoveJavaParameterConcretization >> genericParameter: aValue [ genericParameter := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterConcretization >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

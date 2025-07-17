@@ -14,11 +14,6 @@ Class {
 	#name : 'ORActionRemoveJavaSourceTextAnchor',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'element',
 		'source'
 	],
@@ -26,14 +21,6 @@ Class {
 	#package : 'Orion-Java',
 	#tag : 'Actions'
 }
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> cache: aValue [ cache := aValue
-]
 
 { #category : 'method execution' }
 ORActionRemoveJavaSourceTextAnchor >> createVersionnedEntitySelector [ ^ #newSourceTextAnchor
@@ -45,38 +32,6 @@ ORActionRemoveJavaSourceTextAnchor >> element [ ^element
 
 { #category : 'accessing' }
 ORActionRemoveJavaSourceTextAnchor >> element: aValue [ element := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaSourceTextAnchor >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'method execution' }

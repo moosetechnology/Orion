@@ -17,11 +17,6 @@ Class {
 	#name : 'ORActionRemoveJavaReference',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'referencer',
 		'referredEntity',
 		'next',
@@ -33,48 +28,8 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> cache: aValue [ cache := aValue
-]
-
 { #category : 'method execution' }
 ORActionRemoveJavaReference >> createVersionnedEntitySelector [ ^ #newReference
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaReference >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

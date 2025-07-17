@@ -17,11 +17,6 @@ Class {
 	#name : 'ORActionRemoveJavaImplementation',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'implementingClass',
 		'interface',
 		'next',
@@ -33,24 +28,8 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> cache: aValue [ cache := aValue
-]
-
 { #category : 'method execution' }
 ORActionRemoveJavaImplementation >> createVersionnedEntitySelector [ ^ #newImplementation
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -67,30 +46,6 @@ ORActionRemoveJavaImplementation >> interface [ ^interface
 
 { #category : 'accessing' }
 ORActionRemoveJavaImplementation >> interface: aValue [ interface := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImplementation >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

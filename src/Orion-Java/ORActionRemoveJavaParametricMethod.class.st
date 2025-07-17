@@ -42,11 +42,6 @@ Class {
 	#name : 'ORActionRemoveJavaParametricMethod',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -97,14 +92,6 @@ ORActionRemoveJavaParametricMethod >> annotationInstances [ ^annotationInstances
 
 { #category : 'accessing' }
 ORActionRemoveJavaParametricMethod >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -165,14 +152,6 @@ ORActionRemoveJavaParametricMethod >> definedAnnotationTypes [ ^definedAnnotatio
 
 { #category : 'accessing' }
 ORActionRemoveJavaParametricMethod >> definedAnnotationTypes: aValue [ definedAnnotationTypes := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -269,30 +248,6 @@ ORActionRemoveJavaParametricMethod >> localVariables [ ^localVariables
 
 { #category : 'accessing' }
 ORActionRemoveJavaParametricMethod >> localVariables: aValue [ localVariables := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParametricMethod >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

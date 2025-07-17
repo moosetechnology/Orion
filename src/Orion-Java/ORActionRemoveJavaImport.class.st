@@ -17,11 +17,6 @@ Class {
 	#name : 'ORActionRemoveJavaImport',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'importedEntity',
 		'importingEntity',
 		'next',
@@ -33,24 +28,8 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> cache: aValue [ cache := aValue
-]
-
 { #category : 'method execution' }
 ORActionRemoveJavaImport >> createVersionnedEntitySelector [ ^ #newImport
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> entityAttributes: aValue [ entityAttributes := aValue
 ]
 
 { #category : 'accessing' }
@@ -67,30 +46,6 @@ ORActionRemoveJavaImport >> importingEntity [ ^importingEntity
 
 { #category : 'accessing' }
 ORActionRemoveJavaImport >> importingEntity: aValue [ importingEntity := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaImport >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

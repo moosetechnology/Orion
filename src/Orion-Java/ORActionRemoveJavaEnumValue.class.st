@@ -20,11 +20,6 @@ Class {
 	#name : 'ORActionRemoveJavaEnumValue',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'receivingInvocations',
@@ -48,14 +43,6 @@ ORActionRemoveJavaEnumValue >> annotationInstances: aValue [ annotationInstances
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> cache: aValue [ cache := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaEnumValue >> comments [ ^comments
 ]
 
@@ -76,14 +63,6 @@ ORActionRemoveJavaEnumValue >> declaredType: aValue [ declaredType := aValue
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaEnumValue >> incomingAccesses [ ^incomingAccesses
 ]
 
@@ -97,30 +76,6 @@ ORActionRemoveJavaEnumValue >> isStub [ ^isStub
 
 { #category : 'accessing' }
 ORActionRemoveJavaEnumValue >> isStub: aValue [ isStub := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaEnumValue >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'accessing' }

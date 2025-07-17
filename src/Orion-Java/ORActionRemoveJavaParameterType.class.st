@@ -33,11 +33,6 @@ Class {
 	#name : 'ORActionRemoveJavaParameterType',
 	#superclass : 'ORActionRemoveJava',
 	#instVars : [
-		'mooseID',
-		'mooseName',
-		'cache',
-		'entityAttributes',
-		'mooseModel',
 		'sourceAnchor',
 		'annotationInstances',
 		'types',
@@ -71,14 +66,6 @@ ORActionRemoveJavaParameterType >> annotationInstances [ ^annotationInstances
 
 { #category : 'accessing' }
 ORActionRemoveJavaParameterType >> annotationInstances: aValue [ annotationInstances := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterType >> cache [ ^cache
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterType >> cache: aValue [ cache := aValue
 ]
 
 { #category : 'accessing' }
@@ -134,14 +121,6 @@ ORActionRemoveJavaParameterType >> definedAnnotationTypes: aValue [ definedAnnot
 ]
 
 { #category : 'accessing' }
-ORActionRemoveJavaParameterType >> entityAttributes [ ^entityAttributes
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterType >> entityAttributes: aValue [ entityAttributes := aValue
-]
-
-{ #category : 'accessing' }
 ORActionRemoveJavaParameterType >> genericEntities [ ^genericEntities
 ]
 
@@ -187,30 +166,6 @@ ORActionRemoveJavaParameterType >> methods [ ^methods
 
 { #category : 'accessing' }
 ORActionRemoveJavaParameterType >> methods: aValue [ methods := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterType >> mooseID [ ^mooseID
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterType >> mooseID: aValue [ mooseID := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterType >> mooseModel [ ^mooseModel
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterType >> mooseModel: aValue [ mooseModel := aValue
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterType >> mooseName [ ^mooseName
-]
-
-{ #category : 'accessing' }
-ORActionRemoveJavaParameterType >> mooseName: aValue [ mooseName := aValue
 ]
 
 { #category : 'method execution' }
