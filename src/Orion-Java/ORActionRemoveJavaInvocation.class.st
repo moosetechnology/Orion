@@ -72,11 +72,6 @@ ORActionRemoveJavaInvocation >> receiver: aValue [ receiver := aValue
 ORActionRemoveJavaInvocation >> run [
 
 	super run.
-	entity mooseID: nil.
-	entity mooseName: nil.
-	entity cache: nil.
-	entity entityAttributes: nil.
-	entity mooseModel: nil.
 	entity candidates: nil.
 	entity receiver: nil.
 	entity sender: nil.

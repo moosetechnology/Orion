@@ -78,11 +78,6 @@ ORActionRemoveJavaIndexedFileAnchor >> fileName: aValue [ fileName := aValue
 ORActionRemoveJavaIndexedFileAnchor >> run [
 
 	super run.
-	entity mooseID: nil.
-	entity mooseName: nil.
-	entity cache: nil.
-	entity entityAttributes: nil.
-	entity mooseModel: nil.
 	entity element: nil.
 	entity endPos: nil.
 	entity startPos: nil.

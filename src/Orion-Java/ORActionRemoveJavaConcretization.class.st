@@ -78,11 +78,6 @@ ORActionRemoveJavaConcretization >> previous: aValue [ previous := aValue
 ORActionRemoveJavaConcretization >> run [
 
 	super run.
-	entity mooseID: nil.
-	entity mooseName: nil.
-	entity cache: nil.
-	entity entityAttributes: nil.
-	entity mooseModel: nil.
 	entity parameterConcretizations: nil.
 	entity genericEntity: nil.
 	entity concreteEntity: nil.

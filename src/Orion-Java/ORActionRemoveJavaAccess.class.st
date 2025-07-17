@@ -70,11 +70,6 @@ ORActionRemoveJavaAccess >> previous: aValue [ previous := aValue
 ORActionRemoveJavaAccess >> run [
 
 	super run.
-	entity mooseID: nil.
-	entity mooseName: nil.
-	entity cache: nil.
-	entity entityAttributes: nil.
-	entity mooseModel: nil.
 	entity accessor: nil.
 	entity isWrite: nil.
 	entity variable: nil.

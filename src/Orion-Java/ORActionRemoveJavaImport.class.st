@@ -68,11 +68,6 @@ ORActionRemoveJavaImport >> previous: aValue [ previous := aValue
 ORActionRemoveJavaImport >> run [
 
 	super run.
-	entity mooseID: nil.
-	entity mooseName: nil.
-	entity cache: nil.
-	entity entityAttributes: nil.
-	entity mooseModel: nil.
 	entity importedEntity: nil.
 	entity importingEntity: nil.
 	entity next: nil.

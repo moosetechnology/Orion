@@ -68,11 +68,6 @@ ORActionRemoveJavaReference >> referredEntity: aValue [ referredEntity := aValue
 ORActionRemoveJavaReference >> run [
 
 	super run.
-	entity mooseID: nil.
-	entity mooseName: nil.
-	entity cache: nil.
-	entity entityAttributes: nil.
-	entity mooseModel: nil.
 	entity referencer: nil.
 	entity referredEntity: nil.
 	entity next: nil.

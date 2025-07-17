@@ -36,11 +36,6 @@ ORActionRemoveJavaSourceAnchor >> element: aValue [ element := aValue
 ORActionRemoveJavaSourceAnchor >> run [
 
 	super run.
-	entity mooseID: nil.
-	entity mooseName: nil.
-	entity cache: nil.
-	entity entityAttributes: nil.
-	entity mooseModel: nil.
 	entity element: nil.
 
 	self orionModel remove: (self orionModel versionLookup: self entity).

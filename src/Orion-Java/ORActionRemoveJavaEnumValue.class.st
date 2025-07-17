@@ -98,11 +98,6 @@ ORActionRemoveJavaEnumValue >> receivingInvocations: aValue [ receivingInvocatio
 ORActionRemoveJavaEnumValue >> run [
 
 	super run.
-	entity mooseID: nil.
-	entity mooseName: nil.
-	entity cache: nil.
-	entity entityAttributes: nil.
-	entity mooseModel: nil.
 	entity sourceAnchor: nil.
 	entity annotationInstances: nil.
 	entity receivingInvocations: nil.

@@ -68,11 +68,6 @@ ORActionRemoveJavaImplementation >> previous: aValue [ previous := aValue
 ORActionRemoveJavaImplementation >> run [
 
 	super run.
-	entity mooseID: nil.
-	entity mooseName: nil.
-	entity cache: nil.
-	entity entityAttributes: nil.
-	entity mooseModel: nil.
 	entity implementingClass: nil.
 	entity interface: nil.
 	entity next: nil.
