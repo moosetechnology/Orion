@@ -20,3 +20,11 @@ ORActionMoveJavaUnknownVariable >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaUnknownVariable >> to: container [
+
+	IllegalType check: container useTrait:  FamixTWithTypes.
+
+	super to: container
+]

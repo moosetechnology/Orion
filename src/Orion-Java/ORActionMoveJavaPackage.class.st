@@ -24,3 +24,11 @@ ORActionMoveJavaPackage >> entity: anEntity [
 
 	super entity: anEntity
 ]
+
+{ #category : 'accessing' }
+ORActionMoveJavaPackage >> to: container [
+
+	IllegalType check: container useTrait: FamixTPackage.
+
+	super to: container
+]
