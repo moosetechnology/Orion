@@ -1,9 +1,9 @@
 Class {
 	#name : 'ORActionMoveJavaEnumTest',
 	#superclass : 'ORActionMoveJavaTest',
-	#category : 'Orion-Tests-Java-Model',
+	#category : 'Orion-Tests-Java',
 	#package : 'Orion-Tests',
-	#tag : 'Java-Model'
+	#tag : 'Java'
 }
 
 { #category : 'running' }

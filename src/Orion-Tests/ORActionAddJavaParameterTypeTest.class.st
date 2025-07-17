@@ -1,9 +1,9 @@
 Class {
 	#name : 'ORActionAddJavaParameterTypeTest',
 	#superclass : 'ORActionAddJavaTest',
-	#category : 'Orion-Tests-Java-Model',
+	#category : 'Orion-Tests-Java',
 	#package : 'Orion-Tests',
-	#tag : 'Java-Model'
+	#tag : 'Java'
 }
 
 { #category : 'as yet unclassified' }
