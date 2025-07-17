@@ -4,17 +4,15 @@ Extension { #name : 'FMMany' }
 FMMany >> read: anObject [
 	"Does an orionLookup: for all elements in the collection"
 
-	| srcCollection context tgtCollection |
+	| value orionContext |
+	value := super read: anObject.
+	orionContext := anObject orionContext.
 
-	srcCollection := super read: anObject.
-	context := anObject orionContext.
+	value doWithIndex: [ :entity :ind |
+			(entity versionLookup: orionContext)
+				ifNil: [ 1 halt ]
+				ifNotNil: [ :versionnedEntity |
+				value at: ind put: versionnedEntity ] ].
 
-	tgtCollection := OrderedCollection new: srcCollection size.
-	srcCollection do: [ :each |
-		(each versionLookup: context)
-			ifNotNil: [ :versionedEach | tgtCollection add: versionedEach ]
-			"not sure #ifNil should really be possible"
-	].
-
-	^tgtCollection
+	^ value
 ]
