@@ -11,9 +11,9 @@ ORActionMoveJavaMethodTest >> createEntities [
 
 	modelV1 newClassNamed: 'TestClass1'.
 	modelV1 newMethodNamed: 'testMethod'.
-	1flag: 'PROBLEM: testMethod is not added to TestClass1'.
-	(modelV1 entityNamed: 'TestClass1') addMethod: (modelV1 entityNamed: 'testMethod').
+	(modelV1 entityNamed: 'testMethod') parentType: (modelV1 entityNamed: 'TestClass1').
 	modelV1 newClassNamed: 'TestClass2'.
+
 ]
 
 { #category : 'running' }
@@ -21,7 +21,7 @@ ORActionMoveJavaMethodTest >> setUpAction [
 
 	action := ORActionMoveJavaMethod new
 		orionModel: modelV2 ; 
-		entity: (modelV2 entityNamed: 'testMethod'); 
+		entity: (modelV2 entityNamed: 'TestClass1.testMethod'); 
 		to: (modelV2 entityNamed: #'TestClass2')
 		yourself.
 ]
