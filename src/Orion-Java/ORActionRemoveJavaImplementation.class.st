@@ -28,10 +28,6 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'method execution' }
-ORActionRemoveJavaImplementation >> createVersionnedEntitySelector [ ^ #newImplementation
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaImplementation >> implementingClass [ ^implementingClass
 ]

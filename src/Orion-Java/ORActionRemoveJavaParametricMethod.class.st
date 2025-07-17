@@ -126,10 +126,6 @@ ORActionRemoveJavaParametricMethod >> concretizations [ ^concretizations
 ORActionRemoveJavaParametricMethod >> concretizations: aValue [ concretizations := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaParametricMethod >> createVersionnedEntitySelector [ ^ #newParametricMethod
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaParametricMethod >> declaredExceptions [ ^declaredExceptions
 ]

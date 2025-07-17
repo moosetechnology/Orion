@@ -92,10 +92,6 @@ ORActionRemoveJavaParameterType >> concretizations [ ^concretizations
 ORActionRemoveJavaParameterType >> concretizations: aValue [ concretizations := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaParameterType >> createVersionnedEntitySelector [ ^ #newParameterType
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaParameterType >> declaredType [ ^declaredType
 ]

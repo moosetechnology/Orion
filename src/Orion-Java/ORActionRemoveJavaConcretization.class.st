@@ -38,10 +38,6 @@ ORActionRemoveJavaConcretization >> concreteEntity [ ^concreteEntity
 ORActionRemoveJavaConcretization >> concreteEntity: aValue [ concreteEntity := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaConcretization >> createVersionnedEntitySelector [ ^ #newConcretization
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaConcretization >> genericEntity [ ^genericEntity
 ]

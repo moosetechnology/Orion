@@ -21,10 +21,6 @@ Class {
 }
 
 { #category : 'method execution' }
-ORActionRemoveJavaSourceLanguage >> createVersionnedEntitySelector [ ^ #newSourceLanguage
-]
-
-{ #category : 'method execution' }
 ORActionRemoveJavaSourceLanguage >> run [
 
 	super run.

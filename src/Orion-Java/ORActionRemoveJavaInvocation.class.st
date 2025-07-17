@@ -40,10 +40,6 @@ ORActionRemoveJavaInvocation >> candidates [ ^candidates
 ORActionRemoveJavaInvocation >> candidates: aValue [ candidates := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaInvocation >> createVersionnedEntitySelector [ ^ #newInvocation
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaInvocation >> next [ ^next
 ]

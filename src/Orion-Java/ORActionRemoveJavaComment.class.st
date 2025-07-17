@@ -31,10 +31,6 @@ ORActionRemoveJavaComment >> commentedEntity: aValue [ commentedEntity := aValue
 ]
 
 { #category : 'method execution' }
-ORActionRemoveJavaComment >> createVersionnedEntitySelector [ ^ #newComment
-]
-
-{ #category : 'method execution' }
 ORActionRemoveJavaComment >> run [
 
 	super run.

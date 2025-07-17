@@ -60,10 +60,6 @@ ORActionRemoveJavaPrimitiveType >> concreteEntities [ ^concreteEntities
 ORActionRemoveJavaPrimitiveType >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaPrimitiveType >> createVersionnedEntitySelector [ ^ #newPrimitiveType
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaPrimitiveType >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]

@@ -20,10 +20,6 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'method execution' }
-ORActionRemoveJavaSourceAnchor >> createVersionnedEntitySelector [ ^ #newSourceAnchor
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaSourceAnchor >> element [ ^element
 ]

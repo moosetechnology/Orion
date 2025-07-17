@@ -51,10 +51,6 @@ ORActionRemoveJavaAnnotationInstance >> attributes: aValue [ attributes := aValu
 ]
 
 { #category : 'method execution' }
-ORActionRemoveJavaAnnotationInstance >> createVersionnedEntitySelector [ ^ #newAnnotationInstance
-]
-
-{ #category : 'method execution' }
 ORActionRemoveJavaAnnotationInstance >> run [
 
 	super run.

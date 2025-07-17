@@ -32,10 +32,6 @@ ORActionRemoveJavaVariable >> annotationInstances [ ^annotationInstances
 ORActionRemoveJavaVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaVariable >> createVersionnedEntitySelector [ ^ #newVariable
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaVariable >> receivingInvocations [ ^receivingInvocations
 ]

@@ -28,10 +28,6 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'method execution' }
-ORActionRemoveJavaImport >> createVersionnedEntitySelector [ ^ #newImport
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaImport >> importedEntity [ ^importedEntity
 ]

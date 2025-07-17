@@ -124,10 +124,6 @@ ORActionRemoveJavaParametricInterface >> concretizations [ ^concretizations
 ORActionRemoveJavaParametricInterface >> concretizations: aValue [ concretizations := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaParametricInterface >> createVersionnedEntitySelector [ ^ #newParametricInterface
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaParametricInterface >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]

@@ -38,10 +38,6 @@ ORActionRemoveJavaAccess >> accessor [ ^accessor
 ORActionRemoveJavaAccess >> accessor: aValue [ accessor := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaAccess >> createVersionnedEntitySelector [ ^ #newAccess
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaAccess >> isWrite [ ^isWrite
 ]

@@ -64,10 +64,6 @@ ORActionRemoveJavaWildcard >> concreteEntities [ ^concreteEntities
 ORActionRemoveJavaWildcard >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaWildcard >> createVersionnedEntitySelector [ ^ #newWildcard
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaWildcard >> definedAnnotationTypes [ ^definedAnnotationTypes
 ]

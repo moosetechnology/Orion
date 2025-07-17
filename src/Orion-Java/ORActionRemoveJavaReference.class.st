@@ -28,10 +28,6 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'method execution' }
-ORActionRemoveJavaReference >> createVersionnedEntitySelector [ ^ #newReference
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaReference >> next [ ^next
 ]

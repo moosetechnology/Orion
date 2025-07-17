@@ -38,10 +38,6 @@ ORActionRemoveJavaIndexedFileAnchor >> correspondingFile [ ^correspondingFile
 ORActionRemoveJavaIndexedFileAnchor >> correspondingFile: aValue [ correspondingFile := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaIndexedFileAnchor >> createVersionnedEntitySelector [ ^ #newIndexedFileAnchor
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaIndexedFileAnchor >> element [ ^element
 ]

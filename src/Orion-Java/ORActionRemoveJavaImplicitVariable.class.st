@@ -40,10 +40,6 @@ ORActionRemoveJavaImplicitVariable >> annotationInstances [ ^annotationInstances
 ORActionRemoveJavaImplicitVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaImplicitVariable >> createVersionnedEntitySelector [ ^ #newImplicitVariable
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaImplicitVariable >> declaredType [ ^declaredType
 ]

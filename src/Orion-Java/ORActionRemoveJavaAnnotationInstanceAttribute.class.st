@@ -34,10 +34,6 @@ ORActionRemoveJavaAnnotationInstanceAttribute >> annotationTypeAttribute [ ^anno
 ORActionRemoveJavaAnnotationInstanceAttribute >> annotationTypeAttribute: aValue [ annotationTypeAttribute := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaAnnotationInstanceAttribute >> createVersionnedEntitySelector [ ^ #newAnnotationInstanceAttribute
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationInstanceAttribute >> parentAnnotationInstance [ ^parentAnnotationInstance
 ]

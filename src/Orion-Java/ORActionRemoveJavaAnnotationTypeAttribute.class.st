@@ -60,10 +60,6 @@ ORActionRemoveJavaAnnotationTypeAttribute >> comments [ ^comments
 ORActionRemoveJavaAnnotationTypeAttribute >> comments: aValue [ comments := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaAnnotationTypeAttribute >> createVersionnedEntitySelector [ ^ #newAnnotationTypeAttribute
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaAnnotationTypeAttribute >> declaredType [ ^declaredType
 ]

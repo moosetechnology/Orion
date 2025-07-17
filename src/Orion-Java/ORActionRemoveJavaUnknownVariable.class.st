@@ -38,10 +38,6 @@ ORActionRemoveJavaUnknownVariable >> annotationInstances [ ^annotationInstances
 ORActionRemoveJavaUnknownVariable >> annotationInstances: aValue [ annotationInstances := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaUnknownVariable >> createVersionnedEntitySelector [ ^ #newUnknownVariable
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaUnknownVariable >> declaredType [ ^declaredType
 ]

@@ -116,10 +116,6 @@ ORActionRemoveJavaException >> concreteEntities [ ^concreteEntities
 ORActionRemoveJavaException >> concreteEntities: aValue [ concreteEntities := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaException >> createVersionnedEntitySelector [ ^ #newException
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaException >> declaringEntities [ ^declaringEntities
 ]

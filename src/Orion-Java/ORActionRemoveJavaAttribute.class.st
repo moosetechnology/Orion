@@ -60,10 +60,6 @@ ORActionRemoveJavaAttribute >> comments [ ^comments
 ORActionRemoveJavaAttribute >> comments: aValue [ comments := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaAttribute >> createVersionnedEntitySelector [ ^ #newAttribute
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaAttribute >> declaredType [ ^declaredType
 ]

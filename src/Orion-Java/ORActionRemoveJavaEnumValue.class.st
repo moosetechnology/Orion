@@ -50,10 +50,6 @@ ORActionRemoveJavaEnumValue >> comments [ ^comments
 ORActionRemoveJavaEnumValue >> comments: aValue [ comments := aValue
 ]
 
-{ #category : 'method execution' }
-ORActionRemoveJavaEnumValue >> createVersionnedEntitySelector [ ^ #newEnumValue
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaEnumValue >> declaredType [ ^declaredType
 ]

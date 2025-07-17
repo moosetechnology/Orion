@@ -28,10 +28,6 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'method execution' }
-ORActionRemoveJavaInheritance >> createVersionnedEntitySelector [ ^ #newInheritance
-]
-
 { #category : 'accessing' }
 ORActionRemoveJavaInheritance >> next [ ^next
 ]
