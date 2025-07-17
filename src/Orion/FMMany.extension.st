@@ -10,7 +10,7 @@ FMMany >> read: anObject [
 
 	value doWithIndex: [ :entity :ind |
 			(entity versionLookup: orionContext)
-				ifNil: [ 1 halt ]
+				ifNil: [ self halt: 'Not sure #ifNil should be possible, we leave it that way for now' ]
 				ifNotNil: [ :versionnedEntity |
 				value at: ind put: versionnedEntity ] ].
 
