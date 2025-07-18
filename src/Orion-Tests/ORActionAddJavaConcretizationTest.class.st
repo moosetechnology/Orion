@@ -29,7 +29,7 @@ ORActionAddJavaConcretizationTest >> testAddsCorrectEntity [
 ORActionAddJavaConcretizationTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 allConcretizations at: 1.
+			entity := modelV2 allConcretizations first.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).
