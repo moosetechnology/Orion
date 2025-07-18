@@ -8,7 +8,7 @@ Class {
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaSourceLanguageTest >> createEntities [
-	modelV1 newSourceLanguageNamed: 'TestSourceLanguage'
+
 ]
 
 { #category : 'as yet unclassified' }
@@ -16,22 +16,21 @@ ORActionAddJavaSourceLanguageTest >> setUpAction [
 
 	action := ORActionAddJavaSourceLanguage new 
 		orionModel: modelV2;
-		name: 'NewSourceLanguage' ;
 		yourself.
 ]
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaSourceLanguageTest >> testAddsCorrectEntity [
-			self assert: modelV2 allSourceLanguages size equals: 1.
+			self assert: modelV2 allSourceLanguages size equals: 0.
 			action run.
-			self assert: modelV2 allSourceLanguages size equals: 2.
+			self assert: modelV2 allSourceLanguages size equals: 1.
 ]
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaSourceLanguageTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 allSourceLanguages first.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

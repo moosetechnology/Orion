@@ -31,7 +31,7 @@ ORActionAddJavaPrimitiveTypeTest >> testAddsCorrectEntity [
 ORActionAddJavaPrimitiveTypeTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 entityNamed: 'NewPrimitiveType'.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

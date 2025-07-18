@@ -8,7 +8,7 @@ Class {
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaReferenceTest >> createEntities [
-	modelV1 newReferenceNamed: 'TestReference'
+
 ]
 
 { #category : 'as yet unclassified' }
@@ -21,16 +21,16 @@ ORActionAddJavaReferenceTest >> setUpAction [
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaReferenceTest >> testAddsCorrectEntity [
-			self assert: modelV2 allReferences size equals: 1.
+			self assert: modelV2 allReferences size equals: 0.
 			action run.
-			self assert: modelV2 allReferences size equals: 2.
+			self assert: modelV2 allReferences size equals: 1.
 ]
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaReferenceTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 allReferences first.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

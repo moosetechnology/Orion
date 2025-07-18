@@ -8,7 +8,7 @@ Class {
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaSourceTextAnchorTest >> createEntities [
-	modelV1 newSourceTextAnchorNamed: 'TestSourceTextAnchor'
+
 ]
 
 { #category : 'as yet unclassified' }
