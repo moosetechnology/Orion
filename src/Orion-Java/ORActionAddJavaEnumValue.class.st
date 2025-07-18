@@ -101,13 +101,17 @@ ORActionAddJavaEnumValue >> run [
 
 	super run.
 	entity sourceAnchor: self sourceAnchor.
-	entity annotationInstances: self annotationInstances.
-	entity receivingInvocations: self receivingInvocations.
+	self annotationInstances 
+		ifNotNil: [entity annotationInstances: self annotationInstances].
+	self receivingInvocations 
+		ifNotNil: [entity receivingInvocations: self receivingInvocations].
 	entity parentEnum: self parentEnum.
-	entity incomingAccesses: self incomingAccesses.
+	self incomingAccesses 
+		ifNotNil: [entity incomingAccesses: self incomingAccesses].
 	entity isStub: self isStub.
-	entity declaredType: self declaredType.
-	entity comments: self comments.
+	"entity declaredType: self declaredType."
+	self comments
+		ifNotNil: [entity comments: self comments].
 
 	^entity.
 ]

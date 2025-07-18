@@ -103,14 +103,20 @@ ORActionAddJavaPackage >> run [
 
 	super run.
 	entity sourceAnchor: self sourceAnchor.
-	entity annotationInstances: self annotationInstances.
-	entity types: self types.
-	entity definedAnnotationTypes: self definedAnnotationTypes.
-	entity incomingImports: self incomingImports.
-	entity childEntities: self childEntities.
+	self annotationInstances
+		ifNotNil: [entity annotationInstances: self annotationInstances].
+	self types
+		ifNotNil: [entity types: self types].
+	self definedAnnotationTypes 
+		ifNotNil: [entity definedAnnotationTypes: self definedAnnotationTypes].
+	self incomingImports 
+		ifNotNil: [entity incomingImports: self incomingImports].
+	self childEntities 
+		ifNotNil: [entity childEntities: self childEntities].
 	entity isStub: self isStub.
 	entity parentPackage: self parentPackage.
-	entity comments: self comments.
+	self comments
+		ifNotNil: [entity comments: self comments].
 
 	^entity.
 ]

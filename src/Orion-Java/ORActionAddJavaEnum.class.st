@@ -185,29 +185,47 @@ ORActionAddJavaEnum >> run [
 
 	super run.
 	entity sourceAnchor: self sourceAnchor.
-	entity annotationInstances: self annotationInstances.
-	entity types: self types.
-	entity definedAnnotationTypes: self definedAnnotationTypes.
-	entity lowerBoundedWildcards: self lowerBoundedWildcards.
-	entity upperBoundedWildcards: self upperBoundedWildcards.
-	entity concreteEntities: self concreteEntities.
-	entity generics: self generics.
+	self annotationInstances
+		ifNotNil: [entity annotationInstances: self annotationInstances ].
+	self types 
+		ifNotNil: [ entity types: self types ].
+	self definedAnnotationTypes 
+		ifNotNil: [entity definedAnnotationTypes: self definedAnnotationTypes ].
+	self lowerBoundedWildcards 
+		ifNotNil: [entity lowerBoundedWildcards: self lowerBoundedWildcards ].
+	self upperBoundedWildcards 
+		ifNotNil: [entity upperBoundedWildcards: self upperBoundedWildcards ].
+	self concreteEntities 
+		ifNotNil: [	entity concreteEntities: self concreteEntities ].
+	self generics 
+		ifNotNil: [ entity generics: self generics ].
 	entity typeContainer: self typeContainer.
-	entity typedEntities: self typedEntities.
+	self typedEntities 
+		ifNotNil: [	entity typedEntities: self typedEntities ].
 	entity isStub: self isStub.
-	entity incomingReferences: self incomingReferences.
-	entity methods: self methods.
-	entity enumValues: self enumValues.
+	self incomingReferences 
+		ifNotNil: [	entity incomingReferences: self incomingReferences ].
+	self methods 
+		ifNotNil: [ entity methods: self methods ].
+	self enumValues 
+		ifNotNil: [ entity enumValues: self enumValues ].
 	entity visibility: self visibility.
-	entity incomingImports: self incomingImports.
-	entity receivingInvocations: self receivingInvocations.
-	entity attributes: self attributes.
-	entity comments: self comments.
-	entity imports: self imports.
-	entity superInheritances: self superInheritances.
-	entity subInheritances: self subInheritances.
+	self incomingImports 
+		ifNotNil: [	entity incomingImports: self incomingImports ].
+	self receivingInvocations 
+		ifNotNil: [entity receivingInvocations: self receivingInvocations ].
+	self attributes 
+		ifNotNil: [ entity attributes: self attributes ].
+	self comments 
+		ifNotNil: [ entity comments: self comments ].
+	self imports 
+		ifNotNil: [ entity imports: self imports ].
+	self superInheritances 
+		ifNotNil: [entity superInheritances: self superInheritances ].
+	self subInheritances 
+		ifNotNil: [entity subInheritances: self subInheritances ].
 
-	^entity.
+	^ entity
 ]
 
 { #category : 'accessing' }

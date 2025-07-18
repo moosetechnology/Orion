@@ -111,14 +111,19 @@ ORActionAddJavaAnnotationTypeAttribute >> run [
 
 	super run.
 	entity sourceAnchor: self sourceAnchor.
-	entity annotationInstances: self annotationInstances.
-	entity receivingInvocations: self receivingInvocations.
-	entity annotationAttributeInstances: self annotationAttributeInstances.
+	self annotationInstances 
+		ifNotNil:	 [entity annotationInstances: self annotationInstances].
+	self receivingInvocations	
+		ifNotNil:	 [entity receivingInvocations: self receivingInvocations].
+	self annotationAttributeInstances 
+		ifNotNil: [entity annotationAttributeInstances: self annotationAttributeInstances].
 	entity parentType: self parentType.
-	entity incomingAccesses: self incomingAccesses.
+	self incomingAccesses 
+		ifNotNil: [entity incomingAccesses: self incomingAccesses].
 	entity isStub: self isStub.
-	entity declaredType: self declaredType.
-	entity comments: self comments.
+	"entity declaredType: self declaredType."
+	self comments 
+		ifNotNil: [entity comments: self comments].
 
 	^entity.
 ]

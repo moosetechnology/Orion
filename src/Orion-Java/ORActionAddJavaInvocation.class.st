@@ -74,8 +74,8 @@ ORActionAddJavaInvocation >> receiver: aValue [ receiver := aValue
 ORActionAddJavaInvocation >> run [
 
 	super run.
-	entity mooseModel: self mooseModel.
-	entity candidates: self candidates.
+	self candidates
+		ifNotNil: [entity candidates: self candidates].
 	entity receiver: self receiver.
 	entity sender: self sender.
 	entity next: self next.

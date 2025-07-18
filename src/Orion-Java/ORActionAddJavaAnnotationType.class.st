@@ -185,27 +185,43 @@ ORActionAddJavaAnnotationType >> run [
 
 	super run.
 	entity sourceAnchor: self sourceAnchor.
-	entity annotationInstances: self annotationInstances.
-	entity types: self types.
-	entity definedAnnotationTypes: self definedAnnotationTypes.
-	entity lowerBoundedWildcards: self lowerBoundedWildcards.
-	entity upperBoundedWildcards: self upperBoundedWildcards.
-	entity concreteEntities: self concreteEntities.
-	entity generics: self generics.
+	self annotationInstances 
+		ifNotNil:	 [entity annotationInstances: self annotationInstances].
+	self types 
+		ifNotNil:	 [entity types: self types].
+	self definedAnnotationTypes 
+		ifNotNil: [entity definedAnnotationTypes: self definedAnnotationTypes].
+	self lowerBoundedWildcards 
+		ifNotNil: [entity lowerBoundedWildcards: self lowerBoundedWildcards].
+	self upperBoundedWildcards 
+		ifNotNil: [entity upperBoundedWildcards: self upperBoundedWildcards].
+	self concreteEntities 
+		ifNotNil: [entity concreteEntities: self concreteEntities].
+	self generics
+		ifNotNil: [entity generics: self generics].
+	self typedEntities 
+		ifNotNil: [entity typedEntities: self typedEntities].
+	self incomingReferences
+		ifNotNil: [entity incomingReferences: self incomingReferences].
+	self methods
+		ifNotNil: [entity methods: self methods].
+	self instances
+		ifNotNil: [entity instances: self instances].
 	entity typeContainer: self typeContainer.
-	entity typedEntities: self typedEntities.
 	entity isStub: self isStub.
-	entity incomingReferences: self incomingReferences.
-	entity methods: self methods.
 	entity annotationTypesContainer: self annotationTypesContainer.
-	entity instances: self instances.
 	entity visibility: self visibility.
-	entity implementations: self implementations.
+	self implementations 
+		ifNotNil: [entity implementations: self implementations].
 	entity parentPackage: self parentPackage.
-	entity attributes: self attributes.
-	entity comments: self comments.
-	entity superInheritances: self superInheritances.
-	entity subInheritances: self subInheritances.
+	self attributes 
+		ifNotNil: [entity attributes: self attributes].
+	self comments
+		ifNotNil: [entity comments: self comments].
+	self superInheritances 
+		ifNotNil: [entity superInheritances: self superInheritances].
+	self subInheritances 
+		ifNotNil: [entity subInheritances: self subInheritances].
 
 	^entity.
 ]
