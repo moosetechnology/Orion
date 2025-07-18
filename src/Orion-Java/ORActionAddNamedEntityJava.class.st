@@ -1,3 +1,6 @@
+"
+I am the superclass of all Orion actions that adds a named entity in a Java model
+"
 Class {
 	#name : 'ORActionAddNamedEntityJava',
 	#superclass : 'ORActionAddJava',

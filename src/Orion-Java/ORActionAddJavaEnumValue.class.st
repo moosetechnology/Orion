@@ -2,11 +2,6 @@
 I add a FamixJavaEnumValue in a MooseModel
 I need the following properties of the  enumvalue
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`

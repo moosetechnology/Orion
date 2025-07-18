@@ -2,14 +2,9 @@
 I add a FamixJavaConcretization in a MooseModel
 I need the following properties of the  concretization
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
--`parameterConcretizations`
--`genericEntity`
--`concreteEntity`
+-`triggeringAssociation`
+-`typeArgument`
+-`typeParameter`
 -`next`
 -`previous`
 -`sourceAnchor`

@@ -2,11 +2,6 @@
 I add a FamixJavaInvocation in a MooseModel
 I need the following properties of the  invocation
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`candidates`
 -`receiver`
 -`sender`

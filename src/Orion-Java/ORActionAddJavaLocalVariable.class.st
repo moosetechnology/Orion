@@ -2,11 +2,6 @@
 I add a FamixJavaLocalVariable in a MooseModel
 I need the following properties of the  localvariable
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`

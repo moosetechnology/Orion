@@ -2,11 +2,6 @@
 I add a FamixJavaMethod in a MooseModel
 I need the following properties of the  method
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`

@@ -2,11 +2,6 @@
 I add a FamixJavaImplementation in a MooseModel
 I need the following properties of the  implementation
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`implementingClass`
 -`interface`
 -`next`

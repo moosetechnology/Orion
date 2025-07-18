@@ -2,11 +2,6 @@
 I add a FamixJavaIndexedFileAnchor in a MooseModel
 I need the following properties of the  indexedfileanchor
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`element`
 -`endPos`
 -`startPos`

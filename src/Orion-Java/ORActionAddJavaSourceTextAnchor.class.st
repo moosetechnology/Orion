@@ -2,11 +2,6 @@
 I add a FamixJavaSourceTextAnchor in a MooseModel
 I need the following properties of the  sourcetextanchor
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`element`
 -`source`
 "

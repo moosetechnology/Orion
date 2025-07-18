@@ -2,11 +2,6 @@
 I add a FamixJavaPackage in a MooseModel
 I need the following properties of the  package
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`

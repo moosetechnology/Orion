@@ -2,11 +2,6 @@
 I add a FamixJavaComment in a MooseModel
 I need the following properties of the  comment
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`commentedEntity`
 "

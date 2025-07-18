@@ -2,11 +2,6 @@
 I add a FamixJavaAnnotationType in a MooseModel
 I need the following properties of the  annotationtype
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`
