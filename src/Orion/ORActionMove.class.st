@@ -1,3 +1,6 @@
+"
+An ORActionMove is an Orion abstract class for move  actions
+"
 Class {
 	#name : 'ORActionMove',
 	#superclass : 'ORAction',

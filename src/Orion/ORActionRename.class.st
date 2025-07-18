@@ -1,3 +1,6 @@
+"
+An ORActionRename is an Orion abstract class for rename actions
+"
 Class {
 	#name : 'ORActionRename',
 	#superclass : 'ORAction',
