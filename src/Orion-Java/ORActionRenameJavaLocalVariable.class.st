@@ -1,11 +1,6 @@
 "
-I rename a new FamixJavaLocalVariable in a MooseModel
-I need the following properties of the new localvariable
+I rename a FamixJavaLocalVariable in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
--`isFinal`
--`comments`
 "
 Class {
 	#name : 'ORActionRenameJavaLocalVariable',

@@ -1,21 +1,6 @@
 "
-I rename a new FamixJavaMethod in a MooseModel
-I need the following properties of the new method
+I rename a FamixJavaMethod in a MooseModel
 
--`annotationInstances`
--`types`
--`definedAnnotationTypes`
--`isSynchronized`
--`isAbstract`
--`isClassSide`
--`isFinal`
--`kind`
--`visibility`
--`incomingImports`
--`comments`
--`caughtExceptions`
--`declaredExceptions`
--`thrownExceptions`
 "
 Class {
 	#name : 'ORActionRenameJavaMethod',

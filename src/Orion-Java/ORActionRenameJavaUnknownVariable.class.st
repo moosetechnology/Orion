@@ -1,9 +1,6 @@
 "
-I rename a new FamixJavaUnknownVariable in a MooseModel
-I need the following properties of the new unknownvariable
+I rename a FamixJavaUnknownVariable in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
 "
 Class {
 	#name : 'ORActionRenameJavaUnknownVariable',

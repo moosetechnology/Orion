@@ -1,13 +1,6 @@
 "
-I rename a new FamixJavaPackage in a MooseModel
-I need the following properties of the new package
+I rename a FamixJavaPackage in a MooseModel
 
--`annotationInstances`
--`types`
--`definedAnnotationTypes`
--`incomingImports`
--`parentPackage`
--`comments`
 "
 Class {
 	#name : 'ORActionRenameJavaPackage',

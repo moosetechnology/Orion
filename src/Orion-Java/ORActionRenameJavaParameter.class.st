@@ -1,11 +1,6 @@
 "
-I rename a new FamixJavaParameter in a MooseModel
-I need the following properties of the new parameter
+I rename a FamixJavaParameter in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
--`isFinal`
--`comments`
 "
 Class {
 	#name : 'ORActionRenameJavaParameter',

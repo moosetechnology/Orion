@@ -1,10 +1,6 @@
 "
-I rename a new FamixJavaAnnotationTypeAttribute in a MooseModel
-I need the following properties of the new annotationtypeattribute
+I rename a FamixJavaAnnotationTypeAttribute in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
--`comments`
 "
 Class {
 	#name : 'ORActionRenameJavaAnnotationTypeAttribute',

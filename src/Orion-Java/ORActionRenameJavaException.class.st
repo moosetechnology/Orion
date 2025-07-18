@@ -1,22 +1,6 @@
 "
-I rename a new FamixJavaException in a MooseModel
-I need the following properties of the new exception
+I rename a FamixJavaException in a MooseModel
 
--`annotationInstances`
--`types`
--`definedAnnotationTypes`
--`lowerBoundedWildcards`
--`upperBoundedWildcards`
--`concreteEntities`
--`generics`
--`isAbstract`
--`isClassSide`
--`isFinal`
--`interfaceImplementations`
--`visibility`
--`incomingImports`
--`parentPackage`
--`imports`
 "
 Class {
 	#name : 'ORActionRenameJavaException',

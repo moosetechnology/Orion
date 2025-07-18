@@ -1,10 +1,6 @@
 "
-I rename a new FamixJavaEnumValue in a MooseModel
-I need the following properties of the new enumvalue
+I rename a FamixJavaEnumValue in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
--`comments`
 "
 Class {
 	#name : 'ORActionRenameJavaEnumValue',

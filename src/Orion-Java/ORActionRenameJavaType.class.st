@@ -1,15 +1,6 @@
 "
-I rename a new FamixJavaType in a MooseModel
-I need the following properties of the new type
+I rename a FamixJavaType in a MooseModel
 
--`annotationInstances`
--`types`
--`definedAnnotationTypes`
--`lowerBoundedWildcards`
--`upperBoundedWildcards`
--`concreteEntities`
--`generics`
--`methods`
 "
 Class {
 	#name : 'ORActionRenameJavaType',
