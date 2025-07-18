@@ -1,11 +1,6 @@
 "
-I move a new FamixJavaParameter in a MooseModel
-I need the following properties of the new parameter
+I move a FamixJavaParameter in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
--`isFinal`
--`comments`
 "
 Class {
 	#name : 'ORActionMoveJavaParameter',

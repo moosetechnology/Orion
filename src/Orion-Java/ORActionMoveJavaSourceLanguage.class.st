@@ -1,3 +1,7 @@
+"
+I move a FamixJavaSourceLanguage in a MooseModel
+
+"
 Class {
 	#name : 'ORActionMoveJavaSourceLanguage',
 	#superclass : 'ORActionMoveJava',

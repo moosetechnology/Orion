@@ -1,8 +1,5 @@
 "
-I move a new FamixJavaAnnotationInstance in a MooseModel
-I need the following properties of the new annotationinstance
-
--`sourceAnchor`
+I move a FamixJavaAnnotationInstance in a MooseModel
 "
 Class {
 	#name : 'ORActionMoveJavaAnnotationInstance',

@@ -1,11 +1,6 @@
 "
-I move a new FamixJavaLocalVariable in a MooseModel
-I need the following properties of the new localvariable
+I move a FamixJavaLocalVariable in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
--`isFinal`
--`comments`
 "
 Class {
 	#name : 'ORActionMoveJavaLocalVariable',

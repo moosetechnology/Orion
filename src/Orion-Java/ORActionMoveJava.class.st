@@ -1,3 +1,6 @@
+"
+I am the superclass of all Orion actions that moves an entity or an association in a Java model
+"
 Class {
 	#name : 'ORActionMoveJava',
 	#superclass : 'ORActionMove',

@@ -1,9 +1,6 @@
 "
-I move a new FamixJavaUnknownVariable in a MooseModel
-I need the following properties of the new unknownvariable
+I move a FamixJavaUnknownVariable in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
 "
 Class {
 	#name : 'ORActionMoveJavaUnknownVariable',

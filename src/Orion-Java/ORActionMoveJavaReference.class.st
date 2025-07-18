@@ -1,3 +1,7 @@
+"
+I move a FamixJavaReference in a MooseModel
+
+"
 Class {
 	#name : 'ORActionMoveJavaReference',
 	#superclass : 'ORActionMoveJava',

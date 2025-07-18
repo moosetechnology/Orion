@@ -1,15 +1,6 @@
 "
-I move a new FamixJavaPrimitiveType in a MooseModel
-I need the following properties of the new primitivetype
+I move a FamixJavaPrimitiveType in a MooseModel
 
--`annotationInstances`
--`types`
--`definedAnnotationTypes`
--`lowerBoundedWildcards`
--`upperBoundedWildcards`
--`concreteEntities`
--`generics`
--`methods`
 "
 Class {
 	#name : 'ORActionMoveJavaPrimitiveType',

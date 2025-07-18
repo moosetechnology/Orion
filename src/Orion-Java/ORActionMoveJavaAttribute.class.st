@@ -1,15 +1,6 @@
 "
-I move a new FamixJavaAttribute in a MooseModel
-I need the following properties of the new attribute
+I move a FamixJavaAttribute in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
--`isTransient`
--`isVolatile`
--`isClassSide`
--`isFinal`
--`visibility`
--`comments`
 "
 Class {
 	#name : 'ORActionMoveJavaAttribute',

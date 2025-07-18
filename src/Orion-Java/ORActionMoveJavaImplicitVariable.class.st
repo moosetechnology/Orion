@@ -1,9 +1,6 @@
 "
-I move a new FamixJavaImplicitVariable in a MooseModel
-I need the following properties of the new implicitvariable
+I move a FamixJavaImplicitVariable in a MooseModel
 
--`annotationInstances`
--`receivingInvocations`
 "
 Class {
 	#name : 'ORActionMoveJavaImplicitVariable',

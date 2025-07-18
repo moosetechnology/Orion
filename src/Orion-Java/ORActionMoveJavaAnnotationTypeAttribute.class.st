@@ -1,10 +1,5 @@
 "
-I move a new FamixJavaAnnotationTypeAttribute in a MooseModel
-I need the following properties of the new annotationtypeattribute
-
--`annotationInstances`
--`receivingInvocations`
--`comments`
+I move a FamixJavaAnnotationTypeAttribute in a MooseModel
 "
 Class {
 	#name : 'ORActionMoveJavaAnnotationTypeAttribute',

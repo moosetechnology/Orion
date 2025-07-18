@@ -1,23 +1,6 @@
 "
-I move a new FamixJavaEnum in a MooseModel
-I need the following properties of the new enum
+I move a FamixJavaEnum in a MooseModel
 
--`annotationInstances`
--`types`
--`definedAnnotationTypes`
--`lowerBoundedWildcards`
--`upperBoundedWildcards`
--`concreteEntities`
--`generics`
--`methods`
--`visibility`
--`incomingImports`
--`receivingInvocations`
--`attributes`
--`comments`
--`imports`
--`superInheritances`
--`subInheritances`
 "
 Class {
 	#name : 'ORActionMoveJavaEnum',

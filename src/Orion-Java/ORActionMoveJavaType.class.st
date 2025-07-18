@@ -1,15 +1,6 @@
 "
-I move a new FamixJavaType in a MooseModel
-I need the following properties of the new type
+I move a FamixJavaType in a MooseModel
 
--`annotationInstances`
--`types`
--`definedAnnotationTypes`
--`lowerBoundedWildcards`
--`upperBoundedWildcards`
--`concreteEntities`
--`generics`
--`methods`
 "
 Class {
 	#name : 'ORActionMoveJavaType',

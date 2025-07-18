@@ -1,3 +1,6 @@
+"
+I move a FamixJavaComment in a MooseModel
+"
 Class {
 	#name : 'ORActionMoveJavaComment',
 	#superclass : 'ORActionMoveJava',

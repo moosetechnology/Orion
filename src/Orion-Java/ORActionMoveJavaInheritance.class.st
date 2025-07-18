@@ -1,3 +1,6 @@
+"
+I move a FamixJavaInheritance in a MooseModel
+"
 Class {
 	#name : 'ORActionMoveJavaInheritance',
 	#superclass : 'ORActionMoveJava',
