@@ -30,26 +30,10 @@ Class {
 	#tag : 'Actions'
 }
 
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> concreteEntity [ ^concreteEntity
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> concreteEntity: aValue [ concreteEntity := aValue
-]
-
 { #category : 'method execution' }
 ORActionAddJavaConcretization >> createVersionnedEntitySelector [
 
 	^#newConcretization 
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> genericEntity [ ^genericEntity
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> genericEntity: aValue [ genericEntity := aValue
 ]
 
 { #category : 'accessing' }
@@ -58,14 +42,6 @@ ORActionAddJavaConcretization >> next [ ^next
 
 { #category : 'accessing' }
 ORActionAddJavaConcretization >> next: aValue [ next := aValue
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> parameterConcretizations [ ^parameterConcretizations
-]
-
-{ #category : 'accessing' }
-ORActionAddJavaConcretization >> parameterConcretizations: aValue [ parameterConcretizations := aValue
 ]
 
 { #category : 'accessing' }
@@ -80,9 +56,9 @@ ORActionAddJavaConcretization >> previous: aValue [ previous := aValue
 ORActionAddJavaConcretization >> run [
 
 	super run.
-	entity parameterConcretizations: self parameterConcretizations.
-	entity genericEntity: self genericEntity.
-	entity concreteEntity: self concreteEntity.
+	entity triggeringAssociation: self triggeringAssociation .
+	entity typeArgument: self typeArgument.
+	entity typeParameter: self typeParameter.
 	entity next: self next.
 	entity previous: self previous.
 	entity sourceAnchor: self sourceAnchor.
@@ -96,4 +72,40 @@ ORActionAddJavaConcretization >> sourceAnchor [ ^sourceAnchor
 
 { #category : 'accessing' }
 ORActionAddJavaConcretization >> sourceAnchor: aValue [ sourceAnchor := aValue
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaConcretization >> triggeringAssociation [
+
+	^ triggeringAssociation
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaConcretization >> triggeringAssociation: anObject [
+
+	triggeringAssociation := anObject
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaConcretization >> typeArgument [
+
+	^ typeArgument
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaConcretization >> typeArgument: anObject [
+
+	typeArgument := anObject
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaConcretization >> typeParameter [
+
+	^ typeParameter
+]
+
+{ #category : 'accessing' }
+ORActionAddJavaConcretization >> typeParameter: anObject [
+
+	typeParameter := anObject
 ]
