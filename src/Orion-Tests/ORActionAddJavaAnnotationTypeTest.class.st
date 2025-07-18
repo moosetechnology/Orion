@@ -15,7 +15,9 @@ ORActionAddJavaAnnotationTypeTest >> createEntities [
 ORActionAddJavaAnnotationTypeTest >> setUpAction [ 
 
 action := ORActionAddJavaAnnotationType new 
-yourself.
+		orionModel: modelV2;
+		name: 'AnnotationType' ;
+		yourself.
 ]
 
 { #category : 'tests' }
@@ -29,7 +31,7 @@ ORActionAddJavaAnnotationTypeTest >> testAddsCorrectEntity [
 ORActionAddJavaAnnotationTypeTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 entityNamed: 'AnnotationType'.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

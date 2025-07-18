@@ -8,7 +8,7 @@ Class {
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaInheritanceTest >> createEntities [
-	modelV1 newInheritanceNamed: 'TestInheritance'
+
 ]
 
 { #category : 'as yet unclassified' }
@@ -21,16 +21,16 @@ ORActionAddJavaInheritanceTest >> setUpAction [
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaInheritanceTest >> testAddsCorrectEntity [
-			self assert: modelV2 allInheritances size equals: 1.
+			self assert: modelV2 allInheritances size equals: 0.
 			action run.
-			self assert: modelV2 allInheritances size equals: 2.
+			self assert: modelV2 allInheritances size equals: 1.
 ]
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaInheritanceTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 allInheritances at:1.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

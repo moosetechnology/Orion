@@ -8,7 +8,7 @@ Class {
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaIndexedFileAnchorTest >> createEntities [
-	modelV1 newIndexedFileAnchorNamed: 'TestIndexedFileAnchor'
+
 ]
 
 { #category : 'as yet unclassified' }
@@ -21,9 +21,9 @@ ORActionAddJavaIndexedFileAnchorTest >> setUpAction [
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaIndexedFileAnchorTest >> testAddsCorrectEntity [
-			self assert: modelV2 allIndexedFileAnchoes size equals: 1.
+			self assert: modelV2 allIndexedFileAnchors size equals: 0.
 			action run.
-			self assert: modelV2 allIndexedFileAnchoes size equals: 2.
+			self assert: modelV2 allIndexedFileAnchors size equals: 1.
 ]
 
 { #category : 'as yet unclassified' }

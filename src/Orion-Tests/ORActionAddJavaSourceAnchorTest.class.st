@@ -21,9 +21,9 @@ ORActionAddJavaSourceAnchorTest >> setUpAction [
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaSourceAnchorTest >> testAddsCorrectEntity [
-			self assert: modelV2 allSourceAnchoes size equals: 1.
+			self assert: modelV2 allSourceAnchors size equals: 1.
 			action run.
-			self assert: modelV2 allSourceAnchoes size equals: 2.
+			self assert: modelV2 allSourceAnchors size equals: 2.
 ]
 
 { #category : 'as yet unclassified' }

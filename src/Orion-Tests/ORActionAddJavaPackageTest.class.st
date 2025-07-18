@@ -31,7 +31,7 @@ ORActionAddJavaPackageTest >> testAddsCorrectEntity [
 ORActionAddJavaPackageTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 entityNamed: 'NewPackage'.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

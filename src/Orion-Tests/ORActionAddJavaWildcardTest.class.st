@@ -21,9 +21,9 @@ ORActionAddJavaWildcardTest >> setUpAction [
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaWildcardTest >> testAddsCorrectEntity [
-			self assert: modelV2 allWildcares size equals: 1.
+			self assert: modelV2 allWildcards size equals: 1.
 			action run.
-			self assert: modelV2 allWildcares size equals: 2.
+			self assert: modelV2 allWildcards size equals: 2.
 ]
 
 { #category : 'as yet unclassified' }

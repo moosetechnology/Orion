@@ -22,9 +22,9 @@ ORActionAddJavaParametricClassTest >> setUpAction [
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaParametricClassTest >> testAddsCorrectEntity [
-			self assert: modelV2 allParametricClases size equals: 1.
+			self assert: modelV2 allParametricClasses size equals: 1.
 			action run.
-			self assert: modelV2 allParametricClases size equals: 2.
+			self assert: modelV2 allParametricClasses size equals: 2.
 ]
 
 { #category : 'as yet unclassified' }

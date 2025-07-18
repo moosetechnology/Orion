@@ -15,7 +15,9 @@ ORActionAddJavaAttributeTest >> createEntities [
 ORActionAddJavaAttributeTest >> setUpAction [ 
 
 action := ORActionAddJavaAttribute new 
-yourself.
+		orionModel: modelV2;
+		name: 'Attribute' ;
+		yourself.
 ]
 
 { #category : 'tests' }
@@ -29,7 +31,7 @@ ORActionAddJavaAttributeTest >> testAddsCorrectEntity [
 ORActionAddJavaAttributeTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 entityNamed: 'Attribute'.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

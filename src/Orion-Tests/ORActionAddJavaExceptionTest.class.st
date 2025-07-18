@@ -22,16 +22,16 @@ ORActionAddJavaExceptionTest >> setUpAction [
 
 { #category : 'tests' }
 ORActionAddJavaExceptionTest >> testAddsCorrectEntity [
-			self assert: modelV2 allExceptioes size equals: 1.
+			self assert: modelV2 allExceptions size equals: 1.
 			action run.
-			self assert: modelV2 allExceptioes size equals: 2.
+			self assert: modelV2 allExceptions size equals: 2.
 ]
 
 { #category : 'tests' }
 ORActionAddJavaExceptionTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 entityNamed: 'NewException'.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

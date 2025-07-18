@@ -22,16 +22,16 @@ ORActionAddJavaParameterTest >> setUpAction [
 
 { #category : 'tests' }
 ORActionAddJavaParameterTest >> testAddsCorrectEntity [
-			self assert: modelV2 allParametees size equals: 1.
+			self assert: modelV2 allParameters size equals: 1.
 			action run.
-			self assert: modelV2 allParametees size equals: 2.
+			self assert: modelV2 allParameters size equals: 2.
 ]
 
 { #category : 'tests' }
 ORActionAddJavaParameterTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 entityNamed: 'NewParameter'.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

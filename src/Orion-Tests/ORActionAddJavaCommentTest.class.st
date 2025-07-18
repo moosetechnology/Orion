@@ -8,7 +8,6 @@ Class {
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaCommentTest >> createEntities [
-	modelV1 newCommentNamed: 'TestComment'
 ]
 
 { #category : 'as yet unclassified' }
@@ -21,16 +20,16 @@ ORActionAddJavaCommentTest >> setUpAction [
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaCommentTest >> testAddsCorrectEntity [
-			self assert: modelV2 allCommenes size equals: 1.
+			self assert: modelV2 allComments size equals: 0.
 			action run.
-			self assert: modelV2 allCommenes size equals: 2.
+			self assert: modelV2 allComments size equals: 1.
 ]
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaCommentTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 allComments at: 1.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

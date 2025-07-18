@@ -22,16 +22,16 @@ ORActionAddJavaEnumTest >> setUpAction [
 
 { #category : 'tests' }
 ORActionAddJavaEnumTest >> testAddsCorrectEntity [
-			self assert: modelV2 allEnues size equals: 1.
+			self assert: modelV2 allEnums size equals: 1.
 			action run.
-			self assert: modelV2 allEnues size equals: 2.
+			self assert: modelV2 allEnums size equals: 2.
 ]
 
 { #category : 'tests' }
 ORActionAddJavaEnumTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 entityNamed: 'NewEnum'.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

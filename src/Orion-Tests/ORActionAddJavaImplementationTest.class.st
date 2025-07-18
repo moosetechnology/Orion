@@ -8,7 +8,7 @@ Class {
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaImplementationTest >> createEntities [
-	modelV1 newImplementationNamed: 'TestImplementation'
+
 ]
 
 { #category : 'as yet unclassified' }
@@ -21,16 +21,16 @@ ORActionAddJavaImplementationTest >> setUpAction [
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaImplementationTest >> testAddsCorrectEntity [
-			self assert: modelV2 allImplementatioes size equals: 1.
+			self assert: modelV2 allImplementations size equals: 0.
 			action run.
-			self assert: modelV2 allImplementatioes size equals: 2.
+			self assert: modelV2 allImplementations size equals: 1.
 ]
 
 { #category : 'as yet unclassified' }
 ORActionAddJavaImplementationTest >> testEntityIsVersioned [
 			| entity |
 			action run.
-			entity := modelV2 entityNamed: 'involvedEntity'.
+			entity := modelV2 allImplementations at: 1.
 			self assert: entity notNil.
 			self assert: (modelV2 includes: entity).
 			self deny: (modelV1 includes: entity).

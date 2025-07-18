@@ -15,7 +15,8 @@ ORActionAddJavaAnnotationInstanceTest >> createEntities [
 ORActionAddJavaAnnotationInstanceTest >> setUpAction [ 
 
 action := ORActionAddJavaAnnotationInstance new 
-yourself.
+		orionModel: modelV2;
+		yourself.
 ]
 
 { #category : 'tests' }
