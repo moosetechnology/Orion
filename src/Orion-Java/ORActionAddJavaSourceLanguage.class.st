@@ -2,16 +2,11 @@
 I add a FamixJavaSourceLanguage in a MooseModel
 I need the following properties of the  sourcelanguage
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourcedEntities`
 "
 Class {
 	#name : 'ORActionAddJavaSourceLanguage',
-	#superclass : 'ORActionAddNamedEntityJava',
+	#superclass : 'ORActionAddJava',
 	#instVars : [
 		'sourcedEntities'
 	],
@@ -30,7 +25,8 @@ ORActionAddJavaSourceLanguage >> createVersionnedEntitySelector [
 ORActionAddJavaSourceLanguage >> run [
 
 	super run.
-	entity sourcedEntities: self sourcedEntities.
+	self sourcedEntities 
+		ifNotNil: [entity sourcedEntities: self sourcedEntities].
 
 	^entity.
 ]

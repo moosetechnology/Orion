@@ -2,11 +2,6 @@
 I add a FamixJavaVariable in a MooseModel
 I need the following properties of the  variable
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`
@@ -51,8 +46,10 @@ ORActionAddJavaVariable >> run [
 
 	super run.
 	entity sourceAnchor: self sourceAnchor.
-	entity annotationInstances: self annotationInstances.
-	entity receivingInvocations: self receivingInvocations.
+	self annotationInstances
+		ifNotNil: [entity annotationInstances: self annotationInstances ].
+	self receivingInvocations 
+		ifNotNil: [entity receivingInvocations: self receivingInvocations ].
 
 	^entity.
 ]

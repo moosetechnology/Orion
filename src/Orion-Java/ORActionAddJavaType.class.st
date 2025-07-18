@@ -2,11 +2,6 @@
 I add a FamixJavaType in a MooseModel
 I need the following properties of the  type
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`
@@ -119,18 +114,28 @@ ORActionAddJavaType >> run [
 
 	super run.
 	entity sourceAnchor: self sourceAnchor.
-	entity annotationInstances: self annotationInstances.
-	entity types: self types.
-	entity definedAnnotationTypes: self definedAnnotationTypes.
-	entity lowerBoundedWildcards: self lowerBoundedWildcards.
-	entity upperBoundedWildcards: self upperBoundedWildcards.
-	entity concreteEntities: self concreteEntities.
-	entity generics: self generics.
+	self annotationInstances
+		ifNotNil: [entity annotationInstances: self annotationInstances ].
+	self types 
+		ifNotNil: [ entity types: self types ].
+	self definedAnnotationTypes 
+		ifNotNil: [entity definedAnnotationTypes: self definedAnnotationTypes ].
+	self lowerBoundedWildcards 
+		ifNotNil: [entity lowerBoundedWildcards: self lowerBoundedWildcards ].
+	self upperBoundedWildcards 
+		ifNotNil: [entity upperBoundedWildcards: self upperBoundedWildcards ].
+	self concreteEntities 
+		ifNotNil: [	entity concreteEntities: self concreteEntities ].
+	self generics 
+		ifNotNil: [ entity generics: self generics ].
 	entity typeContainer: self typeContainer.
-	entity typedEntities: self typedEntities.
+	self typedEntities 
+		ifNotNil: [	entity typedEntities: self typedEntities ].
 	entity isStub: self isStub.
-	entity incomingReferences: self incomingReferences.
-	entity methods: self methods.
+	self incomingReferences 
+		ifNotNil: [	entity incomingReferences: self incomingReferences ].
+	self methods 
+		ifNotNil: [ entity methods: self methods ].
 
 	^entity.
 ]
