@@ -2,11 +2,6 @@
 I remove a FamixJavaImport in a MooseModel
 I need the following properties of the  import
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`importedEntity`
 -`importingEntity`
 -`next`

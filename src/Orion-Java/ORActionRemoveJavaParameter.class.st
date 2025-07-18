@@ -2,11 +2,6 @@
 I remove a FamixJavaParameter in a MooseModel
 I need the following properties of the  parameter
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`

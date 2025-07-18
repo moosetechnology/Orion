@@ -2,11 +2,6 @@
 I remove a FamixJavaPrimitiveType in a MooseModel
 I need the following properties of the  primitivetype
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`

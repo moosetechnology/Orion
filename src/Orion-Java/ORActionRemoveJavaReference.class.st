@@ -2,11 +2,6 @@
 I remove a FamixJavaReference in a MooseModel
 I need the following properties of the  reference
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`referencer`
 -`referredEntity`
 -`next`

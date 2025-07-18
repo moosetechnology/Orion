@@ -1,12 +1,7 @@
 "
 I remove a FamixJavaAnnotationInstance in a MooseModel
 I need the following properties of the  annotationinstance
-
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
+`
 -`sourceAnchor`
 -`annotatedEntity`
 -`annotationType`

@@ -2,11 +2,6 @@
 I remove a FamixJavaSourceLanguage in a MooseModel
 I need the following properties of the  sourcelanguage
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourcedEntities`
 "
 Class {

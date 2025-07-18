@@ -2,11 +2,6 @@
 I remove a FamixJavaException in a MooseModel
 I need the following properties of the  exception
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`

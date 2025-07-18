@@ -2,11 +2,6 @@
 I remove a FamixJavaInheritance in a MooseModel
 I need the following properties of the  inheritance
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`subclass`
 -`superclass`
 -`next`

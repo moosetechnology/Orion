@@ -2,11 +2,6 @@
 I remove a FamixJavaAccess in a MooseModel
 I need the following properties of the  access
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`accessor`
 -`isWrite`
 -`variable`

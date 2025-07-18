@@ -2,11 +2,6 @@
 I remove a FamixJavaParametricMethod in a MooseModel
 I need the following properties of the  parametricmethod
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`

@@ -2,11 +2,6 @@
 I remove a FamixJavaVariable in a MooseModel
 I need the following properties of the  variable
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`

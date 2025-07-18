@@ -1,12 +1,7 @@
 "
 I remove a FamixJavaParametricInterface in a MooseModel
 I need the following properties of the  parametricinterface
-
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
+`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`

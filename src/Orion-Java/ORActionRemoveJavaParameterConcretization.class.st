@@ -2,11 +2,6 @@
 I remove a FamixJavaParameterConcretization in a MooseModel
 I need the following properties of the  parameterconcretization
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`concretizations`
 -`genericParameter`
 -`concreteParameter`

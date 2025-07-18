@@ -2,11 +2,6 @@
 I remove a FamixJavaInterface in a MooseModel
 I need the following properties of the  interface
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`

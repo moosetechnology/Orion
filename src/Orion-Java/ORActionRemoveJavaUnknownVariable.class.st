@@ -2,11 +2,6 @@
 I remove a FamixJavaUnknownVariable in a MooseModel
 I need the following properties of the  unknownvariable
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`

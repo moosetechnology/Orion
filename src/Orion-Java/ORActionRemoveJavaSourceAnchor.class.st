@@ -2,11 +2,6 @@
 I remove a FamixJavaSourceAnchor in a MooseModel
 I need the following properties of the  sourceanchor
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`element`
 "
 Class {

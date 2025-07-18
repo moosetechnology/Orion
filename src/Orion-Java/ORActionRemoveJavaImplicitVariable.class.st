@@ -2,11 +2,6 @@
 I remove a FamixJavaImplicitVariable in a MooseModel
 I need the following properties of the  implicitvariable
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`

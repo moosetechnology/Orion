@@ -2,11 +2,6 @@
 I remove a FamixJavaWildcard in a MooseModel
 I need the following properties of the  wildcard
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`types`

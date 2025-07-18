@@ -2,11 +2,6 @@
 I remove a FamixJavaAttribute in a MooseModel
 I need the following properties of the  attribute
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`

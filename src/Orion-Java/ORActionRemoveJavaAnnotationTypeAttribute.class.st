@@ -2,11 +2,6 @@
 I remove a FamixJavaAnnotationTypeAttribute in a MooseModel
 I need the following properties of the  annotationtypeattribute
 
--`mooseID`
--`mooseName`
--`cache`
--`entityAttributes`
--`mooseModel`
 -`sourceAnchor`
 -`annotationInstances`
 -`receivingInvocations`
